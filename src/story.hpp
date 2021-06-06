@@ -435,11 +435,181 @@ public:
     int Continue(Character::Base &player) { return 1; }
 };
 
+class Story001 : public Story::Base
+{
+public:
+    Story001()
+    {
+        ID = 1;
+
+        Text = "The road tops a ridge that is straddled by the ruins of a great wall, half covered in turf. The wall once marked the border between the lands of man and domain of the elves. Quickly you scramble up and over the blocks of fallen stone. Standing atop the ruin, you survey the outlands beyond.\n\nYour gaze sweeps across the broad patches of purple heather and yellow gorse that cover the inhospitable uplands. The air smells fresh; it is good to be free of the noisome taint of the sewers and plague pits of the city you have left behind. The road winds down into a valley, at the foot of which nestles Burg, a small town of neat white houses with roof of triangular grey slates. Here may be your last chance to talk with mankind before you are swallowed up by the depths of the great Forest of Arden.\n\nAs you walk towards the buildings through the tilled and reaped land of the valley, you pass gleaners -- peasants who search the ground for stalks of straw and seed spilled during the harvest. The townsfolk, seemingly wary of outsiders, keep out of your way. Ahead of you is an inn, the largest building in the town. Looking forward to perhaps your last night's sleep in a proper bed for many weeks, you make for this hostelry.\n\nThe inn seems surprisingly large for a town that is at the very edge of the wilderness. It must once have been a baronial hall built by a lord seeking to carve out a kingdom beyond the great wall. As you walk down the main street the ruddy sky is turning with the onset of twilight. What looked an inviting little town by day seems sombre and unwelcoming at nightfall. As you linger a moment outside the inn, there is a crack of thunder and it begins to pour with rain.\n\nInside the inn a young girl is lighting oil lamps with a taper. Until your eyes grow accustomed to the gloom you cannot make out who shares the common room with you, nor many details of the interior of the inn itself.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Wait by the door until you can see better", 37));
+        Choices.push_back(Choice::Base("Step in and warm yourself before the fire", 55));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story002 : public Story::Base
+{
+public:
+    Story002()
+    {
+        ID = 2;
+
+        Text = "\"It is the forest which cleans and purifies the air for all the world to breathe. Without the Forest of Arden all living things would choke, gag, and die. The trees absorb the foul air of man's pollution, his burning and wasting, and give it back to the world again clean, fresh and ready to breath. The stench and dross of the cities is purged and cleansed by the trees. The forest is the lifeblood of the world.\"\n\nThe old woman delivers these words very gravely, convincing you that she believes every word of what she is saying. All the time her eyes never leave yours.\n\n\"Ah, but I see I bore you. Enough of this idle prattle, I must take my rest. Good night to you.\"\n\nSo saying, she gets up and makes to leave you. You are about to protest that you are far from bored but realize she is only looking for a polite way to leave your company. You let her go and decide to take a room at the inn as well.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 333; }
+};
+
+class Story003 : public Story::Base
+{
+public:
+    Story003()
+    {
+        ID = 3;
+
+        Text = "A figure lies dead in the forest. Ants crawl in and out of its newly picked-clean eye sockets; beetles and rats gnaw at the remains. With a shock you realize the figure is wearing identical clothes to yours -- there isn't another pair of boots in the world quite like yours, made to order by a cobbler in Godorno.\n\n\"You are not wearing my ring,\" says Elanor. \"If you cannot trust me, I cannot aid you. You must find your own way and I must continue my search for the saviour of the forest. Begone and never come back, you weak-willed doubter.\"\n\nElanor and the owl disappear. You are on your own again.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 70; }
+};
+
+class Story004 : public Story::Base
+{
+public:
+    Story004()
+    {
+        ID = 4;
+
+        Text = "Valerian's voice is markedly different from the guttural speech of the Westermen, but there is no doubt he has thrown in his lot with them. It is plain that they depend upon him for their knowledge of the forest and its many dangers. They are planning how to destroy and burn the whole forest tree by tree. Valerian has convinced the chief of the Westermen that his realm will not be safe until every tree, every sapling and every bush in the forest has been razed to the ground.\n\n\"You wanted to tell me something of note, Valerian? Else why have I summoned all my advisers?\"\n\n\"Indeed, sire, I have a plan to destroy the forest at a stroke.\"\n\n\"What stroke?\"\n\n\"By killing the Tree of Life at the very centre of the forest. Slay the tree of Life, sire, and the whole forest, along with everything in it, will die.\"\n\n\"Well, your advice has been sound in the past, Valerian. I will do as you suggest and slay the Tree of Life.\"\n\nYou gained the codeword BULLHORN.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Interrupt and tell the chief that the death of the forest will mean death and destruction for the whole world, including him", 198));
+        Choices.push_back(Choice::Base("Speak out of the pavilion and leave while the going is good", 38));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::BULLHORN});
+    }
+};
+
+class Story005 : public Story::Base
+{
+public:
+    Story005()
+    {
+        ID = 5;
+
+        Text = "As Valerian stands up, he lets his cloak fall to the floor, revealing armour made of quilted leather -- light armour that wouldn't stop a sword thrust. He has no sword or obvious weapon to hand. Three small coloured pouches swing from his belt.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hold your ground", 27));
+        Choices.push_back(Choice::Base("Close with him", 65));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story006 : public Story::Base
+{
+public:
+    Story006()
+    {
+        ID = 6;
+
+        Text = "You call out the dragon's name. Its great head rears slowly above you and its yellow-green eyes bore into yours. Its nostrils dilate as it sucks in a deep breath. Too late, you realize you lied to yourself about knowing the creature's name. There is a terrible whooshing sounds like the dragon's real name as it breathes acid and gas upon you. The torrent of gas and air rolls you across the ground and you are lucky to bang your head on a rock, sparing yourself a more painful death.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story007 : public Story::Base
+{
+public:
+    Story007()
+    {
+        ID = 7;
+
+        Text = "You say the word and vanish. Your invisibility, however, doesn't help you deal with the Infernal Statue, whose sword is still chopping into the Tree of Life. You are wasting precious time. Which spell will you cast to help save the tree?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Choking Fog", 346));
+        Choices.push_back(Choice::Base("Cast Bafflement", 113));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 64));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 186));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story008 : public Story::Base
+{
+public:
+    Story008()
+    {
+        ID = 8;
+
+        Text = "The Kwerrel is delighted with his shiny golden disks of metal, which he starts trying to weave into his hair. Now that he has got what he wants he scampers away, leaving you alone inside the bush. The archway back to the forest has reappeared so you make good your escape from the bush.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 406; }
+};
+
+class Story009 : public Story::Base
+{
+public:
+    Story009()
+    {
+        ID = 9;
+
+        Text = "\"I must test your fitness to be the forest's saviour,\" says Elanor. \"I hope you pass the test. You would not like to see the forest laid to waste would you?\"\n\nShe looks regal and yet kind, but her eyes never leave yours.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Reply that your reason for visiting the forest is to find the Tree of Knowledge and take some of its wisdom away with you to the lands of men", 24));
+        Choices.push_back(Choice::Base("Say that the forest is too beautiful to be laid waste and you will try to save it", 40));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
+auto story001 = Story001();
+auto story002 = Story002();
+auto story003 = Story003();
+auto story004 = Story004();
+auto story005 = Story005();
+auto story006 = Story006();
+auto story007 = Story007();
+auto story008 = Story008();
+auto story009 = Story009();
 
 void InitializeStories()
 {
-    Stories = {&prologue};
+    Stories = {
+        &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009};
 }
 
 #endif
