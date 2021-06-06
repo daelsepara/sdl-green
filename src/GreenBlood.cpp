@@ -614,8 +614,8 @@ bool characterScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
 
         auto boxh = headerh;
 
-        auto skills = createHeaderButton(window, "Skills", clrWH, intLG, headerw, headerh, space);
-        auto possessions = createHeaderButton(window, "Possessions", clrWH, intLG, headerw, headerh, space);
+        auto skills = createHeaderButton(window, "Skills", clrWH, intGN, headerw, headerh, space);
+        auto possessions = createHeaderButton(window, "Possessions", clrWH, intGN, headerw, headerh, space);
 
         controls.push_back(Button(0, skills, 0, 1, 0, 1, startx, starty + profileh + headerh + marginh, Control::Type::GLOSSARY));
         controls.push_back(Button(1, possessions, 0, 2, 0, 2, startx, starty + profileh + 3 * headerh + 3 * marginh + 2 * boxh, Control::Type::ACTION));
@@ -653,11 +653,11 @@ bool characterScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
 
                 if (player.Codewords.size() > 0 && codewords.length() > 0)
                 {
-                    putText(renderer, "Codewords", font, space, clrWH, intLG, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + 2 * profileh + 4 * headerh + 4 * marginh + 2 * boxh);
+                    putText(renderer, "Codewords", font, space, clrWH, intGN, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + 2 * profileh + 4 * headerh + 4 * marginh + 2 * boxh);
                     putText(renderer, codewords.c_str(), font, space, clrBK, intBE, TTF_STYLE_ITALIC, profilew - buttonw - 2 * space, boxh, startx, starty + 2 * profileh + 5 * headerh + 4 * marginh + 2 * boxh);
                 }
 
-                renderButtons(renderer, controls, current, intGR, space, space / 2);
+                renderButtons(renderer, controls, current, intGN, space, space / 2);
 
                 bool scrollUp = false;
                 bool scrollDown = false;
@@ -769,7 +769,7 @@ bool glossaryScreen(SDL_Window *window, SDL_Renderer *renderer, std::vector<Skil
             fillRect(renderer, glossary_width, text_bounds, startx, starty, intBE);
             renderText(renderer, glossary, intBE, startx + space, starty + space, text_bounds - 2 * space, offset);
 
-            renderButtons(renderer, controls, current, intGR, border_space, border_pts);
+            renderButtons(renderer, controls, current, intGN, border_space, border_pts);
 
             bool scrollUp = false;
             bool scrollDown = false;
@@ -906,28 +906,28 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
             {
                 if (mode == Control::Type::DROP)
                 {
-                    putText(renderer, "You are carrying too many items. Select item(s) to DROP.", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, "You are carrying too many items. Select item(s) to DROP.", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else if (mode == Control::Type::USE)
                 {
-                    putText(renderer, "Select an item to USE", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, "Select an item to USE", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else if (mode == Control::Type::LOSE)
                 {
                     std::string stolen_message = "DROP item(s) until only " + std::to_string(limit) + " item" + std::string(limit > 1 ? "s" : "") + " remains.";
 
-                    putText(renderer, stolen_message.c_str(), font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, stolen_message.c_str(), font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else
                 {
-                    putText(renderer, "You are carrying these items", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, "You are carrying these items", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
             }
 
-            putText(renderer, "Life", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
+            putText(renderer, "Life", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
             putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
 
-            putText(renderer, "Money", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
+            putText(renderer, "Money", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
             putText(renderer, (std::to_string(player.Money) + std::string(" gold pieces")).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
 
             fillRect(renderer, textwidth, text_bounds, textx, texty, intBE);
@@ -939,7 +939,7 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
                 drawRect(renderer, controls[i].W + 2 * text_space, controls[i].H + 2 * text_space, controls[i].X - text_space, controls[i].Y - text_space, intBK);
             }
 
-            renderButtons(renderer, controls, current, intGR, text_space, text_space / 2);
+            renderButtons(renderer, controls, current, intGN, text_space, text_space / 2);
 
             done = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
 
@@ -1263,7 +1263,7 @@ bool takeScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
                     take_message = "KEEP this item?";
                 }
 
-                putText(renderer, take_message.c_str(), font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                putText(renderer, take_message.c_str(), font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
             }
 
             std::string take = "";
@@ -1299,12 +1299,12 @@ bool takeScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
                 }
             }
 
-            putText(renderer, "SELECTED", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (3 * boxh + infoh));
+            putText(renderer, "SELECTED", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (3 * boxh + infoh));
             putText(renderer, selection.size() > 0 ? take.c_str() : "(None)", font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, 3 * boxh, startx, starty + text_bounds - 3 * boxh);
 
             fillRect(renderer, textwidth, text_bounds, textx, texty, intBE);
 
-            renderButtons(renderer, controls, current, intGR, text_space, text_space / 2);
+            renderButtons(renderer, controls, current, intGN, text_space, text_space / 2);
 
             if (last - offset > 0)
             {
@@ -1550,7 +1550,7 @@ bool loseItems(SDL_Window *window, SDL_Renderer *renderer, Character::Base &play
                     lose_message = "GIVE UP this item";
                 }
 
-                putText(renderer, lose_message.c_str(), font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                putText(renderer, lose_message.c_str(), font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
             }
 
             std::string lose = "";
@@ -1586,12 +1586,12 @@ bool loseItems(SDL_Window *window, SDL_Renderer *renderer, Character::Base &play
                 }
             }
 
-            putText(renderer, "SELECTED", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (3 * boxh + infoh));
+            putText(renderer, "SELECTED", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (3 * boxh + infoh));
             putText(renderer, selection.size() > 0 ? lose.c_str() : "(None)", font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, 3 * boxh, startx, starty + text_bounds - 3 * boxh);
 
             fillRect(renderer, textwidth, text_bounds, textx, texty, intBE);
 
-            renderButtons(renderer, controls, current, intGR, text_space, text_space / 2);
+            renderButtons(renderer, controls, current, intGN, text_space, text_space / 2);
 
             if (last - offset > 0)
             {
@@ -1852,19 +1852,19 @@ void renderAdventurer(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *font
     // Fill the surface with background color
     fillWindow(renderer, intWH);
 
-    putText(renderer, name_string.c_str(), font, space, clrWH, intLG, TTF_STYLE_NORMAL, headerw, headerh, startx, starty);
+    putText(renderer, name_string.c_str(), font, space, clrWH, intGN, TTF_STYLE_NORMAL, headerw, headerh, startx, starty);
     putText(renderer, player.Description.c_str(), font, space, clrBK, intBE, TTF_STYLE_NORMAL, profilew, profileh, startx, starty + headerh);
 
-    putText(renderer, "Skills", font, space, clrWH, intLG, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + profileh + headerh + marginh);
+    putText(renderer, "Skills", font, space, clrWH, intGN, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + profileh + headerh + marginh);
     putText(renderer, skills.c_str(), font, space, clrBK, intBE, TTF_STYLE_NORMAL, profilew, boxh, startx, starty + profileh + 2 * headerh + marginh);
 
-    putText(renderer, "Life", font, space, clrWH, intLG, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + profileh + 2 * headerh + 2 * marginh + boxh);
+    putText(renderer, "Life", font, space, clrWH, intGN, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + profileh + 2 * headerh + 2 * marginh + boxh);
     putText(renderer, std::to_string(player.Life).c_str(), font, space, clrBK, intBE, TTF_STYLE_NORMAL, boxw, boxh, startx, starty + profileh + 3 * headerh + 2 * marginh + boxh);
 
-    putText(renderer, "Money", font, space, clrWH, intLG, TTF_STYLE_NORMAL, headerw, headerh, startx + boxw + marginw, starty + profileh + 2 * headerh + 2 * marginh + boxh);
+    putText(renderer, "Money", font, space, clrWH, intGN, TTF_STYLE_NORMAL, headerw, headerh, startx + boxw + marginw, starty + profileh + 2 * headerh + 2 * marginh + boxh);
     putText(renderer, (std::to_string(player.Money) + " gold pieces").c_str(), font, space, clrBK, intBE, TTF_STYLE_NORMAL, boxw, boxh, startx + boxw + marginw, starty + profileh + 3 * headerh + 2 * marginh + boxh);
 
-    putText(renderer, "Possessions", font, space, clrWH, intLG, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + profileh + 3 * headerh + 3 * marginh + 2 * boxh);
+    putText(renderer, "Possessions", font, space, clrWH, intGN, TTF_STYLE_NORMAL, headerw, headerh, startx, starty + profileh + 3 * headerh + 3 * marginh + 2 * boxh);
     putText(renderer, player.Items.size() > 0 ? possessions.c_str() : "(None)", font, space, clrBK, intBE, TTF_STYLE_NORMAL, profilew, profileh, startx, starty + profileh + 4 * headerh + 3 * marginh + 2 * boxh);
 }
 
@@ -2006,26 +2006,26 @@ Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
                 }
             }
 
-            putText(renderer, "SELECTED", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * boxh + infoh));
+            putText(renderer, "SELECTED", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * boxh + infoh));
 
             putText(renderer, selection.size() > 0 ? selection_string.c_str() : "(None)", font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, 2 * boxh, startx, starty + text_bounds - 2 * boxh);
 
             fillRect(renderer, textwidth, 2 * text_bounds / 3, textx, texty, intBE);
 
-            fillRect(renderer, textwidth, text_bounds / 3 - texty, textx, 2 * (texty + text_bounds / 3), intLG);
+            fillRect(renderer, textwidth, text_bounds / 3 - texty, textx, 2 * (texty + text_bounds / 3), intGN);
 
             if (current >= 0 && current < Limit)
             {
                 auto text = createText(Skill::ALL[current + offset].Description, FONT_FILE, font_size, clrWH, textwidth - 2 * text_space, TTF_STYLE_NORMAL);
 
-                renderText(renderer, text, intLG, textx + text_space, 2 * (texty + text_bounds / 3) + text_space, text_bounds / 3 - texty, 0);
+                renderText(renderer, text, intGN, textx + text_space, 2 * (texty + text_bounds / 3) + text_space, text_bounds / 3 - texty, 0);
 
                 SDL_FreeSurface(text);
 
                 text = NULL;
             }
 
-            renderButtons(renderer, controls, current, intGR, 8, 4);
+            renderButtons(renderer, controls, current, intGN, 8, 4);
 
             if (last - offset > 0)
             {
@@ -2052,7 +2052,7 @@ Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
 
             if (!flash_message)
             {
-                putText(renderer, "SELECT 4 Skills for your character.", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                putText(renderer, "SELECT 4 Skills for your character.", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
             }
 
             Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
@@ -2388,10 +2388,14 @@ bool aboutScreen(SDL_Window *window, SDL_Renderer *renderer)
 
     auto splash = createImage("images/green-blood-title.png");
 
-    auto text = createText(about, FONT_FILE, 18, clrWH, SCREEN_WIDTH * (1.0 - 3 * Margin) - splashw);
+    auto background = createImage("images/background.png");
+
+    auto text_space = 8;
+
+    auto text = createText(about, FONT_FILE, 18, clrWH, SCREEN_WIDTH * (1.0 - 3 * Margin) - splashw - 2 * text_space);
 
     // Render the image
-    if (window && renderer && splash && text)
+    if (window && renderer && splash && background && text)
     {
         SDL_SetWindowTitle(window, "About the game");
 
@@ -2406,11 +2410,14 @@ bool aboutScreen(SDL_Window *window, SDL_Renderer *renderer)
 
         while (!done)
         {
-            // Fill the surface with background color
-            fillWindow(renderer, intLG);
+            stretchImage(renderer, background, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
             fitImage(renderer, splash, startx, starty, splashw, text_bounds);
-            renderText(renderer, text, intLG, startx * 2 + splashw, starty, SCREEN_HEIGHT * (1.0 - 2 * Margin), 0);
+
+            fillRect(renderer, text->w + 2 * text_space, text->h + 2 * text_space, startx * 2 + splashw, starty, intGN);
+
+            renderText(renderer, text, intGN, startx * 2 + splashw + text_space, starty + text_space, SCREEN_HEIGHT * (1.0 - 2 * Margin) - 2 * text_space, 0);
+
             renderTextButtons(renderer, controls, FONT_FILE, current, clrWH, intBK, intRD, font_size, TTF_STYLE_NORMAL);
 
             bool scrollUp = false;
@@ -2426,6 +2433,7 @@ bool aboutScreen(SDL_Window *window, SDL_Renderer *renderer)
         }
 
         SDL_FreeSurface(splash);
+        SDL_FreeSurface(background);
         SDL_FreeSurface(text);
 
         text = NULL;
@@ -2754,7 +2762,7 @@ std::vector<Button> createFilesList(SDL_Window *window, SDL_Renderer *renderer, 
                 game_string += ", Codewords: " + std::to_string(character.Codewords.size());
             }
 
-            auto button = createHeaderButton(window, game_string.c_str(), clrWH, intLG, textwidth - 3 * button_space / 2, 0.125 * SCREEN_HEIGHT, text_space);
+            auto button = createHeaderButton(window, game_string.c_str(), clrWH, intGN, textwidth - 3 * button_space / 2, 0.125 * SCREEN_HEIGHT, text_space);
 
             auto y = (i > 0 ? controls[i - 1].Y + controls[i - 1].H + 3 * text_space : texty + 2 * text_space);
 
@@ -2918,9 +2926,9 @@ Control::Type gameScreen(SDL_Window *window, SDL_Renderer *renderer, Character::
 
             fillRect(renderer, textwidth, text_bounds, textx, texty, intBE);
 
-            renderButtons(renderer, controls, current, intGR, border_space, border_pts);
+            renderButtons(renderer, controls, current, intGN, border_space, border_pts);
 
-            putText(renderer, "Selected", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * boxh + infoh));
+            putText(renderer, "Selected", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * boxh + infoh));
 
             if (selected_file >= 0 && selected_file < entries.size())
             {
@@ -3186,13 +3194,13 @@ bool tradeScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pl
 
             if (!error)
             {
-                putText(renderer, "TRADE", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                putText(renderer, "TRADE", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
             }
 
-            putText(renderer, "Life", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
+            putText(renderer, "Life", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
             putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
 
-            putText(renderer, "Money", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
+            putText(renderer, "Money", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
             putText(renderer, (std::to_string(player.Money) + std::string(" gold pieces")).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
 
             fillRect(renderer, textwidth + arrow_size + button_space, text_bounds, textx, texty, intBE);
@@ -3200,7 +3208,7 @@ bool tradeScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pl
             std::string trade_text = "Trade " + std::string(mine.Name) + " for " + std::string(theirs.Name) + "?";
             putText(renderer, trade_text.c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, textwidth, boxh, textx + text_space, texty + text_space);
 
-            renderButtons(renderer, controls, current, intGR, text_space, text_space / 2);
+            renderButtons(renderer, controls, current, intGN, text_space, text_space / 2);
 
             done = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
 
@@ -3351,7 +3359,7 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 if ((SDL_GetTicks() - start_ticks) < duration)
                 {
-                    putText(renderer, message.c_str(), font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, message.c_str(), font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
                 }
                 else
                 {
@@ -3363,23 +3371,23 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 if (mode == Control::Type::BUY)
                 {
-                    putText(renderer, "Select an item to buy", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "Select an item to buy", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
                 }
                 else
                 {
-                    putText(renderer, "You may sell your items at prices indicated here", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "You may sell your items at prices indicated here", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
                 }
             }
 
-            putText(renderer, "Possessions", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
+            putText(renderer, "Possessions", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
             putText(renderer, (std::to_string(player.Items.size()) + std::string(" item(s)")).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
 
-            putText(renderer, "Money", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
+            putText(renderer, "Money", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
             putText(renderer, (std::to_string(player.Money) + std::string(" gold pieces")).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
 
             fillRect(renderer, textwidth + arrow_size + button_space, text_bounds, textx, texty, intBE);
 
-            renderButtons(renderer, controls, current, intGR, text_space, text_space / 2);
+            renderButtons(renderer, controls, current, intGN, text_space, text_space / 2);
 
             for (auto i = 0; i < shop.size(); i++)
             {
@@ -3576,7 +3584,7 @@ bool mapScreen(SDL_Window *window, SDL_Renderer *renderer)
 
             fitImage(renderer, splash, startx + offset_x, starty, marginw, text_bounds);
 
-            renderButtons(renderer, controls, current, intLG, 8, 4);
+            renderButtons(renderer, controls, current, intGN, 8, 4);
 
             bool scrollUp = false;
             bool scrollDown = false;
@@ -3758,13 +3766,13 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
 
             if (!splash || (splash && splash_h < (text_bounds - (boxh + infoh))))
             {
-                putText(renderer, "Life", font, text_space, clrWH, (player.Life > 0 && story->Type != Story::Type::DOOM) ? intLG : intRD, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
+                putText(renderer, "Life", font, text_space, clrWH, (player.Life > 0 && story->Type != Story::Type::DOOM) ? intGN : intRD, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
                 putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
             }
 
             if (!splash || (splash && splash_h < text_bounds - (2 * (boxh + infoh) + box_space)))
             {
-                putText(renderer, "Money", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
+                putText(renderer, "Money", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
                 putText(renderer, (std::to_string(player.Money) + std::string(" gold pieces")).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
             }
 
@@ -3782,7 +3790,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
 
             fillRect(renderer, textwidth + arrow_size + button_space, text_bounds, textx, texty, intBE);
 
-            renderButtons(renderer, controls, current, intGR, text_space, text_space / 2);
+            renderButtons(renderer, controls, current, intGN, text_space, text_space / 2);
 
             for (auto i = 0; i < story->Choices.size(); i++)
             {
@@ -4473,7 +4481,7 @@ bool loseSkills(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 std::string lose_message = "Select " + std::string((player.SKILLS_LIMIT - limit) > 1 ? std::string(std::to_string(player.SKILLS_LIMIT - limit) + " skills") : "a skill") + " to LOSE.";
 
-                putText(renderer, lose_message.c_str(), font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                putText(renderer, lose_message.c_str(), font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
             }
 
             std::string to_lose = "";
@@ -4491,12 +4499,12 @@ bool loseSkills(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
                 }
             }
 
-            putText(renderer, "SKILLS", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
+            putText(renderer, "SKILLS", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
             putText(renderer, selection.size() > 0 ? to_lose.c_str() : "(None)", font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
 
             fillRect(renderer, textwidth + arrow_size + button_space, text_bounds, textx, texty, intBE);
 
-            renderButtons(renderer, controls, current, intGR, text_space, text_space / 2);
+            renderButtons(renderer, controls, current, intGN, text_space, text_space / 2);
 
             for (auto i = 0; i < player.Skills.size(); i++)
             {
@@ -4769,13 +4777,13 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                 if (!splash || (splash && splash_h < (text_bounds - (boxh + infoh))))
                 {
-                    putText(renderer, "Life", font, text_space, clrWH, (player.Life > 0 && story->Type != Story::Type::DOOM) ? intLG : intRD, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
+                    putText(renderer, "Life", font, text_space, clrWH, (player.Life > 0 && story->Type != Story::Type::DOOM) ? intGN : intRD, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh));
                     putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
                 }
 
                 if (!splash || (splash && splash_h < text_bounds - (2 * (boxh + infoh) + box_space)))
                 {
-                    putText(renderer, "Money", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
+                    putText(renderer, "Money", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (2 * (boxh + infoh) + box_space));
                     putText(renderer, (std::to_string(player.Money) + std::string(" gold pieces")).c_str(), font, text_space, clrBK, intBE, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
                 }
 
@@ -4807,7 +4815,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 bool scrollUp = false;
                 bool scrollDown = false;
 
-                renderButtons(renderer, controls, current, intGR, border_space, border_pts);
+                renderButtons(renderer, controls, current, intGN, border_space, border_pts);
 
                 if (splash)
                 {
@@ -4872,7 +4880,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 }
                 else if (story->Type == Story::Type::GOOD)
                 {
-                    putText(renderer, "You saved the forest the whole world! Further adventure awaits!", font, text_space, clrWH, intLG, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "You saved the forest the whole world! Further adventure awaits!", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
                 }
 
                 quit = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
@@ -4971,7 +4979,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                             flash_message = true;
 
-                            flash_color = intLG;
+                            flash_color = intGN;
                         }
                         else if (result == Control::Type::LOAD)
                         {
@@ -4987,7 +4995,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                                 flash_message = true;
 
-                                flash_color = intLG;
+                                flash_color = intGN;
 
                                 break;
                             }
@@ -5152,6 +5160,8 @@ bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
 
     auto splash = createImage("images/green-blood.png");
 
+    auto background = createImage("images/background.png");
+
     auto text = createText(introduction, FONT_FILE, font_size, clrWH, SCREEN_WIDTH * (1.0 - 3.0 * Margin) - splashw);
 
     auto title = "Green Blood";
@@ -5187,13 +5197,13 @@ bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
         while (!done)
         {
             // Fill the surface with background
-            fillWindow(renderer, intWH);
+            stretchImage(renderer, background, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
             fitImage(renderer, splash, startx, starty, splashw, text_bounds);
 
-            fillRect(renderer, text->w + 2 * text_space, text->h + 2 * text_space, startx * 2 + splashw, texty, intLG);
+            fillRect(renderer, text->w + 2 * text_space, text->h + 2 * text_space, startx * 2 + splashw, texty, intGN);
 
-            renderText(renderer, text, intLG, startx * 2 + splashw + text_space, starty + text_space, SCREEN_HEIGHT * (1.0 - 2 * Margin) - 2 * text_space, 0);
+            renderText(renderer, text, intGN, startx * 2 + splashw + text_space, starty + text_space, SCREEN_HEIGHT * (1.0 - 2 * Margin) - 2 * text_space, 0);
 
             renderTextButtons(renderer, controls, FONT_FILE, current, clrWH, intBK, intRD, font_size, TTF_STYLE_NORMAL);
 
@@ -5275,9 +5285,11 @@ bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
         }
 
         SDL_FreeSurface(splash);
+        SDL_FreeSurface(background);
         SDL_FreeSurface(text);
 
         splash = NULL;
+        background = NULL;
         text = NULL;
     }
 
