@@ -1373,6 +1373,190 @@ public:
     int Continue(Character::Base &player) { return 99; }
 };
 
+class Story050 : public Story::Base
+{
+public:
+    Story050()
+    {
+        ID = 50;
+
+        Image = "images/zorolotl.png";
+
+        Text = "The King of the Elves momentarily looks disappointed. He then casts his eyes about him to find a champion. A tall old elf stands forward, the first elf you have seen who carries a sword, which is strapped to his back.\n\nHe draws the blade from over his head with a flourish: it is slim with sharp, wavy edges. He looks quizzically at his king, and asks, \"Do we fight to the death, lord? If so, have no fear for me.\"\n\n\"You will duel until one of you submits or is killed. If you survive we have two of the Lady of the Forest's potions to revive you if you are wounded.\"\n\nTo you he adds, \"Don't make Zorolotl kill you. You should submit when you feel his skill with the sword overmastering yours.\"\n\nZorolotl walks to one side of the grassy circle and waits confidently, his sword held aloft.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take up your position opposite him. You are prepared to fight", 437));
+        Choices.push_back(Choice::Base("Try to get out of the duel by protesting you should be measured against your fores, the Westermen, not against the elves you have come to help", 92));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.ZorolotlWounds = 0;
+        player.LifePointsLost = 0;
+    }
+};
+
+class Story051 : public Story::Base
+{
+public:
+    Story051()
+    {
+        ID = 51;
+
+        Text = "\"I am sorry but you have failed the test. You must leave the forest. Begone.\"\n\nElanor strides determinedly away from you, saying as she departs, \"I will set all the birds and the beasts against you. You have four days to leave the forest, never to return.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Follow her", 85));
+        Choices.push_back(Choice::Base("Let her go and follow your own destiny", 73));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story052 : public Story::Base
+{
+public:
+    Story052()
+    {
+        ID = 52;
+
+        Text = "Knowing that he has just repulsed your attempt to take over his mind and knowing you to be defenceless, the left-hand image moves. It is the real King of the Elves, and he casts a spell of his own with a dramatic gesture. A luminous green halo pops forth from his fingertips. As it darts toward you the halo grows, and it encircles your waist before you can move. Your legs feel as if they have turned to jelly: you cannot stop yourself collapsing to the ground.\n\n\"Submit, mortal, I have defeated you,\" cries the Elf king.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Submit", 255));
+        Choices.push_back(Choice::Base("Fight on", 272));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story053 : public Story::Base
+{
+public:
+    Story053()
+    {
+        ID = 53;
+
+        Text = "Knowing what the Westermen plan for the Tree of Life, you determinedly hurry back to relay your information to the elves. Travelling along routes that seem to come unbidden to your mind, you reach a clearing that seems strangely familiar.\n\nYour arrival is anticipated. An elf is waiting to return you to Elvenhame so you might hold a council of war. With a guide, you quickly make it to the fabulous home of the forest dwellers.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 256; }
+};
+
+class Story054 : public Story::Base
+{
+public:
+    Story054()
+    {
+        ID = 54;
+
+        Text = "What is the dragon's name?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Gwelphstar", 6));
+        Choices.push_back(Choice::Base("Garoshtar", 83));
+        Choices.push_back(Choice::Base("Skardrig", 93));
+        Choices.push_back(Choice::Base("Bethshebel", 102));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story055 : public Story::Base
+{
+public:
+    Story055()
+    {
+        ID = 55;
+
+        Image = "images/filler3.png";
+
+        Text = "A tall man and his short and stocky companion move apart to allow you room in front of the roaring log fire. Both give you a sidelong glance. They look rough and weather-beaten men: the smaller of the two has a face like a bull-mastiff, the taller has the sly cunning look of a fox.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell them who you are and why you have come to Burg", 72));
+        Choices.push_back(Choice::Base("Remain silent", 94));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story056 : public Story::Base
+{
+public:
+    Story056()
+    {
+        ID = 56;
+
+        Image = "images/garoshtar.png";
+
+        Text = "You step back off the mound, which begins to shake as if there was an earthquake. The ground you have stepped back onto is quite firm, but even so you can feel the vibrations rocking you slightly.\n\nThe whole of the green hillock suddenly rolls upwards and away from you, leaving you standing on the edge of a ledge with a twenty-foot drop. As the hillock moves it creases and splits apart.\n\nThe dragon, for that is what the hillock really is, moves slowly as it wakes from its slumber. Turning its great scaly neck like a corkscrew, the ancient creature looks back over its shoulder at you. Its smouldering red eyes, as terrifying as the portals to hell, gaze at you from a craggy face the size of a cart.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leap at its head to attack it before it is fully awake", 74));
+        Choices.push_back(Choice::Base("Smile at it in the hope that it will not eat you", 36));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story057 : public Story::Base
+{
+public:
+    Story057()
+    {
+        ID = 57;
+
+        Text = "By the time you are directed to where the King of the Elves is preparing the defences, he is in position with his elven army in the trees around the Tree of Life itself.\n\nThe forest falls still. There are thousands of elves in the trees around the clearing but they make no sound. Even the animals and birds have fallen unnaturally silent. You look around and savour the beauty of this enchanted place, the fountain of all life. This may well be the last chance you ever have to revel in the natural glory of the Forest of Arden.\n\nThe sun breaks through the rolling clouds and bathes the clearing in brilliant light. The trumpets of the tree lilies swing round to greet the sun. You expect to hear the elves cheer at this good omen, but they remain grimly silent.\n\nThe oppressive din of the tramping of feet of thousands upon thousands of enemies grows inexorably closer. There is a crack like a firecracker as a tree is split and knocked to the ground by the passing of one of the great metallic monsters.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 434; }
+};
+
+class Story058 : public Story::Base
+{
+public:
+    Story058()
+    {
+        ID = 58;
+
+        Text = "\"A battle of wits?\" The Elf King rises to this like a cat confronted with a helpless mouse. \"Very well, let us set an impossible task. He who fails to achieve the task has lost the contest.\"\n\nYou are on the point of asserting that an impossible task by definition can never be achieved, but then you remember that elves abide by a contrary sort of logic. In any case, this is a test of your skill as a trickster. You nod your head. \"Agreed.\"\n\nThe Elf King looks about him, then picks up a stone from the ground. Plucking a thread from the hem of his robe, he holds it between thumb and forefinger and says, \"Be rigid.\" Instantly the thread staightens like a length of steel wire. \"Curl.\" adds the Elf King, and now the thread twists into a corkscrew shape. Finally, he says, \"Penetrate,\" and drives the thread into the stone. It winds right through as you might push a nail through a lump of butter. \"Return again to thread,\" says the Elf King, and he holds the stone up dangling on the limp thread.\n\nYou take it from him. \"And what am I to do?\"\n\n\"Withdraw the silk from the stone,\" he says, \"Then thread it back through.\"\n\n\"Easy enough.\" You pull out the thread, then go over to a tree where you moisten the end with a drop of sticky sap. Next you find an ant crawling amid the leaf litter and glue the thread to its abdomen with the sap. As the ant wriggles, you lower it over the hole in the stone. It takes several attempts, but finally the ant crawls into the tiny hole. The Elf King glowers inscrutably as you hold up the stone and wait. Knowing that the ant is unable to turn around, it is only a matter of time before it emerges from the other end of the hole. You detach the ant and hand the stone back to the Elf King -- once more with the silk neatly threaded through it.\n\nHe casts it aside. \"Another task -\" He begins.\n\n\"Now it is my turn to set a task,\" you protest. \"You have just set one.\"\n\n\"That was by way of being an example of what was needed. Now we begin the contest proper.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Agree to attempt another task that he sets you", 187));
+        Choices.push_back(Choice::Base("Accept a more conventional duel because you think you might fail a second try", 18));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story059 : public Story::Base
+{
+public:
+    Story059()
+    {
+        ID = 59;
+
+        Text = "The dragon pins you to the ground beneath a huge claw. You look up from the massive green scaled claw to the beast's smouldering red eyes some thirty feet above. Clearly it wasn't as sleepy as you thought and your actions have made it think you were trying to kill it. The dragon opens its jaws wide and its stomach convulses. A second later a gout of poisonous gas and acid hits you like a suffocating and burning wave. There is no surviving the breath of an ancient green dragon.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -1424,6 +1608,16 @@ auto story046 = Story046();
 auto story047 = Story047();
 auto story048 = Story048();
 auto story049 = Story049();
+auto story050 = Story050();
+auto story051 = Story051();
+auto story052 = Story052();
+auto story053 = Story053();
+auto story054 = Story054();
+auto story055 = Story055();
+auto story056 = Story056();
+auto story057 = Story057();
+auto story058 = Story058();
+auto story059 = Story059();
 
 void InitializeStories()
 {
@@ -1433,7 +1627,8 @@ void InitializeStories()
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
-        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049};
+        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
+        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059};
 }
 
 #endif

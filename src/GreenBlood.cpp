@@ -2541,6 +2541,9 @@ bool saveGame(Character::Base &player, const char *overwrite)
     data["skillsLimit"] = player.SKILLS_LIMIT;
     data["codewords"] = player.Codewords;
     data["epoch"] = player.Epoch;
+    
+    data["lifePointsLost"] = player.LifePointsLost;
+    data["zorolotlWounds"] = player.ZorolotlWounds;
 
     auto skills = std::vector<Skill::Type>();
     auto lostSkills = std::vector<Skill::Type>();
@@ -2690,9 +2693,18 @@ Character::Base loadGame(std::string file_name)
         character.SKILLS_LIMIT = (int)data["skillsLimit"];
         character.StoryID = (int)data["storyID"];
 
+        if (!data["lifePointsLost"].is_null())
+        {
+            character.LifePointsLost = (int)data["lifePointsLost"];
+        }
+
+        if (!data["zorolotlWounds"].is_null())
+        {
+            character.ZorolotlWounds = (int)data["zorolotlWounds"];
+        }
+
         try
         {
-
 #if defined(_WIN32) || defined(__arm__)
             character.Epoch = (long long)(data["epoch"]);
 #else

@@ -61,6 +61,9 @@ namespace Character
         long Epoch = 0;
 #endif
 
+        int LifePointsLost = 0;
+        int ZorolotlWounds = 0;
+        
         Base()
         {
         }
