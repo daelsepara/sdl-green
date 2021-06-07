@@ -548,7 +548,7 @@ public:
     {
         ID = 6;
 
-        Text = "You call out the dragon's name. Its great head rears slowly above you and its yellow-green eyes bore into yours. Its nostrils dilate as it sucks in a deep breath. Too late, you realize you lied to yourself about knowing the creature's name. There is a terrible whooshing sounds like the dragon's real name as it breathes acid and gas upon you. The torrent of gas and air rolls you across the ground and you are lucky to bang your head on a rock, sparing yourself a more painful death.";
+        Text = "You call out the dragon's name. Its great head rears slowly above you and its yellow-green eyes bore into yours. Its nostrils dilate as it sucks in a deep breath. Too late, you realize you lied to yourself about knowing the creature's name. There is a terrible whooshing sounds like the dragon's real name as it breathes acid and gas upon you. The torrent of gas and air rolls you across the ground and you are lucky to bang your head on a rock, sparing yourself a more painful death. The Forest of Arden is doomed.";
 
         Type = Story::Type::DOOM;
 
@@ -922,7 +922,7 @@ public:
     {
         ID = 26;
 
-        Text = "\"You have seen what will come to pass if you fail in your quest: death and nothing but death. Now let us see whether your future holds something different in store.\"\n\nElanor takes your hand and brushes the surface of the water with your fingertips. A new picture forms and your eyes grow round with wonder. Something that looks like a hill set between tall dark trees is stirring and turning to look at you. It is a dragon, the oldest of the ancient beasts, not quite immortal. Its red eyes contrast horribly with the smooth jade green scales of its body. It snorts and a cloud of green gas rolls towards you. You jerk back from the vision in horror, before you remember it is just a picture on the water. You see yourself darting away from the cloud. Later, the vision shows you riding astride the creature's back while it flexes it wings in flight.\n\n\"You must win over the dragon, the most powerful of the forest's denizens,\" says Elanor.\"Then it will fight for you against the Westermen.\"";
+        Text = "\"You have seen what will come to pass if you fail in your quest: death and nothing but death. Now let us see whether your future holds something different in store.\"\n\nElanor takes your hand and brushes the surface of the water with your fingertips. A new picture forms and your eyes grow round with wonder. Something that looks like a hill set between tall dark trees is stirring and turning to look at you. It is a dragon, the oldest of the ancient beasts, not quite immortal. Its red eyes contrast horribly with the smooth jade green scales of its body. It snorts and a cloud of green gas rolls towards you. You jerk back from the vision in horror, before you remember it is just a picture on the water. You see yourself darting away from the cloud. Later, the vision shows you riding astride the creature's back while it flexes it wings in flight.\n\n\"You must win over the dragon, the most powerful of the forest's denizens,\" says Elanor. \"Then it will fight for you against the Westermen.\"";
 
         Choices.clear();
 
@@ -986,6 +986,219 @@ public:
     }
 };
 
+class Story030 : public Story::Base
+{
+public:
+    Story030()
+    {
+        ID = 30;
+
+        Text = "It will take two days to travel from Elvenhame to the Tree of Life. You delay as long as possible, mustering more than seven thousand elves, before setting out to defend the Tree of Life.\n\nThe elves fight bravely but they are outnumbered and in hand-to-hand fighting their lack of swords and armour proves a fatal weakness. Green blood flows everywhere.\n\nYou perish along with the last of the elves, vainly trying to protect their king. The death of so many immortal elves is the greatest disaster the world has ever witnessed. Nothing can now stop the Westermen reaching the Tree of Life: the Forest of Arden is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story031 : public Story::Base
+{
+public:
+    Story031()
+    {
+        ID = 31;
+
+        Text = "A grandiose gesture brings forth the Choking Fog about the machine. But why have you used this spell against a machine that doesn't breathe but is powered by steam? The steam rushing from vents in the head dissipates the fog and the Infernal Statue lurches to the Tree of Life once again, raising its sword arm to strike.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Bafflement", 113));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 64));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 186));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story032 : public Story::Base
+{
+public:
+    Story032()
+    {
+        ID = 32;
+
+        Image = "images/filler3.png";
+
+        Text = "There is another great whooshing exhalation behind you and you start to sprint. The gurgling sounds closer this time. The dragon must be chasing you. Straining your ears, you listen for sounds of the leviathan crashing through the ferns behind, over the rasping of your own breath and the thudding of your feet on the ground. You run until exhaustion overwhelms you but there are no sounds of pursuit now. It seems you have escaped the dragon.\n\nIf indeed you are near the Bonehill, the dragon's lair, you will need to travel for several days.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Head west to regain your course", 43));
+        Choices.push_back(Choice::Base("Continue north in your original direction", 127));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story033 : public Story::Base
+{
+public:
+    Story033()
+    {
+        ID = 33;
+
+        Image = "images/magic-duel.png";
+
+        Text = "\"I choose to use magic to fight this duel,\" you say, confident that your power is enough to beat any elf.\n\nThe King of the Elves smiles when he hears your choice -- a cool smile that induces doubt and imbues you with fear. You realize you have never seen an elf smile before; the action transforms the king's face, making him look quite human all of a sudden.\n\n\"You think to pit your magic against that of the elves? I will be the champion of elvendom in this duel: I can fashion a spell as well as any other standing here. We will use no death magics. We have potions to revive us if we are wounded. Don't make me kill you; submit if you feel my power overmastering yours.\"\n\nWith that he gestures you to take up position inside the grassy circle.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stand with the wind in your face", -33, Choice::Type::GET_CODEWORD, Codeword::Type::WINDFACE));
+        Choices.push_back(Choice::Base("Stand with the wind at your back", -33));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Event033 : public Story::Base
+{
+public:
+    Event033()
+    {
+        ID = -33;
+
+        Image = "images/magic-duel.png";
+
+        Text = "The Elf King walks solemnly to the other side of the circle and waits confidently.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stay in position opposite him", 76));
+        Choices.push_back(Choice::Base("Try getting out of the duel by telling the king you should be measured against your foes, the Westermen, instead of the elves you have come to help", 92));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story034 : public Story::Base
+{
+public:
+    Story034()
+    {
+        ID = 34;
+
+        Text = "You could not possibly be near the Bonehill, which is several days travel to the east. The whole character of the forest here is very different from the area near the Bonehill. You can however, at least investigate the area where the whooshing noise came from.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 68; }
+};
+
+class Story035 : public Story::Base
+{
+public:
+    Story035()
+    {
+        ID = 35;
+
+        Text = "Elanor, today dressed in a silver gown of gossamer silk, turns to look at you searchingly as you walk underneath the hawthorn arch. She smiles and asks if you are feeling brave today.\n\nYou sense a sombre urgency behind her words, and, imitating a courtly bow, you reply, \"My lady, I have never felt more heroic!\"\n\n\"Good. Do you dare to glimpse your future, my hero?\"\n\nYou have always avoided fortune-tellers. You have noticed that if a fortune-teller gives good news, people go away happy and expect good fortune to turn up on a plate without them lifting a finger. If the soothsayer prophesies misfortune a sense of helplessness comes over people and they all too often sink into a despairing inactivity which leads to their downfall through sloth. Thus their prophecy is self-fulfilling. It is a well-known fact in Godorno that those soothsayers who always give good auguries are never short of customers, leading you to conclude that they often lie, pretending to see happy events when they should be giving bad news, good fortune when they should be giving bad tidings.\n\nYour worry on this score, however, is soon gone. Looking in the basin of smooth clear water it seems as though an artist is hurriedly painting a picture of ghoulish horror.\"The water shows what will come to pass if you do not succeed in your quest,\" says Elanor.\n\nThe picture is complete now in terrible detail, as if you were actually looking at the burnt remains of the forest. The trees have been chopped down as far as the eye can see. An infernal engine of some kind belches black smoke. Two hundred paces away you see a forge where a gigantic cauldron is suspended over a bonfire; six men constantly feed the fire with wood and charcoal. All the men working there have very pale skins, their faces long and thin, like hatchets. They shout to each other over the din of the engine in a language you don't understand.\n\nTeams of horses harnessed together pull logs to where groups of men cut them up ready for burning. A row of children sit nearby; they are darker skinned than men and have been set to toil over sharpening the saws.\n\nWhere the trees have been felled and stripped, men are torching the underbrush. They seem intent on killing everything that lives in the forest. A pall of smoke hangs like a storm-cloud over the scene.\n\nThen the vision shifts and the men have gone, leaving behind nothing but the grey ashes of death. All that remains of the forest is a few blackened stumps.\n\nYou gained the codeword CRABCLAW.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::CRABCLAW});
+    }
+
+    int Continue(Character::Base &player) { return 26; }
+};
+
+class Story036 : public Story::Base
+{
+public:
+    Story036()
+    {
+        ID = 36;
+
+        Text = "The dragon yawns, its fangs raking the sky twenty feet apart. You can see the glands inside its throat that produce the acid and poison for its deadly breath. The ancient beast could kill you in a moment.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Flee", 165));
+        Choices.push_back(Choice::Base("See what fate intends for you if you feel brave enough", 127));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story037 : public Story::Base
+{
+public:
+    Story037()
+    {
+        ID = 37;
+
+        Image = "images/dark-figures.png";
+
+        Text = "The smoking lamps produce little light, but peering through the gloom you can see several circular tables set about the hall, three near the fire and four back in the shadows. Two men, one tall and the other short and stocky, hog the fire and are engaged in conversation. Several dark figures are seated at the tables. One of these seems to be shrouded in a black travelling cloak.\n\n\"You, stranger. Do you fear enemies here? Why skulk in the shadows like a rogue? Step nearer the fire so we may see your face.\"\n\nYou can't even tell who spoke to you but he doesn't sound friendly.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Obey the command", 108));
+        Choices.push_back(Choice::Base("Ignore it", 16));
+        Choices.push_back(Choice::Base("Leave the inn", 117));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story038 : public Story::Base
+{
+public:
+    Story038()
+    {
+        ID = 38;
+
+        Text = "Once you are a safe distance from the pavilion, you run for the edge of the trees, quickly hiding yourself in the depths of the forest. The awful sights and sounds of the Westermen camp are soon far behind.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_CODEWORDS_ALL(player, {Codeword::Type::WATERBEARER, Codeword::Type::BULLHORN}))
+        {
+            Choices.push_back(Choice::Base("Head west", 43));
+            Choices.push_back(Choice::Base("Head east", 70));
+            Choices.push_back(Choice::Base("Head south-west", 270));
+            Choices.push_back(Choice::Base("Head south from here", 78));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 53; }
+};
+
+class Story039 : public Story::Base
+{
+public:
+    Story039()
+    {
+        ID = 39;
+
+        Text = "Your plight is hopeless. You will never stagger out of the great forest weighed down as you are. One of the dark denizens of the deepest dark tracts of wood will catch you and skin you for the exotic hide you now wear. You will never escape. Because of your greed, the Forest of Arden is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -1016,13 +1229,26 @@ auto story026 = Story026();
 auto story027 = Story027();
 auto story028 = Story028();
 auto story029 = Story029();
+auto story030 = Story030();
+auto story031 = Story031();
+auto story032 = Story032();
+auto story033 = Story033();
+auto event033 = Event033();
+auto story034 = Story034();
+auto story035 = Story035();
+auto story036 = Story036();
+auto story037 = Story037();
+auto story038 = Story038();
+auto story039 = Story039();
 
 void InitializeStories()
 {
     Stories = {
+        &event033,
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
-        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029};
+        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
+        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039};
 }
 
 #endif

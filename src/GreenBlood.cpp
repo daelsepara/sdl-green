@@ -3751,6 +3751,10 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
             {
                 SDL_SetWindowTitle(window, story->Title);
             }
+            else
+            {
+                SDL_SetWindowTitle(window, (std::string("Green Blood: ") + std::string(3 - std::to_string(std::abs(story->ID)).length(), '0') + std::to_string(std::abs(story->ID))).c_str());
+            }
 
             fillWindow(renderer, intWH);
 
@@ -4755,14 +4759,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 }
                 else
                 {
-                    if (story->ID > 0)
-                    {
-                        SDL_SetWindowTitle(window, (std::string("Green Blood: ") + std::string(3 - std::to_string(story->ID).length(), '0') + std::to_string(story->ID)).c_str());
-                    }
-                    else
-                    {
-                        SDL_SetWindowTitle(window, "Green Blood");
-                    }
+                    SDL_SetWindowTitle(window, (std::string("Green Blood: ") + std::string(3 - std::to_string(std::abs(story->ID)).length(), '0') + std::to_string(std::abs(story->ID))).c_str());
                 }
 
                 fillWindow(renderer, intWH);
@@ -4872,7 +4869,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                 if (story->Type == Story::Type::DOOM)
                 {
-                    putText(renderer, "You have failed. This adventure is over.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "The adventure is over. The Forest of Arden is doomed.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
                 }
                 else if (player.Life <= 0)
                 {
@@ -4880,7 +4877,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 }
                 else if (story->Type == Story::Type::GOOD)
                 {
-                    putText(renderer, "You saved the forest the whole world! Further adventure awaits!", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "You saved the forest and the whole world! Further adventure awaits!", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
                 }
 
                 quit = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);

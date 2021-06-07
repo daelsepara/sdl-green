@@ -13,7 +13,8 @@ namespace Codeword
         SCORPION,
         SPECULUM,
         TWINHEAD,
-        WATERBEARER
+        WATERBEARER,
+        WINDFACE
     };
 
     std::map<Codeword::Type, const char *> Descriptions = {
@@ -22,9 +23,10 @@ namespace Codeword
         {Codeword::Type::SCORPION, "Scorpion"},
         {Codeword::Type::SPECULUM, "Speculum"},
         {Codeword::Type::TWINHEAD, "Twinhead"},
-        {Codeword::Type::WATERBEARER, "Waterbearer"}};
+        {Codeword::Type::WATERBEARER, "Waterbearer"},
+        {Codeword::Type::WINDFACE, "Wind in your face"}};
 
-    std::vector<Codeword::Type> Invisible = {};
+    std::vector<Codeword::Type> Invisible = {Codeword::Type::WINDFACE};
 
     bool IsInvisible(Codeword::Type codeword)
     {
