@@ -794,6 +794,198 @@ public:
     int Continue(Character::Base &player) { return 39; }
 };
 
+class Story020 : public Story::Base
+{
+public:
+    Story020()
+    {
+        ID = 20;
+
+        Text = "He points up at the sun shining down on the clearing. Spitting onto his finger, he flicks the saliva up into the air. To your astonishment, a green watery film covers the face of the sun. It lasts only an instant before being wiped away like the blinking of a giant celestial eye. The Elf King turns to you, and his feral smile is brimming with triumph. \"Can you do that, mortal? Make the sun go green?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Cast an illusion to achieve the desired effect and pass the Elf King's test", 232, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Admit defeat", 69));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story021 : public Story::Base
+{
+public:
+    Story021()
+    {
+        ID = 21;
+
+        Text = "With the dragon's help and the might of the elves, you feel you have a chance of defeating the forces of the Westermen and driving the threat of the evil from the forest. Full of confidence in your ability to call upon a powerful ally of the ancient times, you head towards the rowan trees at the edge of the forest.\n\nTravelling along routes that seem to come unbidden to you mind, you reach a clearing that seems strangely familiar. Was it perhaps, that you met the elves? Or does some horror of your travels lurk nearby in the undergrowth?\n\nSummoning up your courage, you call out to whoever or whatever will here: \"Elves! If you would win your freedom, come talk with a mortal who can deliver it. For I have secured us an ally equal to half the Westermen's forces -- a dragon whose very appearance will slay scores of them from sheer terror. Come forward and speak with me.\"\n\nThe words of your challenge die away, suffocated by the preternatural silence of the forest. You might have expected to hear the chirruping voice of a bird or the faint rustle of a woodmouse questing for beetles, yet there is nothing. Cursing the elves for their arrogance, you shout again, \"Come forward!\"\n\nSpittle flies from your lips and your face flushes with the violent passion of your request. Again you wait for a reply.\n\n\"Do you think that one dragon is enough, then, to beat your fellow men?\" says a cool voice from behind you.\n\nSpinning around, you see no more than inches from your face the eternally youthful face of an elf. Yet the penetrating eyes that are windows to the wisdom of countless centuries mark this elf out above all others. The Elf King has answered your call.\n\n\"One dragon is more than enough,\" you reply, \"with the forces of the elves a well. He will demoralize the Westermen, plunging them into chaos from which the deadly arrows of the elves will cruelly pluck them.\"\n\nHe smiles a cold smile, approving of the relish with which you describe the Westermen's deaths. \"Brave words indeed, for a mortal. But for elves to accede to your schemes and counsels, you must prove yourself worthy of our respect.\"\n\n\"How may I do that?\"\n\n\"Overcome my champion in a duel. Only then will we heed your words.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        {
+            return 215;
+        }
+        else if (Character::VERIFY_CODEWORD(player, Codeword::Type::SPECULUM))
+        {
+            return 309;
+        }
+        else
+        {
+            return 137;
+        }
+    }
+};
+
+class Story022 : public Story::Base
+{
+public:
+    Story022()
+    {
+        ID = 22;
+
+        Text = "The sprite inclines your own reflected face in an expression of deep meditation. \"I see your destiny,\" it says at last. \"You will either prove yourself a hero, saving the forest, or else you will allow venality and pride to lead you to your doom.\"\n\n\"Being a hero sounds the better option,\" you comment drily.\n\n\"In that case, you must seek Elanor the Grey Lady. Solitude has made her strange -- not quite elvish in her ways, but not human any longer either. But you should trust her, as she'll set you on the right path. Then you must find the elves. Convincing them to help you may prove a weighty task, for they are proud and aloof and wilfully headstrong. Next seek the camp of the Westermen to learn their plans. They will destroy the forest if they succeed, and only direct action can stop them. Perhaps you can dig up a worm to help you.\"\n\nThere is a long pause. You look expectantly at the reflection until it finally gives you a distinctly unhuman grin. \"Well, that is the prophecy,\" it concludes.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Keep your promise to break the mirror", 418));
+        Choices.push_back(Choice::Base("Leave it intact for the time being", 105));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story023 : public Story::Base
+{
+public:
+    Story023()
+    {
+        ID = 23;
+
+        Text = "The Infernal Statue is belching steam as its sword arm rises and falls like a piston. As you do not wish to attack the steaming statue directly, what will you do?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack the shieldbearers and bodyguards clustered around the great boiler", 203));
+        Choices.push_back(Choice::Base("Try to get to the pipe that connects the Infernal Statue to the boiler", 397));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story024 : public Story::Base
+{
+public:
+    Story024()
+    {
+        ID = 24;
+
+        Image = "images/filler2.png";
+
+        Text = "\"The hackers and burners, the men from the west, say the ants of the forest must be eradicated because they eat the farmers' crops,\" she says. \"What do you say?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say the ants are indeed pests and should be wiped out", 51));
+        Choices.push_back(Choice::Base("Reply that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
+        Choices.push_back(Choice::Base("[WILDERNESS LORE] Use your knowledge", 171, Skill::Type::WILDERNESS_LORE));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story025 : public Story::Base
+{
+public:
+    Story025()
+    {
+        ID = 25;
+
+        Image = "images/filler2.png";
+
+        Text = "The Chief of the Westermen describes his favourite toy to you. His eyes are shining with enthusiasm as he describes a great steam-powered machine of metal armour inside which a man can ride. The suit is as large as a giant and as powerful as a steam hammer, it can smash men to pulp or rend them limb from limb. The chief believes it works by magic.\n\n\"It only has one weakness. Sever the line that connects it to the steam furnace and it dies. Only a real hero could stand up to The Steamer and do that, by the gods,\"\n\nAt that moment a visitor is announced. \"It is Valerian the Moon Druid, sire,\" says the herald. \"He says he has important news. Shall we let him come in?\"\n\n\"Aye, let him enter.\" The speech of Westermen sounds guttural and uncouth, but you can understand their dialect. The man who enters is the man you first saw in the inn at Burg. He is still dressed in the black travelling cloak, but his hood is thrown back to reveal his hatchet-like face and pointed black goatee beard. He bows before the chief, then wrinkles his nose and stares at you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Make your excuses and leave", 38));
+        Choices.push_back(Choice::Base("Stay and hear what news Valerian brings", 4));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story026 : public Story::Base
+{
+public:
+    Story026()
+    {
+        ID = 26;
+
+        Text = "\"You have seen what will come to pass if you fail in your quest: death and nothing but death. Now let us see whether your future holds something different in store.\"\n\nElanor takes your hand and brushes the surface of the water with your fingertips. A new picture forms and your eyes grow round with wonder. Something that looks like a hill set between tall dark trees is stirring and turning to look at you. It is a dragon, the oldest of the ancient beasts, not quite immortal. Its red eyes contrast horribly with the smooth jade green scales of its body. It snorts and a cloud of green gas rolls towards you. You jerk back from the vision in horror, before you remember it is just a picture on the water. You see yourself darting away from the cloud. Later, the vision shows you riding astride the creature's back while it flexes it wings in flight.\n\n\"You must win over the dragon, the most powerful of the forest's denizens,\" says Elanor.\"Then it will fight for you against the Westermen.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 41; }
+};
+
+class Story027 : public Story::Base
+{
+public:
+    Story027()
+    {
+        ID = 27;
+
+        Text = "While you hold your ground, Valerian begins casting a spell.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Go onto the offensive", 169, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Prepare a defensive magic", 182, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Otherwise", 87));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story028 : public Story::Base
+{
+public:
+    Story028()
+    {
+        ID = 28;
+
+        Image = "images/pool.png";
+
+        Text = "Fearing death at any moment, you plunge your dagger into the rubber hose that connects the great boiler to the Infernal Statue, which is still hacking chunks out of the Tree of Life. The hose breaks and the ends whip round with dreadful force. The Westermen coming to attack you are scythed off their feet by the hose, and you are bathed in a fog of hot steam.\n\nYou stagger out of the fog where you were safe, because it is unbearably hot, and watch as the Infernal Statue seems to run down like a clockwork toy. It bends, bows and then rolls down into the deep blue pool. The Westermen give a howl of dismay and begin to retreat, harried by the arrows of the elves.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 500; }
+};
+
+class Story029 : public Story::Base
+{
+public:
+    Story029()
+    {
+        ID = 29;
+
+        Text = "Valerian's attention is distracted by what the king is pointing out on the map. You inch quietly past the guards and towards the pavilion's porchway. Valerian looks up and his eyes narrow, then he cries out, \"There's something moving, they're getting away. I have the senses of a bat.\"\n\nHe points in your general direction. The guards peer from him to where you stand, unable to make you out.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast the Shield of Defense spell", 441));
+        Choices.push_back(Choice::Base("Make a run for the forest", 451));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -814,12 +1006,23 @@ auto story016 = Story016();
 auto story017 = Story017();
 auto story018 = Story018();
 auto story019 = Story019();
+auto story020 = Story020();
+auto story021 = Story021();
+auto story022 = Story022();
+auto story023 = Story023();
+auto story024 = Story024();
+auto story025 = Story025();
+auto story026 = Story026();
+auto story027 = Story027();
+auto story028 = Story028();
+auto story029 = Story029();
 
 void InitializeStories()
 {
     Stories = {
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
-        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019};
+        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
+        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029};
 }
 
 #endif
