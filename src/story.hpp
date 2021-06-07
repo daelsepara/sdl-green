@@ -604,8 +604,8 @@ public:
         Text = "\"I must test your fitness to be the forest's saviour,\" says Elanor. \"I hope you pass the test. You would not like to see the forest laid to waste would you?\"\n\nShe looks regal and yet kind, but her eyes never leave yours.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Reply that your reason for visiting the forest is to find the Tree of Knowledge and take some of its wisdom away with you to the lands of men", 24));
-        Choices.push_back(Choice::Base("Say that the forest is too beautiful to be laid waste and you will try to save it", 40));
+        Choices.push_back(Choice::Base("Reply: that your reason for visiting the forest is to find the Tree of Knowledge and take some of its wisdom away with you to the lands of men", 24));
+        Choices.push_back(Choice::Base("Say: that the forest is too beautiful to be laid waste and you will try to save it", 40));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -888,8 +888,8 @@ public:
         Text = "\"The hackers and burners, the men from the west, say the ants of the forest must be eradicated because they eat the farmers' crops,\" she says. \"What do you say?\"";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say the ants are indeed pests and should be wiped out", 51));
-        Choices.push_back(Choice::Base("Reply that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
+        Choices.push_back(Choice::Base("Say: the ants are indeed pests and should be wiped out", 51));
+        Choices.push_back(Choice::Base("Reply: that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
         Choices.push_back(Choice::Base("[WILDERNESS LORE] Use your knowledge", 171, Skill::Type::WILDERNESS_LORE));
 
         Controls = Story::Controls::STANDARD;
@@ -1209,8 +1209,8 @@ public:
         Text = "\"The hackers and burners, the men from the west, say the ants of the forest must be eradicated because the ants eat their crops. What do you say?\"";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say the ants are indeed pests and should be wiped out", 75));
-        Choices.push_back(Choice::Base("Reply that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
+        Choices.push_back(Choice::Base("Say: the ants are indeed pests and should be wiped out", 75));
+        Choices.push_back(Choice::Base("Reply: that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
         Choices.push_back(Choice::Base("[WILDERNESS LORE] Use your knowledge", 171, Skill::Type::WILDERNESS_LORE));
 
         Controls = Story::Controls::STANDARD;
@@ -1689,8 +1689,8 @@ public:
         Text = "\"The Westermen hate spiders. They say the spiders are ugly, poisonous and unnatural. To them spiders are the evil creatures of the Demoness. It does no harm to the forest to kill a spider. Are they right, these Westermen?\"";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say there is no harm in killing spiders", 51));
-        Choices.push_back(Choice::Base("Say it is bad to kill spiders", 106));
+        Choices.push_back(Choice::Base("Say: there is no harm in killing spiders", 51));
+        Choices.push_back(Choice::Base("Say: it is bad to kill spiders", 106));
         Choices.push_back(Choice::Base("Use [WILDERNESS LORE]", 136, Skill::Type::WILDERNESS_LORE));
 
         Controls = Story::Controls::STANDARD;
@@ -1970,6 +1970,180 @@ public:
     int Continue(Character::Base &player) { return 19; }
 };
 
+class Story080 : public Story::Base
+{
+public:
+    Story080()
+    {
+        ID = 80;
+
+        Text = "You hide underneath a clump of bushes for what seems an age. Here in the deepest part of the forest you can only guess that it is still daytime. When you are certain that you can hear and see nothing, you emerge from your hiding place and decide to journey on.\n\nYou have walked but half a mile further when the feeling of being watched returns.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hide again", 129));
+        Choices.push_back(Choice::Base("Stop and look around you", 90));
+        Choices.push_back(Choice::Base("Walk on seemingly unaware", 150));
+        Choices.push_back(Choice::Base("Try calling out that you are Elanor's friend come in search of the immortal elves", 109));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story081 : public Story::Base
+{
+public:
+    Story081()
+    {
+        ID = 81;
+
+        Text = "As the Embracer prepares to wrap you up in its tentacles, the smell of rot and marsh gas almost makes you gag. The tips of the fibrous tentacles wave in the air as if trying to sniff you out.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to climb the great mass of vegetation and drive your sword between its eyes", 287));
+        Choices.push_back(Choice::Base("Slash at the other tentacles as it is preparing to coil around you", 48));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story082 : public Story::Base
+{
+public:
+    Story082()
+    {
+        ID = 82;
+
+        Text = "You speak the word and a magical silver shield appears to protect you from magic. But there is no one here using magic against you. You are wasting precious time. Now is your last chance to save the Tree of Life.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Choking Fog", 346));
+        Choices.push_back(Choice::Base("Cast Bafflement", 113));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 64));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 186));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story083 : public Story::Base
+{
+public:
+    Story083()
+    {
+        ID = 83;
+
+        Text = "\"Great Garoshtar, aid me now. Listen to and respect your friend's wishes -- the forest needs your help.\"\n\nGaroshtar's great head rises slowly above you and his red eyes bore into yours.\n\n\"I need your help now, Garoshtar. The Westermen are marching to uproot the Tree of Life.\"\n\nThe dragon is ready to bear you and to frighten the Westermen into the bargain. You ask him to attack the head of the Westermen columns as they advance, to give time for the King of the Elves to muster all his available forces. You climb onto Garoshtar's back and sit just in front of the great taut wings that beat the air like mainsails close-rigged in a storm.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Remain astride Garoshtar's back while he attacks the Westermen", 228));
+        Choices.push_back(Choice::Base("Get him to deliver you to Elvenhame before making his attack", 247));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story084 : public Story::Base
+{
+public:
+    Story084()
+    {
+        ID = 84;
+
+        Text = "As the Westermen close in on you with swords and maces, you defend yourself as best as you can while the Infernal Statue hews great lumps of green stained wood from the trunk of the Tree of Life. You fight like a hero, but for every foe you kill two more take his place. At the last your feet are knocked out from under you and your body is pierced by countless sword thrusts. You have failed the forest: it will be destroyed by the Westermen.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story085 : public Story::Base
+{
+public:
+    Story085()
+    {
+        ID = 85;
+
+        Text = "She will not listen as you ask her to stop and she moves so lightly you have a hard time keeping up.\n\n\"What have I done to upset you?\" you ask. \"I can't help it if I don't know the ways of the forest as you do. I've had a hard life on the streets of Godorno. I didn't know what I would find here in the forest. Don't leave me here...\"\n\nYour pleas are useless: you cannot change her mind.\n\nShe flits between a curtain of creepers and down a secret tunnel, leaving you with an inexplicably strong feeling of loss. You try to find the concealed opening, but after hours of fruitless searching you reluctantly admit you have no choice but to follow your own destiny.\n\nYou wander in the forest for many days, until you come across the bodies of hundreds of elves lying among the trees. They are like figures of clay, cold and limp without the spark of life. You realize that the most terrible of fates have come to pass: the Westermen have succeeded in destroying the heart of the forest. You slump to your knees in despair as you hear their engines of destruction cutting through the trees towards you. Soon you will share the doom of the elves.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story086 : public Story::Base
+{
+public:
+    Story086()
+    {
+        ID = 86;
+
+        Text = "Your agile leap carries you into the monster's face, where you clutch at the beast's long thick whiskers to stop yourself falling off. You are right next to the dragon's mouth and your eyes are looking straight into its cavernous nostrils. But how will you take advantage of your precarious position?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Scramble up on top of the ancient creature's head", 116));
+        Choices.push_back(Choice::Base("Pat the dragon gently on the end of its great scaly nose", 125));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story087 : public Story::Base
+{
+public:
+    Story087()
+    {
+        ID = 87;
+
+        Text = "A silver noose magically appears in the air before you and drops over your head. You try to drag the noose up and over your head, but the silvery cord tightens slowly until it flattens your windpipe. You grow purple owing to the lack of oxygen and the great effort you are putting into staying alive.\n\nIt is a futile struggle. Gurgling horribly, unable even to speak, you subside into the floor and black out, never to regain consciousness.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story088 : public Story::Base
+{
+public:
+    Story088()
+    {
+        ID = 88;
+
+        Text = "For a long while nothing happens. Nervously you begin to edge closer to the source of the strange sounds. There is a ledge ahead and you can't see what lies beyond.\n\nThere is a sudden dire hissing, as if a hundred vipers were baring their venomous fangs or perhaps it is an ancient dragon drawing breath. Then another whoosh followed by an eruption of hot water that fountains into the air gives you the solution to the mystery. There is no dragon here and you are indeed, nowhere near the Bonehill. Walking to the edge you see a cluster of large bubbling pools. All you have found is an area of hot springs. Every now and then a geyser erupts; gurgling that follows is the escape of foul-smelling gases. There is nothing of interest here so you go on your way.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Turn and head west from here", 43));
+        Choices.push_back(Choice::Base("Continue north in your original direction if you prefer", 127));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story089 : public Story::Base
+{
+public:
+    Story089()
+    {
+        ID = 89;
+
+        Text = "\"Why is it bad to kill spiders?\" she asks.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say: it is because all evil things as well as good things must be tolerated in the forest" , 104));
+        Choices.push_back(Choice::Base("Say: you believe it is because the birds would die without spiders to eat, and without birds to eat berries there would be no young trees ", 128));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -2051,6 +2225,16 @@ auto story076 = Story076();
 auto story077 = Story077();
 auto story078 = Story078();
 auto story079 = Story079();
+auto story080 = Story080();
+auto story081 = Story081();
+auto story082 = Story082();
+auto story083 = Story083();
+auto story084 = Story084();
+auto story085 = Story085();
+auto story086 = Story086();
+auto story087 = Story087();
+auto story088 = Story088();
+auto story089 = Story089();
 
 void InitializeStories()
 {
@@ -2063,7 +2247,8 @@ void InitializeStories()
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
         &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
         &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
-        &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079};
+        &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
+        &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089};
 }
 
 #endif
