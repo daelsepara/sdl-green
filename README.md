@@ -38,6 +38,7 @@ Michelin Home, 81 Fulham Road, London SW3 6RB and Auckland, Melbourne, Singapore
 Text copyright (c) 1993 Dave Morris and Mark Smith
 Illustrations copyright (c) 1993 Terry Oakes
 Map copyright (c) 1993 Leo Hartas
+Cover illusration (c) 1993 Mike Posen
 
 ISBN 0 7497 1484 0
 ```
