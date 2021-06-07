@@ -13,8 +13,10 @@ namespace Item
         SWORD,
         LONGBOW,
         JEWEL,
+        MAPLE_FLUTE,
+        TOADSTOOL_FLESH,
         First = MAGIC_AMULET,
-        Last = JEWEL
+        Last = TOADSTOOL_FLESH
     };
 
     class Base
@@ -53,8 +55,11 @@ namespace Item
     auto LONGBOW = Item::Base("LONGBOW", "LONGBOW", Item::Type::LONGBOW);
     auto SWORD = Item::Base("SWORD", "SWORD", Item::Type::SWORD);
     auto JEWEL = Item::Base("JEWEL", "JEWEL", Item::Type::JEWEL);
+    auto MAPLE_FLUTE = Item::Base("MAPLE FLUTE", "MAPLE FLUTE", Item::Type::MAPLE_FLUTE);
+    auto TOADSTOOL_FLESH = Item::Base("TOADSTOOL FLESH", "TOADSTOOL FLESH", Item::Type::TOADSTOOL_FLESH);
 
-    std::vector<Item::Type> UniqueItems = {};
+    std::vector<Item::Type> UniqueItems = {
+        Item::Type::MAPLE_FLUTE};
 
     bool IsUnique(Item::Type item)
     {

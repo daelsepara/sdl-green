@@ -377,6 +377,18 @@ namespace Story
         return controls;
     }
 
+    std::vector<Choice::Base> FourDirections()
+    {
+        auto choices = std::vector<Choice::Base>();
+
+        choices.push_back(Choice::Base("Head west", 43));
+        choices.push_back(Choice::Base("Head east", 427));
+        choices.push_back(Choice::Base("Head south-west", 70));
+        choices.push_back(Choice::Base("Head south from here", 78));
+
+        return choices;
+    }
+
 } // namespace Story
 
 class NotImplemented : public Story::Base
@@ -422,6 +434,8 @@ public:
     Prologue()
     {
         Title = "Green Blood: Prologue";
+
+        Image = "images/vr-logo.png";
 
         ID = 0;
 
@@ -515,6 +529,8 @@ public:
     {
         ID = 5;
 
+        Image = "images/filler2.png";
+
         Text = "As Valerian stands up, he lets his cloak fall to the floor, revealing armour made of quilted leather -- light armour that wouldn't stop a sword thrust. He has no sword or obvious weapon to hand. Three small coloured pouches swing from his belt.";
 
         Choices.clear();
@@ -595,6 +611,189 @@ public:
     }
 };
 
+class Story010 : public Story::Base
+{
+public:
+    Story010()
+    {
+        ID = 10;
+
+        Text = "\"Then why have you disturbed my slumber? You have woken me a year early. Now I will feel sick for the next year.\"\n\nThe dragon rolls over and seems to be going back to sleep.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack it", 59));
+        Choices.push_back(Choice::Base("Try to steal its treasure", 79));
+        Choices.push_back(Choice::Base("Continue your quest and leave the dragon to slumber", 49));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story011 : public Story::Base
+{
+public:
+    Story011()
+    {
+        ID = 11;
+
+        Text = "You know without doubt that your best plan is to call upon the dragon that has promised its help. Certain in the knowledge that it will obey you, you set off for the Bonehill to enlist its help.\n\nThe journey passes swiftly with the help of an elf to guide you, and you are soon at the dragon's lair.\n\nYou call out its name...";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 83; }
+};
+
+class Story012 : public Story::Base
+{
+public:
+    Story012()
+    {
+        ID = 12;
+
+        Text = "You tell Pozzo that to escape the forest he should make for a river and follow it to the sea. You know that there is a city or town at every river mouth for hundreds of miles around, and when he reaches one he can take ship for Godorno. He bids you farewell and says you may stay as his honoured guest at his in in Burg if you are ever travelling that way again. With that, he sets out to return to his beloved daughter.\n\nYou are soon safe back in the forest, and alone again. The awful sights and sounds of the Westermen camp are soon left far behind.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story013 : public Story::Base
+{
+public:
+    Story013()
+    {
+        ID = 13;
+
+        Text = "All is quiet behind you but you do not look back. The path is difficult, overgrown and boggy. Every now and then you are hard put to decide which way it leads, but by keeping fairly close to the great river you make progress for many hours until nightfall.\n\nThe noises of the forest seem to intensify with night: there is buzzing, clicking, croaking and the hoot of alone owl to keep you company. Finding a dry place to rest is not easy but at last you find a mound of earth on which you can settle down.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[CHARMS] turn your pendant (MAGIC AMULET) into a warning stone", 361, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("otherwise", 419));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story014 : public Story::Base
+{
+public:
+    Story014()
+    {
+        ID = 14;
+
+        Text = "\"Yes it would, more terrible than you can know. The stench and dross of the cities is purged and cleansed by the forest. The trees absorb the foul air of man's pollution, his burning and smelting, and give it back to the world again clean, fresh and ready to breathe. The forest is the lifeblood of the world; without it the world will choke, gag and die. The sin of man, his waste, his poisons, are made good again by the life force of nature. You feel something of this, don't you?\" The woman looks at you approvingly.\n\nSensing that you can trust her, you ask about the Tree of Knowledge.\n\n\"If you come to my bower in the forest I can take you to the Great Tree. But I must warn you that if you harm so much as a leaf on your way there you will never leave the forest. When you enter the forest follow the Burgstream to the great Sirion river and then walk down the eastern bank. My followers will bring me word of your progress.\"\n\nShe takes up her staff and taps it once on the table. Her gnarled old staff turns into a little flute, which she hands to you with the words, \"Blow this at need in the forest and my friends will help you.\"\n\nYou murmur your thanks and fall to wondering how she can make the animals of the forest do her bidding. As the fire burns down, the woman goes to sleep in her chair. Not wishing to disturb her, you take a room at the inn for the night.\n\nYou RECEIVED a MAPLE FLUTE.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::MAPLE_FLUTE});
+    }
+
+    int Continue(Character::Base &player) { return 333; }
+};
+
+class Story015 : public Story::Base
+{
+public:
+    Story015()
+    {
+        ID = 15;
+
+        Image = "images/filler3.png";
+
+        Text = "The imp puts on the emerald ring as if it were a bracelet, and then tries to rip it off again. But the band of gold constricts until it is a perfect fit around his wrist.\n\n\"Alack, alack, I can never take this cursed thing off,\" the imp laments.\n\n\"Help me, and I will remove the ring.\"\n\n\"I am the Kwerrel, and the Kwerrel keeps no bargains.\"\n\n\"Then you are a prisoner of the Lady of the Forest's ring for ever and every being in the forest will know that you are not her friend,\" you say.\n\nQuailing at your words, the Kwerrel says, \"Take the flesh of the toadstool. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nAs the imp speaks the gold ring grows and falls from his wrist to lie on the ground near the giant toadstool. You pick it up again, take a large piece of the flesh of the toadstool. Bidding the little imp goodbye, you walk back into the forest.\n\nYou RECEIVED a TOADSTOOL FLESH.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::TOADSTOOL_FLESH});
+    }
+
+    int Continue(Character::Base &player) { return 406; }
+};
+
+class Story016 : public Story::Base
+{
+public:
+    Story016()
+    {
+        ID = 16;
+
+        Text = "You walk across the room without looking to either side, pretending not to have heard the command.\n\nThe same voice rings out again, but the imperious tone now carries the sharp ring of anger: \"So you think you can come here and treat us as though we are beneath notice, do you? Are you deaf? Ignore Valerian, would you? I'll make you pay for your insolence.\"\n\nThere is a scramble as people leave the common room. Only the old woman in grey stays to watch the fight. It is too late to do anything but fight or run.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Run out of the inn without looking back", 117));
+        Choices.push_back(Choice::Base("Fight", 5));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story017 : public Story::Base
+{
+public:
+    Story017()
+    {
+        ID = 17;
+
+        Text = "The odds are stacked against you as more and more guards pour into the pavilion. Together with the chief's advisers they easily overwhelm you, forcing you to your knees before the chief. The Westermen's leader reaches for his sword, draws it back and drives it into your heart, smiling evilly as he does so. As you die, so too do the hopes for saving the Forest of Arden.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story018 : public Story::Base
+{
+public:
+    Story018()
+    {
+        ID = 18;
+
+        Text = "As you voice acceptance of the duel, a hundred of the most wise and ancient looking elves appear silently from the trees at the edge of the clearing. They fan out, encircling you completely, and with their feet scrape a circle in the dirt at the clearing's edge.\n\nAll the elves are typical of their kind, with long wine-red hair and pale green skin that has a silvery bloom. Their clothes, in shades of green and brown, blends with the backdrop of the forest and makes it seem as if the very trees have walled you into the clearing. If you get beyond that ring, you feel it will only ever be as vanquisher of the elves' champion, whoever that might be.\n\n\"If you step outside the circle you have lost,\" states the King of the Elves. \"I will choose a champion from all elvenkind to face you.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Try out the potency of your magic against that of the immortal elves", 33, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SWORDPLAY] Try your skill with the sword against the champion of all the elves", 50, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("[UNARMED COMBAT] Try to pit your body against one of the lithe quick elves", 63, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("Concede defeat: you have none of these skills", 163));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story019 : public Story::Base
+{
+public:
+    Story019()
+    {
+        ID = 19;
+
+        Text = "The dragon bats you out of the cavern and sends you rolling down the bank like a golden cannonball. You struggle to your feet while the ancient beast mocks you.\n\n\"It is a long time since I spied a golden turtle in these parts.\" He laughs and hisses as you stagger away from the Bonehill.\n\nWeighed down by gold, you have no chance of completing your quest unless you head back to Burg and find someone to remove the precious metal. No matter, you will be rich beyond your wildest dreams...";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 39; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -605,11 +804,22 @@ auto story006 = Story006();
 auto story007 = Story007();
 auto story008 = Story008();
 auto story009 = Story009();
+auto story010 = Story010();
+auto story011 = Story011();
+auto story012 = Story012();
+auto story013 = Story013();
+auto story014 = Story014();
+auto story015 = Story015();
+auto story016 = Story016();
+auto story017 = Story017();
+auto story018 = Story018();
+auto story019 = Story019();
 
 void InitializeStories()
 {
     Stories = {
-        &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009};
+        &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
+        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019};
 }
 
 #endif
