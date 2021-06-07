@@ -1500,7 +1500,7 @@ public:
 
         Choices.clear();
         Choices.push_back(Choice::Base("Leap at its head to attack it before it is fully awake", 74));
-        Choices.push_back(Choice::Base("Smile at it in the hope that it will not eat you", 36));
+        Choices.push_back(Choice::Base("Smile at it in the hope that it will not eat you, while preparing a spell", 36));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -1555,6 +1555,180 @@ public:
 
         Controls = Story::Controls::STANDARD;
     }
+};
+
+class Story060 : public Story::Base
+{
+public:
+    Story060()
+    {
+        ID = 60;
+
+        Text = "The hairs on the nape of your neck begin to bristle as you step quietly between the Greenbark trees. You sense you are being watched.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hide", 80));
+        Choices.push_back(Choice::Base("Stop and look about you", 90));
+        Choices.push_back(Choice::Base("Call out that you are Elanor's friend come in search of the immortal elves", 109));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story061 : public Story::Base
+{
+public:
+    Story061()
+    {
+        ID = 61;
+
+        Text = "You grab two flailing tentacles, haul yourself towards the creature's cone-shaped head and smash your fist repeatedly between its murky grey eyes. Its coils loosen and fall away, and you break the surface gasping for air. Swimming to the far bank, you scramble out before the Embracer can recover.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 13; }
+};
+
+class Story062 : public Story::Base
+{
+public:
+    Story062()
+    {
+        ID = 62;
+
+        Text = "The innkeeper's daughter is overjoyed to see her father returned. The innkeeper is as good as his word and he kills a fattened pig to give you a banquet fit for a king.\n\nAll too soon, however, you have to leave their pleasant hospitality behind and return to your quest. Yet you are already too late. As you journey back towards the Sirion river the Westermen have found the Tree of Life and cut it down. The forest is doomed and so, in the end, is all mankind. You have failed: the long winter is beginning.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story063 : public Story::Base
+{
+public:
+    Story063()
+    {
+        ID = 63;
+
+        Image = "images/gathkeri.png";
+
+        Text = "Deciding your best chance of success in the duel is to use unarmed combat, you inform the King of the Elves of your choice. He scowls at you, then looks about him for a champion.\n\nOne of the few young elves walks forward. He is the only elf you have ever seen who you could describe as reasonably well built. His muscles are long and well defined. You have noticed how swift and deft the other elves are, and noted their surprising wiry strength. The young elf could prove to be a difficult adversary.\n\nHe walks forward, rocking up onto the balls of his feet, like a spring-heeled Jack, looks towards the king and asks, \"Do we fight to the death, Lord? Have no fear for me.\"\n\n\"You will duel until one of you submits or is killed,\" answers the king. \"If you survive we have two of the Lady of the Forest's potions to revive those who are wounded.\"\n\nGathkeri walks to one side of the grassy circle and waits confidently with his arms folded in front of him. He appears to be concentrating hard and mumbling.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take up your position opposite Gathkeri", 201));
+        Choices.push_back(Choice::Base("Try to get out of the duel by protesting to the king that you should be measured against your foes, the Westermen, not against the elves you have come to help", 92));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story064 : public Story::Base
+{
+public:
+    Story064()
+    {
+        ID = 64;
+
+        Text = "Speaking the word you clench your fist, imagining you are twisting and crushing the entrails of the Infernal Statue. The machine does not buckle or hold its stomach, as must a man affected by this puissant spell. Instead it lurches past the Tree of Life, then circles and lurches forward again, towards the deep blue pool.\n\nThe cries of the Westermen die to silence. In the resulting quiet you can hear muffled groans coming from somewhere inside the Infernal State. It totters on the brink of the pool and then begins to turn slowly back towards the Tree of Life. It seems to be recovering and will not be harmed by the spell again.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Bafflement", 372));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 207));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story065 : public Story::Base
+{
+public:
+    Story065()
+    {
+        ID = 65;
+
+        Text = "Your sudden rush takes him by surprise as he was preparing a spell. Just before you reach him he calls out the word \"Sanctuary\" in a ringing voice and claps his hands together. There is a second clap and he is gone. He has disappeared completely. You go to the door of the inn but there is no sign of him in the rain-lashed cobbled street.\n\nOnly the old woman in grey remains in the common room. She nods at you approvingly.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sit at her table and talk to her", 181));
+        Choices.push_back(Choice::Base("Take a room in the inn for the night", 333));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story066 : public Story::Base
+{
+public:
+    Story066()
+    {
+        ID = 66;
+
+        Text = "You have taken a few more steps when the ground starts to shake. It feels like an earthquake and you fall down. Then the very ground beneath you hurtles skyward. There is a sudden hissing and a cloud of noisome vapours suddenly spurs from the other end of the hillock, giving the game away. You are lying on a dragon.\n\nThe dragon rolls over, away from the ledge it has been slumbering against, and as it does so you clamber up its back -- an experience that is like scrambling up the side of a gigantic rolling barrel -- and manage to grab hold of the bottle-green row of scales that runs in a crest down the creature's back.\n\nMoving slowly as it wakes from its lengthy slumber, the dragon turns its necks like a corkscrew and points its cart-sized face at you. Its smouldering red eyes are like the gateways to hell.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leap at its head to attack the dragon before it becomes fully awake", 74));
+        Choices.push_back(Choice::Base("Smile at the dragon in the hope that it doesn't eat you", 36));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story067 : public Story::Base
+{
+public:
+    Story067()
+    {
+        ID = 67;
+
+        Text = "\"The Westermen hate spiders. They say the spiders are ugly, poisonous and unnatural. To them spiders are the evil creatures of the Demoness. It does no harm to the forest to kill a spider. Are they right, these Westermen?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say there is no harm in killing spiders", 51));
+        Choices.push_back(Choice::Base("Say it is bad to kill spiders", 106));
+        Choices.push_back(Choice::Base("Use [WILDERNESS LORE]", 136, Skill::Type::WILDERNESS_LORE));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story068 : public Story::Base
+{
+public:
+    Story068()
+    {
+        ID = 68;
+
+        Text = "Pushing through the ferns you come to a desolate area of worn rock. The breeze carries the acrid smell of sulphurous gases. The few plants growing here are wizened and brown, struggling on the edge of survival. The strange gurgling sound starts again, further away. The smoke rises out of the ground ahead of you followed by a watery burp.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Run away", 32));
+        Choices.push_back(Choice::Base("Otherwise", 88));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story069 : public Story::Base
+{
+public:
+    Story069()
+    {
+        ID = 69;
+
+        Text = "The Elf King raises his open hand in front of your face, palm upwards. It looks empty, but when he blows across it a flurry of fine ochre pollen flies into your eyes. Stumbling back, you wipe the pollen out of your eyes. It stings, causing tears to run down your face, and by the time your vision clears the elves have melted away into the forest depths. You are alone in the clearing.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 78; }
 };
 
 auto prologue = Prologue();
@@ -1618,6 +1792,16 @@ auto story056 = Story056();
 auto story057 = Story057();
 auto story058 = Story058();
 auto story059 = Story059();
+auto story060 = Story060();
+auto story061 = Story061();
+auto story062 = Story062();
+auto story063 = Story063();
+auto story064 = Story064();
+auto story065 = Story065();
+auto story066 = Story066();
+auto story067 = Story067();
+auto story068 = Story068();
+auto story069 = Story069();
 
 void InitializeStories()
 {
@@ -1628,7 +1812,8 @@ void InitializeStories()
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
-        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059};
+        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
+        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069};
 }
 
 #endif
