@@ -672,7 +672,7 @@ public:
 
         Choices.clear();
         Choices.push_back(Choice::Base("[CHARMS] turn your pendant (MAGIC AMULET) into a warning stone", 361, Skill::Type::CHARMS));
-        Choices.push_back(Choice::Base("otherwise", 419));
+        Choices.push_back(Choice::Base("Otherwise", 419));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -1199,6 +1199,180 @@ public:
     }
 };
 
+class Story040 : public Story::Base
+{
+public:
+    Story040()
+    {
+        ID = 40;
+
+        Text = "\"The hackers and burners, the men from the west, say the ants of the forest must be eradicated because the ants eat their crops. What do you say?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say the ants are indeed pests and should be wiped out", 75));
+        Choices.push_back(Choice::Base("Reply that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
+        Choices.push_back(Choice::Base("[WILDERNESS LORE] Use your knowledge", 171, Skill::Type::WILDERNESS_LORE));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story041 : public Story::Base
+{
+public:
+    Story041()
+    {
+        ID = 41;
+
+        Image = "images/smoking-man.png";
+
+        Text = "Elanor takes your hand once more and brushes the surface of the water again. The water is icy to your touch this time. A shiver of indefinable apprehension runs through you.\n\nA new picture forms. Elves with bows throng the depths of the forest. They have pale green skin and hair the colour of rich red wine. They are sniping at the Westermen, unseen. Men fall in swathes, pierced by the elves' arrows, but the Westermen come on and on, advancing towards some unseen goal. The elves fall back; it seems they are looking to you to do something decisive.\n\nA terrible figure stalks into view. You can't tell whether it is a man or some infernal magical machine. It looks like a full suit of armour, large enough for a giant of a man, that hisses steam at the joints. It bears a great sword which whistles through the air as it strides mechanically towards you.\n\nThe vision fades.\n\n\"Your moment of truth, hero. You must be prepared to fight the smoking man. Remember this vision, saviour, it shows the way to success in your quest,\" she says.\n\nShe pauses before continuing, \"Tomorrow will be Midsummer's day. It is time for you to go in search of the elves. But, my hero you must be careful. Tell them you are a friend of mine and they might not kill you, for they sometimes shoot a man dead with a single arrow before the hapless wanderer knows he is being watched. Harm neither hide nor leaf of the forest. Only by your feeling for nature will the elves judge you. Aside from that they are impartial. You could be a saint or a murderer among men, yet it would count for nothing among the elves.\"\n\nWhen she is sure you know the way she bids you farewell with one last warning. \"The FLUTE will be of no use to you, for I cannot save you from the elves if you anger them. Farewell.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 70; }
+};
+
+class Story042 : public Story::Base
+{
+public:
+    Story042()
+    {
+        ID = 42;
+
+        Text = "You are in the dark about the plans of Westermen.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to find their camp and spy on it", 270));
+        Choices.push_back(Choice::Base("Lead as many elves as you can muster in pitched battle against the Westermen", 30));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story043 : public Story::Base
+{
+public:
+    Story043()
+    {
+        ID = 43;
+
+        Text = "After several days of trekking west through the forest, and climbing towards uplands, you reach the edge of the Anvil Mountains. Climbing high above the treeline you can see the Forest of Arden laid out beneath you almost like a map. You should have turned south if you wanted to reach the Bonehill, or south-west if you wanted to search for the bower of the Lady of the Forest. As it is you have wasted too much time, and you are far out of your way.\n\nYou re-enter the forest, journeying along the paths between its great trees. After the few days, however, you start to find the fresh bodies of hundreds of elves among the trees. It is as though they have all been slain instantly in the act of doing everyday things -- some while eating their supper. Whatever has caused this terrible has bereft the forest of life: it is doomed and so are you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story044 : public Story::Base
+{
+public:
+    Story044()
+    {
+        ID = 44;
+
+        Text = "You travel on until you reach the next obstacle in your path: a tributary of the Sirion that is spanned by a rope bridge, the only means of crossing the water. The bridge has clearly been tended to recently, as bushes have been hacked back from the stanchions between which it hangs. Tentatively, you step onto the bridge, which holds your weight but sags more and more as you approach its centre.\n\nWhen you are half-way across, a waterspout erupts from the river beneath you, out of which flails a mass of vegetation ringed with fibrous tentacles. The water was thrown up by an Embracer, which plucks you from the bridge.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[UNARMED COMBAT] Grab the tentacles", 61, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("[SWORDPLAY] slice through the tentacles", 81, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Do something else", 103));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story045 : public Story::Base
+{
+public:
+    Story045()
+    {
+        ID = 45;
+
+        Text = "If you are near the dragon and the Bonehill you will need to turn to the right and travel several days to the west.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Turn right and travel to the west", 43));
+        Choices.push_back(Choice::Base("Investigate the area from where the whooshing noise came", 68));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story046 : public Story::Base
+{
+public:
+    Story046()
+    {
+        ID = 46;
+
+        Text = "Elanor, today dressed in a silver gown of gossamer silk, turns to look at you searchingly as you walk underneath the hawthorn arch. She smiles at you.\n\n\"Well, my hero, do you feel brave today? Is your resolve strong enough to do what is needed of you?\"\n\n\"I have never felt more heroic, my noble lady,\" you reply, although you know in your heart of hearts that you felt considerably braver while you were wearing Elanor's emerald ring.\n\n\"Good,\" she replies. \"Do you dare to glimpse your future, my hero?\"\n\nYou have always avoided fortune-tellers. You have noticed that if a fortune-teller gives good news, people go away content and expect good luck to come their way without the need to lift a finger. If bad lack is prophesied, a sense of helplessness afflicts the person and they might sink into a despairing activity which leads to poverty and ruin. Thus the prophecy is self-fulfilling. It is well known that those soothsayers who invariably give good auguries are never short of customers, leading you to conclude that they must be pretending to see happy events even when they should be predicting bad news, since they will simply say what people want to hear.\n\nYour doubts in Elanor's case are soon dispelled. Looking into the basin of smooth clear water it seems as though an unseen artist is hurriedly painting a picture of ghoulish horror.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 3; }
+};
+
+class Story047 : public Story::Base
+{
+public:
+    Story047()
+    {
+        ID = 47;
+
+        Text = "As you set foot on the hillock you are surprised by how hard the ground feels, although it yields slightly as if a layer of hard rock were resting on mud. The ground is smooth and has a sheen to it: it only looked like grass. The egret stops its cackling and flies off.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Step back off the mound", 56));
+        Choices.push_back(Choice::Base("Climb onwards", 66));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story048 : public Story::Base
+{
+public:
+    Story048()
+    {
+        ID = 48;
+
+        Text = "Your sword cuts cleanly through the fibres, lopping the tentacles into pieces. The Embracer emits a piercing shriek and subsides once more into the river. You swim to the far bank before the man-eating monster can recover.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 13; }
+};
+
+class Story049 : public Story::Base
+{
+public:
+    Story049()
+    {
+        ID = 49;
+
+        Text = "Leaving the blasted valley behind you, you strike north through the forest in search of the camp of the dreaded Westermen. The ground becomes hillocky and uneven. The trees -- hollies and elders -- are smaller here; you walk on past ever more spindly and sickly trees until you are faced by an impenetrable wall of thorns that rises up like the great cupola dome on top of the cathedral in Godorno.\n\nYou skirt the wall, which seems in actuality to be one great bush of thorns. Here and there the denseness of the growing bushes has gathered the remains of dead animals and pushed them out to its perimeter. One little group of bones looks suspiciously like those of a man or elf mouldering on the ground.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 99; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -1240,6 +1414,16 @@ auto story036 = Story036();
 auto story037 = Story037();
 auto story038 = Story038();
 auto story039 = Story039();
+auto story040 = Story040();
+auto story041 = Story041();
+auto story042 = Story042();
+auto story043 = Story043();
+auto story044 = Story044();
+auto story045 = Story045();
+auto story046 = Story046();
+auto story047 = Story047();
+auto story048 = Story048();
+auto story049 = Story049();
 
 void InitializeStories()
 {
@@ -1248,7 +1432,8 @@ void InitializeStories()
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
-        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039};
+        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
+        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049};
 }
 
 #endif
