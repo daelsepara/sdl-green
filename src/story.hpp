@@ -2137,8 +2137,179 @@ public:
         Text = "\"Why is it bad to kill spiders?\" she asks.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say: it is because all evil things as well as good things must be tolerated in the forest" , 104));
+        Choices.push_back(Choice::Base("Say: it is because all evil things as well as good things must be tolerated in the forest", 104));
         Choices.push_back(Choice::Base("Say: you believe it is because the birds would die without spiders to eat, and without birds to eat berries there would be no young trees ", 128));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story090 : public Story::Base
+{
+public:
+    Story090()
+    {
+        ID = 90;
+
+        Text = "You stop still in your tracks and start to stare about, thinking to catch an elf slyly peeking at you from behind a tree.\n\nThere is the rushing whine of an arrow and a stabbing pain between your shoulder-blades. The force of the shot spins you round enabling you to see your assailant.\n\nIt is a tall, proud elf, who stands between two Greenbark trees, his legs apart. He lets his bow fall to his side as your legs buckle under you. Your nameless attacker is a fine shot: his arrow has pierced your lung. Slowly you begin to drown in your own blood.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story091 : public Story::Base
+{
+public:
+    Story091()
+    {
+        ID = 91;
+
+        Text = "You marshal your thoughts and unleash the magic that begins a struggle of wills. Seconds after your eyes have glazed with the effort you realize your mistake. The centuries of being the one on whom all elvenkind has depended for leadership have hardened the king's will. He quickly exerts his power over your feeble mind. Your body trembles with the effort of trying to resist, but none the less you find yourself walking forward step by step until you are in front of the king. He compels you to kneel before him. Powerless to resist, you speak the words of submission. You have lost the duel.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 163; }
+};
+
+class Story092 : public Story::Base
+{
+public:
+    Story092()
+    {
+        ID = 92;
+
+        Text = "\"You would have us risk our lives in battle with a hundred thousand Westermen, yet you will not dare face one elf in a duel? You are no better than the other humans.\" The king's voice is loaded with contempt. \"We will have no dealings with you. Slay the coward.\"\n\nYou begin to expostulate, but they are already drawing back on the bowstrings.\n\n\"Alright, I'll fight the duel,\" you cry. \"It won't prove anything, aahhh!\" The first arrow pierces your windpipe -- it is followed by many more. You die spurned by all elvendom.\"";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story093 : public Story::Base
+{
+public:
+    Story093()
+    {
+        ID = 93;
+
+        Text = "You call out the dragon's name and its great head rears slowly above you and its eyes bore into yours. Its nostrils dilate as it sucks in a deep breath. Too late you realize you lied to yourself about knowing the dragon's real name as it breathes acid and gas down on you. The intense burning and blistering that follows wracks your body with pain. Yet the torment is mercifully brief, as you quickly lapse into unconsciousness and then the permanent sleep of death.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story094 : public Story::Base
+{
+public:
+    Story094()
+    {
+        ID = 94;
+
+        Text = "Ignoring you, the two men continue their conversation about hunting in the forest. The shorter of the two becomes insulting when the taller claims to know the forest better than he.\n\n\"There are things in the forest which you wouldn't dare look upon, yet which I have seen with my own eyes.\"\n\n\"What things?\"\n\n\"Terrible things, green ghosts that walk through trees, phantasms and, in the darkest depths beyond Sirion, a huge monster as big as a hill.\"\n\n\"You've been too long alone in the forest. All your pent-up thoughts turn to babble.\"\n\n\"I saw it, it blinked its great eye at me. An eye like a salver big enough to carry a boar's head.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell them of your quest to the forest now", 162));
+        Choices.push_back(Choice::Base("As your eyes become accustomed to the light and you can see the other travellers in the inn; look them over before before choosing a table", 176));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story095 : public Story::Base
+{
+public:
+    Story095()
+    {
+        ID = 95;
+
+        Text = "You jump nimbly and quickly over a stack of books and slink out between the chief's advisers. The guards at the porch don't notice you bass between them and you are soon safe back in the forest. The awful sights and sounds of the Westermen camp are soon far behind.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story096 : public Story::Base
+{
+public:
+    Story096()
+    {
+        ID = 96;
+
+        Text = "Nothing in your life so far has prepared you for the first sight of the great Sirion river. The furthest bank -- or perhaps it is just a large island in midstream -- seems three miles away. Its roiling waters carry a multitude of dead tree branches towards the sea, like a vein carrying detritus out of a body.\n\nAcross the river the treeline is unbroken. You are deep in the rainforest now. The gigantic trees spread their branches more than a hundred feet from the ground here. At the river's edge mangroves reach far out into the water; bloated river buffalo shelter beneath their arching roots. It is hard going here. At every other step you sink into oozing mud. Twice you nearly lose your life in the oozing mud: once when a vine you were clinging to snaps, and again when a huge river buffalo erupts out of the water between the mangrove and rushes you. It storms through the water margin and crashes into the trees in hot pursuit. Soon the trees are too thick for it to follow and you trudge on, abandoning the river bank. Quite lost by now, you hope you can find a landmark to guide you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 131; }
+};
+
+class Story097 : public Story::Base
+{
+public:
+    Story097()
+    {
+        ID = 97;
+
+        Image = "images/filler4.png";
+
+        Text = "The chief shakes his head. \"My new realm will never be safe until I have destroyed every last tree in the forest. Valerian tells me so and his counsel has always been good in the past.\"\n\n\"But the whole world needs the forest,\" you argue. \"Without the forest there would be no air to breathe. We will all die.\"\n\n\"Valerian doesn't want to die any more than either you or I, I'll warrant. What nonsense is this you talk?\" He narrows his eyes, suddenly suspicious. \"Where was it we met? Was it the Reaver's Inn in Bessaraban? Remind me.\" He screws up his eyes in the effort of remembering a meeting that you know never took place.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Pretend that you met in the Reaver's Inn in the far off city of Bessaraban", 204));
+        Choices.push_back(Choice::Base("Make up an excuse and leave", 305));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story098 : public Story::Base
+{
+public:
+    Story098()
+    {
+        ID = 98;
+
+        Text = "The Lady of the Forest watches your departure sadly, but she does nothing to prevent you leaving. How can she be grieving at your loss when she hardly knows you? She must be mad. Nevertheless you quit her beautiful garden with regret and continue your quest for the Tree of Knowledge.\n\nIt will soon be Midsummer's day. Where will you search for the tree next?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Head west", 43));
+        Choices.push_back(Choice::Base("Head east", 427));
+        Choices.push_back(Choice::Base("Head south-west", 70));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story099 : public Story::Base
+{
+public:
+    Story099()
+    {
+        ID = 99;
+
+        Text = "You pass several of the great Umbellifer bushes, so called because of their bell shape. You walk on between them, where only grass that has been cropped by deer grows, until you come to an archway that has been cut through the thorns to provide a way into the shadowy recesses of the immense bush.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go inside the bush", 119));
+        Choices.push_back(Choice::Base("Hurry past with not so much as a backward glance", 127));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -2235,6 +2406,16 @@ auto story086 = Story086();
 auto story087 = Story087();
 auto story088 = Story088();
 auto story089 = Story089();
+auto story090 = Story090();
+auto story091 = Story091();
+auto story092 = Story092();
+auto story093 = Story093();
+auto story094 = Story094();
+auto story095 = Story095();
+auto story096 = Story096();
+auto story097 = Story097();
+auto story098 = Story098();
+auto story099 = Story099();
 
 void InitializeStories()
 {
@@ -2248,7 +2429,8 @@ void InitializeStories()
         &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
         &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
-        &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089};
+        &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
+        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099};
 }
 
 #endif
