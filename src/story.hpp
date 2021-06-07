@@ -1721,6 +1721,8 @@ public:
     {
         ID = 69;
 
+        Image = "images/filler2.png";
+
         Text = "The Elf King raises his open hand in front of your face, palm upwards. It looks empty, but when he blows across it a flurry of fine ochre pollen flies into your eyes. Stumbling back, you wipe the pollen out of your eyes. It stings, causing tears to run down your face, and by the time your vision clears the elves have melted away into the forest depths. You are alone in the clearing.";
 
         Choices.clear();
@@ -1729,6 +1731,243 @@ public:
     }
 
     int Continue(Character::Base &player) { return 78; }
+};
+
+class Story070 : public Story::Base
+{
+public:
+    Story070()
+    {
+        ID = 70;
+
+        Choices.clear();
+
+        Controls = Story::Controls::NONE;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS_ALL(player, {Codeword::Type::WATERBEARER, Codeword::Type::BULLHORN}))
+        {
+            return 256;
+        }
+        else if (Character::VERIFY_CODEWORD(player, Codeword::Type::WATERBEARER))
+        {
+            return 42;
+        }
+        else
+        {
+            return 60;
+        }
+    }
+};
+
+class Story071 : public Story::Base
+{
+public:
+    Story071()
+    {
+        ID = 71;
+
+        Text = "Your will invades the mind of the King of the Elves while he is still reeling from the effects of your Bafflement spell. As his senses return to him, you realize that his mind has been toughened beyond comprehension by the centuries of leading all elvendom, and the responsibility and judgment such a position requires. Quickly you grasp the moment to force him to speak the words of submission. You have won the duel.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story072 : public Story::Base
+{
+public:
+    Story072()
+    {
+        ID = 72;
+
+        Text = "You tell them of your quest to find the Tree of Knowledge in the Forest of Arden. The tallest of the two men introduces himself as Renard the Guide.\n\n\"If you seek the Tree of Knowledge, you will need a guide. The forest hold many snares, and its ways are treacherous. If you enter there alone you'll surely perish. That or you'll be hopelessly lost, never to see the lands of men again.\"\n\n\"Ha!\" snorts the short man. \"Renard doesn't know the whereabouts of the tree you seek, I'll warrant.\"\n\nThe hunter turns away, quietly saying as his parting shot, \"About as much as you, Renard, and that's nothing at all.\" He walks over to the kitchen door to talk to the young woman who pours him a jug of beer.\n\nRenard sits down at the table, pulls up a second chair, and gestures you to join him.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask him about the Tree of Knowledge", 130));
+        Choices.push_back(Choice::Base("Learn about the other travellers in the inn", 145));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story073 : public Story::Base
+{
+public:
+    Story073()
+    {
+        ID = 73;
+
+        Text = "You stand up sharply when a thorn suddenly grows out of the branch on which you are sitting and pricks your bottom.\n\nThe appearance of the Lady in Grey changes. she is old again, as she appeared in the inn. She looks weary and downcast but resolute. \"If you do not quit the forest quickly the birds and the beasts will see to it that you never return to the lands of men.\"\n\nYou wander in the forest for many days. One day, you come across the bodies of hundreds of elves lying among the trees. It looks as though someone had just switched off their life force all at once -- some even died in the middle of eating their supper. The forest is doomed and so are you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story074 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story074()
+    {
+        ID = 74;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "It is a difficult leap, made harder by the dragon slowly rearing up onto its legs.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            PreText += "\n\nYou leap into the air but the dragon twitches its head away and you miss the target. With nothing to land on, you plummet twenty feet to the ground, landing almost underneath one of the creature's massive claws.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 86;
+        }
+        else
+        {
+            return 59;
+        }
+    }
+};
+
+class Story075 : public Story::Base
+{
+public:
+    Story075()
+    {
+        ID = 75;
+
+        Text = "\"The Westermen hate spiders. They say the spiders are ugly, poisonous and unnatural. To them spiders are the evil creatures of the Demoness. It does no harm to the forest to kill a spider. Are they right, these Westermen?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("There is no harm in killing spiders", 51));
+        Choices.push_back(Choice::Base("It is bad to kill spiders", 89));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story076 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story076()
+    {
+        ID = 76;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORD(player, Codeword::Type::WINDFACE))
+        {
+            PreText = "You take up position in the circle on the east side, where the ground is uneven and the wind is in your face.";
+        }
+        else
+        {
+            PreText = "You take up position in the circle on the west side, where the ground is flattest and the wind is at your back.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 110; }
+};
+
+class Story077 : public Story::Base
+{
+public:
+    Story077()
+    {
+        ID = 77;
+
+        Text = "Nothing in your life so far has prepared you for the first sight of the great Sirion river. The furthest bank -- or perhaps it is just a large island in midstream -- seems to be three miles away. Its roiling waters carry a multitude of dead tree branches towards the sea, like a vein carrying detritus out of a body.\n\nAcross the river the treeline is unbroken. You are deep in the rainforest now. The gigantic trees spread their branches more than a hundred feet from the ground here. At the river's edge mangroves reach far out into the water; bloated river buffalo shelter beneath their arching roots. It is hard going here. At every other step you sink into oozing mud.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 44; }
+};
+
+class Story078 : public Story::Base
+{
+public:
+    Story078()
+    {
+        ID = 78;
+
+        Text = "You trudge on, singling out and mentally marking individual trees as far away as you can see with the object of keeping them in sight so you don't walk in circles. Each time you reach your target tree you look back and try to identify the one you left behind so that you can choose another tree to make for in the same general direction. It is tiring work, and it exhausts you in body and mind.\n\nAs you walk on you eventually see gaunty grey crags jump out of the forest. It is a relief to find clear landmarks at last. The forest is broken here, as only grass can grow on where the soil is thin above the grey rock.\n\nYou walk out of the gloom into bright sunlight that hurts your eyes. There are countless paths leading back into the forest in all directions. As you stand contemplating which way to choose, a voice above and behind you says, \"Lost, are you?\"\n\nYou turn round and look up. All you can see is a silver-feathered owl perched on top of an outcrop.\n\n\"Lost, are you?\" the voice says again. It sounded as if the voice came from the owl but its beak didn't move.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!(Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORD(player, Codeword::Type::CRABCLAW)) && !(Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORD(player, Codeword::Type::TWINHEAD)))
+        {
+            Choices.push_back(Choice::Base("Admit you are lost", 258));
+            Choices.push_back(Choice::Base("Ignore the voice and walk on, picking one of the many ways at random", 277));
+        }
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORD(player, Codeword::Type::CRABCLAW))
+        {
+            return 440;
+        }
+        else
+        {
+            return 459;
+        }
+    }
+};
+
+class Story079 : public Story::Base
+{
+public:
+    Story079()
+    {
+        ID = 79;
+
+        Text = "The dragon seems to read your mind. The monster flicks its tails and licks its lips.\n\n\"Walk into the cavern and behold my hoard which has been garnered from palaces across the whole world. Many of my treasures are old, so very old, that they have a tale to tell.\"\n\nThe dragon bats you with a mighty claw, bowling you over so you fall to the ground. Once you have gotten back on your feet, the ancient creature ushers you forward into the dark cavern. Entering, you stop for a moment to adjust to the dim light. Blinking in astonishment, your jaw goes slack at the sight before you. You stare in awe at the veritable mountain of golden coins, goblets, candelabra and jewellery that comprise the dragon's treasure trove.\n\n\"All the gold and jewels you can carry I give to you,\" says the dragon.\n\nAt the creature's words, some of the coins fly up into the air and push themselves against you. Soon you are covered in a golden crust which has gathered like barnacles do on the hull of a ship. Although your arms and legs are left free, you are terribly weighed down by the fortune that is now stuck to you. You try to prise the coins away but they are stuck fast by the magic of the dragon.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 19; }
 };
 
 auto prologue = Prologue();
@@ -1802,6 +2041,16 @@ auto story066 = Story066();
 auto story067 = Story067();
 auto story068 = Story068();
 auto story069 = Story069();
+auto story070 = Story070();
+auto story071 = Story071();
+auto story072 = Story072();
+auto story073 = Story073();
+auto story074 = Story074();
+auto story075 = Story075();
+auto story076 = Story076();
+auto story077 = Story077();
+auto story078 = Story078();
+auto story079 = Story079();
 
 void InitializeStories()
 {
@@ -1813,7 +2062,8 @@ void InitializeStories()
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
         &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
-        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069};
+        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
+        &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079};
 }
 
 #endif
