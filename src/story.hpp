@@ -3444,6 +3444,187 @@ public:
     }
 };
 
+class Story160 : public Story::Base
+{
+public:
+    Story160()
+    {
+        ID = 160;
+
+        Text = "As soon as you make the jump to clear the ring of flame, the fire vanishes without even a trace of smoke. The chipmunk too has vanished. Instead you are surrounded by a circle of elves who have appeared as if by magic.\n\nThe elves look solemn but not hostile. Their faces have the perfect beauty of unsullied youth, but their green almond eyes are like windows that open to the wisdom of the centuries. Their skin is flawless pale green with a silvery dusting like grape bloom. Their long straight hair is the colour of rich red wine.\n\nThey seem not in the least surprised to see you. You wait for them to say something but they seem in no hurry, so you tell them you are a friend of the forest and an enemy of the burners.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 180; }
+};
+
+class Story161 : public Story::Base
+{
+public:
+    Story161()
+    {
+        ID = 161;
+
+        Text = "Gathkeri closes in, still circling but moving ever closer, until he suddenly launches into a flurry of kicks aimed at your head. You parry them with your arms up high and step into the right, watching his movements, learning so that you can anticipate what he will do. Now that you have assessed his fighting style you can see that he uses kicks better than punches, and deduce that he might not be able to fight so well at close quarters. Armed with this knowledge you can probably beat him.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to grapple him", 183));
+        Choices.push_back(Choice::Base("Attack him with your fists and feet", 172));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story162 : public Story::Base
+{
+public:
+    Story162()
+    {
+        ID = 162;
+
+        Text = "You tell them of your quest to find the Tree of Knowledge in the Forest of Arden, after which the taller of the two introduces himself as Renard the Guide.\n\n\"You will need a guide in the forest, or you'll be lost, never to see the lands of men again.\"\n\n\"Renard doesn't know the whereabouts of this tree you seek, I'll warrant,\" comments Marek.\n\n\"What would a hunter know of the Tree of Knowledge?\"\n\nThe hunter turns away; his parting shot is: \"About as much as you, Renard, and that is nothing at all.\" He walks over to the kitchen door to talk to the young woman, who pours him jug of beer.\n\nRenard sits down at a table, draws up a second chair and gestures for you to join him.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask him about the Tree of Knowledge", 130));
+        Choices.push_back(Choice::Base("Learn more about the other travellers", 145));
+        Choices.push_back(Choice::Base("Ask the hunter about he monster he has seen", 281));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story163 : public Story::Base
+{
+public:
+    Story163()
+    {
+        ID = 163;
+
+        Text = "To your shame you have lost the duel and failed the elven test. The elves vanish back into the forest, warning you to return straight to Burg or you will suffer a death of a thousand bites and stings here in the forest.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 384; }
+};
+
+class Story164 : public Story::Base
+{
+public:
+    Story164()
+    {
+        ID = 164;
+
+        Text = "The ants inject poison with every bite. You take more than a hundred bites as you toil uphill, at last abandoning flight and stripping off your gear in a final effort to scrape the ants from your skin.\n\nIt is too late: the venom weakens your muscles and you sink helpless to the forest floor, mercifully losing consciousness before the ants consume you. Within minutes they strip your flesh to the bone. It does not do to have the whole forest against you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story165 : public Story::Base
+{
+public:
+    Story165()
+    {
+        ID = 165;
+
+        Text = "Turning your back on a dragon is never wise. The ancient creature pins you to the ground beneath a huge claw. You look up from the massive green scaled claw to the smouldering red eyes thirty feet above. It wasn't as sleepy as you thought and now it thinks you were trying to kill it. The dragon opens its jaws wide and its stomach convulses. A second later a gout of poisonous gas and acid hit you like a wave. There is no surviving the breath of an ancient green dragon.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story166 : public Story::Base
+{
+public:
+    Story166()
+    {
+        ID = 166;
+
+        Text = "When you awake you are wonderfully restored to healthy vitality.\n\nElanor is nowhere to be seen. On the third finger of your right hand, however is an EMERALD RING with the stone set in a furled silver leaf. It fits perfectly. You get up, stretch your limbs, and deep in thought, rub the gem.\n\nYou feel in your bones that it is your destiny to save the forest and that you will risk your life to do so. You suffer a moment's unease as you worry about the dangers ahead, an unease that turns to deep-rooted fear. Once more you look at the ring. Is it magical? Is it the ring causing you to feel the reckless courage of a hero? Or did the blood of a hero always run in your veins?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take off the ring", 179));
+        Choices.push_back(Choice::Base("Leave the ring on if you trust Elanor", 35));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::EMERALD_RING_ELANOR});
+    }
+};
+
+class Story167 : public Story::Base
+{
+public:
+    Story167()
+    {
+        ID = 167;
+
+        Text = "Renard surlily agrees to take you up the Bonehill on the morrow, and you settle down to sleep, exhausted after days of hard travelling.\n\nAt dawn, when you awake, Renard is nowhere to be seen and neither is your money pouch. He must have stolen it while you slept before slinking away into the forest. You will never find him. He has left you penniless but at least he didn't slit your throat.\n\nYou slept soundly enough but the loss of your money has upset you, even though you can foresee no need for money here in the forest.\n\nCursing Renard, you begin to climb the slope away from the Sirion River.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.Money = 0;
+    }
+
+    int Continue(Character::Base &player) { return 237; }
+};
+
+class Story168 : public Story::Base
+{
+public:
+    Story168()
+    {
+        ID = 168;
+
+        Text = "The black tarty goo smells of putrefaction and does not deter the bees at all. You start to run as the swarm of bees settles around your head, but you have left it too late. Death from a hundred bee stings is not pleasant. Your neck swells until your windpipe is closed tight up and you choke to death. You rue bitterly your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story169 : public Story::Base
+{
+public:
+    Story169()
+    {
+        ID = 169;
+
+        Text = "You cast your best attack spell for this situation: a magical javelin that should always find its mark. It appears in your right hand just as a silver noose materializes in the air before you. You hurl the javelin which leaves a trail of golden sparks in the air, as the silver noose rises above you and drops towards your head.\n\nBefore the noose can tighten around your neck and as the javelin flies towards him, Valerian speaks a word of negation: both his spell and yours are cancelled. The golden javelin and the silver noose disappear.\n\n\"Had I known you were a sorcerer I should not have been so short with you. A sorcerer is by nature secretive. We need not prolong our quarrel here.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack him with another spell", 206));
+        Choices.push_back(Choice::Base("Talk to the woman in grey, who seems unmoved by the violence she has seen", 181));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3605,6 +3786,16 @@ auto story156 = Story156();
 auto story157 = Story157();
 auto story158 = Story158();
 auto story159 = Story159();
+auto story160 = Story160();
+auto story161 = Story161();
+auto story162 = Story162();
+auto story163 = Story163();
+auto story164 = Story164();
+auto story165 = Story165();
+auto story166 = Story166();
+auto story167 = Story167();
+auto story168 = Story168();
+auto story169 = Story169();
 
 void InitializeStories()
 {
@@ -3625,7 +3816,8 @@ void InitializeStories()
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
         &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
-        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159};
+        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
+        &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169};
 }
 
 #endif
