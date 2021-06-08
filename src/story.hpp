@@ -709,7 +709,7 @@ public:
 
         Image = "images/filler3.png";
 
-        Text = "The imp puts on the emerald ring as if it were a bracelet, and then tries to rip it off again. But the band of gold constricts until it is a perfect fit around his wrist.\n\n\"Alack, alack, I can never take this cursed thing off,\" the imp laments.\n\n\"Help me, and I will remove the ring.\"\n\n\"I am the Kwerrel, and the Kwerrel keeps no bargains.\"\n\n\"Then you are a prisoner of the Lady of the Forest's ring for ever and every being in the forest will know that you are not her friend,\" you say.\n\nQuailing at your words, the Kwerrel says, \"Take the flesh of the toadstool. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nAs the imp speaks the gold ring grows and falls from his wrist to lie on the ground near the giant toadstool. You pick it up again, take a large piece of the flesh of the toadstool. Bidding the little imp goodbye, you walk back into the forest.\n\nYou RECEIVED a TOADSTOOL FLESH.";
+        Text = "The imp puts on the EMERALD RING as if it were a bracelet, and then tries to rip it off again. But the band of gold constricts until it is a perfect fit around his wrist.\n\n\"Alack, alack, I can never take this cursed thing off,\" the imp laments.\n\n\"Help me, and I will remove the ring.\"\n\n\"I am the Kwerrel, and the Kwerrel keeps no bargains.\"\n\n\"Then you are a prisoner of the Lady of the Forest's ring for ever and every being in the forest will know that you are not her friend,\" you say.\n\nQuailing at your words, the Kwerrel says, \"Take the flesh of the toadstool. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nAs the imp speaks the gold ring grows and falls from his wrist to lie on the ground near the giant toadstool. You pick it up again, take a large piece of the flesh of the toadstool. Bidding the little imp goodbye, you walk back into the forest.\n\nYou RECEIVED a TOADSTOOL FLESH.";
 
         Choices.clear();
 
@@ -1312,7 +1312,7 @@ public:
     {
         ID = 46;
 
-        Text = "Elanor, today dressed in a silver gown of gossamer silk, turns to look at you searchingly as you walk underneath the hawthorn arch. She smiles at you.\n\n\"Well, my hero, do you feel brave today? Is your resolve strong enough to do what is needed of you?\"\n\n\"I have never felt more heroic, my noble lady,\" you reply, although you know in your heart of hearts that you felt considerably braver while you were wearing Elanor's emerald ring.\n\n\"Good,\" she replies. \"Do you dare to glimpse your future, my hero?\"\n\nYou have always avoided fortune-tellers. You have noticed that if a fortune-teller gives good news, people go away content and expect good luck to come their way without the need to lift a finger. If bad lack is prophesied, a sense of helplessness afflicts the person and they might sink into a despairing activity which leads to poverty and ruin. Thus the prophecy is self-fulfilling. It is well known that those soothsayers who invariably give good auguries are never short of customers, leading you to conclude that they must be pretending to see happy events even when they should be predicting bad news, since they will simply say what people want to hear.\n\nYour doubts in Elanor's case are soon dispelled. Looking into the basin of smooth clear water it seems as though an unseen artist is hurriedly painting a picture of ghoulish horror.";
+        Text = "Elanor, today dressed in a silver gown of gossamer silk, turns to look at you searchingly as you walk underneath the hawthorn arch. She smiles at you.\n\n\"Well, my hero, do you feel brave today? Is your resolve strong enough to do what is needed of you?\"\n\n\"I have never felt more heroic, my noble lady,\" you reply, although you know in your heart of hearts that you felt considerably braver while you were wearing Elanor's EMERALD RING.\n\n\"Good,\" she replies. \"Do you dare to glimpse your future, my hero?\"\n\nYou have always avoided fortune-tellers. You have noticed that if a fortune-teller gives good news, people go away content and expect good luck to come their way without the need to lift a finger. If bad lack is prophesied, a sense of helplessness afflicts the person and they might sink into a despairing activity which leads to poverty and ruin. Thus the prophecy is self-fulfilling. It is well known that those soothsayers who invariably give good auguries are never short of customers, leading you to conclude that they must be pretending to see happy events even when they should be predicting bad news, since they will simply say what people want to hear.\n\nYour doubts in Elanor's case are soon dispelled. Looking into the basin of smooth clear water it seems as though an unseen artist is hurriedly painting a picture of ghoulish horror.";
 
         Choices.clear();
 
@@ -3625,6 +3625,202 @@ public:
     }
 };
 
+class Story170 : public Story::Base
+{
+public:
+    Story170()
+    {
+        ID = 170;
+
+        Text = "You turn your back on the chittering chipmunk, leaving it to a fiery death. But you have taken no more than three steps before you hear the rushing whine of an arrow as it heads towards you.\n\nYou attempt to dodge the unseen attack, but your action is in vain. There is a terrible stabbing pain in the middle of your back and you are knocked to your knees by the force of the shot. Looking down, you see the sharp head of a deadly elven arrow protruding from your belly; your stomach convulses and you begin to cough up blood.\n\nOut of the corner of one eye you can see your assailant: a tall, proud elf, who is standing between two great Greenbark trees. An arrow is already nocked ready for a second shot, but it proves unnecessary as the first has done its work. As your lifeblood spills onto the ground, the silent elf looks on without pity.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story171 : public Story::Base
+{
+public:
+    Story171()
+    {
+        ID = 171;
+
+        Text = "Your knowledge of the wilderness and the ways of even its smallest creatures makes this an easy question to answer. You know full well that without ants to clear away the debris of wood and leaves the forest would drown in a blanket of rot in but a few years.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 67; }
+};
+
+class Story172 : public Story::Base
+{
+public:
+    Story172()
+    {
+        ID = 172;
+
+        Text = "You close with Gathkeri and unleash a combination of kicks and punches. The elf, however, is quicker than you. At the end of the exchange of blows his foot smashes into your chest at the bottom of your ribcage, causing you to double up in pain. Gathkeri has smashed some of your ribs.\n\nThe elf gives you no time to recover. He darts in to the attack again, his feet a blur as they shoot out at your head and body.\n\nYou LOSE 5 Life Points.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try the same tactic again", 422));
+        Choices.push_back(Choice::Base("Try to grapple him", 142));
+        Choices.push_back(Choice::Base("Fallback before his attack", 381));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -5);
+    }
+};
+
+class Story173 : public Story::Base
+{
+public:
+    Story173()
+    {
+        ID = 173;
+
+        Text = "The new way you have taken plunges you deep into a dark emerald gloom, where the moisture of rotting bark seems to deaden all sound. You feel as if you are walking away from the lands of men into another time, a time of desolation and loneliness.\n\nAs you walk you begin to feel an unpleasant itching which turns to pain and, looking down, you see a horde of brown ants swarming up your legs.\n\nThere are thousands of them converging on you out of fallen trees and cracks in the earth. You run for it, brushing frantically at your body to dislodge the insects as you go.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Head uphill", 164));
+        Choices.push_back(Choice::Base("Go downhill", 199));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story174 : public Story::Base
+{
+public:
+    Story174()
+    {
+        ID = 174;
+
+        Text = "The magic bindings of the Tower of Will spell leave your mind and cross to the mind of the King of the Elves. You reach out and touch an alien mind, an old green-blooded mind that is at home here in the forest and unable to comprehend much of your thoughts.\n\nUnfortunately it is as hard for you to get a grip on the king's thoughts. His will, tempered by leadership over the millennia, is at least the match of yours, and your mind, not yet fatigued by spellcasting, retreats in confusion. In a desperate flurry of thought, you cast the Shield of Defense spell to protect yourself from his magic.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 52; }
+};
+
+class Story175 : public Story::Base
+{
+public:
+    Story175()
+    {
+        ID = 175;
+
+        Text = "You cut a length of creeper from a nearby tree to bind the elf, who does not stop you tying him to a branch. \"At least now you can stop looking at me, mortal.\"\n\nAs your gaze is obviously making the poor elf feel very uncomfortable you decide to spend a little time checking the area for any of his friends. You find none, though at any moment you expect to feel an arrow piercing your flesh.\n\nWhen you return to the branch to check on the elf, he has vanished. So has the creeper with which you tied him. All that remains is a spattering of ash on the forest floor. In the short time you were away he couldn't have gotten far so you search for him, but his woodcraft is superior to yours and you cannot find him.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 380; }
+};
+
+class Story176 : public Story::Base
+{
+public:
+    Story176()
+    {
+        ID = 176;
+
+        Text = "Apart from the hunter and the guide there are five other people in the room. Three sit together -- they look like ordinary townsfolk, suspicious but not dangerous.\n\nOf the two others, one is a woman dressed in a grey travelling robe. The cowl is thrown back to reveal grey hair and a weather-beaten face. The remaining person is a sinister-looking man in a black cloak whose face is hidden in the shadows of his cowl.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sit at the nearest table to the fire and talk to the hunter and guide", 297));
+        Choices.push_back(Choice::Base("Join the woman dressed in grey", 181));
+        Choices.push_back(Choice::Base("Have dealings with the sinister main in black", 324));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story177 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story177()
+    {
+        ID = 177;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Type = Story::Type::NORMAL;
+
+        PreText = "You choose a suitable tree. As you prepare to slash into its bark, you glance upwards at its branches. The knots on the bole remind you of the face of a wizened old man, or perhaps of the eyes of an owl.\n\nWhen you cut the bark a great flake comes off with your blade, and the pale wood beneath seems to shrink from the dim light like the stomach of an old man coughing. There is a far-away call that sounds like a howl of rage and terror lost in the wind.\n\nThe bole of the tree convulses suddenly and there is a ripping sound as its roots grow suddenly out of the ground, pinioning you.";
+
+        if (!Character::VERIFY_ITEMS(player, {Item::Type::MAPLE_FLUTE}))
+        {
+            Type = Story::Type::DOOM;
+
+            PreText += "\n\nThere is nothing you can do to save yourself as the tree, creaking and juddering, begins to sink into the ground, burying you along with it.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 222; }
+};
+
+class Story178 : public Story::Base
+{
+public:
+    Story178()
+    {
+        ID = 178;
+
+        Text = "The dragon's nostrils smoulder as it looks down its long nose at you.\n\n\"You are brave, O impudent man,\" it booms. Its voice has the timbre of thunder in a summer storm.\n\n\"Aye, when I have to be,\" you reply, recoiling at the beast's terrifying voice. All thoughts of brave action and heroism desert you.\n\n\"What is it you want with me? Do you hanker to call yourself dragon-slayer and have your name bruited about the land? Have you perhaps heard that dragons sleep on vast hoards of treasure? Or perhaps you want me to teach you magic?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say you wish to be taught the wonders of magic", 185));
+        Choices.push_back(Choice::Base("Say that you would like a tenth part of the dragon's hoard", 194));
+        Choices.push_back(Choice::Base("Say you want the dragon's help", 205));
+        Choices.push_back(Choice::Base("Say you don't want anything from the dragon", 10));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story179 : public Story::Base
+{
+public:
+    Story179()
+    {
+        ID = 179;
+
+        Text = "As you start to pull the EMERALD RING off your finger you notice the owl perched on top of the ladder looking on with its unblinking eyes.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take off the ring and throw it into the pool", 195));
+        Choices.push_back(Choice::Base("Take off the ring and keep it", 208));
+        Choices.push_back(Choice::Base("Change your mind and leave the ring on", 220));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3796,6 +3992,16 @@ auto story166 = Story166();
 auto story167 = Story167();
 auto story168 = Story168();
 auto story169 = Story169();
+auto story170 = Story170();
+auto story171 = Story171();
+auto story172 = Story172();
+auto story173 = Story173();
+auto story174 = Story174();
+auto story175 = Story175();
+auto story176 = Story176();
+auto story177 = Story177();
+auto story178 = Story178();
+auto story179 = Story179();
 
 void InitializeStories()
 {
@@ -3817,7 +4023,8 @@ void InitializeStories()
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
         &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
         &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
-        &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169};
+        &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
+        &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179};
 }
 
 #endif
