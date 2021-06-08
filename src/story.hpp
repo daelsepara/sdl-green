@@ -3232,6 +3232,218 @@ public:
     int Continue(Character::Base &player) { return 163; }
 };
 
+class Story150 : public Story::Base
+{
+public:
+    Story150()
+    {
+        ID = 150;
+
+        Image = "images/little-animal.png";
+
+        Text = "You feign nonchalance as you walk on between the beautiful Greenbark trees, which every now and then let a golden leaf fall on your brow. Though you have been hit by several leaves you never see one falling. It is as if the gargantuan trees, with their trunks as wide as towers, have been shaken slightly by your footsteps.\n\nA little way ahead there is a clearing from which you can hear the crackle of fire and see the orange flickering of flame. The sun must have set fire to the dried grass. Advancing closer, you see a chipmunk chittering in panic inside the closing ring of flames. A solid wall of fire surrounds the desperate little animal, a fire so strong that it would undoubtedly burn you horribly.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Brave the flames to save the chipmunk", 160));
+        Choices.push_back(Choice::Base("Keep out of the clearing on the grounds that you will make an easy target there", 170));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story151 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story151()
+    {
+        ID = 151;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Type = Story::Type::NORMAL;
+
+        PreText = "You surrender yourself up to the Westermen guards and are taken before a man who is clearly their chief.\n\nThe Chief of the Westermen is a balding corpulent man whose eyes seem to gleam with greed. He appraises your worth in a quick glance. \"Hmm, you look -- strong and fit -- doubtless you'll make a find log-puller.\"\n\nWithout even asking who you are or where you have come from, the Westermen chain you to a yoke beside a man who reminds you of the girl in the inn at Burg. It must be her father.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::SPELLS))
+        {
+            Type = Story::Type::DOOM;
+
+            PreText += "\n\nYou begin a life of back-breaking work, pulling tree trunks from the fellers to the sawyers for week after week, year after year. Your pitiful existence is dominated by thoughts of how you might make a desperate escape before the toil kills you. There is no escape. You live only to see the utter destruction of the Forest of Arden.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 229; }
+};
+
+class Story152 : public Story::Base
+{
+public:
+    Story152()
+    {
+        ID = 152;
+
+        Text = "\"How am I to stop them? I am a stranger here in the forest.\"\n\n\"Make the elves fight them. Kill the Westermen's leader. Wake the mighty dragon and send him forth to destroy them. If the forest perishes the whole world will die.\"\n\n\"Which of these three should I do?\" you ask. \"Or it is not as simple as that, and I must do two or even all three of these things?\"\n\n\"I do not know.\"\n\n\"Can't you talk to the elves?\"\n\n\"The elves will talk to men only on Midsummer's Day. On that day, you must find them and convince them to help you save the forest. I can never talk with elvenkind except on Midsummer's Day.\"\n\nThere are so many questions you would like to ask Elanor, but the elderflower nectar seems to be going to your head and you feel too drowsy to continue.\n\n\"Sleep now, and awake a hero.\"\n\nAs Elanor says the word sleep, your eyes shut and you sink in deep slumber.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 166; }
+};
+
+class Story153 : public Story::Base
+{
+public:
+    Story153()
+    {
+        ID = 153;
+
+        Image = "images/filler2.png";
+
+        Text = "Renard thanks you for the six pieces of gold. \"It's not that I'm a coward, you understand. It's just that nobody in their right mind would brave the Bonehill.\"\n\nYou awake at dawn in time to glimpse Renard's disappearing back. It seems he doesn't want to stay a moment longer than he has to. You slept soundly and feel invigorated and confident as you begin to climb the slop away from the Sirion river.\n\nYou RECOVER 2 Life Points.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_MONEY(player, -6);
+
+        Character::GAIN_LIFE(player, 2);
+    }
+
+    int Continue(Character::Base &player) { return 237; }
+};
+
+class Story154 : public Story::Base
+{
+public:
+    Story154()
+    {
+        ID = 154;
+
+        Text = "\"Then tell your masters that Burg is a broken-down little hamlet soon to be swamped by the forest. Go and tell them there is nothing for them here.\"\n\nThe man in black steps forward. You can see a hatchet-shaped face inside the cowl of his robe and a pointed black goatee beard. He is flanked by the two who were by the fire.\n\n\"We don't take to foreigners. You better leave Burg before we set the dogs on you.\"\n\nIt seems they think you are a spy sent out to find rich towns to pillage and despoil. You decide to leave while you can still walk.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 117; }
+};
+
+class Story155 : public Story::Base
+{
+public:
+    Story155()
+    {
+        ID = 155;
+
+        Text = "You grab the phial and gulp down the cloudy blue fluid. The owl, perched on a tree, watches as unblinking as ever.\n\n\"You have just drunk the mulch of the fire lizard's gizzard. You have not long to live.\"\n\nThe owl is right. Your throat goes into spasm as the poison starts to work and soon you cannot breathe. You fall to the ground writhing in agony, but it is not long before unconsciousness brings merciful release from the pain of the poison.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story156 : public Story::Base
+{
+public:
+    Story156()
+    {
+        ID = 156;
+
+        Text = "Crushed by despair you realize you will never find your way out of the forest. There is nothing you can eat here -- everything tastes of poison, even the dead leaves. You try eating some of the earwigs in the leaf litter but their blood burns your mouth like acid.\n\nBeyond caring, you push your way into the undergrowth, heedless of the purple thorns that rip your flesh. The bushes are not as thick as you believed. You crash through into a dark avenue between tall slender trees growing so close together you cannot force your way between their trunks. Resigned to your fate you walk on down the avenue for what seems an age.\n\nYou start to pass bodies lying where they have fallen, one at a time, and then a forlorn-looking group, huddled together. Exhausted and starving like the others before, you give up hope and lie down to die.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::WILDERNESS_LORE))
+        {
+            return 251;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+};
+
+class Story157 : public Story::Base
+{
+public:
+    Story157()
+    {
+        ID = 157;
+
+        Text = "Squirming quickly round to the statue's back you work at the screws. Two come free and the head starts to tilt. With one great forearm smash you knock it off and the Infernal Statue lurches back from the Tree of Life. Inside the machine is a small man who cannot defend himself. You rain blows down on his head and he slumps forward, knocking the strange levers inside the machine and sending it striding towards the deep blue pool.\n\nIt totters on the brink of the pool and you leap clear just as it keels over into the water. There is a rush of steam like a geyser, followed by an explosion underwater as the machine tears itself apart. The Westermen cry out in alarm and begin to retreat, harried by the arrows of the elves.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 500; }
+};
+
+class Story158 : public Story::Base
+{
+public:
+    Story158()
+    {
+        ID = 158;
+
+        Text = "\"You want my help, what is in it fore me then? How will you pay your side of the bargain?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Offer the little imp some gold (10 gold pieces)", 214, Choice::Type::MONEY, 10));
+        Choices.push_back(Choice::Base("Beg him to help you for the sake of the forest and all who dwell there", 225));
+        Choices.push_back(Choice::Base("Offer him the Lady of the Forest's EMERALD RING if you have it", 236, {Item::EMERALD_RING_ELANOR}));
+        Choices.push_back(Choice::Base("Offer him a magic potion if you are carrying one", 160, Choice::Type::ANY_ITEM, {Item::POTION_CLOUDY_BLUE, Item::JAR_WHITE_JELLY, Item::POTION_RED_LIQUID}));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story159 : public Story::Base
+{
+public:
+    Story159()
+    {
+        ID = 159;
+
+        Text = "A slender elf with moon-coloured hair steps forward to answer his monarch's summons. He carries a bow of silver-chased ivory, and the fletching of the arrows in his quiver is purest white. \"Your opponent will be Huldranas,\" the Elf King tells you. He points to a tall tree. \"That branch will be the target.\"\n\nYou look where he is pointing, then glance back at him. \"Which branch?\"\n\n\"The one where the orchid grows.\"\n\nYou look back. You had not noticed before the flower blazing like a pale jewel against the black bark of the tree. Huldranas gestures for you to take the first shot. You nock on an arrow and send it sailing up towards the branch. It strikes wide of the orchid, but it was only intended as a ranging shot. At least now you have a good sense of the allowance you need to make for height and wind speed.\n\nHuldranas' arrow flashes from his bow. It impales one of the petals of the orchid. He turns to you with a casual look that betrays neither arrogance not tension. Again without a word, he gestures for you to shoot.\n\nAs you sight along your arrow, you consider what to do.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go for a cautious shot, since Huldranas' first arrow might have been lucky", 320));
+        Choices.push_back(Choice::Base("Attempt a shot slightly better than his, perhaps striking the orchid in its centre", 469));
+        Choices.push_back(Choice::Base("Try an extremely difficult but impressive shot, such as shooting through the thin twig at the end of the branch", 276));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3383,6 +3595,16 @@ auto story146 = Story146();
 auto story147 = Story147();
 auto story148 = Story148();
 auto story149 = Story149();
+auto story150 = Story150();
+auto story151 = Story151();
+auto story152 = Story152();
+auto story153 = Story153();
+auto story154 = Story154();
+auto story155 = Story155();
+auto story156 = Story156();
+auto story157 = Story157();
+auto story158 = Story158();
+auto story159 = Story159();
 
 void InitializeStories()
 {
@@ -3402,7 +3624,8 @@ void InitializeStories()
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
-        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149};
+        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
+        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159};
 }
 
 #endif

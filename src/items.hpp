@@ -17,8 +17,14 @@ namespace Item
         TOADSTOOL_FLESH,
         EMERALD_RING_ELANOR,
         EMERALD_RING,
+        POTION_CLOUDY_BLUE,
+        POTION_RED_LIQUID,
+        POTION_TARRY_BLACK,
+        JAR_COLOURED_EARTH,
+        JAR_WHITE_JELLY,
+        ELVEN_DIRK,
         First = MAGIC_AMULET,
-        Last = EMERALD_RING
+        Last = ELVEN_DIRK
     };
 
     class Base
@@ -61,6 +67,12 @@ namespace Item
     auto TOADSTOOL_FLESH = Item::Base("TOADSTOOL FLESH", "TOADSTOOL FLESH", Item::Type::TOADSTOOL_FLESH);
     auto EMERALD_RING_ELANOR = Item::Base("Elanor's EMERALD RING", "Elanor's EMERALD RING", Item::Type::EMERALD_RING_ELANOR);
     auto EMERALD_RING = Item::Base("EMERALD RING", "EMERALD RING", Item::Type::EMERALD_RING);
+    auto POTION_CLOUDY_BLUE = Item::Base("CLOUDY BLUE POTION", "CLOUDY BLUE POTION", Item::Type::POTION_CLOUDY_BLUE);
+    auto POTION_RED_LIQUID = Item::Base("POTION OF RED LIQUID", "POTION OF RED LIQUID", Item::Type::POTION_RED_LIQUID);
+    auto POTION_TARRY_BLACK = Item::Base("TARRY BLACK POTION", "TARRY BLACK POTION", Item::Type::POTION_TARRY_BLACK);
+    auto JAR_COLOURED_EARTH = Item::Base("JAR OF COLOURED EARTH", "JAR OF COLOURED EARTH", Item::Type::JAR_COLOURED_EARTH);
+    auto JAR_WHITE_JELLY = Item::Base("JAR OF WHITE JELLY", "JAR OF WHITE JELLY", Item::Type::JAR_WHITE_JELLY);
+    auto ELVEN_DIRK = Item::Base("ELVEN DIRK", "ELVEN DIRK", Item::Type::ELVEN_DIRK);
 
     std::vector<Item::Type> UniqueItems = {Item::Type::MAPLE_FLUTE, Item::Type::EMERALD_RING_ELANOR, Item::Type::EMERALD_RING};
 
