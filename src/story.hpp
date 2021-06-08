@@ -2342,7 +2342,7 @@ public:
         Text = "Your spell of Bafflement crosses unseen the space that separates you and the King of the Elves, silently invading his mind. His eyes look at you, blankly uncomprehending, and the two false images that his magic created just flicker and die away. The king is powerless; he is far too confused to attempt a spell or even move from the spot. Unfortunately he is also too baffled to realize the time has come for him to submit to you and acknowledge you the winner of the duel.\n\nUnder the rules of a duel you can only use magic to subdue him so you let the Bafflement fade and prepare another spell.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Cast Visceral Disruption" , 111));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 111));
         Choices.push_back(Choice::Base("Cast Tower of will", 71));
 
         Controls = Story::Controls::STANDARD;
@@ -2488,6 +2488,212 @@ public:
     int Continue(Character::Base &player) { return 120; }
 };
 
+class Story110 : public Story::Base
+{
+public:
+    Story110()
+    {
+        ID = 110;
+
+        Text = "You review the spells you can cast against the King of the Elves in the duel.\n\nVANISH allows you to disappear and move unseen. CHOKING FOG brings a cloud of poisonous gas. VISCERAL DISRUPTION causes crippling stomach cramps. SHIELD OF DEFENSE protects against manifest magical attacks. BAFFLEMENT makes your foe unable to understand what is happening. VISIONS creates two false illusions of yourself. TOWER OF WILL subdues your enemy and makes him do your will.\n\nThe elven bard announces the beginning of the duel. You are shocked at the swiftness of elven king's magic. Before you have even fully contemplated which spell to use, he cries a single word of power and vanishes. A moment later he reappears along with two exact copies of himself. You can't tell which is which because all three appear motionless. You must quickly decide which spell to use first.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Vanish", 122));
+        Choices.push_back(Choice::Base("Cast Choking Fog", 143));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 347));
+        Choices.push_back(Choice::Base("Cast Shield of Defense", 326));
+        Choices.push_back(Choice::Base("Cast Bafflement", 347));
+        Choices.push_back(Choice::Base("Cast Visions", 249));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 174));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story111 : public Story::Base
+{
+public:
+    Story111()
+    {
+        ID = 111;
+
+        Text = "You mouth the strange words that set off Visceral Disruption. A spasm wracks the King of the Elves and he tries to stop himself clutching his stomach as the spell twists his guts.\n\nYou have never known anyone who could remain standing under the effects of this agonizing spell, but it is taking all of the Elf King's will. He cannot cast another spell.\n\n\"Cancel the spell, mortal. I concede victory to your sorcery,\" the King of the Elves says from between clenched teeth.\n\nKnowing how unpleasant the spell can be and out of compassion for the king, you quickly comply. You have won the duel.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story112 : public Story::Base
+{
+public:
+    Story112()
+    {
+        ID = 112;
+
+        Text = "\"Do you think that the knowledge of the Tree of Life should be passed on to man so mankind can benefit from the tree's wisdom? Or are men too greedy and selfish to be trusted with this great wisdom?\" she asks.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Reply that wise men rule well and that you hope to take the wisdom of the Tree of Life back", 104));
+        Choices.push_back(Choice::Base("Say that the knowledge must be guarded as a secret treasure and not given to men at large because man cannot be trusted", 140));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story113 : public Story::Base
+{
+public:
+    Story113()
+    {
+        ID = 113;
+
+        Text = "For a moment your Bafflement spell seems to have had little effect: the statue's sword arm rises and falls like a mindless piston. Soon, however, the sword starts to miss its mark, flailing pointlessly through the air. There are cries of alarm from the Westermen, who then begin to fall silent as the Infernal Statue lurches a few steps away from the tree and teeters near the edge of the deep blue pool.\n\nIt lapses into inaction -- it would seem truly baffled. How will you followup with your success?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 362));
+        Choices.push_back(Choice::Base("Cast Choking Fog", 31));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 207));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story114 : public Story::Base
+{
+public:
+    Story114()
+    {
+        ID = 114;
+
+        Text = "Your confident announcement fails to enthral the Elf King as you had hoped. Instead he only shakes his head slowly, the look in his eyes reflecting some inner emotion unknown to mortal men. Just as you open your mouth to try another guess, he comes striding rapidly forward to throw his cloak up in front of your eyes. There is no time to react before your vision is blotted out in a rustle of soft green fabric. A scent wafts to you, reminiscent of meadows and leafy lanes in summer.\n\nReaching up to pull aside the folds of the cloak, your fingers close only on a handful of fresh green leaves. You look around. The elves have vanished. You have no choice but to turn and trudge through the trees, calling out for them to return. But your pleas are unanswered except by the song of the birds and the murmuring of a distant brook.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 78; }
+};
+
+class Story115 : public Story::Base
+{
+public:
+    Story115()
+    {
+        ID = 115;
+
+        Image = "images/filler3.png";
+
+        Text = "While you wait, quite still behind the chief's chair, you hear a visitor being announced. \"It is Valerian the Moon Druid, sire, he has important news. Shall we let him come in?\"\n\n\"Aye, let him.\" The speech of the Westermen is guttural and uncouth-sounding but you can understand their dialect.\n\nIt is the man you first saw in the inn at Burg. He is still dressed in a black travelling cloak but the hood is thrown back to reveal his hatchet-like face and pointed black goatee beard. He bows before the chief, then wrinkles his nose and stares at thin air in your general direction.\n\n\"I have driven off the tree bears, you will have no more trouble from them,\" he tells the chief. He sniffs again and moves his head from side to side while fixing his gaze just above your head, giving him a most comical air.\n\nThe chief spreads out the map of the forest and his advisers gather round, almost blocking your exit.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to get away now", 29));
+        Choices.push_back(Choice::Base("Wait to see what they may plan", 4));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story116 : public Story::Base
+{
+public:
+    Story116()
+    {
+        ID = 116;
+
+        Text = "You nimbly climb up on top of the dragon's head perching behind its glittering eyes. The monster reaches a claw up over its shoulder to flick you off onto the ground.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to kill the dragon", 135));
+        Choices.push_back(Choice::Base("Talk to it", 178));
+        Choices.push_back(Choice::Base("Try to dodge the claw", 133));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story117 : public Story::Base
+{
+public:
+    Story117()
+    {
+        ID = 117;
+
+        Image = "images/filler1.png";
+
+        Text = "It is a cold and blustery night. You look for another inn but there is none. The houses are shuttered and the doors are barred. You try knocking but all your attempts at seeking entry are ignored. The inhabitants really don't like strangers here.\n\nA woman shouts from a top window, \"You'd best get outside the gates before they turn the dogs loose in the streets.\"\n\nAs she speaks you hear the baying of a pack of dogs from near the gate. You walk quickly through. The dog handlers seem to be sizing you up as quarry as they shut the gate behind you.\n\nYou pass a cold, damp night outside the town, awakening stiff and soaked through in the morning. You are only too glad to leave Burg behind you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 210; }
+};
+
+class Story118 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story118()
+    {
+        ID = 118;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Break the mirror", 418));
+        Choices.push_back(Choice::Base("Otherwise", 105));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "There is a tingling pins-and-needles feeling as the sprite's magic takes effect.\n\n\"Now do as you promised,\" urges the sprite in the mirror. \"Free me.\"";
+
+        if (player.Life == player.MAX_LIFE_LIMIT)
+        {
+            PreText += "\n\nYou GAIN a PERMANENT +1 Life Point.";
+
+            player.MAX_LIFE_LIMIT += 1;
+
+            Character::GAIN_LIFE(player, 1);
+        }
+        else
+        {
+            PreText += "\n\nYour Life Points are RESTORED.";
+
+            player.Life = player.MAX_LIFE_LIMIT;
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story119 : public Story::Base
+{
+public:
+    Story119()
+    {
+        ID = 119;
+
+        Image = "images/imp.png";
+
+        Text = "The archway leads into a tunnel that has been cut through the thick branches and thorns of the bell-shaped bush. You walk on towards the great open space that surrounds the trunk of the bush.\n\nLooking back, however, you cannot make out the archway at all, even though it should be directly behind you. You press on anyway until you hear a chirruping little voice say, \"Welcome, sirrah, 'tis a pretty place to spend the rest of your days, is it not?\"\n\nA strange little man the size of a small capuchin monkey sits cross-legged on a giant toadstool. Even in the dim light you can see the fungus is liver-spotted and looks poisonous.\n\n\"Come, share my provender,\" invites the little man as he breaks off a piece of the toadstool on which he is sitting. He offers it to you. \"Share my provender, there is nothing more helpful to a hero than the flesh of the Blood of Iron toadstool.\" The little imp proffers it to you with an elaborate bow.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take and eat the flesh", 138));
+        Choices.push_back(Choice::Base("Kill the little man", 148));
+        Choices.push_back(Choice::Base("Ask him to help you in your quest", 158));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -2599,6 +2805,16 @@ auto story106 = Story106();
 auto story107 = Story107();
 auto story108 = Story108();
 auto story109 = Story109();
+auto story110 = Story110();
+auto story111 = Story111();
+auto story112 = Story112();
+auto story113 = Story113();
+auto story114 = Story114();
+auto story115 = Story115();
+auto story116 = Story116();
+auto story117 = Story117();
+auto story118 = Story118();
+auto story119 = Story119();
 
 void InitializeStories()
 {
@@ -2614,7 +2830,8 @@ void InitializeStories()
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
-        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109};
+        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
+        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119};
 }
 
 #endif
