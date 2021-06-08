@@ -16,8 +16,9 @@ namespace Item
         MAPLE_FLUTE,
         TOADSTOOL_FLESH,
         EMERALD_RING_ELANOR,
+        EMERALD_RING,
         First = MAGIC_AMULET,
-        Last = EMERALD_RING_ELANOR
+        Last = EMERALD_RING
     };
 
     class Base
@@ -58,9 +59,10 @@ namespace Item
     auto JEWEL = Item::Base("JEWEL", "JEWEL", Item::Type::JEWEL);
     auto MAPLE_FLUTE = Item::Base("MAPLE FLUTE", "MAPLE FLUTE", Item::Type::MAPLE_FLUTE);
     auto TOADSTOOL_FLESH = Item::Base("TOADSTOOL FLESH", "TOADSTOOL FLESH", Item::Type::TOADSTOOL_FLESH);
-    auto EMERAL_RING_ELANOR = Item::Base("EMERALD RING", "EMERALD RING", Item::Type::EMERALD_RING_ELANOR);
+    auto EMERALD_RING_ELANOR = Item::Base("Elanor's EMERALD RING", "Elanor's EMERALD RING", Item::Type::EMERALD_RING_ELANOR);
+    auto EMERALD_RING = Item::Base("EMERALD RING", "EMERALD RING", Item::Type::EMERALD_RING);
 
-    std::vector<Item::Type> UniqueItems = {Item::Type::MAPLE_FLUTE, Item::Type::EMERALD_RING_ELANOR};
+    std::vector<Item::Type> UniqueItems = {Item::Type::MAPLE_FLUTE, Item::Type::EMERALD_RING_ELANOR, Item::Type::EMERALD_RING};
 
     bool IsUnique(Item::Type item)
     {

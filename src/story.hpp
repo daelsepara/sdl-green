@@ -2694,6 +2694,185 @@ public:
     }
 };
 
+class Story120 : public Story::Base
+{
+public:
+    Story120()
+    {
+        ID = 120;
+
+        Image = "images/elves.png";
+
+        Text = "You are surrounded by a circle of elves, all of whom seem to have appeared as if by magic. They look solemn but not hostile. Their faces have the perfect beauty of unsullied youth but their green almond-shaped eyes are like windows onto the wisdom of the centuries. Their skin is flawless pale green with a silvery bloom like grape bloom. Their long straight hair is the colour of rich red wine. They seem not in the least surprised to see you.\n\nYou wait for them to say something but they seem in no hurry, so you tell men you are a friend of the forest and an enemy of the burners.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 180; }
+};
+
+class Story121 : public Story::Base
+{
+public:
+    Story121()
+    {
+        ID = 121;
+
+        Text = "Seeing your eyes measuring the left of the three images, the one you are looking at smiles imperturbably, but something tells you, you have guessed correctly.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Bafflement", 101));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 111));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 91));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story122 : public Story::Base
+{
+public:
+    Story122()
+    {
+        ID = 122;
+
+        Text = "You cry a single word of power and vanish, then move slowly and silently in a circle to your right while you prepare another spell.\n\nAs you creep silently along, you notice to your dismay the faces of all the elves turned towards you. Several are grinning. The King of the Elves is looking straight at you as he mouths another incantation.\n\nYour legs feel as if they have turned to jelly and you cannot stop yourself collapsing to the ground.\n\n\"Submit, mortal, I have defeated you,\" cries the King of the Elves.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Do as he requests", 255));
+        Choices.push_back(Choice::Base("Fight on", 272));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story123 : public Story::Base
+{
+public:
+    Story123()
+    {
+        ID = 123;
+
+        Text = "The King of the Elves draws a green silk veil from his waist, holds it up and lets it fall from in front of his eyes.\n\n\"See your peril, mortal, and despair.\"\n\nHis words ring out as though your skull was a vast hollow chamber and the elf was exhorting you from within it, his words rolling through your senses like ocean waves. As the veil falls it is as if scales had dropped from your eyes. You see the forest for what it is, a hostile place, inimical to man. Everything around you is united against your intrusion. The plants will snare you and tear you limb from limb, with the slow strength of growth. The ants will eat you alive. Stinging insects will plague you and bears will maul you. You do indeed despair at the awful nature of your plight. Losing reason you flee in fear. As the veil falls lightly to the ground, so the terror passes and you stop.\n\n\"You have stepped outside the circle, mortal, and forfeited the duel. I am the victor,\" says the king.\n\nHis magic made you break the rules and lose.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 163; }
+};
+
+class Story124 : public Story::Base
+{
+public:
+    Story124()
+    {
+        ID = 124;
+
+        Text = "\"It is my intention to search for the Tree of Knowledge in the Forest of Arden,\" you announce in a firm clear voice.\n\nAs your eyes become accustomed to the gloom you can begin to make out details of those in the room. The black-cowled man merely stares inscrutably. A woman, old and weather-beaten, in a grey robe, looks up at you with interest. The two who were at the fire stand up and walk over to you. The shorter one has a face that reminds you of a bull-mastiff. \"Why would you seek the Tree of Knowledge?\" he asks. \"What use it is to you, a southerner?\"\n\n\"Fool, don't speak to him of the tree,\" interrupts the man in black. \"All must be left as it is, nothing changed. The knowledge of the tree is lost to men and it is better that way.\"\n\nThe woman speaks with a clear voice that sounds too young for her age. \"You would have it that way. You are not at one with the forest. Because the tree sees your evil heart, you seek to keep its knowledge and pervert it.\"\n\n\"You dare to say I am no friend of the forest?\" The black cowled man surges to his feet and the cowl slips back to reveal a bald head, a hatchet-thin face with a long black goatee beard and eyes of flint.\n\n\"You lost your way in the forest many years ago.\"\n\n\"I didn't need you to find me, old woman. You only dare challenge me now because you think these simple folk of Burg can offer you protection.\"\n\n\"You know full well I am at my strongest in the forest, Valerian,\" says the woman. \"The beasts follow me. They sense your evil.\"\n\n\"There is a new power astir in the forest,\" he retorts. \"It will sweep you and all your bestial followers aside like chaff in the wind.\"\n\n\"There is no cause to fill the hearts of good people of Burg with dismay. I know of what you speak...\"\n\nHe sneers. \"Much good may the knowledge do you, old one. Haven't you heard the song of the wind? The time of man has come to the forest. All must change -- or pass away.\"\n\nValerian speaks the last words in such dire tones that three townsfolk at the nearby table hastily leave the inn. Valerian himself twitches his cloak around him and follows them out, pausing to give you a last look as though committing your face to memory.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take a room at the inn for the night", 333));
+        Choices.push_back(Choice::Base("Talk to the hunter and the guide who are by the fire", 297));
+        Choices.push_back(Choice::Base("Talk to the woman in grey", 181));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story125 : public Story::Base
+{
+public:
+    Story125()
+    {
+        ID = 125;
+
+        Text = "Your parting makes the dragon wrinkle up its nose and there is a roar as it starts to sneeze. Its breath is a mixture of acid and poisonous gas. It hits you like a wave of blistering, burning pain. There is no surviving the breath of an ancient dragon.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story126 : public Story::Base
+{
+public:
+    Story126()
+    {
+        ID = 126;
+
+        Text = "You shake your head. \"Better that I retain it for now. If we are to be allies, what better token that I fight for the elves than that their king has entrusted me with his royal symbol?\"\n\nHe knows you have guessed him aright. If you had returned the ring, the elves would no doubt have found some way to back out of their bargain. Now they are bound to fight beside you, and your carefully chosen words allow the king to accede to this without losing his dignity. His eyes show a flicker of grudging admiration as he says, \"Well spoken, mortal. Now let us feast and discuss our plans.\"\n\nYou RECEIVED an EMERALD RING.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::EMERALD_RING});
+    }
+
+    int Continue(Character::Base &player) { return 232; }
+};
+
+class Story127 : public Story::Base
+{
+public:
+    Story127()
+    {
+        ID = 127;
+
+        Text = "A chameleon on a tree changes colour to pale yellow as you walk past it. A beautiful silken-winged butterfly, black and scarlet, settles on your shoulder and spreads its wings in the sun. You are beginning to feel harmony with the forest at last. You journey on, hopeful and determined.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 277; }
+};
+
+class Story128 : public Story::Base
+{
+public:
+    Story128()
+    {
+        ID = 128;
+
+        Text = "\"Abide with me for a while.\" Elanor requests. \"I can teach you something about the forest and its ways. And I can put you to the test again, to see if you are worthy of being hailed the saviour of the forest.\"\n\nYou spend three days in the tree-house and the meadow-garden talking with Elanor about the forest she loves. You had never realized how much all living things are linked, each depending on the others for survival.\n\nThe forest, you learn is teeming with an abundant wealth of life. All things are tolerated in the forest, which is neither a good nor an evil region, as long as they do not threaten the balance of nature. After you have partaken of a delicious repast of mushrooms and loganberries on the third day, Elanor starts to question you again, to see if you have learned anything.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 112; }
+};
+
+class Story129 : public Story::Base
+{
+public:
+    Story129()
+    {
+        ID = 129;
+
+        Text = "This time you hide beneath the roots of a fallen pine tree. You try to stay calm to still the pounding of your heart that makes the blood rush loudly in your ears. This time you think you may have heard cruel sounding laughter, now off to one side, now behind you, and now off to another side. You see nothing so at last you decide to journey on.\n\nYou have walked but half a mile further when you stumble against a branch. The deep green of the forest by day is giving way to the blackest dark of the forest by night. You will never find the elves on Midsummer's Day now. You will have to find a place to rest and hope the elves will still receive you cordially at a later date.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 139; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -2815,6 +2994,16 @@ auto story116 = Story116();
 auto story117 = Story117();
 auto story118 = Story118();
 auto story119 = Story119();
+auto story120 = Story120();
+auto story121 = Story121();
+auto story122 = Story122();
+auto story123 = Story123();
+auto story124 = Story124();
+auto story125 = Story125();
+auto story126 = Story126();
+auto story127 = Story127();
+auto story128 = Story128();
+auto story129 = Story129();
 
 void InitializeStories()
 {
@@ -2831,7 +3020,8 @@ void InitializeStories()
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
-        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119};
+        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
+        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129};
 }
 
 #endif
