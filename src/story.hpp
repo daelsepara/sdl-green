@@ -2873,6 +2873,181 @@ public:
     int Continue(Character::Base &player) { return 139; }
 };
 
+class Story130 : public Story::Base
+{
+public:
+    Story130()
+    {
+        ID = 130;
+
+        Image = "images/filler3.png";
+
+        Text = "\"The Tree of Knowledge grows alone out of a blue pool in the very centre of the forest. It is an ancient Greenbark tree with gold and silver leaves which are said never to fall.\"\n\n\"Have you seen it?\" you ask Renard.\n\n\"Once from a long way off. But I didn't dare talk to it.\"\n\n\"It can talk? Is there anyone here in Burg who has spoken with the tree?\" you ask, glancing at the other travellers in the inn.\n\n\"No, no. The folk here are simple enough. Ask them about the tree and they'll likely make something up just to satisfy your asking. Now look, why don't you put up for the night at my house and we can set out at first light?\"\n\nRenard seems keen to take you away from the inn. Looking around you notice the old woman in grey seems to be taking an interest in you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go with Renard to his house", 224));
+        Choices.push_back(Choice::Base("Stay and talk to the other travellers in the inn a while longer", 176));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story131 : public Story::Base
+{
+public:
+    Story131()
+    {
+        ID = 131;
+
+        Text = "The path twists and turns, winding down through dense undergrowth overhung by barrel-like Gwelph trees that are festooned with lianas. You try to fix the shape of each tree in your mind so you will know if you have passed one before. The thin crooked branches that sprout from the top of the barrel-like boles remind you of terrified old men with their hair standing on end. To your dismay the path ends in a little clearing chocked with dead leaves with two paths leading off in different directions. Each is lined with thorn bushes that have grown to the height of a man and are covered in inch-long purple barbs which ooze an orange fluid. The thorns would break off in your flesh if you brushed against them.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take the left-hand path", 196));
+        Choices.push_back(Choice::Base("Take the right-hand path", 211));
+        Choices.push_back(Choice::Base("Despair of ever finding a way out of the forest", 156));
+        Choices.push_back(Choice::Base("Mark one of the great Gwelph trees by scraping away a patch of bark", 177));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story132 : public Story::Base
+{
+public:
+    Story132()
+    {
+        ID = 132;
+
+        Text = "You have directed your spell against one of the king's images, not against the king himself. The image you have assailed disappears with a startling pop, but the elf has used the time he has gained to prepare another spell.\n\nThe King of the Elves draws a green silk veil from his waist and lets it fall from in front of his eyes.\n\n\"See your peril, mortal, and despair.\"\n\nHis words ring out as though your skull was a vast hollow chamber and the elf was exhorting you from within it, his words echoing through your senses. As the veil falls it is as if scales had dropped from your eyes. You see the forest for what it is, a hostile place, inimical to man. Everything around you is united against your intrusion. The plants will snare you and tear you limb from limb with the slow strength of their growth. The ants will eat you alive. Stinging insects will plague you and bears will maul you. You do indeed despair at the awful nature of your plight.\n\nLosing reason you flee in fear. As the veil falls lightly to the ground, so the terror passes and you stop.\n\n\"You have stepped outside the circle, mortal, and forfeited the duel. I am the victor,\" says the king.\n\nHis magic made you break the rules and lose.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 163; }
+};
+
+class Story133 : public Story::Base
+{
+public:
+    Story133()
+    {
+        ID = 133;
+
+        Text = "The great claw sweeps you clean off the monster's head. The only way to dodge would have been to jump to your death in any case. You fall stunned on the ground and the dragon pins you to the earth beneath a massive claw. You look from the green scaled claw to the smouldering red eyes thirty feet above. It thinks you were trying to kill it. The dragon opens its jaws wide and its stomach convulses. A second later a gout of poisonous gas and acid hits you like a wave. There is no surviving the breath of an ancient green dragon.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story134 : public Story::Base
+{
+public:
+    Story134()
+    {
+        ID = 134;
+
+        Text = "Watching from the edge of the trees you see a man who bears an uncanny resemblance to the girl in the inn at Burg. He must be her father.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Free him from the clutches of the Westermen", 264));
+        Choices.push_back(Choice::Base("Be content and abandon him to their tender mercies", 279));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story135 : public Story::Base
+{
+public:
+    Story135()
+    {
+        ID = 135;
+
+        Text = "You are too slow. The great claw sweeps you clean off the monster's head. You fall stunned to the ground; the dragon pins you beneath the other massive claw. You look from the huge green scaled claw to the smouldering red eyes thirty feet above. The dragon opens its jaws wide and its stomach convulses. A second later a gout of poisonous gas and acid hit you like a wave. There is no surviving the breath of an ancient green dragon.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story136 : public Story::Base
+{
+public:
+    Story136()
+    {
+        ID = 136;
+
+        Text = "Your knowledge of the wilderness and the complicated web of links between all the living things in the forest makes this an easy question to answer.\n\n\"Without spiders to eat, the birds would die and without birds to eat berries and spread seeds there would be no young trees,\" you say confidently. \"Without young trees to replace the old fallen hulks there would be no forests.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 128; }
+};
+
+class Story137 : public Story::Base
+{
+public:
+    Story137()
+    {
+        ID = 137;
+
+        Text = "Decide how you will prove your cause to the elves.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[CUNNING] Challenge the Elf King to a battle of wits", 58, Skill::Type::CUNNING));
+        Choices.push_back(Choice::Base("[ARCHERY] Propose a contest to prove the better bowman", 159, Skill::Type::ARCHERY));
+        Choices.push_back(Choice::Base("Hesitate and let the elves themselves choose the terms of the duel", 18));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story138 : public Story::Base
+{
+public:
+    Story138()
+    {
+        ID = 138;
+
+        Text = "The toadstool is a dull red colour, spotted with purple. Underneath the soft gills are mauve. You ask nervously whether it is poisonous.\n\n\"No, no, never, not poisonous, my dear, Oh no! The Kwerrel eats it every day.\"\n\nIt tastes surprisingly good; it almost melts in your mouth.\n\nQuite soon, however, you begin to feel sleepy. You walk a few steps further then sit down with your back to the central trunk of the giant bush. Feeling warm, snug and content you fall into a deep sleep.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 189; }
+};
+
+class Story139 : public Story::Base
+{
+public:
+    Story139()
+    {
+        ID = 139;
+
+        Text = "The next day you awake feeling uneasy and begin your journey once more. The feeling of being watched soon returns. There seems to be no point in hiding; there might not be anything there. You call out that you have come to search for the immortal elves.\n\nA soft high voice, but a cold voice none the less, speaks with a total lack of emotion. \"It is not the day to seek a meeting with the elves.\"\n\nYou spin round to find the source of the words. There is the rushing whine of an arrow and a stabbing pain between your shoulder-blades.\n\nThe force of the shot spins you round and you see your killer: a tall, proud elf, standing braced with feet apart between two great Greenbark trees. He lets his bow fall to his side in a gesture of merciless contempt.\n\nThe arrow has pierced your lung and you begin to drown in your own blood. The elf looks on without pity as you die.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3004,6 +3179,16 @@ auto story126 = Story126();
 auto story127 = Story127();
 auto story128 = Story128();
 auto story129 = Story129();
+auto story130 = Story130();
+auto story131 = Story131();
+auto story132 = Story132();
+auto story133 = Story133();
+auto story134 = Story134();
+auto story135 = Story135();
+auto story136 = Story136();
+auto story137 = Story137();
+auto story138 = Story138();
+auto story139 = Story139();
 
 void InitializeStories()
 {
@@ -3021,7 +3206,8 @@ void InitializeStories()
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
-        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129};
+        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
+        &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139};
 }
 
 #endif
