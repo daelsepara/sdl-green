@@ -604,8 +604,8 @@ public:
         Text = "\"I must test your fitness to be the forest's saviour,\" says Elanor. \"I hope you pass the test. You would not like to see the forest laid to waste would you?\"\n\nShe looks regal and yet kind, but her eyes never leave yours.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Reply: that your reason for visiting the forest is to find the Tree of Knowledge and take some of its wisdom away with you to the lands of men", 24));
-        Choices.push_back(Choice::Base("Say: that the forest is too beautiful to be laid waste and you will try to save it", 40));
+        Choices.push_back(Choice::Base("Reply that your reason for visiting the forest is to find the Tree of Knowledge and take some of its wisdom away with you to the lands of men", 24));
+        Choices.push_back(Choice::Base("Say that the forest is too beautiful to be laid waste and you will try to save it", 40));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -888,8 +888,8 @@ public:
         Text = "\"The hackers and burners, the men from the west, say the ants of the forest must be eradicated because they eat the farmers' crops,\" she says. \"What do you say?\"";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say: the ants are indeed pests and should be wiped out", 51));
-        Choices.push_back(Choice::Base("Reply: that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
+        Choices.push_back(Choice::Base("Say the ants are indeed pests and should be wiped out", 51));
+        Choices.push_back(Choice::Base("Reply that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
         Choices.push_back(Choice::Base("[WILDERNESS LORE] Use your knowledge", 171, Skill::Type::WILDERNESS_LORE));
 
         Controls = Story::Controls::STANDARD;
@@ -1209,8 +1209,8 @@ public:
         Text = "\"The hackers and burners, the men from the west, say the ants of the forest must be eradicated because the ants eat their crops. What do you say?\"";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say: the ants are indeed pests and should be wiped out", 75));
-        Choices.push_back(Choice::Base("Reply: that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
+        Choices.push_back(Choice::Base("Say the ants are indeed pests and should be wiped out", 75));
+        Choices.push_back(Choice::Base("Reply that the forest would choke and die if there were no ants to eat the dead leaves and wood", 67));
         Choices.push_back(Choice::Base("[WILDERNESS LORE] Use your knowledge", 171, Skill::Type::WILDERNESS_LORE));
 
         Controls = Story::Controls::STANDARD;
@@ -1689,8 +1689,8 @@ public:
         Text = "\"The Westermen hate spiders. They say the spiders are ugly, poisonous and unnatural. To them spiders are the evil creatures of the Demoness. It does no harm to the forest to kill a spider. Are they right, these Westermen?\"";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say: there is no harm in killing spiders", 51));
-        Choices.push_back(Choice::Base("Say: it is bad to kill spiders", 106));
+        Choices.push_back(Choice::Base("Say there is no harm in killing spiders", 51));
+        Choices.push_back(Choice::Base("Say it is bad to kill spiders", 106));
         Choices.push_back(Choice::Base("Use [WILDERNESS LORE]", 136, Skill::Type::WILDERNESS_LORE));
 
         Controls = Story::Controls::STANDARD;
@@ -2137,8 +2137,8 @@ public:
         Text = "\"Why is it bad to kill spiders?\" she asks.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Say: it is because all evil things as well as good things must be tolerated in the forest", 104));
-        Choices.push_back(Choice::Base("Say: you believe it is because the birds would die without spiders to eat, and without birds to eat berries there would be no young trees ", 128));
+        Choices.push_back(Choice::Base("Say it is because all evil things as well as good things must be tolerated in the forest", 104));
+        Choices.push_back(Choice::Base("Say you believe it is because the birds would die without spiders to eat, and without birds to eat berries there would be no young trees ", 128));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -2315,6 +2315,179 @@ public:
     }
 };
 
+class Story100 : public Story::Base
+{
+public:
+    Story100()
+    {
+        ID = 100;
+
+        Text = "As you walk towards the guards you are horrified to see them spearing the animals that are fleeing the burning brush. The men throw the unfortunate beasts onto the fire beneath the great cauldron. The others laugh merrily as if they could think of no better sport than to wantonly slaughter helpless beasts.\n\nYou call a greeting above the hissing of the steam bellows that is rising and falling, driven by the metal machine. The guards stand up and fan out as if to surround you, without a word of command.\n\n\"Search the southerner for weapons,\" shouts their captain.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Surrender and let them search you", 151));
+        Choices.push_back(Choice::Base("Fight your way out", 202));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story101 : public Story::Base
+{
+public:
+    Story101()
+    {
+        ID = 101;
+
+        Text = "Your spell of Bafflement crosses unseen the space that separates you and the King of the Elves, silently invading his mind. His eyes look at you, blankly uncomprehending, and the two false images that his magic created just flicker and die away. The king is powerless; he is far too confused to attempt a spell or even move from the spot. Unfortunately he is also too baffled to realize the time has come for him to submit to you and acknowledge you the winner of the duel.\n\nUnder the rules of a duel you can only use magic to subdue him so you let the Bafflement fade and prepare another spell.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Visceral Disruption" , 111));
+        Choices.push_back(Choice::Base("Cast Tower of will", 71));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story102 : public Story::Base
+{
+public:
+    Story102()
+    {
+        ID = 102;
+
+        Text = "You call out the dragon's name. Its great head rears slowly above you and his glittering eyes bore into yours. His nostrils dilate as he sucks in a deep breath. Too late, you realize you were wrong about knowing the dragon's name. There is a terrible whooshing sound as the dragon's breath of acid and gas roars towards you. The torrent of gas and air rolls you across the ground and you are lucky to bang your head on a rock and spare yourself a more painful death.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story103 : public Story::Base
+{
+public:
+    Story103()
+    {
+        ID = 103;
+
+        Text = "It was a mistake to enter the forest without a guide. There is no time to do anything as the Embracer sucks you down into the murky depths. You struggle desperately hard but, unable to breathe, your strength soon fails you and you drown in the clutches of this hideous creature.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story104 : public Story::Base
+{
+public:
+    Story104()
+    {
+        ID = 104;
+
+        Image = "images/filler2.png";
+
+        Text = "\"The men who have come to the forest say that when the trees have been felled the undergrowth should be burned to clear it for humans to live in. They say burning returns all the goodness in the plants to the soil so that crops can flourish. Do you agree with them?\" asks Elanor.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Admit that you have no reason to disbelieve them", 51));
+        Choices.push_back(Choice::Base("Say instead that the forest should be kept as it is for it makes the air that man breathes", 147));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story105 : public Story::Base
+{
+public:
+    Story105()
+    {
+        ID = 105;
+
+        Text = "\"So,\" hisses your mirror image, \"you would rather shatter your promise...\"\n\n\"You witless sprite,\" you retort sharply, \"If I break the mirror right away, the enchantress will wake up. Be patient; I'll get around to it.\"\n\n\"No!\" wails the voice from the glass. \"You're lying. You intend to use me just as she has -- but I'll foil that scheme. Wake, mistress, wake! A mortal prowls within your boudoir!\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 499; }
+};
+
+class Story106 : public Story::Base
+{
+public:
+    Story106()
+    {
+        ID = 106;
+
+        Text = "\"Why is it bad to kill spiders?\" she asks.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say it is because all evil things as well as good things must be tolerated in the forest", 51));
+        Choices.push_back(Choice::Base("Reason that without spiders to eat the birds would die, and without birds to eat berries there would be no young trees", 128));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story107 : public Story::Base
+{
+public:
+    Story107()
+    {
+        ID = 107;
+
+        Text = "\"I have watched you coming here in the mirror I keep in my secret bower. I think you have the makings of a hero,\" she says.\n\n\"Did it amuse you to watch me struggle to find my way in the forest?\"\n\n\"Not at all. I was hoping you would survive at least this far.\"\n\n\"That doesn't sound very encouraging.\"\n\n\"Only you can shape your own destiny. I think perhaps you have greatness within you.\"\n\n\"If you have plans for me why didn't you bring me straight here from the inn in Burg?\"\n\n\"The ways of the forest cannot all be taught. They must be experienced. And besides, I needed to know your mettle.\"\n\nShe smiles a smile that could mean anything from cruel amusement to genuine welcome; you are too confused by what she has said to judge the difference.\n\nIt feels slightly shaming to think that this woman has watched your most intimate moments in the forest. Still, you have done nothing to be ashamed of.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go along with her", 9));
+        Choices.push_back(Choice::Base("Leave: You are convinced she is mad", 98));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story108 : public Story::Base
+{
+public:
+    Story108()
+    {
+        ID = 108;
+
+        Text = "You stride to the fireside and turn so that the light of the flaming logs plays across your face. All eyes are on you, but you can't see well in the gloom. The two men who had been rubbing their hands at the fire sit down at the other end of the old hall.\n\n\"We don't take kindly to strangers here. What brings you to Burg, southerner?\"\n\nIt seems to be the sinister man clocked in black who is talking.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell him the truth that you journey to the great Forest of Arden to seek the Tree of Knowledge", 124));
+        Choices.push_back(Choice::Base("Say that you are a scout sent out from your city to explore far-off lands and bring news back to your masters", 155));
+        Choices.push_back(Choice::Base("Use [STREETWISE]", 188, Skill::Type::STREETWISE));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story109 : public Story::Base
+{
+public:
+    Story109()
+    {
+        ID = 109;
+
+        Text = "You call out loudly. \"I am a friend of Elanor, the Lady of the Forest. I come in search of the immortal elves.\"\n\nYou feel rather unheroic, calling out like this when you don't know whether anyone can hear you. But there is also the nasty feeling that you might be struck by an arrow at any moment.\n\nYou call out a second time and this time, to your relief, you are answered.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 120; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -2416,6 +2589,16 @@ auto story096 = Story096();
 auto story097 = Story097();
 auto story098 = Story098();
 auto story099 = Story099();
+auto story100 = Story100();
+auto story101 = Story101();
+auto story102 = Story102();
+auto story103 = Story103();
+auto story104 = Story104();
+auto story105 = Story105();
+auto story106 = Story106();
+auto story107 = Story107();
+auto story108 = Story108();
+auto story109 = Story109();
 
 void InitializeStories()
 {
@@ -2430,7 +2613,8 @@ void InitializeStories()
         &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
-        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099};
+        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
+        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109};
 }
 
 #endif
