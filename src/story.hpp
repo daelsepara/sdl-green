@@ -3845,7 +3845,7 @@ public:
     {
         ID = 181;
 
-        Image = "images/filler3.png"; 
+        Image = "images/filler3.png";
 
         Text = "The woman looks wise. \"My name is Elanor, I am a priestess of the All Mother, from whom springs all life, eternally.\" Her weather-beaten face comes to life as she speaks and you sense her love of life.\n\nShe tells you Valerian, the man in the black robe, is a Moon Druid who vies with her for control of the forest and the beasts dwelling there. \"But they sense his evil and flock to me. His envy of me consumes his heart and turns it as black as his cloak. Valerian has thrown in his lot with the Westermen, the hewers and burners. They have come to destroy the great forest.\"\n\nShe seems very grave.";
 
@@ -3999,6 +3999,198 @@ public:
     }
 
     int Continue(Character::Base &player) { return 406; }
+};
+
+class Story190 : public Story::Base
+{
+public:
+    Story190()
+    {
+        ID = 190;
+
+        Text = "\"No,\" you say loudly. \"The contest is over. I have won.\"\n\nHuldranas was already in the act of notching another arrow to his bow. He assumed that you, like any elf, would immediately accede to the king's commands. Now he lowers the bow and looks around uncertainly.\n\n\"Do you value pride above the truth?\" you demand of the assembled elves. \"Is this what has become of the legendary elves -- cloistered from the sight of other peoples, you turn your vision inwards and forget the values of honour, courtesy and courage?\"\n\nHundreds of faces stare back inscrutably from the gloom between the trees. The Elf King sweeps back his cloak in an extravagant gesture which reminds you of a sleek cat grooming itself. \"Very well, mortal,\" he says in a languid voice. \"You have won the contest. Now let us talk.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 232; }
+};
+
+class Story191 : public Story::Base
+{
+public:
+    Story191()
+    {
+        ID = 191;
+
+        Text = "You whip an arrow to your bow and let fly. It splinters your opponent's shaft in mid air before it reaches its target. You breathe a sigh, knowing that it was a one in a hundred fluke that you did not miss your target and end up humiliated.\n\nThe effect on Huldranas is deeply mysterious and utterly elfin. For a long moment he remains gazing along the arrow's flight, his bow half lowered, arm still poised in the moment of release. Then it is as if he wakes from a trance. Turning to you, he performs an elegant courtly salute, then snaps his bow across his knee and casts it aside along with his quiver. \"Henceforth I eschew the bow,\" he declares to the assembled elves. \"Huldranas will take his prey with spear or not at all. This is my geas.\"\n\nHe turns and stalks away. You regret the loss archery such a fine exponent of the art, but at least your daring risk has secured you victory. Now the elves will respect your words.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 232; }
+};
+
+class Story192 : public Story::Base
+{
+public:
+    Story192()
+    {
+        ID = 192;
+
+        Text = "The chance is gone. You had the opportunity not only to reach the vulnerable hose but also to jump away from your attackers. They close in from both sides and though you evade two sword cuts, a sudden thrust from behind finishes you off.\n\nYour allies, the elves, are already melting back into the forest. You have lost your chance to save the great Forest of Arden.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story193 : public Story::Base
+{
+public:
+    Story193()
+    {
+        ID = 193;
+
+        Text = "You beg the owl's pardon and implore it to wait, but it has taken to the wing again and is swiftly lost in the gloom of the forest. As you walk away from the crags three small tree warblers drive-bomb you, pecking your ears. They are too small to be of any danger, although you have never seen small birds act in this way.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 173; }
+};
+
+class Story194 : public Story::Base
+{
+public:
+    Story194()
+    {
+        ID = 194;
+
+        Text = "The dragon flicks its tail and licks its lips. \"Walk into the cavern and behold my hoard. It has been garnered from the palaces of the whole world. Many of my pieces are old, so very old, that they have a tale to tell.\"\n\nThe dragon rolls over so you fall to the ground on your feet. With a sweep of its massive claw, it ushers you forward into the dark cavern.\n\n\"All the gold and jewels you can carry I give to you.\"\n\nAs you stare in awe at a pile of coins, goblets, candelabra and jewellery, some of the coins fly up into the air and push themselves against you. Soon they are covering you in a crust, like barnacles on the hull of a ship. They leave your arms and legs free but you are terribly weighed down by the gold that has stuck to you. You try to prise the coins away but they are stuck fast by the magic of the dragon.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 19; }
+};
+
+class Story195 : public Story::Base
+{
+public:
+    Story195()
+    {
+        ID = 195;
+
+        Text = "The RING slips of easily off your finger, but as you take it off you feel a sense of loss -- a loss of purpose and of strength. But the certainty that the RING is magical and has been influencing you strengthens your resolve. You send it spinning through the air to land in a pool with a plop.\n\nThe owl shuts its eyes and says, \"What a waste. And that was my lady's RING, not for you to hurl away.\"\n\nThere is still no sign of Elanor.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Steal potions and leave", 235));
+        Choices.push_back(Choice::Base("Ask the owl where Elanor is", 244));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR});
+    }
+};
+
+class Story196 : public Story::Base
+{
+public:
+    Story196()
+    {
+        ID = 196;
+
+        Text = "The path twists and turns, winding through dense undergrowth overhung by barrel-like Gwelph trees that are festooned with lianas. You try to fix the shape of each tree in your mind so you will know if you have passed by one before.\n\nTo your dismay the path ends in a little clearing choked with dead leaves, but from which two paths lead off in different directions. Each path is lined with thorn bushes that have grown to the height of a man and are covered in inch-long purple barbs oozing an orange fluid. The thorns would break off in your flesh if you brushed against them.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Head left", 131));
+        Choices.push_back(Choice::Base("Head right", 211));
+        Choices.push_back(Choice::Base("Despair of ever finding your way out of the forest", 156));
+        Choices.push_back(Choice::Base("Mark one of the great Gwelph trees by scoring it with your dagger", 177));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story197 : public Story::Base
+{
+public:
+    Story197()
+    {
+        ID = 197;
+
+        Text = "The bees fly faster than you can run. They settle around your head so you cannot see to run. Blindly, you stagger about the forest, continually stung by the bees. Death from so many bee stings is not pleasant. Your neck swells until your windpipe is closed up and you choke to death. You rue bitterly your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story198 : public Story::Base
+{
+public:
+    Story198()
+    {
+        ID = 198;
+
+        Text = "Your heartfelt plea for the Chief of the Westermen to reconsider his actions falls upon deaf ears. He simply cannot believe you are being so foolish to question him. \"How can cutting down trees destroy the whole world? You are talking nonsense! Who are you, and who sent you to interfere in our plans?\"\n\n\"Listen to me or we are all doomed,\" you tell him. But now you see that you can never hope to persuade him. You have simply put yourself in danger by attempting to end the Westermen's onslaught peaceably.\n\nThe chief has had enough. \"Silence this wittering fool. Bring chains -- we'll add another slave to the work gangs.\"\n\nValerian is watching you. His hard stare suggests he is calling a spell to mind.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Surrender and be enslaved", 146));
+        Choices.push_back(Choice::Base("Make a run for it", 451));
+        Choices.push_back(Choice::Base("[SPELLS] Use magic", 450, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story199 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story199()
+    {
+        ID = 199;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Fight the serpent", 218));
+        Choices.push_back(Choice::Base("Cry out in despair to the owl in case it is still nearby and prepared to forgive and help you", 227));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The ants' bites are poisonous. You have already suffered dozens of wounds by the time you reach a large pond in a dark hollow. You LOSE 2 Life Points.";
+
+        Character::GAIN_LIFE(player, -2);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nThrowing caution to the winds and driven by the tormenting pain of the bites, you plunge into the water and immerse yourself where you tear off your clothes.\n\nThe torment ceases as the ants drown and float to the surface, and although the venom makes you feel drowsy you manage to drag yourself towards the pond's edge.\n\nJust as you are about to hand yourself out of the water, you feel a huge water snake coiling around your legs.";
+        }
+
+        Text = PreText.c_str();
+    }
 };
 
 auto prologue = Prologue();
@@ -4192,6 +4384,16 @@ auto story186 = Story186();
 auto story187 = Story187();
 auto story188 = Story188();
 auto story189 = Story189();
+auto story190 = Story190();
+auto story191 = Story191();
+auto story192 = Story192();
+auto story193 = Story193();
+auto story194 = Story194();
+auto story195 = Story195();
+auto story196 = Story196();
+auto story197 = Story197();
+auto story198 = Story198();
+auto story199 = Story199();
 
 void InitializeStories()
 {
@@ -4215,7 +4417,8 @@ void InitializeStories()
         &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
         &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
         &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
-        &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189};
+        &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
+        &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199};
 }
 
 #endif
