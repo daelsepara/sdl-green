@@ -4193,6 +4193,200 @@ public:
     }
 };
 
+class Story200 : public Story::Base
+{
+public:
+    Story200()
+    {
+        ID = 200;
+
+        Image = "images/filler2.png";
+
+        Text = "Renard leads you out of the town through the waterside gate to the bank of the Burgstream. You walk north along a path next to the bank. The river valley has quite steep sides, making it difficult for you to see very much of the surrounding land. Ahead, however, you can see the vast top of a leafy canopy that stretches to the far horizon like a green sea fading to blue in the distance. The air is good here -- fresh and clean, laden only with the perfumes of wild flowers.\n\nA lone figure in grey walks ahead. You suggest trying to catch up but Renard just shakes his head.\"We will never find her in the forest unless she wishes it. A man might as well try to fly.\"\n\n\"If we run we can catch up before she reaches the forest,\" you suggest.\n\n\"She moves as fast as a deer at need. We'd only tire ourselves to no end.\"\n\nIf it is the same old woman from the inn last night, she looked too old even to break into a trot. You ponder Renard's strange claims until you can see the trunks of the trees at the edge of the Forest of Arden.\n\nAs you enter the forest you are surprised by how much colour there is. Blossoming trees, fungus mounds in bright hues, flowering creepers and giant butterflies are lit by the dappled sunshine that pours through gaps in the leafy canopy. It is noisy too -- the forest is alive with insects, birds and small mammals. Renard leads you along short cuts where the Burgstream bends tortuously until at last you hear the roar of the great Sirion river as it rushes through the forest ahead. He brings you to a ford over the Burgstream.\n\n\"We must cross here and then walk west beside the Sirion.\" You follow across the ford and on through the thick forest.\n\nNothing in your life has prepared you for the moment when you first catch sight of the Sirion river. The furthest bank is just a line of shimmering heat-hazed greenery at least six miles away. The roiling waters carry a multitude of dead tree branches towards the sea, like a vein carrying detritus out of a living body. Across the river the treeline is unbroken. You are deep in the rainforest now. The gigantic trees spread their branches more than a hundred feet above the ground. At the river's edge mangroves reach far out into the water. Bloated river buffalo bask beneath their arching roots.\n\n\"The going will be difficult for a while until we reach higher ground,\" says Renard. He presses on, hacking at the undergrowth, until you reach a tributary of the river. It blocks your progress, and is spanned by only a narrow rope bridge. The bridge show signs of regular repair: bushes have been hacked back from the stanchions between which it hangs. Renard tells you that the elves maintain this bridge as a link between different parts of their domain. He leads the way across and you follow.\n\nHe is halfway across when a waterspout surges up from the river. Out of it rears a mass of vegetation ringed with fibrous tentacles. It is a dreaded Embracer, and in seconds it has plucked Renard from the bridge. As he is pulled under the water, he manages to cry out to you: \"You must go on, then climb. Then you may find what you seek --\"\n\nThe tentacles drag him under. You watch the muddied water swirl beneath the bridge, but there is no sign of poor Renard.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to save him", 316));
+        Choices.push_back(Choice::Base("Cross the bridge quickly while the Embracer is otherwise occupied", 343));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story201 : public Story::Base
+{
+public:
+    Story201()
+    {
+        ID = 201;
+
+        Text = "The Elf King gives the order to begin. Gathkeri circles you warily. He is very light-footed and the look in his eyes is murderous.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Grapple with him", 183));
+        Choices.push_back(Choice::Base("Attack him with your fists and feet", 172));
+        Choices.push_back(Choice::Base("Wait for him to attack you", 161));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story202 : public Story::Base
+{
+public:
+    Story202()
+    {
+        ID = 202;
+
+        Text = "These men look well armed and well fed. They are probably veterans of many campaigns but their jowls and their paunches have grown a little flabby from lack of exercise here in the forest. The chief hired them to protect the camp against the elves, but so far, the fey sylvan elves have done nothing to hinder the Westermen and the guards have led an indolent life with nothing more to do than keep the slaves in check. Still, there are eight of them and all are armed with swords and protected by corslets of mail.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [SWORDPLAY]", 461, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Use [CHARMS]", 471, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("Use [STREETWISE]", 481, Skill::Type::STREETWISE));
+        Choices.push_back(Choice::Base("Use [SPELLS]", 442, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("You have none of these skills", 491));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story203 : public Story::Base
+{
+public:
+    Story203()
+    {
+        ID = 203;
+
+        Text = "You rush to attack, and several of the Westermen turn to meet your onslaught. As individuals and taken one at a time they would certainly be no match for you. The men you are facing, however are seasoned campaigners and no fools. You are quickly surrounded.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to kill one, leap over his fallen body and then retreat to safer ground nearby", 376));
+        Choices.push_back(Choice::Base("Fight it out until you or all your opponents are slain", 84));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story204 : public Story::Base
+{
+public:
+    Story204()
+    {
+        ID = 204;
+
+        Text = "\"Yes, that was it,\" you reply. \"The Reaver's Inn, Bessaraban. What a place, eh?\"\n\n\"Remember the one-legged serving wench who used to take her leg off and poke the fire with it?\" asks the chief.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say yes, you remember her, but can't think of her name", 358));
+        Choices.push_back(Choice::Base("Admit that you don't remember her", 367));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story205 : public Story::Base
+{
+public:
+    Story205()
+    {
+        ID = 205;
+
+        Text = "You explain your quest to save the forest from the Westermen. The dragon has been asleep all the time the men have been hacking and burning the forest, but he seems to believe your tale of woe. He tells you his name is Garoshtar and says he is surprised and impressed that a human could want so little of him when he has great power and riches to give.\n\nHe tells you to come for him at your hour of greatest need and he will help you against the Westermen. Remember you have the promise of Garoshtar's help.\n\nYou gained the codeword SCORPION.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::SCORPION});
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORD(player, Codeword::Type::WATERBEARER))
+        {
+            return 49;
+        }
+        else
+        {
+            return 21;
+        }
+    }
+};
+
+class Story206 : public Story::Base
+{
+public:
+    Story206()
+    {
+        ID = 206;
+
+        Text = "As he sees you about to cast another spell, Valerian utters a single word, \"Sanctuary,\" in a ringing voice and claps his hands together. There is a second clap and he is gone. He has disappeared completely. You go to the door of the inn but there is no sign of him in the rain-lashed cobbled street.\n\nOnly the old woman in grey remains in the common room.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sit at her table and talk with her", 181));
+        Choices.push_back(Choice::Base("Take a room at the inn for the night", 333));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story207 : public Story::Base
+{
+public:
+    Story207()
+    {
+        ID = 207;
+
+        Text = "You summon all your willpower and try to grapple with the machine in a battle of minds, even though your resolve is weakened by the nagging fear that the machine doesn't have a will of its own.\n\nTo your surprise your magic tells you there is a mind within the machine -- it belongs to the man who is controlling it. He is busy working the machine, and the machine grinds to a halt as he is hit by your psychic assault.\n\nThe operator switches his attention to you and focuses his mental powers. You hold the machine motionless for long moments without managing to overpower the will of the man inside it.\n\nHow will you follow up your success?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Choking Fog", 395));
+        Choices.push_back(Choice::Base("Use Bafflement", 372));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 64));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story208 : public Story::Base
+{
+public:
+    Story208()
+    {
+        ID = 208;
+
+        Text = "What if, you reason, the EMERALD RING is taking over control of your mind with every passing moment? As the RING slips easily off your finger you feel a sense of loss -- loss of purpose and of strength. The RING must be magical. You decide to keep it safe but not to wear it for now. You need your wits about you.\n\nThe owl has been watching you all the time.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 244; }
+};
+
+class Story209 : public Story::Base
+{
+public:
+    Story209()
+    {
+        ID = 209;
+
+        Image = "images/filler3.png";
+
+        Text = "\"It is a mistake soon remedied by returning to the lands of men.\"\n\n\"But, but...\" you stammer as the elves turn away and slip out of sight. As they go, you look from one to another, and as you do so, each one freezes under your gaze. Perhaps they act so strangely because they are too polite to disappear while you look at them, for at the edges of your vision you see them move behind trees and leaf curtains. They vanish swiftly and silently, moving through the dense forest like rainbow trout in a murky river. They are not wasting magic, you cannot keep up with them.\n\nAt last only one elf is left.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 230; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4394,6 +4588,16 @@ auto story196 = Story196();
 auto story197 = Story197();
 auto story198 = Story198();
 auto story199 = Story199();
+auto story200 = Story200();
+auto story201 = Story201();
+auto story202 = Story202();
+auto story203 = Story203();
+auto story204 = Story204();
+auto story205 = Story205();
+auto story206 = Story206();
+auto story207 = Story207();
+auto story208 = Story208();
+auto story209 = Story209();
 
 void InitializeStories()
 {
@@ -4418,7 +4622,8 @@ void InitializeStories()
         &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
         &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
         &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
-        &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199};
+        &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
+        &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209};
 }
 
 #endif
