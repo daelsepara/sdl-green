@@ -4387,6 +4387,186 @@ public:
     int Continue(Character::Base &player) { return 230; }
 };
 
+class Story210 : public Story::Base
+{
+public:
+    Story210()
+    {
+        ID = 210;
+
+        Text = "After leaving Burg by the waterside gate you walk north along a path next to the bank of the Burgstream. The river valley has quite steep sides and you can see little of the land that surrounds you. Ahead you see the vast leafy canopy that stretches to the far horizon like a green sea fading to blue in the distance. The air is good here, fresh and clean, laden only with the perfume of wild flowers.\n\nA lone figure in grey walks ahead. You increase your pace to catch up. After half an hour's hard walking you seem to be no nearer the figure. You break into a jog but even this seems to bring you no closer to the slender woman dressed in grey. You ponder the strange fact that even though she seems only to be walking you cannot seem to come any closer to her. At last you reach the crest of a rise to find she has vanished, but now you can see the trunks of the trees at the edge of the Forest of Arden.\n\nAs you enter the forest you are surprised by how much colour there is. Blossoming trees, fungus mounds in bright hues, flowering creepers and giant butterflies are lit up by the dappled sunshine that trickles through gaps in the leafy canopy. It is noisy, too -- the forest is alive with insects, birds and small mammals.\n\nThe path stays close to the river, almost doubling back on itself where the Burgstream bends tortuously until at last you hear the roar of the great Sirion river as it washes through the forest ahead. Pressing on, you come to a ford over the Burgstream.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cross the ford and follow the bank of the Sirion river to the west", 77));
+        Choices.push_back(Choice::Base("Remain on this side of the Burgstream and turn east when you meet the Sirion", 96));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story211 : public Story::Base
+{
+public:
+    Story211()
+    {
+        ID = 211;
+
+        Image = "images/path-twists.png";
+
+        Text = "The path twists and turns, winding through dense undergrowth overhung by barrel-like Gwelph trees that are festooned with lianas. You try to fix the shape of each tree in your mind so you will know if you have passed one before. To your dismay the path ends in a little clearing choked with dead leaves. Two paths lead off in different directions, and each is lined with thorn bushes that are at least the height of a man and which are covered in inch-long purple barbs that ooze an orange fluid. The thorns would break off in your flesh if you brushed against them.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Head left", 196));
+        Choices.push_back(Choice::Base("Head right", 131));
+        Choices.push_back(Choice::Base("Despair of ever finding your way out of the forest", 156));
+        Choices.push_back(Choice::Base("Orient yourself by marking one of the great Gwelph trees by scoring it with your dagger", 177));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story212 : public Story::Base
+{
+public:
+    Story212()
+    {
+        ID = 212;
+
+        Text = "There is something very strange about the grass on that hillock. It seems almost reflective, as if the stems of grass were coated in shiny wax. White egrets like the one on the hillock eat insects -- they catch mites and parasites on the hides of large animals. You've never known one probe the ground for worms.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Walk to the top of the hillock, anyway, to see what you can see", 47));
+        Choices.push_back(Choice::Base("Leave the valley and skirt around it to the east, if you prefer", 408));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story213 : public Story::Base
+{
+public:
+    Story213()
+    {
+        ID = 213;
+
+        Text = "You tackle her before she can leap through the hatch and, pinioning her arms behind her back, tie her to a vine that is growing in and out of the walls of the tree house.\n\n\"What do you hope to gain by this?\" she asks.\n\n\"The potions, what do they do?\" you ask urgently.\n\nThere are five potions on the shelf behind her. There is a clear cherry-red liquid in a wax-stoppered phial, a small round bottle of something like runny tar, a jar of white jelly, a cloud sea-blue fluid in a phial and a glass pot that contains layers of coloured earth.\n\nElanor starts to explain what each does. \"The blue fluid, if quaffed in sunlight, will heal all save the most serious of hurts.\" As she says the word \"hurts\" the back of your wrist is stung by a bee. Elanor seems not to notice and goes on talking about the potions.\n\n\"This black tarry goo is mulch of fire lizard's gizzard, a deadly poison.\"\n\nYou are stung twice more, on the leg and the neck. More bees fly into the tree-house, buzzing angrily. You can't stand being stung like this for much longer. The bees' stings feel like those of hornets.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Quickly ask about the red liquid", 313));
+        Choices.push_back(Choice::Base("Ask about the white jelly", 304));
+        Choices.push_back(Choice::Base("Ask about the bands of coloured earth in the hope that one of them will protect against the insects", 296));
+        Choices.push_back(Choice::Base("Grab the phial of blue fluid and drink it", 292));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story214 : public Story::Base
+{
+public:
+    Story214()
+    {
+        ID = 214;
+
+        Text = "\"These golden disks look pretty,\" says the Kwerrel. \"Give me ten and I will help you\".";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hand them over (10 gold pieces)", 8, Choice::Type::LOSE_MONEY, 10));
+        Choices.push_back(Choice::Base("You don't have enough or won't pay that much", 158));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story215 : public Story::Base
+{
+public:
+    Story215()
+    {
+        ID = 215;
+
+        Image = "images/filler2.png";
+
+        Text = "You recall a snippet of doggerel that used to be sung by the old gypsy women who came to town selling their handicrafts:\n\nThe name of the elfin king\nIs a terribly powerful thing:\nIf you speak it to him, or even sing,\nYou can make him give you his signet ring.\nThe Elf King's name is --\nAh! but that would be telling!\n\nSuch songs always fascinated you, since their simple folk rhythm seems to conceal a core of hoary secret truth. The hard part is to strip away the mystery so that you are left with that truth. You also know that you must tread carefully. The elves are proud and pitiless, and often behave like spiteful children in spite of their immemorial wisdom. You must not show weakness or hesitation which they could exploit to their advantage, but neither must you offend them.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Guess the Elf King's name", 309));
+        Choices.push_back(Choice::Base("You would prefer to accept a duel", 137));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story216 : public Story::Base
+{
+public:
+    Story216()
+    {
+        ID = 216;
+
+        Text = "You cast a Thunderclap spell in an effort to stun the owl. The spell works and the owl, stunned, dashes its head against the branch of a tree and falls to the ground.\n\nIt lies still for a while, then raises its head to look at you.\n\n\"The curse of the Grey Touch be upon you, traveller, for striking the Grey Lady's servant,\" it calls.\n\nThe owl flaps its wings and takes off, swooping past you back to the forest.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 193; }
+};
+
+class Story217 : public Story::Base
+{
+public:
+    Story217()
+    {
+        ID = 217;
+
+        Image = "images/filler3.png";
+
+        Text = "You wait, concealed in the trees, for nightfall. You have not been waiting and watching long when Valerian the Moon Druid, who you saw at the inn at Burg, pays a visit to the black and scarlet pavilion. He is still wearing the all-enveloping black robe but the hood is back to reveal the hatchet-like features and black goatee beard.\n\nHe leaves an hour later, looking smugly satisfied. Other men come and go with reports or to suit for some privilege or to settle disputes. The day fades into a dark and moonless night, ideal for what you have in mind.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Use magic to enter the pavilion", 452, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Rely on natural stealth", 462));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story218 : public Story::Base
+{
+public:
+    Story218()
+    {
+        ID = 218;
+
+        Text = "The serpent is heavy and horribly powerful. You are in its element and are powerless to resist as it crushes the life out of you. The last thing you hear is the sound of your own ribcage shattering.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story219 : public Story::Base
+{
+public:
+    Story219()
+    {
+        ID = 219;
+
+        Text = "There is no mistaking the expression in the elves' eyes this time. You have angered them.\n\n\"We are older than the forest. We were alive before the forest grew and we will live on after it is gone.\"\n\n\"But it has been your home for so long. Does it not anger you to see the burners destroying its beauty?\" you ask. \"And where will you live? Where will you find a place where there are no men to be pitied?\"\n\n\"Have you come here to taunt us? It is the coming of the time of men. All things must pass and we with them.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Taunt them to goad them into action", 426));
+        Choices.push_back(Choice::Base("Humble yourself and beg them to let you see the wonders of their homes in the greenwood before it is lost for ever", 436));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4598,6 +4778,16 @@ auto story206 = Story206();
 auto story207 = Story207();
 auto story208 = Story208();
 auto story209 = Story209();
+auto story210 = Story210();
+auto story211 = Story211();
+auto story212 = Story212();
+auto story213 = Story213();
+auto story214 = Story214();
+auto story215 = Story215();
+auto story216 = Story216();
+auto story217 = Story217();
+auto story218 = Story218();
+auto story219 = Story219();
 
 void InitializeStories()
 {
@@ -4623,7 +4813,8 @@ void InitializeStories()
         &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
         &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
         &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
-        &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209};
+        &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
+        &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219};
 }
 
 #endif
