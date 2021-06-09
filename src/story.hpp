@@ -4567,6 +4567,199 @@ public:
     }
 };
 
+class Story220 : public Story::Base
+{
+public:
+    Story220()
+    {
+        ID = 220;
+
+        Text = "What if, with every passing moment, the emerald ring is taking control of your mind?\n\nA long time in the forest, with only the noises of wild beasts for company, has made you feel vulnerable. Strange thoughts enter your head, that you are being watched, or hunted, or that you are the butt of some cruel joke for the amusement of others. Knowing that Elanor could even now be watching you is unsettling. Does she want you as her slave? Are all the birds and beasts that flock to her bidding just slaves to her whim? You know in your heart such misgivings are mere foolishness, so you decide to ignore the worry and trust in Elanor.\n\n\"Good,\" says the owl, \"perhaps you really are the one to save us.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 35; }
+};
+
+class Story221 : public Story::Base
+{
+public:
+    Story221()
+    {
+        ID = 221;
+
+        Text = "You go to stand in front of the Elf King. Then, smiling, you stand on one foot and spin around in a complete circle. You end with a bow, like a dancer acknowledging applause. \"That's the task,\" you say. \"Just do as I did: turn around.\"\n\nHe stares at you, violent emotion surging behind his eyes. For a long moment the two of you stand face to face, unmoving. The Elf King twitches at the hem of his cloak, grinding his feet into the sward of the forest clearing. \"Curse you!\" he says at last. \"Avert your gaze and I'd do it in an instant!\"\n\n\"It wouldn't count if I didn't see it,\" you reply, \"Do you accept that you can't do the task?\"\n\nHis regal tones are laced with sullen annoyance as he says, \"Yes, you have won the contest, mortal. I'll agree to be your ally.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 232; }
+};
+
+class Story222 : public Story::Base
+{
+public:
+    Story222()
+    {
+        ID = 222;
+
+        Text = "You take out the FLUTE and set it to your lips. The tree, creaking and shuddering, begins to sink into the ground, taking you down with it. Drawing a large breath you blow as hard as you can and an eerie half-heard note seems to sound far away. Then the forest seems to go quiet as the background noise of chattering, piping and warbling gives way to eerie silence. The tree roots fall away from you and are drawn slowly back into the ground.\n\nA little tree frog, lime green with scarlet spots jumps onto your shoulder and then down on the ground. It begins to hop away and, not knowing what else to do, you follow. Soon it has led you to a previously unnoticed path that winds between the thorn bushes. Without the FLUTE you would have been lost in the forest for ever.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 237; }
+};
+
+class Story223 : public Story::Base
+{
+public:
+    Story223()
+    {
+        ID = 223;
+
+        Text = "Your feint works. This time it is the elf who is overcommitted and you who can strike without fear. Your sword crashes into his side and the elf doubles up and falls to the floor. He cries his submission. One of his kind rushes forward with a healing potion to stem the tide of green blood, which coats his clothes like pond slim.\n\nYou have won the duel.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story224 : public Story::Base
+{
+public:
+    Story224()
+    {
+        ID = 224;
+
+        Text = "Renard's cottage is small but well looked after. He lives alone and is a taciturn fellow. He asks for one piece of gold for every day he is with you, and before he even agrees to guide you he wants to see the colour of your money. You show him your gold but are mindful to sleep with the money pouch under your mattress.\n\nIn the morning Renard is up early and he brings you some steaming broth to eat before you set out. He says he will need another piece of gold for every day it takes to travel back to Burg from wherever you part company.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Agree to his terms", 200));
+        Choices.push_back(Choice::Base("Risk the forest alone", 210));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story225 : public Story::Base
+{
+public:
+    Story225()
+    {
+        ID = 225;
+
+        Text = "\"What care I for those who dwell in the forest?\" The little imp starts to sing in a high wistful tone, \"I work and sing from dusk till dawn, no lark more blithe than me, and this is the burden of my song forever doomed to be -- I care for nobody. No, not I, and nobody cares for me.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell the Kwerrel how sad you are that he must be lonely", 323));
+        Choices.push_back(Choice::Base("Tell the Kwerrel that he will be cared for if he helps you save the forest", 284));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story226 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story226()
+    {
+        ID = 226;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Once again the elf's DIRK scores your flesh. You LOSE 2 Life Points.";
+
+        Character::GAIN_LIFE(player, -4);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou gain heart when you notice that the elf too is tiring. You manage to wound him and corner him between two trees that grow close together.\n\nYour opponent drops the DIRK and says he will take you to the King of the Elves in Elvenhame.";
+
+            if (Character::VERIFY_ITEMS(player, {Item::Type::POTION_RED_LIQUID}))
+            {
+                PreText += "\n\nYou can drink the POTION OF RED LIQUID to RESTORE your Life Points.";
+            }
+        }
+
+        Text = PreText.c_str();
+
+        Take = {Item::ELVEN_DIRK};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 331; }
+};
+
+class Story227 : public Story::Base
+{
+public:
+    Story227()
+    {
+        ID = 227;
+
+        Text = "As if materializing at your call, the owl swoops and claws at the serpent's eyes. The snake falls back under the water and you scramble out of the mud and catch your breath under the trees, watching the surface of the pond warily.\n\n\"So now you know. It pays to have friends in the forest,\" says the bird. \"Follow me.\" It flits away through the trees and then waits for you to come near before flying onward.As if materializing at your call, the owl swoops and claws at the serpent's eyes. The snake falls back under the water and you scramble out of the mud and catch your breath under the trees, watching the surface of the pond warily.\n\n\"So now you know. It pays to have friends in the forest,\" says the bird. \"Follow me.\" It flits away through the trees and then waits for you to come near before flying onward.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 241; }
+};
+
+class Story228 : public Story::Base
+{
+public:
+    Story228()
+    {
+        ID = 228;
+
+        Text = "\"Garoshtar sights one of the columns of men that are blundering their way through the forest, flattening trees and bushes as they go. There are thousands of soldiers, most of them sweating inside chain armour. Near the front is a contingent of three hundred crossbowmen, all dressed in the same mail and uniform, obviously mercenaries. There is no sign of any infernal machines with this column.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask Garoshtar to search out the second column the elven scouts saw advancing upon the Tree of Life", 248));
+        Choices.push_back(Choice::Base("Attack these men while they are vulnerable in a clearing", 273));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story229 : public Story::Base
+{
+public:
+    Story229()
+    {
+        ID = 229;
+
+        Text = "You bide your time until you are roughly unhooked from the coffle chain and set to work digging a hole for the Westermen to use as a latrine. When the guard looks away you cast a Vanish spell and make good your escape. The guard has just returned to the pit you had begun to dig and is looking around for you. If he doesn't want to call attention to the fact he has let you escape he may do nothing. On the other hand he may sound the alarm.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to free the innkeeper", 264));
+        Choices.push_back(Choice::Base("Abandon him to the Westermen's tender mercies", 279));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4788,6 +4981,16 @@ auto story216 = Story216();
 auto story217 = Story217();
 auto story218 = Story218();
 auto story219 = Story219();
+auto story220 = Story220();
+auto story221 = Story221();
+auto story222 = Story222();
+auto story223 = Story223();
+auto story224 = Story224();
+auto story225 = Story225();
+auto story226 = Story226();
+auto story227 = Story227();
+auto story228 = Story228();
+auto story229 = Story229();
 
 void InitializeStories()
 {
@@ -4814,7 +5017,8 @@ void InitializeStories()
         &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
         &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
         &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
-        &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219};
+        &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
+        &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229};
 }
 
 #endif

@@ -355,9 +355,11 @@ void putText(SDL_Renderer *renderer, const char *text, TTF_Font *font, int space
 
         if (surface)
         {
-            fillRect(renderer, w, h, x, y, bg);
+            auto height = surface->h < h ? h : (surface->h + 2 * space);
 
-            renderText(renderer, surface, bg, x + space, y + space, h - 2 * space, 0);
+            fillRect(renderer, w, height, x, y, bg);
+
+            renderText(renderer, surface, bg, x + space, y + space, height - 2 * space, 0);
 
             SDL_FreeSurface(surface);
 
@@ -875,7 +877,6 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
         auto infoh = 0.07 * SCREEN_HEIGHT;
         auto boxh = 0.150 * SCREEN_HEIGHT;
         auto box_space = 10;
-        auto messageh = 0.25 * SCREEN_HEIGHT;
 
         while (!done)
         {
@@ -894,7 +895,7 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
             {
                 if ((SDL_GetTicks() - start_ticks) < duration)
                 {
-                    putText(renderer, message, font, text_space, clrWH, flash_color, TTF_STYLE_NORMAL, splashw, boxh * 2, startx, starty);
+                    putText(renderer, message, font, text_space, clrWH, flash_color, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else
                 {
@@ -1137,6 +1138,67 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
                         }
                         else if (mode == Control::Type::USE)
                         {
+                            bool used_up = false;
+
+                            if (item.Type == Item::Type::POTION_RED_LIQUID)
+                            {
+                                if (player.Life == player.MAX_LIFE_LIMIT)
+                                {
+                                    flash_message = true;
+
+                                    message = "You are not INJURED!";
+
+                                    flash_color = intRD;
+
+                                    start_ticks = SDL_GetTicks();
+
+                                    flash_message = true;
+                                }
+                                else
+                                {
+                                    player.Life = player.MAX_LIFE_LIMIT;
+
+                                    message = "Your Life Points are RESTORED!";
+
+                                    flash_color = intLG;
+
+                                    start_ticks = SDL_GetTicks();
+
+                                    flash_message = true;
+
+                                    used_up = true;
+                                }
+                            }
+
+                            if (used_up)
+                            {
+                                if (Items.size() > 0)
+                                {
+                                    Items.erase(Items.begin() + (current + offset));
+
+                                    Character::LOSE_ITEMS(player, {item.Type});
+
+                                    if (offset > 0)
+                                    {
+                                        offset--;
+                                    }
+
+                                    last = offset + display_limit;
+
+                                    if (last > Items.size())
+                                    {
+                                        last = Items.size();
+                                    }
+
+                                    controls.clear();
+
+                                    controls = createItemList(window, renderer, Items, offset, last, display_limit, false, true);
+                                }
+                            }
+
+                            selected = false;
+
+                            current = -1;
                         }
                     }
 
@@ -2541,7 +2603,7 @@ bool saveGame(Character::Base &player, const char *overwrite)
     data["skillsLimit"] = player.SKILLS_LIMIT;
     data["codewords"] = player.Codewords;
     data["epoch"] = player.Epoch;
-    
+
     data["lifePointsLost"] = player.LifePointsLost;
     data["zorolotlWounds"] = player.ZorolotlWounds;
 
