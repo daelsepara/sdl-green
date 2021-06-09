@@ -709,7 +709,7 @@ public:
 
         Image = "images/filler3.png";
 
-        Text = "The imp puts on the EMERALD RING as if it were a bracelet, and then tries to rip it off again. But the band of gold constricts until it is a perfect fit around his wrist.\n\n\"Alack, alack, I can never take this cursed thing off,\" the imp laments.\n\n\"Help me, and I will remove the ring.\"\n\n\"I am the Kwerrel, and the Kwerrel keeps no bargains.\"\n\n\"Then you are a prisoner of the Lady of the Forest's ring for ever and every being in the forest will know that you are not her friend,\" you say.\n\nQuailing at your words, the Kwerrel says, \"Take the flesh of the toadstool. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nAs the imp speaks the gold ring grows and falls from his wrist to lie on the ground near the giant toadstool. You pick it up again, take a large piece of the flesh of the toadstool. Bidding the little imp goodbye, you walk back into the forest.\n\nYou RECEIVED a TOADSTOOL FLESH.";
+        Text = "The imp puts on the EMERALD RING as if it were a bracelet, and then tries to rip it off again. But the band of gold constricts until it is a perfect fit around his wrist.\n\n\"Alack, alack, I can never take this cursed thing off,\" the imp laments.\n\n\"Help me, and I will remove the RING.\"\n\n\"I am the Kwerrel, and the Kwerrel keeps no bargains.\"\n\n\"Then you are a prisoner of the Lady of the Forest's RING for ever and every being in the forest will know that you are not her friend,\" you say.\n\nQuailing at your words, the Kwerrel says, \"Take the FLESH OF THE TOADSTOOL. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nAs the imp speaks, the gold RING grows and falls from his wrist to lie on the ground near the giant toadstool. You pick it up again, take a large piece of the flesh of the toadstool. Bidding the little imp goodbye, you walk back into the forest.\n\nYou RECEIVED a TOADSTOOL FLESH.";
 
         Choices.clear();
 
@@ -718,7 +718,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        Character::GET_ITEMS(player, {Item::TOADSTOOL_FLESH});
+        Character::GET_ITEMS(player, {Item::TOADSTOOL_FLESH, Item::EMERALD_RING_ELANOR});
     }
 
     int Continue(Character::Base &player) { return 406; }
@@ -3072,7 +3072,7 @@ public:
     {
         ID = 141;
 
-        Text = "The red liquid tastes vile, but unlike medicine it doesn't seem to to anything to you. You start to run as the swarm of bees settles around your head, but you have left it too late. Death from a hundred bee stings is not a pleasant way to leave the world. Your neck swells until your windpipe closes right up, and slowly but surely you choke to death. You bitterly rue your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
+        Text = "The red liquid tastes vile, but unlike medicine it doesn't seem to do anything to you. You start to run as the swarm of bees settles around your head, but you have left it too late. Death from a hundred bee stings is not a pleasant way to leave the world. Your neck swells until your windpipe closes right up, and slowly but surely you choke to death. You bitterly rue your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
 
         Type = Story::Type::DOOM;
 
@@ -4760,6 +4760,212 @@ public:
     }
 };
 
+class Story230 : public Story::Base
+{
+public:
+    Story230()
+    {
+        ID = 230;
+
+        Text = "\"Why have all your friends gone? Why won't they talk to me?\"\n\n\"They are elves, they do not wish to.\"\n\n\"You are an elf, you are still here talking to me.\"\n\n\"But I do not wish to.\"\n\n\"Then why do you not vanish like the rest?\"\n\n\"Shut your eyes just for a moment.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Do as the elf asks", 240));
+        Choices.push_back(Choice::Base("Keep your gaze firmly on the last of the slippery elves", 250));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story231 : public Story::Base
+{
+public:
+    Story231()
+    {
+        ID = 231;
+
+        Image = "images/chief.png";
+
+        Text = "Judging from your manners and bearing, the guard has no reason to doubt you, and deferentially leads you to the pavilion. You step inside and introduce yourself to an important-looking man -- the Chief of the Westermen -- sitting at a large oak table strewn with scrolls and maps. A balding corpulent man, his eyes seem to gleam with greed.\n\nHis eyes show a vague flicker of recognition, and you hope wits will see you through this meeting. For now, however, there seems to be little to worry about. The chief invites you to look at the master map which shows the whole Forest of Arden. A broad swathe of brown has recently been painted across the green of the forest and a red point marks each of the Westermen encampments which are eating into the forest. The chief waves his broad hand across the map, showing where they are going to wreak devastation and havoc next. Right in the centre of the triangle made by the Bonehill, the bower of the Lady of the Forest and the geysers, a small pool with an ancient-looking Greenbark tree drawn on it has been carefully painted in.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask him about the Tree of Knowledge", 337));
+        Choices.push_back(Choice::Base("Ask why the chief is despoiling the forest", 97));
+        Choices.push_back(Choice::Base("Ask if there is ever any trouble among the elves or his own men", 354));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story232 : public Story::Base
+{
+public:
+    Story232()
+    {
+        ID = 232;
+
+        Text = "The Elf King tells you there are about twelve thousand elves here in the forest, and a very few spread across the rest of the world who are too far away to be reached in time.\n\nYou gained the codeword WATERBEARER.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::WATERBEARER});
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORD(player, Codeword::Type::BULLHORN))
+        {
+            return 256;
+        }
+        else
+        {
+            return 47;
+        }
+    }
+};
+
+class Story233 : public Story::Base
+{
+public:
+    Story233()
+    {
+        ID = 233;
+
+        Text = "The stone misses the owl, which veers into the top of a tree. It clings on to a branch there and struggles upright, then while preening its ruffled feathers says, \"The curse of the Grey Touch be upon you, for striking at the servant of the Lady of Grey.\" The owl swoops down past you back to the forest.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 193; }
+};
+
+class Story234 : public Story::Base
+{
+public:
+    Story234()
+    {
+        ID = 234;
+
+        Text = "Zorolotl is too quick for you. The desperate nature of your last ditch attack only makes it easier for him to sidestep you and cut into your side, below your armpit.\n\nYou LOSE 8 Life Points.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -8);
+    }
+
+    int Continue(Character::Base &player) { return 238; }
+};
+
+class Story235 : public Story::Base
+{
+public:
+    Story235()
+    {
+        ID = 235;
+
+        Text = "You carefully gather the potions.\n\nAs you climb down the ladder to the ground you discover that Elanor is nowhere to be seen, but her owl is still gazing at you unblinkingly. It follows as you leave the clearing. Just when you become aware of a loud droning sound in the air above the clearing, and there is a stab of pain as a bee stings the back of your neck. Looking back, you see a shadow pass through the beams of green-filtered sunlight as a whole swarm of bees flies to attack you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Run in search of water to hide in", 197));
+        Choices.push_back(Choice::Base("Smear some of the WHITE JELLY on yourself", 184, {Item::JAR_WHITE_JELLY}));
+        Choices.push_back(Choice::Base("Smear some of the BLACK TAR on yourself", 168, {Item::POTION_TARRY_BLACK}));
+        Choices.push_back(Choice::Base("Drink the BLUE POTION", 155, {Item::POTION_CLOUDY_BLUE}));
+        Choices.push_back(Choice::Base("Drink the RED POTION", 141, {Item::POTION_RED_LIQUID}));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::JAR_WHITE_JELLY, Item::POTION_TARRY_BLACK, Item::POTION_CLOUDY_BLUE, Item::POTION_RED_LIQUID, Item::JAR_COLOURED_EARTH});
+    }
+};
+
+class Story236 : public Story::Base
+{
+public:
+    Story236()
+    {
+        ID = 236;
+
+        Text = "The little imp's eyes light up when he sees the EMERALD RING. \"It is the Lady's RING, the RING of power.\" He yanks it off your finger and runs to the central trunk of the giant bush. He scrambles up just as if he were a monkey, writhing sinuously past the wicked barbed thorns. You could never follow him. He chirrups and laughs, looking down at you through the thorny branches. You ask him to keep his side of the bargain, to help you in your quest.\n\n\"I am the Kwerrel, the Kwerrel keep no bargains.\"\n\nHis chirruping laugh mocks you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell him to put on the RING", 15));
+        Choices.push_back(Choice::Base("Use [SPELLS] against him", 375, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR});
+    }
+};
+
+class Story237 : public Story::Base
+{
+public:
+    Story237()
+    {
+        ID = 237;
+
+        Text = "You trudge on, singling out a particular tree to head for as far away as you can see and keeping it in sight as you go to try to make sure you don't walk in circles. When you reach the tree you look back and try to identify the one you left behind so that you can choose another tree to make for in the same general direction. It is tiring and you are exhausted.\n\nMoving through winding mossy ways, wrapped in the green gloom of the forest depth, you catch the scent of unusual blooms. A path fringed with violet blossoms leads off between the great black boles of the trees, and following it with your gaze you glimpse a stone tower. It is some distance out of your path, and ominously draped in shadows.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Investigate the tower", 394));
+        Choices.push_back(Choice::Base("Pass by without looking back", 454));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story238 : public Story::Base
+{
+public:
+    Story238()
+    {
+        ID = 238;
+
+        Text = "\"Submit; your red blood stains the sward. You have fought well. Honour is satisfied. Submit.\" The elf shows no pity but you fancy you can see admiration for your courage in his eyes.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Give in and submit to Zorolotl", 344));
+        Choices.push_back(Choice::Base("Fight in the hope of triumphing against the odds", 269));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story239 : public Story::Base
+{
+public:
+    Story239()
+    {
+        ID = 239;
+
+        Text = "You manage to creep to within twenty paces of the silk pavilion before one of the guards sees you and raises the alarm. You run back towards the forest edge but a detachment of soldiers issues from the trees, they fan out and surround you. Fearing the worst you are relieved when they only take you prisoner.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 151; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4991,6 +5197,16 @@ auto story226 = Story226();
 auto story227 = Story227();
 auto story228 = Story228();
 auto story229 = Story229();
+auto story230 = Story230();
+auto story231 = Story231();
+auto story232 = Story232();
+auto story233 = Story233();
+auto story234 = Story234();
+auto story235 = Story235();
+auto story236 = Story236();
+auto story237 = Story237();
+auto story238 = Story238();
+auto story239 = Story239();
 
 void InitializeStories()
 {
@@ -5018,7 +5234,8 @@ void InitializeStories()
         &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
         &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
         &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
-        &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229};
+        &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
+        &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239};
 }
 
 #endif
