@@ -3400,7 +3400,6 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
         auto scrollDown = false;
         auto hold = false;
 
-        auto messageh = 0.25 * SCREEN_HEIGHT;
         auto boxh = 0.125 * SCREEN_HEIGHT;
         auto infoh = 0.07 * SCREEN_HEIGHT;
         auto box_space = 10;
@@ -3422,7 +3421,7 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 if ((SDL_GetTicks() - start_ticks) < duration)
                 {
-                    putText(renderer, message.c_str(), font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, message.c_str(), font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else
                 {
@@ -3433,7 +3432,7 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 if ((SDL_GetTicks() - start_ticks) < duration)
                 {
-                    putText(renderer, message.c_str(), font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, message.c_str(), font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else
                 {
@@ -3445,11 +3444,11 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 if (mode == Control::Type::BUY)
                 {
-                    putText(renderer, "Select an item to buy", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "Select an item to buy", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else
                 {
-                    putText(renderer, "You may sell your items at prices indicated here", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "You may sell your items at prices indicated here", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
             }
 
@@ -3780,7 +3779,6 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
         auto font_size = 20;
         auto text_space = 8;
         auto textwidth = ((1 - Margin) * SCREEN_WIDTH) - (textx + arrow_size + button_space) - 2 * text_space;
-        auto messageh = 0.125 * SCREEN_HEIGHT;
         auto boxh = 0.125 * SCREEN_HEIGHT;
         auto infoh = 0.07 * SCREEN_HEIGHT;
         auto box_space = 10;
@@ -3858,7 +3856,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
             {
                 if ((SDL_GetTicks() - start_ticks) < duration)
                 {
-                    putText(renderer, message, font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, message, font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else
                 {
@@ -4709,7 +4707,6 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
     auto font = TTF_OpenFont(FONT_FILE, font_size);
 
-    auto messageh = 0.25 * SCREEN_HEIGHT;
     auto infoh = 0.07 * SCREEN_HEIGHT;
     auto boxh = 0.125 * SCREEN_HEIGHT;
     auto box_space = 10;
@@ -4869,7 +4866,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 {
                     if ((SDL_GetTicks() - start_ticks) < duration)
                     {
-                        putText(renderer, message, font, text_space, clrWH, flash_color, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                        putText(renderer, message, font, text_space, clrWH, flash_color, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                     }
                     else
                     {
@@ -4943,15 +4940,15 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                 if (story->Type == Story::Type::DOOM)
                 {
-                    putText(renderer, "The adventure is over. The Forest of Arden is doomed.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "The adventure is over. The Forest of Arden is doomed.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else if (player.Life <= 0)
                 {
-                    putText(renderer, "You have died. This adventure is over.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "You have died. This adventure is over.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else if (story->Type == Story::Type::GOOD)
                 {
-                    putText(renderer, "You saved the forest and the whole world! Further adventure awaits!", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, messageh, startx, starty);
+                    putText(renderer, "You saved the forest and the whole world! Further adventure awaits!", font, text_space, clrWH, intGN, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
 
                 quit = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);

@@ -709,7 +709,7 @@ public:
 
         Image = "images/filler3.png";
 
-        Text = "The imp puts on the EMERALD RING as if it were a bracelet, and then tries to rip it off again. But the band of gold constricts until it is a perfect fit around his wrist.\n\n\"Alack, alack, I can never take this cursed thing off,\" the imp laments.\n\n\"Help me, and I will remove the RING.\"\n\n\"I am the Kwerrel, and the Kwerrel keeps no bargains.\"\n\n\"Then you are a prisoner of the Lady of the Forest's RING for ever and every being in the forest will know that you are not her friend,\" you say.\n\nQuailing at your words, the Kwerrel says, \"Take the FLESH OF THE TOADSTOOL. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nAs the imp speaks, the gold RING grows and falls from his wrist to lie on the ground near the giant toadstool. You pick it up again, take a large piece of the flesh of the toadstool. Bidding the little imp goodbye, you walk back into the forest.\n\nYou RECEIVED a TOADSTOOL FLESH.";
+        Text = "The imp puts on the EMERALD RING as if it were a bracelet, and then tries to rip it off again. But the band of gold constricts until it is a perfect fit around his wrist.\n\n\"Alack, alack, I can never take this cursed thing off,\" the imp laments.\n\n\"Help me, and I will remove the RING.\"\n\n\"I am the Kwerrel, and the Kwerrel keeps no bargains.\"\n\n\"Then you are a prisoner of the Lady of the Forest's RING for ever and every being in the forest will know that you are not her friend,\" you say.\n\nQuailing at your words, the Kwerrel says, \"Take the FLESH OF THE TOADSTOOL. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nAs the imp speaks, the gold RING grows and falls from his wrist to lie on the ground near the giant toadstool. You pick it up again, take a large piece of the FLESH OF THE TOADSTOOL. Bidding the little imp goodbye, you walk back into the forest.";
 
         Choices.clear();
 
@@ -1128,7 +1128,7 @@ public:
 
         Choices.clear();
         Choices.push_back(Choice::Base("Flee", 165));
-        Choices.push_back(Choice::Base("See what fate intends for you if you feel brave enough", 127));
+        Choices.push_back(Choice::Base("See what fate intends for you if you feel brave enough", 178));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -5605,6 +5605,196 @@ public:
     }
 };
 
+class Story270 : public Story::Base
+{
+public:
+    Story270()
+    {
+        ID = 270;
+
+        Text = "The elves take you by secret ways through the forest until you come near to the camp of the Westermen. There they leave you. If they are seen by mortal men they become unable to melt away into the forest and are then in danger of being enslaved, so you will have to spy along.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 260; }
+};
+
+class Story271 : public Story::Base
+{
+public:
+    Story271()
+    {
+        ID = 271;
+
+        Image = "images/filler2.png";
+
+        Text = "Your swiping SWORD point just keeps the elf at bay. He is quick and nimble. But after a while you realize he is hampered because he cannot flee. He can only walk backwards, feeling his way. His eyes seem drawn to yours as you press your attack.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try one mighty lunge to end the fight", 291));
+        Choices.push_back(Choice::Base("Try a combination, feinting a high thrust and following up with a chop to the midriff", 245));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story272 : public Story::Base
+{
+public:
+    Story272()
+    {
+        ID = 272;
+
+        Text = "Seeing that you have broken the terms of the duel by failing to submit when you have been beaten, the King of the Elves feels he may use death magic against you. He frowns hard at you and begins a chant. Your blood congeals and blocks your arteries. Your heart beats frantically, trying to force the blood to your brain but the strain is too great and your heart bursts. You have been slain for breaking the rules of the duel.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story273 : public Story::Base
+{
+public:
+    Story273()
+    {
+        ID = 273;
+
+        Text = "Garoshtar swoops low, his wings cracking down at the last moment as he swings his head down and breathes over the leading company of soldiers, sending a cloud of poisonous gas and acid roiling about them. His wings crack hard against the air as he struggles to gain height, skimming the treetops. The mercenaries let loose their crossbows as one and Garoshtar is stuck like a pincushion. The dragon convulses in mid air, throwing you off his back and you impale yourself on a branch of a tree.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 276;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+};
+
+class Story274 : public Story::Base
+{
+public:
+    Story274()
+    {
+        ID = 274;
+
+        //TODO: Add to 392 Instead
+        //Image = "images/colossus-beetle.png";
+
+        Text = "The earth mound that was to be your bed collapses beneath you. It is the some of a giant man-eating Colossus beetle. You try to puzzle out what has happened in the pitch dark. Then as the chitinous walls of the throat of a Colossus beetle press you down to its gullet you realize you have been swallowed alive while you listened for a monster stalking you. Nothing will avail you now as the acid of the beetle's stomach does its work. If only you had a guide who might have warned that the mound of earth on which you chose to sleep was the cap of a Colossus beetle's burrow.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story275 : public Story::Base
+{
+public:
+    Story275()
+    {
+        ID = 275;
+
+        Text = "Without waiting to hear your answer the impish little Kwerrel puts the potion bottle to his mouth and begins to drink greedily.\n\n\"Not yet,\" you caution. \"Drink only at need when you are hurt and need a magical healing.\" The Kwerrel stops drinking and examines the joint of his thumb carefully.\n\n\"It is working: you tell the truth, my thumb is healed.\" He sucks on it happily. \"Take some of the FLESH OF THE TOADSTOOL. It is the Blood of Iron toadstool. Make an infusion with elderflower wine and give it to any being you wish to drug into sleep. They will sleep the sleep of the damned. Look, now I open the archway for you to leave.\"\n\nYou take a large piece of the FLESH OF THE TOADSTOOL and, bidding goodbye to the little imp, you walk back out into the forest.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::TOADSTOOL_FLESH});
+    }
+
+    int Continue(Character::Base &player) { return 406; }
+};
+
+class Story276 : public Story::Base
+{
+public:
+    Story276()
+    {
+        ID = 276;
+
+        Text = "Your arrow slices through the air and strikes exactly where Huldranas hit a moment before, splintering the shaft in two. It is a good hit. You allow yourself a self-satisfied nod and lower your bow, then turn to Huldranas. He lets fly with a second arrow, attempting to do the same to your shaft embedded in the branch, but in his haste he is careless and the shot goes wide, missing the branch entirely.\n\n\"That is sufficient,\" you say. \"I've no desire to humiliate you. Admit you're bested.\"\n\n\"No,\" interrupts the Elf King. \"Let Huldranas try again.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Allow Huldranas to try to make a second attempt at splitting your arrow", 300));
+        Choices.push_back(Choice::Base("Insist that the contest ends now that you have proven yourself the victor", 190));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story277 : public Story::Base
+{
+public:
+    Story277()
+    {
+        ID = 277;
+
+        Text = "The days come and go and still you cannot find anyone to talk to in the forest, nor anything but perfectly ordinary-seeming trees. You manage to find enough berries and nuts to stay alive but it is a hard existence. The forest is just too big to find your way through alone.\n\nFor hours on end you feel as though you are being watched by unseen eyes. Sometimes you whirl round suddenly, eyes darting towards any sign of movement in the hope of catching one of the spies. But you never do.\n\nThen one day which dawns cold and dewy just like any other, you hear a strange thumping and an occasional hissing like a dragon's breath or a geyser erupting far away.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 260; }
+};
+
+class Story278 : public Story::Base
+{
+public:
+    Story278()
+    {
+        ID = 278;
+
+        Text = "Your spell, which should have stunned the egret and sent it to sleep for a while, goes off much more strongly than you expected. There is an explosion and a cloud of white feathers flutters to the charred earth, all that remains of the white egret. The report rolls around the valley, echoing ominously. The hillock begins to shake as if in an earthquake. The ground you have stepped back on is quite firm but you can feel the vibrations rocking you slightly. Then the whole of the green hillock rolls upwards and away from you, leaving you standing on the edge of a ledge with a twenty-foot drop. As the hillock moves it creases and splits apart and you realize what it is. It turns its great scaly neck like a corkscrew and looks back over its shoulder at you. You are looking into the face of a dragon; the smouldering red eyes gaze at you like the portals to hell out of its cart-sized face.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leap at its head to attack it before it can wake up", 74));
+        Choices.push_back(Choice::Base("Smile at it and hope it doesn't eat you , while preparing a spell", 36));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story279 : public Story::Base
+{
+public:
+    Story279()
+    {
+        ID = 279;
+
+        Text = "You have no difficulty in making your way back into the forest unchallenged. The guard thought better of raising the alarm. He goes over to some of the other slaves and starts kicking them to give himself the feeling he is doing his job well. You hear the innkeeper groan and beg for mercy.\nSoon the awful sights and sounds of the Westermen camp are far behind.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -5876,6 +6066,16 @@ auto story266 = Story266();
 auto story267 = Story267();
 auto story268 = Story268();
 auto story269 = Story269();
+auto story270 = Story270();
+auto story271 = Story271();
+auto story272 = Story272();
+auto story273 = Story273();
+auto story274 = Story274();
+auto story275 = Story275();
+auto story276 = Story276();
+auto story277 = Story277();
+auto story278 = Story278();
+auto story279 = Story279();
 
 void InitializeStories()
 {
@@ -5907,7 +6107,8 @@ void InitializeStories()
         &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
         &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
         &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
-        &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269};
+        &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
+        &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279};
 }
 
 #endif
