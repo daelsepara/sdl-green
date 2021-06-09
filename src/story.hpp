@@ -3351,7 +3351,7 @@ public:
     {
         ID = 155;
 
-        Text = "You grab the phial and gulp down the CLOUDY BLUE fluid. The owl, perched on a tree, watches as unblinking as ever.\n\n\"You have just drunk the mulch of the fire lizard's gizzard. You have not long to live.\"\n\nThe owl is right. Your throat goes into spasm as the poison starts to work and soon you cannot breathe. You fall to the ground writhing in agony, but it is not long before unconsciousness brings merciful release from the pain of the poison.";
+        Text = "You grab the phial and gulp down the CLOUDY BLUE FLUID. The owl, perched on a tree, watches as unblinking as ever.\n\n\"You have just drunk the mulch of the fire lizard's gizzard. You have not long to live.\"\n\nThe owl is right. Your throat goes into spasm as the poison starts to work and soon you cannot breathe. You fall to the ground writhing in agony, but it is not long before unconsciousness brings merciful release from the pain of the poison.";
 
         Type = Story::Type::DOOM;
 
@@ -3558,7 +3558,7 @@ public:
 
         Choices.clear();
         Choices.push_back(Choice::Base("Take off the ring", 179));
-        Choices.push_back(Choice::Base("Leave the ring on if you trust Elanor", 35));
+        Choices.push_back(Choice::Base("Leave the ring on: you trust Elanor", 35));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -5951,8 +5951,8 @@ public:
         Text = "You cast the dirk, not expecting it to hit the bird, but it flashes though the air and buries itself in the egret's breast. The bird croaks once and falls lifeless to the burnt floor of the valley.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Walk to the top of the hillock" , 314));
-        Choices.push_back(Choice::Base("Leave the valley and skirt around it to the east" , 429));
+        Choices.push_back(Choice::Base("Walk to the top of the hillock", 314));
+        Choices.push_back(Choice::Base("Leave the valley and skirt around it to the east", 429));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -5975,6 +5975,184 @@ public:
         Type = Story::Type::DOOM;
 
         Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story290 : public Story::Base
+{
+public:
+    Story290()
+    {
+        ID = 290;
+
+        Text = "You wriggle and squirm but can't evade the crushing arm. The breath is driven out of your body and you are helpless as the statue crushes your chest against its own. You die and the statue attacks the Tree of Life remorselessly. When the tree is slain the elves and the forest will die with it.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story291 : public Story::Base
+{
+public:
+    Story291()
+    {
+        ID = 291;
+
+        Text = "Your lunge is mighty indeed but the point of your sword only cuts through air. The nimble elf jumps aside, rolls and, as you turn to face him once more, you feel the cold steel of his dirk biting deep into your side. The elf pulls the dirk out and begins to circle you.\n\nYou LOSE 5 Life Points.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Fight on", 226));
+        Choices.push_back(Choice::Base("Let the elf go by looking away", 261));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -5);
+    }
+};
+
+class Story292 : public Story::Base
+{
+public:
+    Story292()
+    {
+        ID = 292;
+
+        Text = "You grab the phial and down the CLOUDY BLUE FLUID. Elanor makes no move to stop you. \"I have tricked you, fool. You have just drunk the mulch of the fire lizard's gizzard. You have not long to live.\"\n\nElanor is right. Your throat goes into spasm as the poison starts to work and soon you cannot breathe. You can do nothing as Elanor pulls on a vine and a secret hatch opens in the side of the tree-house. She pushes you through it and you fall to the ground, finding merciful release from the pain and the poison. The ants will dine on you tonight.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story293 : public Story::Base
+{
+public:
+    Story293()
+    {
+        ID = 293;
+
+        Text = "The mesmerizing look in Zorolotl's eyes is gone: they are dimmed with pain. He has lost so much blood he can hardly see straight. Realizing he cannot fight on, Zorolotl submits to you, saying you are the victor in the duel. A young elf runs up with the potions for both of you to drink which he assures you will restore you to complete health.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story294 : public Story::Base
+{
+public:
+    Story294()
+    {
+        ID = 294;
+
+        Text = "The wind takes the Choking Fog and blows it back in your direction.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Step right back to avoid it so that it obscures you from your foe", 306));
+        Choices.push_back(Choice::Base("Stand your ground and cancel the spell", 318));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story295 : public Story::Base
+{
+public:
+    Story295()
+    {
+        ID = 295;
+
+        Text = "You charge the Infernal Statue and rain blows down upon it, but the metal is not dented by the mightiest of your blows. In hammering against the statue with all your might you beak your sword off at the hilt. You will have to try and attack it with your bare hands.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 327; }
+};
+
+class Story296 : public Story::Base
+{
+public:
+    Story296()
+    {
+        ID = 296;
+
+        Text = "\"Why do you ask about the coloured earths? Pretty, aren't they? It's an ornament, nothing more.\"\n\nThe stinging of the bees is driving you mad. You are forced to make a dash for the ladder and run off, looking for a pool so you can immerse yourself and get rid of the bees.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 197; }
+};
+
+class Story297 : public Story::Base
+{
+public:
+    Story297()
+    {
+        ID = 297;
+
+        Text = "The men have both spent much time in the forest and must know many of its secrets. They talk of the elves who do not deign to notice mortal men. Men say they are immortal yet they all look like children. The guide, Renard, mentions tree spirits and strange monsters. The hunter, Marek, tells you about a dragon, but Renard clearly doesn't believe the tale. Both agree, however, that things are changing in the forest. The Westermen have come in their multitudes, hewing and burning the trees to feed iron monsters that belch smoke. Both men hate the Westermen.\n\n\"They are passing cruel -- it's better to die in the forest than to be taken alive by the paleskins,\" says Marek.\n\nYou become tired at last and ponder your next move.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stay at the inn", 333));
+        Choices.push_back(Choice::Base("Go home with Renard", 224));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story298 : public Story::Base
+{
+public:
+    Story298()
+    {
+        ID = 298;
+
+        Text = "You circle round to his vulnerable side and this gives you the opening you need.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cut down in a slashing blow with your arm extended: a dangerous move that will still catch him if he springs back", 377));
+        Choices.push_back(Choice::Base("Stab quickly at his midriff and dance back out of range again", 364));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story299 : public Story::Base
+{
+public:
+    Story299()
+    {
+        ID = 299;
+
+        Image = "images/lady-of-the-forest.png";
+
+        Text = "\"Yes it is I, the Lady in Grey. As you can see I am also Elanor, the Lady of the Forest. I thought you had the wit to find your way this far. I am glad. The forest needs a hero. Climb up, take some elderflower nectar with me -- you'll find it most refreshing. Did you need to play the flute?\"\n\nYou climb up into the little tree-house. There is no furniture except a straw-filled hemp mattress to sleep on. The lady gestures you to sit in the nook of a curved branch, covered in dry moss, that serves as a chair and is surprisingly comfortable. She sits on a small hammock made of creepers, and swings gently to and fro.\n\nThere are shelves made of thick ropes and creepers which have been trained to grow in and out around the edge of the tree-house. Behind the Lady in Grey on one of the shelves is a row of potions. The strange liquids with bright swirling colours look just as you imagine magical potions do. She looks deep into your eyes and says, \"Are you ready to be the forest's saviour?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to get the potions", 341));
+        Choices.push_back(Choice::Base("Say you don't know what she is talking about and that you only came to get directions to the Tree of Knowledge", 329));
+        Choices.push_back(Choice::Base("Say you would like to be the hero who saves the forest", 9));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -6271,6 +6449,16 @@ auto story286 = Story286();
 auto story287 = Story287();
 auto story288 = Story288();
 auto story289 = Story289();
+auto story290 = Story290();
+auto story291 = Story291();
+auto story292 = Story292();
+auto story293 = Story293();
+auto story294 = Story294();
+auto story295 = Story295();
+auto story296 = Story296();
+auto story297 = Story297();
+auto story298 = Story298();
+auto story299 = Story299();
 
 void InitializeStories()
 {
@@ -6304,7 +6492,8 @@ void InitializeStories()
         &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
         &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
         &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
-        &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289};
+        &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
+        &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299};
 }
 
 #endif
