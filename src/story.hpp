@@ -3821,6 +3821,186 @@ public:
     }
 };
 
+class Story180 : public Story::Base
+{
+public:
+    Story180()
+    {
+        ID = 180;
+
+        Text = "Your words seem to make no difference: the elves just stare at you. Their childlike faces belie the threat they present. A few of them carry slender longbows but these are slung over their shoulders. The elves are not trying to frighten you but the eeriness of those young old faces, silent and quizzical, is unnerving. For all you know each one of them was born before man came into existence.\n\nYou repeat that you are no friend of the Westermen and that you want to save the forest. Your words are met by stony silence. Rattled by this lack of communication, you end up by saying that not all men are evil. You then decide to keep your mouth shut.\n\n\"I have met many men,\" says a voice. \"Seven this very millennium have found me here in the greenwood. On the whole, taken for what they were, summing the sinews of their spirit and the canopy of their souls, they were bad; not evil, just bad. We came here to avoid the prattling of men. It is hard for us to be near those we must pity.\"\n\nAt the mention of the word pity, many of the elves turn their faces away for a moment, as if to spare you. You will have to win their respect.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Apologize for making them feel uncomfortable by disturbing them in the greenwood", 209));
+        Choices.push_back(Choice::Base("Tell them it is they who are to be pitied, for the Westermen are destroying their forest as surely as night follows day", 219));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story181 : public Story::Base
+{
+public:
+    Story181()
+    {
+        ID = 181;
+
+        Image = "images/filler3.png"; 
+
+        Text = "The woman looks wise. \"My name is Elanor, I am a priestess of the All Mother, from whom springs all life, eternally.\" Her weather-beaten face comes to life as she speaks and you sense her love of life.\n\nShe tells you Valerian, the man in the black robe, is a Moon Druid who vies with her for control of the forest and the beasts dwelling there. \"But they sense his evil and flock to me. His envy of me consumes his heart and turns it as black as his cloak. Valerian has thrown in his lot with the Westermen, the hewers and burners. They have come to destroy the great forest.\"\n\nShe seems very grave.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say that it would be a terrible thing to destroy the great forest", 14));
+        Choices.push_back(Choice::Base("Ask her why it would be such a bad thing to destroy the forest", 2));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story182 : public Story::Base
+{
+public:
+    Story182()
+    {
+        ID = 182;
+
+        Text = "You cast the spell of the Shield of Defense just as a silver noose appears in the air before you. The noose drops over your head magically, avoiding the shield by dancing above it. You try to drag it from your neck but the silver cord tightens slowly until it flattens your windpipe. You grow purple with effort and lack of oxygen. Gurgling horribly, unable to speak, you subside to the floor and black out, never to regain consciousness. It is doubtful that these unfriendly people of Burg will even give you a decent burial: your remains will probably be thrown on a spoil heap.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story183 : public Story::Base
+{
+public:
+    Story183()
+    {
+        ID = 183;
+
+        Image = "images/filler1.png";
+
+        Text = "As Gathkeri circles you, you try to cut him off by making a sudden rush to back him up against the edge of the circle. You lunge to grapple him, but he is too quick for you this time. He skips nimbly past and falls back onto a patch of uneven ground inside the circle. He looks down when he treads on a root and you close in again.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Repeat the same tactic", 142));
+        Choices.push_back(Choice::Base("Attack him with your fists and feet", 172));
+        Choices.push_back(Choice::Base("Wait for him to attack you", 161));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story184 : public Story::Base
+{
+public:
+    Story184()
+    {
+        ID = 184;
+
+        Text = "As soon as you take the stopper out of the round bottle the bees veer away. You smear a little of the white jelly across your forehead and smile. The jelly has a pungent smell which seems to be driving the insects away. Even the beetles on the forest floor are scurrying away from you.\n\nSaved from the insects by the white balm, you ponder where to search for the Tree of Knowledge next. You know it will soon be Midsummer's Day.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Continue your search by heading west", 43));
+        Choices.push_back(Choice::Base("Head east", 427));
+        Choices.push_back(Choice::Base("Go south-west", 70));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story185 : public Story::Base
+{
+public:
+    Story185()
+    {
+        ID = 185;
+
+        Text = "The dragon tells you that because you have disturbed it from its slumbers it seems appropriate to begin by teaching you the spell of sleep. It starts to recite the words of the spell, but chooses to demonstrate on you to show what the effect is like. Unfortunately it is a dragon sleep-spell and will keep a puny mortal like you asleep for a hundred years. By the time you awake the forest will be no more. Your selfish thirst for knowledge has sealed the destruction of the forest and all the things that live in it.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story186 : public Story::Base
+{
+public:
+    Story186()
+    {
+        ID = 186;
+
+        Text = "You summon all your willpower and try to grapple with the machine in a battle of minds, your resolve weakened by the nagging fear that the machine doesn't have a will of its own.\n\nTo your surprise your magic tells you there is a mind within the machine -- one that belongs to the man who is controlling it. He is too busy working the machine to notice your attack, and when your psychic assault hits him, the machine grinds to a halt.\n\nYou sense his shift in attention from the machine to you. Although you hold the machine motionless for many moments, you fail to overpower the will of the man inside it, and at last he manages to throw the lever that sets the steam-hammer of a sword arm into motion again.\n\nOne last great blow splits the trunk in the middle and the Tree of Life is dead. Your hopes of saving the forest are destroyed; dejected you are taken prisoner and enslaved.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story187 : public Story::Base
+{
+public:
+    Story187()
+    {
+        ID = 187;
+
+        Text = "The Elf King crosses to a juniper bush and shakes it branches. \"Attend to my word,\" he says to the bush. \"Awaken -- speak. Tell me of a secret.\"\n\nThe bush speaks in a voice like sighing: \"Under my roots, a mole with a scarred forepaw, has just devoured an earthworm. No other know this secret until now.\"\n\nThe Elf King turns to you triumphantly. \"Well, mortal? Can you make the very plants themselves speak? If not, you forfeit the contest.\"\n\nYou go over to a tree and snap off a twig. \"I shall make this single twig tell a secret,\" you declare. \"And moreover, it will not be by magic, but in a manner that any man might use.\" So saying, you strike up a small fire among some dead leaves and char the end of the twig. Then, removing your shirt, you use the charred tip of the twig like a pencil. The elves gather round to watch as you write: \"The Elf King's true name is --\"\n\n\"Enough!\" The Elf King snatches the twig out of your hand. He casts it aside, an unsettled look clouding his silver-grey eyes. \"This is mere trickery. My next task will not be so easy to circumvent.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Insist that it is your turn to set him a task", 221));
+        Choices.push_back(Choice::Base("Let him set a third task", 20));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story188 : public Story::Base
+{
+public:
+    Story188()
+    {
+        ID = 188;
+
+        Image = "images/man-in-black-cowl.png";
+
+        Text = "These people look very wary of strangers. Whatever you say mustn't alarm them. They could easily be untrustworthy so you had better not mention the Tree of Knowledge. You loudly announce that you are searching for a rare kind of bird that you hope to find in the forest, the violet tanager. \"Can anyone guide me to the nest of such a bird?\" you ask, fingering your money-pouch significantly.\n\n\"I know of no such bird in the forest. Indeed, I have never heard tell of a tanager that was violet.\" The voice of the woman in grey carries absolute certainty; she must be steeped in wilderness lore.\n\nYou explain it is a very rare bird mentioned in ancient manuscripts and ask about the birds she has seen in the forest.\n\nShe gestures you to join her table; she seems happy to talk to you all night about the forest. The man in black cowl stares at you all the while; his eyes look like glittering flints within his cowl. The other two have returned to the fire.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 181; }
+};
+
+class Story189 : public Story::Base
+{
+public:
+    Story189()
+    {
+        ID = 189;
+
+        Image = "images/filler2.png";
+
+        Text = "When you awake the Kwerrel is nowhere to be seen, although the archway back out to the forest has reappeared. You make good your escape, knowing that the Kwerrel could have killed you if it had wanted to.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 406; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4002,6 +4182,16 @@ auto story176 = Story176();
 auto story177 = Story177();
 auto story178 = Story178();
 auto story179 = Story179();
+auto story180 = Story180();
+auto story181 = Story181();
+auto story182 = Story182();
+auto story183 = Story183();
+auto story184 = Story184();
+auto story185 = Story185();
+auto story186 = Story186();
+auto story187 = Story187();
+auto story188 = Story188();
+auto story189 = Story189();
 
 void InitializeStories()
 {
@@ -4024,7 +4214,8 @@ void InitializeStories()
         &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
         &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
         &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
-        &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179};
+        &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
+        &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189};
 }
 
 #endif
