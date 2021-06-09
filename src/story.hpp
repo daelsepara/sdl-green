@@ -5795,6 +5795,191 @@ public:
     }
 };
 
+class Story280 : public Story::Base
+{
+public:
+    Story280()
+    {
+        ID = 280;
+
+        Text = "You abandon the elves but continue with your quest for the Tree of Knowledge. You are still no nearer to finding it when you stumble across the bodies of hundreds of elves lying among the trees. It is as if someone has just switched them off without warning, some even while eating their supper. They are all dead and you will never escape.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story281 : public Story::Base
+{
+public:
+    Story281()
+    {
+        ID = 281;
+
+        Text = "Renard snorts in disgust. \"Not that old tale again. Don't let Marek tell you it was as big as a temple, will you?\" He gets up and leaves.\n\nMarek the Hunter fixes you with a grim stare. Whatever he thinks he has seen has really frightened him,\n\n\"It was like a small green hill. I almost stepped on it. But its body heaved as it breathed. I thought it was asleep. I backed away from the clearing but it opened one eye, like a moon, and looked at me. Its nostrils smoked and I thought it was going to kill me, but it let me go and I ran all the way out of the forest by nightfall of the fourth day.\"\n\nYou ask the hunter if he could find this clearing again but he seems too fearful. You ask him to draw a map but he says he cannot write. \"But if you walk beside the Burgstream to the banks of the great Sirion river, turn west and then climb where the ground rises, you will find the place.\"\n\nMarek pleads tiredness and excuses himself. You follow suit and take a room in the inn for the night.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 333; }
+};
+
+class Story282 : public Story::Base
+{
+public:
+    Story282()
+    {
+        ID = 282;
+
+        Text = "\"How am I to find my way back out of the forest?\" asks Pozzo. \"I am a man of the town. I was lost before the Westermen dogs captured me. I'll never see Burg or my poor daughter again without your help.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Change your mind and take the time needed to escort him to Burg", 62));
+        Choices.push_back(Choice::Base("Tell him to walk until he finds a river and then to follow that river towards the sea and he will one day escape the forest", 12));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story283 : public Story::Base
+{
+public:
+    Story283()
+    {
+        ID = 283;
+
+        Text = "You whisper a charm and rub the pendant on your neck chain (MAGIC AMULET). The magical stone is not warm -- there seems to be no danger -- yet there is something about the Lady in Grey that suggests power.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::MAPLE_FLUTE}))
+        {
+            return 299;
+        }
+        else
+        {
+            return 310;
+        }
+    }
+};
+
+class Story284 : public Story::Base
+{
+public:
+    Story284()
+    {
+        ID = 284;
+
+        Text = "\"I don't care to be cared for. We Kwerrel can look out for ourselves.\" He seems angered. Perhaps he hates to be pitied.\n\n\"I will hold you prisoner here for a day, or a month or a year... until I have grown tired of you.\" With that the imp disappears high into the giant bush, his chirruping laughter mocking you. You start to look for a way out of the giant bush thorns.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 432; }
+};
+
+class Story285 : public Story::Base
+{
+public:
+    Story285()
+    {
+        ID = 285;
+
+        Text = "The wind takes the Choking Fog and blows it into the face of the King of the Elves. He staggers, while the two images to his right remain immobile, and he clutches at his throat and begins to vomit. He calls out his submission as he falls retching to ground.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cancel the spell and save him", 353));
+        Choices.push_back(Choice::Base("Let the spell run its course", 365));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story286 : public Story::Base
+{
+public:
+    Story286()
+    {
+        ID = 286;
+
+        Text = "Garoshtar swoops low, his wings cracking down at the last moment as he swings his head down and breathes over the leading company of soldiers, sending a cloud of poisonous gas and acid roiling about them. His wings crack hard against the air as he struggles to gain height, skimming the treetops. The mercenaries let loose their crossbows as one and Garoshtar is stuck like a pincushion. The dragon convulses in mid air, but you manage to cling on. The wounds are not mortal but Garoshtar tells you he must land and sleep for a few years to heal his many hurts. He lands near Elvenhame and sinks immediately into a deep slumber, his bulk rising and falling in time with the breathing like a heavy ocean swell. You decide to search for the Elf King to report what has befallen brave Garoshtar.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 57; }
+};
+
+class Story287 : public Story::Base
+{
+public:
+    Story287()
+    {
+        ID = 287;
+
+        Text = "You grab one of the tentacles with your free hand and try to climb towards the head of the Embracer. It beats you back with its tentacles and one coils around your sword arm. The tentacle constricts around your wrist like a noose of steel and the sword falls from your grasp. Unfortunately the creature has more than enough tentacles to deal with you and soon both your arms are crushed to your sides by what felt like iron bars. The Embracer drags you to drown, before feeding. You will never see the Tree of Life now. The forest of Arden is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story288 : public Story::Base
+{
+public:
+    Story288()
+    {
+        ID = 288;
+
+        Text = "You cast the dirk, not expecting it to hit the bird, but it flashes though the air and buries itself in the egret's breast. The bird croaks once and falls lifeless to the burnt floor of the valley.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Walk to the top of the hillock" , 314));
+        Choices.push_back(Choice::Base("Leave the valley and skirt around it to the east" , 429));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::ELVEN_DIRK});
+    }
+};
+
+class Story289 : public Story::Base
+{
+public:
+    Story289()
+    {
+        ID = 289;
+
+        Text = "As you stare at the crumbled victory arch, a sense of hopelessness overwhelms you. There is very old, very bad magic here, you can feel it in your bones. You are hopelessly lost now and will never see the lands of men again. This is what all man's labours come to with the passing of time.\n\nYou are still searching for the Tree of Life when you come across the bodies of hundreds of dead elves among the trees. It is as though they have all been witched off suddenly, cut off in the midst of immortal life, some even as they ate their supper. The elves are all dead and you and the forest are doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6076,6 +6261,16 @@ auto story276 = Story276();
 auto story277 = Story277();
 auto story278 = Story278();
 auto story279 = Story279();
+auto story280 = Story280();
+auto story281 = Story281();
+auto story282 = Story282();
+auto story283 = Story283();
+auto story284 = Story284();
+auto story285 = Story285();
+auto story286 = Story286();
+auto story287 = Story287();
+auto story288 = Story288();
+auto story289 = Story289();
 
 void InitializeStories()
 {
@@ -6108,7 +6303,8 @@ void InitializeStories()
         &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
         &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
         &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
-        &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279};
+        &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
+        &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289};
 }
 
 #endif
