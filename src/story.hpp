@@ -5399,6 +5399,212 @@ public:
     }
 };
 
+class Story260 : public Story::Base
+{
+public:
+    Story260()
+    {
+        ID = 260;
+
+        Image = "images/devastation.png";
+
+        Text = "Climbing a rise you look out over a scene of utter devastation. The trees have been chopped down as far as the eye can see. An infernal engine of some kind belches black smoke and two hundred yards away you see a forge with a gigantic cauldron over a bonfire which six men feed constantly with ready-cut wood and charcoal. The men working here are very pale skinned, their faces long and thin, like hatchets. They shout to each other over the din of the engine in a language you don't understand.\n\nTeams of horses yoked together pull logs to where groups of men cut them up with saws ready for burning. A row of children sit nearby; they are darker skinned than the men and have been set to toil over sharpening the saws.\n\nWhere the trees have been felled and stripped men are torching the underbrush to kill everything that lives in the forest. A pall of smoke hangs over everything like a storm-cloud.\n\nThe men haven't noticed you yet. There is a group of armed guards near the forge who sport more steel armour than you have ever seen. These men must be wealthy. They also look bored and edgy.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Show yourself and talk to them", 100));
+        Choices.push_back(Choice::Base("Sink back into the forest and hide", 134));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story261 : public Story::Base
+{
+public:
+    Story261()
+    {
+        ID = 261;
+
+        Text = "You look away and say that you free the elf to return to his home. There is no answer: you look back in time to see the dirk being thrust at your throat. The elven blade cuts your jugular and you fall to the ground in a dying faint.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story262 : public Story::Base
+{
+public:
+    Story262()
+    {
+        ID = 262;
+
+        Text = "The sword cuts cleanly through the fibres lopping the tentacles into pieces. The Embracer emits a piercing shriek and throws Renard at you before subsiding once more into the river. You both swim to the far bank before the Embracer can recover.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 398; }
+};
+
+class Story263 : public Story::Base
+{
+public:
+    Story263()
+    {
+        ID = 263;
+
+        Image = "images/filler3.png";
+
+        Text = "The eyes of the elves still hold no clue as to what they think of you. They do not clap or smile or acknowledge your victory in any way, but the king says, \"You have proved your worth in the duel. Elvendom will play its part if you lead us against the Westermen for there is not one of us who wants to see the destruction of the forest. What would you have us do?\n\nAs he says this, you are given a clear BLUE POTION to drink which makes your whole body jingle excruciatingly, but heals any of your hurts.\n\n\"Come. We will plan the downfall of the Westermen,\" says the Elf King.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.Life = player.MAX_LIFE_LIMIT;
+    }
+
+    int Continue(Character::Base &player) { return 232; }
+};
+
+class Story264 : public Story::Base
+{
+public:
+    Story264()
+    {
+        ID = 264;
+
+        Image = "images/innkeeper.png";
+
+        Text = "The innkeeper is chained in a line of five slaves who have been set to repair a broken cartwheel. Four of them lift the cart while another tries to tie a joint together. The guard comes over to the group and starts kicking them to give himself the feeling he is doing his job well. The innkeeper groans and begs for mercy as the guard's boot thumps into his stomach. He groans again.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Kill the guard", 315));
+        Choices.push_back(Choice::Base("Bide your time", 334));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story265 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story265()
+    {
+        ID = 265;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The Kwerrel sniffs at the pot of ointment and tastes a smear. He wrinkles his nose in disgust and throws the pot back at you.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            PreText += "\n\nIt shatters against a flint. The JAR OF WHITE JELLY is LOST.";
+        }
+        else
+        {
+            PreText += "\n\nYou leap over the toadstool and catch it before it lands on the ground and breaks.";
+
+            Character::GET_ITEMS(player, {Item::JAR_WHITE_JELLY});
+        }
+
+        PreText += "\n\nYou will have to offer the Kwerrel imp something else.";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 158; }
+};
+
+class Story266 : public Story::Base
+{
+public:
+    Story266()
+    {
+        ID = 266;
+
+        Text = "You cast Vanish and disappear. Then you creep slowly round to the perch of the pavilion and, waiting to make sure there will be no one coming in or out you creep in and sneak behind the table where the man they call the chief is seated, poring over the maps. He is a balding, corpulent man whose eyes gleam with greed.\n\nThe master map shows the Forest of Arden in its entirety. A broad swathe of brown has recently been painted across the green of the forest and a red point marks each of the Westermen encampments which are eating into the forest. The chief waves his broad hand across the map, showing where they are going to wreak devastation and havoc next .Right in the centre of the triangle made by the Bonehill, the bower of the Lady of the Forest and the geysers, a small pool with an ancient-looking Greenbark tree drawn on it has been carefully painted in. There is nothing to show where Elvenhame, the fabled city of the elves, is.\n\nThe chief dismisses his scribes and furls the map once more before you can read any of the little notes the scribes have inked in.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stay to see if you can discover more, bearing in mind your spell will fail in another ten minutes or so", 115));
+        Choices.push_back(Choice::Base("Leave now while the coast is clear", 95));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story267 : public Story::Base
+{
+public:
+    Story267()
+    {
+        ID = 267;
+
+        Text = "Your charm of friendship works. The egret flies up into the air, arcs round you in a graceful curve and comes to land on your head. It has stopped its cackling. You start to climb the hillock with the white egret balancing on your head. As you set foot on the hillock you are surprised at how hard the ground feels, yet it yields slightly as if a layer of hard rock was resting on mud. The ground is smooth and has a sheen: it only looked like grass. You climb on up the hillock and reaching the summit, look down on its far side which is ribbed and ridged in the most unusual way. It dawns on you that the thing you are standing on is a gargantuan dragon. You can see its head, the size of a cart, curled up next to its feet as it slumbers. It seems not to have noticed you crawling like a fly over its great body.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Climb down its head and slay it", 116));
+        Choices.push_back(Choice::Base("Attempt to wake it up and perhaps talk with it, for they say some dragons can talk", 178));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story268 : public Story::Base
+{
+public:
+    Story268()
+    {
+        ID = 268;
+
+        Text = "Your charm of friendship works. The egret flies up into the air, arcs round you in a graceful curve and comes to land on your head. It has stopped its cackling. You start to climb the hillock with the white egret balancing on your head. As you set foot on the hillock you are surprised at how hard the ground feels, yet it yields slightly as if a layer of hard rock was resting on mud. The ground is smooth and has a sheen: it only looked like grass. You climb on up the hillock and reaching the summit, look down on its far side which is ribbed and ridged in the most unusual way. It dawns on you that the thing you are standing on is a gargantuan dragon. You can see its head, the size of a cart, curled up next to its feet as it slumbers. It seems not to have noticed you crawling like a fly over its great body.\n\nYou gained the codeword SPECULUM.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Break the mirror", 418));
+        Choices.push_back(Choice::Base("Leave it alone", 105));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::SPECULUM});
+    }
+};
+
+class Story269 : public Story::Base
+{
+public:
+    Story269()
+    {
+        ID = 269;
+
+        Text = "The Elf is angered by your refusal to give in. You try to defend yourself, but hampered as you are by your wounds you are no match for him. He thrusts fast twice, each time cutting you deeply. You are drenched in your own hot red blood as the elf stands back, looking on you sorrowfully as he can see that he has killed. Another elf rushes forward with a potion and holds it to your mouth to drink, but he is too late. A wracking cough shakes you and you die.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -5660,6 +5866,16 @@ auto story256 = Story256();
 auto story257 = Story257();
 auto story258 = Story258();
 auto story259 = Story259();
+auto story260 = Story260();
+auto story261 = Story261();
+auto story262 = Story262();
+auto story263 = Story263();
+auto story264 = Story264();
+auto story265 = Story265();
+auto story266 = Story266();
+auto story267 = Story267();
+auto story268 = Story268();
+auto story269 = Story269();
 
 void InitializeStories()
 {
@@ -5690,7 +5906,8 @@ void InitializeStories()
         &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
         &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
         &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
-        &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259};
+        &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
+        &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269};
 }
 
 #endif
