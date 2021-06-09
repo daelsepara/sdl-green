@@ -355,7 +355,7 @@ void putText(SDL_Renderer *renderer, const char *text, TTF_Font *font, int space
 
         if (surface)
         {
-            auto height = surface->h < h ? h : (surface->h + 2 * space);
+            auto height = (surface->h + 2 * space) < h ? h : (surface->h + 2 * space);
 
             fillRect(renderer, w, height, x, y, bg);
 
@@ -3780,7 +3780,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
         auto font_size = 20;
         auto text_space = 8;
         auto textwidth = ((1 - Margin) * SCREEN_WIDTH) - (textx + arrow_size + button_space) - 2 * text_space;
-        auto messageh = 0.25 * SCREEN_HEIGHT;
+        auto messageh = 0.125 * SCREEN_HEIGHT;
         auto boxh = 0.125 * SCREEN_HEIGHT;
         auto infoh = 0.07 * SCREEN_HEIGHT;
         auto box_space = 10;

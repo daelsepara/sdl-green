@@ -3072,7 +3072,7 @@ public:
     {
         ID = 141;
 
-        Text = "The red liquid tastes vile, but unlike medicine it doesn't seem to do anything to you. You start to run as the swarm of bees settles around your head, but you have left it too late. Death from a hundred bee stings is not a pleasant way to leave the world. Your neck swells until your windpipe closes right up, and slowly but surely you choke to death. You bitterly rue your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
+        Text = "The RED LIQUID tastes vile, but unlike medicine it doesn't seem to do anything to you. You start to run as the swarm of bees settles around your head, but you have left it too late. Death from a hundred bee stings is not a pleasant way to leave the world. Your neck swells until your windpipe closes right up, and slowly but surely you choke to death. You bitterly rue your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
 
         Type = Story::Type::DOOM;
 
@@ -3351,7 +3351,7 @@ public:
     {
         ID = 155;
 
-        Text = "You grab the phial and gulp down the cloudy blue fluid. The owl, perched on a tree, watches as unblinking as ever.\n\n\"You have just drunk the mulch of the fire lizard's gizzard. You have not long to live.\"\n\nThe owl is right. Your throat goes into spasm as the poison starts to work and soon you cannot breathe. You fall to the ground writhing in agony, but it is not long before unconsciousness brings merciful release from the pain of the poison.";
+        Text = "You grab the phial and gulp down the CLOUDY BLUE fluid. The owl, perched on a tree, watches as unblinking as ever.\n\n\"You have just drunk the mulch of the fire lizard's gizzard. You have not long to live.\"\n\nThe owl is right. Your throat goes into spasm as the poison starts to work and soon you cannot breathe. You fall to the ground writhing in agony, but it is not long before unconsciousness brings merciful release from the pain of the poison.";
 
         Type = Story::Type::DOOM;
 
@@ -3598,7 +3598,7 @@ public:
     {
         ID = 168;
 
-        Text = "The black tarty goo smells of putrefaction and does not deter the bees at all. You start to run as the swarm of bees settles around your head, but you have left it too late. Death from a hundred bee stings is not pleasant. Your neck swells until your windpipe is closed tight up and you choke to death. You rue bitterly your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
+        Text = "The BLACK TARRY goo smells of putrefaction and does not deter the bees at all. You start to run as the swarm of bees settles around your head, but you have left it too late. Death from a hundred bee stings is not pleasant. Your neck swells until your windpipe is closed tight up and you choke to death. You rue bitterly your folly in upsetting Elanor, the Lady of the Forest, and you have paid the price.";
 
         Type = Story::Type::DOOM;
 
@@ -3901,7 +3901,7 @@ public:
     {
         ID = 184;
 
-        Text = "As soon as you take the stopper out of the round bottle the bees veer away. You smear a little of the white jelly across your forehead and smile. The jelly has a pungent smell which seems to be driving the insects away. Even the beetles on the forest floor are scurrying away from you.\n\nSaved from the insects by the white balm, you ponder where to search for the Tree of Knowledge next. You know it will soon be Midsummer's Day.";
+        Text = "As soon as you take the stopper out of the round bottle the bees veer away. You smear a little of the WHITE JELLY across your forehead and smile. The jelly has a pungent smell which seems to be driving the insects away. Even the beetles on the forest floor are scurrying away from you.\n\nSaved from the insects by the white balm, you ponder where to search for the Tree of Knowledge next. You know it will soon be Midsummer's Day.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Continue your search by heading west", 43));
@@ -4449,13 +4449,13 @@ public:
     {
         ID = 213;
 
-        Text = "You tackle her before she can leap through the hatch and, pinioning her arms behind her back, tie her to a vine that is growing in and out of the walls of the tree house.\n\n\"What do you hope to gain by this?\" she asks.\n\n\"The potions, what do they do?\" you ask urgently.\n\nThere are five potions on the shelf behind her. There is a clear cherry-red liquid in a wax-stoppered phial, a small round bottle of something like runny tar, a jar of white jelly, a cloud sea-blue fluid in a phial and a glass pot that contains layers of coloured earth.\n\nElanor starts to explain what each does. \"The blue fluid, if quaffed in sunlight, will heal all save the most serious of hurts.\" As she says the word \"hurts\" the back of your wrist is stung by a bee. Elanor seems not to notice and goes on talking about the potions.\n\n\"This black tarry goo is mulch of fire lizard's gizzard, a deadly poison.\"\n\nYou are stung twice more, on the leg and the neck. More bees fly into the tree-house, buzzing angrily. You can't stand being stung like this for much longer. The bees' stings feel like those of hornets.";
+        Text = "You tackle her before she can leap through the hatch and, pinioning her arms behind her back, tie her to a vine that is growing in and out of the walls of the tree house.\n\n\"What do you hope to gain by this?\" she asks.\n\n\"The potions, what do they do?\" you ask urgently.\n\nThere are five potions on the shelf behind her. There is a clear CHERRY-RED LIQUID in a wax-stoppered phial, a small round bottle of something like runny tar, a jar of WHITE JELLY, a CLOUD SEA-BLUE FLUID in a phial and a glass pot that contains layers of COLOURED EARTH.\n\nElanor starts to explain what each does. \"The BLUE FLUID, if quaffed in sunlight, will heal all save the most serious of hurts.\" As she says the word \"hurts\" the back of your wrist is stung by a bee. Elanor seems not to notice and goes on talking about the potions.\n\n\"This BLACK TARRY goo is mulch of fire lizard's gizzard, a deadly poison.\"\n\nYou are stung twice more, on the leg and the neck. More bees fly into the tree-house, buzzing angrily. You can't stand being stung like this for much longer. The bees' stings feel like those of hornets.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Quickly ask about the red liquid", 313));
-        Choices.push_back(Choice::Base("Ask about the white jelly", 304));
-        Choices.push_back(Choice::Base("Ask about the bands of coloured earth in the hope that one of them will protect against the insects", 296));
-        Choices.push_back(Choice::Base("Grab the phial of blue fluid and drink it", 292));
+        Choices.push_back(Choice::Base("Quickly ask about the RED LIQUID", 313));
+        Choices.push_back(Choice::Base("Ask about the WHITE JELLY", 304));
+        Choices.push_back(Choice::Base("Ask about the bands of COLOURED EARTH in the hope that one of them will protect against the insects", 296));
+        Choices.push_back(Choice::Base("Grab the phial of BLUE FLUID and drink it", 292));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -4824,7 +4824,7 @@ public:
         }
         else
         {
-            return 47;
+            return 42;
         }
     }
 };
@@ -4964,6 +4964,215 @@ public:
     }
 
     int Continue(Character::Base &player) { return 151; }
+};
+
+class Story240 : public Story::Base
+{
+public:
+    Story240()
+    {
+        ID = 240;
+
+        Text = "You close your eyes for a moment, then pondering how hard it has been to find them and how important is your quest, you open them again to make sure the elf is not slinking away. But already you are too late. In a blink of the eye the last elf has vanished. You stomp through the undergrowth calling and searching but the only answer is the high mocking laughter of the elves as they recede into the depths of the forest. You have failed to meet the elves on Midsummer's day.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try again tomorrow", 139));
+        Choices.push_back(Choice::Base("Abandon all hope of persuading the elves to help save their own forest", 280));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story241 : public Story::Base
+{
+public:
+    Story241()
+    {
+        ID = 241;
+
+        Text = "The owl leads you by easy ways and you make faster progress than before. It seems to be leading you many miles and before nightfall you have to ask it to stop so you can rest.\n\nThe next day you begin to wonder whether the owl is not merely leading you astray. When you ask how much further to the bower it always says the same thing: \"Not far. Follow me.\" You come to hate the sight of the bird that keeps you slogging through the forest in its wake.\n\nYou are about to stop in protest that it has been saying not far all day long, when you notice in this part of the forest no two trees are the same species. It is as if every type of tree in the forest has one representative here. You comment on this to the owl, but when you look round you realize it has vanished.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 259; }
+};
+
+class Story242 : public Story::Base
+{
+public:
+    Story242()
+    {
+        ID = 242;
+
+        Image = "images/filler3.png";
+
+        Text = "As soon as you take the stopper out of the round bottle the bees fly out of the tree-house. You smear a little of the WHITE JELLY across your forehead and smile. The jelly has a pungent smell which seems to be driving the insects away. Even the beetles on the tree-house floor are scurrying away from you.\n\nYou carefully gather up all the other potions. Then you climb down the ladder to the ground and consider your next move.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go west from here", 43));
+        Choices.push_back(Choice::Base("Head east", 427));
+        Choices.push_back(Choice::Base("Go south-west", 70));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::JAR_WHITE_JELLY, Item::POTION_TARRY_BLACK, Item::POTION_CLOUDY_BLUE, Item::POTION_RED_LIQUID, Item::JAR_COLOURED_EARTH});
+    }
+};
+
+class Story243 : public Story::Base
+{
+public:
+    Story243()
+    {
+        ID = 243;
+
+        Text = "\"A magic potion for me, the Kwerrel? Oh yes, how fine, how very fitting. Must I quaff it now? Will I be able to speak words of power and conjure spells, and make monsters do my bidding?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Give him a BLUE POTION", 254, Choice::Type::LOSE_ITEMS, {Item::POTION_CLOUDY_BLUE}));
+        Choices.push_back(Choice::Base("Give him the WHITE JELLY", 265, Choice::Type::LOSE_ITEMS, {Item::JAR_WHITE_JELLY}));
+        Choices.push_back(Choice::Base("Give him the RED LIQUID", 275, Choice::Type::LOSE_ITEMS, {Item::POTION_RED_LIQUID}));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story244 : public Story::Base
+{
+public:
+    Story244()
+    {
+        ID = 244;
+
+        Text = "\"Come, follow,\" says the owl. \"I will take you to My Lady of the Forest.\"\n\n\"To Elanor?\" you ask.\n\n\"Yes, follow.\"\n\nThe owl leads you along a maze of paths to a dark bower ringed with hawthorns. You would never have found it without the owl to lead you. An archway has been cut through the thick haws and Elanor stands inside the bower, pouring water from a silver ewer into a jade bowl on a stone plinth. She looks as beautiful as ever, but sinister too in the shadows.\n\nYou gained the codeword TWINHEAD.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::TWINHEAD});
+    }
+
+    int Continue(Character::Base &player) { return 46; }
+};
+
+class Story245 : public Story::Base
+{
+public:
+    Story245()
+    {
+        ID = 245;
+
+        Text = "Your sword skill triumphs. The elf dodges the feinted thrust but succumbs to the cut that drives your blade into his stomach; he staggers and you finish him off with a single chop across the back of the head.\n\nDrawing breath, you listen for others, realizing that at any moment you may be picked off by the arrows of his kind.\n\nYou hurry quickly through the dense underbrush and stumble across a very strange old monument covered in creepers and partially knocked down by a fallen pine. It must once have been a great victory arch, perhaps built here before the forest itself grew here, or to commemorate a victory against rebels who had hidden out in the trees. This is not elven architecture. It is the first sign of man since you entered the Forest of Arden";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Take = {Item::ELVEN_DIRK};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 289; }
+};
+
+class Story246 : public Story::Base
+{
+public:
+    Story246()
+    {
+        ID = 246;
+
+        Text = "Renard is beginning to panic as he weakens from loss of blood. He curses you for a murderous fool. As you wonder how you could have been so foolish as to attack the tentacles clutching him, the Embracer erupts out of the water beneath you once more.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 287; }
+};
+
+class Story247 : public Story::Base
+{
+public:
+    Story247()
+    {
+        ID = 247;
+
+        Text = "You wait in Elvenhame until the elven scouts report on Garoshtar's success. They tell you that the great dragon has attacked the Westermen and set them back in confusion. After many attacks, however, he was wounded by many crossbow quarrels and forced to land and sleep so he could heal himself. He has won you precious time, however, and the defence of the Tree of Life is now set in hand.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 57; }
+};
+
+class Story248 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story248()
+    {
+        ID = 248;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Type = Story::Type::NORMAL;
+
+        PreText = "Garoshtar's great body puts the men in shadow for a moment as he swoops overhead and you are satisfied to see the soldiers below like helpless little ants on the forest floor.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            Type = Story::Type::DOOM;
+
+            PreText += "\n\nGaroshtar sweeps low, his wings cracking down at the last moment as he swings his head and breathes over the leading company of soldiers, sending a cloud of poisonous gas and acid roiling about them. His wings crack against the air as he struggles to gain height, skimming the treetops. The mercenaries let loose their crossbows as one and Garoshtar is stuck like a pincushion. The dragon convulses in mid air, throwing you off his back and you impale yourself on a branch of a tree below. The forest is doomed.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 319; }
+};
+
+class Story249 : public Story::Base
+{
+public:
+    Story249()
+    {
+        ID = 249;
+
+        Text = "You cry a single word of power and vanish, to reappear in an instant later with two copies of yourself to your left. You and they remain motionless, for if you move the illusion will be broken and the visions will fade.\n\nNow you must choose another spell. There is little point in casting Vanish.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Choking Fog", 143));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption or Bafflement", 347));
+        Choices.push_back(Choice::Base("Cast Shield of Defense", 326));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 91));
+
+        Controls = Story::Controls::STANDARD;
+    }
 };
 
 auto prologue = Prologue();
@@ -5207,6 +5416,16 @@ auto story236 = Story236();
 auto story237 = Story237();
 auto story238 = Story238();
 auto story239 = Story239();
+auto story240 = Story240();
+auto story241 = Story241();
+auto story242 = Story242();
+auto story243 = Story243();
+auto story244 = Story244();
+auto story245 = Story245();
+auto story246 = Story246();
+auto story247 = Story247();
+auto story248 = Story248();
+auto story249 = Story249();
 
 void InitializeStories()
 {
@@ -5235,7 +5454,8 @@ void InitializeStories()
         &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
         &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
         &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
-        &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239};
+        &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
+        &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249};
 }
 
 #endif
