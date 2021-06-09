@@ -5175,6 +5175,230 @@ public:
     }
 };
 
+class Story250 : public Story::Base
+{
+public:
+    Story250()
+    {
+        ID = 250;
+
+        Text = "\"Why do you stare at me so? Are you trying to turn me to stone?\" asks the elf. He grins at you but you notice he is quivering tensely.\n\n\"I'm not letting you slip away,\" you say, \"I have travelled far to find you and now that I have, you will not talk to me.\"\n\n\"Why should I talk to a mortal? You know so little, one might as well talk to a mole or a dung beetle. You cannot hope to understand us and the way of the world.\"\n\n\"In any case I'm not taking my eyes off you.\"\n\nThe elf's skin seems to fade almost to pearly white as you say this. He sits crosslegged in front of you. \"Then I'll just have to wait for you to go to sleep.\" He feigns nonchalance but seems very uncomfortable under your gaze. At last he says \"Tie me up if you must, but release me from your stare or I shall go mad.\"\n\nIt seems your gaze alone holds him in thrall. Fascinating. You ask him what power you have over him.\n\n\"An elf can never turn his back when looked on by mortal eyes. Your gaze entraps us as surely as if you had shackled us in cold iron. This is why we shun mankind, and rarely show ourselves. There, you have forced the secret from my lips. Will you look away and release me now?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Look away out of kindness", 330));
+        Choices.push_back(Choice::Base("Demand that the elf takes you to meet his king", 340));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story251 : public Story::Base
+{
+public:
+    Story251()
+    {
+        ID = 251;
+
+        Text = "You sit down in the clearing and cover yourself with leaves so that you can just see out. Remaining motionless for a long time you wait until the denizens of the clearing, a group of miniature deer with heads like little hippopotamuses, return to their grooming ground. By watching them for some time you notice many leave the clearing by the left path and then disappear behind the trunk of a tree. Rising from the mound of leaves you investigate and find a small path winding between the thorn bushes. Without the wit to use such tricks of the woods you would have been lost in the forest for ever.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 237; }
+};
+
+class Story252 : public Story::Base
+{
+public:
+    Story252()
+    {
+        ID = 252;
+
+        Text = "The man in black fixes you with a flinty stare. \"What are you doing here, stranger?\"";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::STREETWISE))
+        {
+            Choices.push_back(Choice::Base("Tell him to mind his own business", 336));
+            Choices.push_back(Choice::Base("Tell him you seek the Tree of Knowledge", 124));
+            Choices.push_back(Choice::Base("Leave the inn abruptly", 117));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 188; }
+};
+
+class Story253 : public Story::Base
+{
+public:
+    Story253()
+    {
+        ID = 253;
+
+        Text = "As you draw back your sword to strike, Elanor suddenly jerks the end of a vine. A secret hatch opens in the side of the tree-house. She jumps through and swings to the ground on a hanging creeper.\n\n\"You will never leave the forest,\" she warns. \"I will turn every living thing against you.\"\n\nInside the tree-house you are stung on the cheek by a bee. Then another stings your wrist. More bees fly in, buzzing angrily. In your haste to flee you can grab only three of the five potions. There is a CHERRY-RED LIQUID in a stoppered phial, a small round bottle of something like RUNNY TAR, a JAR OF WHITE JELLY, a CLOUDY SEA-BLUE FLUID in a phial and a glass POT banded with layers of COLOURED EARTH.";
+
+        Bye = "You rush to climb down the ladder to the ground.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Take = {Item::JAR_WHITE_JELLY, Item::POTION_TARRY_BLACK, Item::POTION_CLOUDY_BLUE, Item::POTION_RED_LIQUID, Item::JAR_COLOURED_EARTH};
+
+        Limit = 3;
+    }
+
+    int Continue(Character::Base &player) { return 322; }
+};
+
+class Story254 : public Story::Base
+{
+public:
+    Story254()
+    {
+        ID = 254;
+
+        Image = "images/filler4.png";
+
+        Text = "Without waiting to hear a word the impish little Kwerrel puts the potion bottle to his mouth and begins to drink greedily. He is drinking the mulch of the fire lizard's gizzard, as deadly a poison to him as it is to you. He dies in a fit of convulsions, leaving you alone.\n\nThere is nothing to be done for the poor little Kwerrel, so you begin to search for a way out of the giant bush. At last your perseverance is rewarded and you break out into the open -- but not without getting badly scratched by the thorns.\n\nYou LOSE 1 Life Point.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -1);
+    }
+
+    int Continue(Character::Base &player) { return 406; }
+};
+
+class Story255 : public Story::Base
+{
+public:
+    Story255()
+    {
+        ID = 255;
+
+        Text = "\"I submit!\" you cry. \"You are the victor.\"\n\nThe King of the Elves looks at you with contempt. \"Such magics as you can muster will not prevail over the Westermen. Leave the forest. You have a week to clear the edge of the forest or your life will be forfeit.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 384; }
+};
+
+class Story256 : public Story::Base
+{
+public:
+    Story256()
+    {
+        ID = 256;
+
+        Text = "Later, seated in a ring with the elven elders, you are planning your defence of the Tree of Life when a messenger runs into the clearing and bows to the king. \"The Westermen are moving, sire, in two columns. They are heading for the Tree of Life -- more men than there are ants in a Gwelph tree.\"\n\n\"How long will they take to reach the Tree of Life?\" you ask.\n\n\"Three days, perhaps four, no more.\"\n\n\"How long will it take to marshal all your elves?\" you ask anxiously.\n\nHe returns a bleak time-haunted look. \"A week; it can't be done in less. The forest is so large...\"\n\nYou must think of a way of delaying the Westermen until the elves are ready.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_CODEWORD(player, Codeword::Type::SCORPION))
+        {
+            Choices.push_back(Choice::Base("Try to assassinate the chief of the Westermen", 433));
+            Choices.push_back(Choice::Base("Journey to the Bonehill to talk with the dragon", 54));
+            Choices.push_back(Choice::Base("Lead as many elves as you can muster into pitched battle before the Tree of Life", 30));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 11; }
+};
+
+class Story257 : public Story::Base
+{
+public:
+    Story257()
+    {
+        ID = 257;
+
+        Text = "Zorolotl seems content to let you come forward and make the next strike. He is counting on his nimbleness saving him if you commit yourself as clumsily as you did last time, then he will riposte. How much more of this can you stand?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to end it quickly with a blistering combination", 234));
+        Choices.push_back(Choice::Base("Feint and draw him in, to make him commit himself", 223));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story258 : public Story::Base
+{
+public:
+    Story258()
+    {
+        ID = 258;
+
+        Image = "images/filler2.png";
+
+        Text = "\"Yes. I am lost,\" you reply. \"Are you truly a talking owl?\"\n\n\"Truly I am. I suppose you want to know how to escape from the forest?\"\n\nYou are tempted to say yes but pride will not let you. The owl sounds surprised when you say no.\n\n\"Humans usually want to know the way out. It is a hard place for those who do not know and love the forest.\"\n\nThe owl seems friendly, if it really is the owl talking. It tells you it is an enchanted bird, enchanted by the Lady of Grey, to bring those who are friends of the forest to her bower.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask the owl to take you to the Lady in Grey", 241));
+        Choices.push_back(Choice::Base("Ask the way to find the Tree of Knowledge", 328));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story259 : public Story::Base
+{
+public:
+    Story259()
+    {
+        ID = 259;
+
+        Image = "images/filler2.png";
+
+        Text = "You walk slowly on past a blue cedar that stands beside a tall poplar tree. The trees are festooned with climbing plants and a spiral of violet wistaria climbs the poplar like a barber's pole. The forest seems to quieten around you as you push under a hanging curtain of clematis and honeysuckle and enter a small clearing which is a beautifully tended garden. An inner ring of fruit trees surrounds the meadow-like garden, which is lit with bright sun that bathes the wings of butterflies and dragonflies glittering with iridescent hues. Behind a large pool in the meadow is a gnarled old holm-oak tree with a ladder leading up to tree-house.\n\nThe owl is perched on top of the tree-house. \"I told you it wasn't far. If only you didn't walk so slowly.\"\n\n\"Enough; do not chide. We must make our visitor welcome.\" A woman in a pearl-grey robe pulls aside a curtain at the top of the ladder and beckons you welcomingly. She is young and very beautiful. You find her appearance startling. Who would have expected to encounter such loveliness in this remote place? Looking upon one so serene makes you think of the fabled Faerie Queen.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            return 283;
+        }
+        else if (Character::VERIFY_ITEMS(player, {Item::Type::MAPLE_FLUTE}))
+        {
+            return 299;
+        }
+        else
+        {
+            return 310;
+        }
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -5426,6 +5650,16 @@ auto story246 = Story246();
 auto story247 = Story247();
 auto story248 = Story248();
 auto story249 = Story249();
+auto story250 = Story250();
+auto story251 = Story251();
+auto story252 = Story252();
+auto story253 = Story253();
+auto story254 = Story254();
+auto story255 = Story255();
+auto story256 = Story256();
+auto story257 = Story257();
+auto story258 = Story258();
+auto story259 = Story259();
 
 void InitializeStories()
 {
@@ -5455,7 +5689,8 @@ void InitializeStories()
         &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
         &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
         &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
-        &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249};
+        &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
+        &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259};
 }
 
 #endif
