@@ -3420,7 +3420,7 @@ public:
         Choices.push_back(Choice::Base("Offer the little imp some gold (10 gold pieces)", 214, Choice::Type::MONEY, 10));
         Choices.push_back(Choice::Base("Beg him to help you for the sake of the forest and all who dwell there", 225));
         Choices.push_back(Choice::Base("Offer him the Lady of the Forest's EMERALD RING if you have it", 236, {Item::EMERALD_RING_ELANOR}));
-        Choices.push_back(Choice::Base("Offer him a magic potion if you are carrying one", 160, Choice::Type::ANY_ITEM, {Item::POTION_CLOUDY_BLUE, Item::JAR_WHITE_JELLY, Item::POTION_RED_LIQUID}));
+        Choices.push_back(Choice::Base("Offer him a magic potion if you are carrying one", 243, Choice::Type::ANY_ITEM, {Item::POTION_CLOUDY_BLUE, Item::JAR_WHITE_JELLY, Item::POTION_RED_LIQUID}));
 
         Controls = Story::Controls::STANDARD;
     }
