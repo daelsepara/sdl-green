@@ -6158,6 +6158,196 @@ public:
     }
 };
 
+class Story300 : public Story::Base
+{
+public:
+    Story300()
+    {
+        ID = 300;
+
+        Text = "You notice the Elf King making a swift pass with his hands as Huldranas takes the shot. This time it is as though the arrow veers in mid air to find its target. There is a distant crack of splintered wood and Huldranas' arrow stands quivering from the bough where your own arrow was embedded an instant earlier.\n\nImmediately Huldranas whirls and flashes a sharp look at the king. He seems on the verge of saying something, but he is soon stared down by the millennial gaze of his liege lord. The Elf King turns to you and says shortly, \"You were a fool to choose this contest. What mortal could equal the archery of the elves?\"\n\nBut as Huldranas passes you, he whispers in your ear, \"I cannot speak out against my king, mortal, but you and I shall always know the real result of this contest. You are my equal in this art.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 69; }
+};
+
+class Story301 : public Story::Base
+{
+public:
+    Story301()
+    {
+        ID = 301;
+
+        Text = "You stomp through the undergrowth calling and searching but the only answer is the high mocking laughter of the elves as they recede into the depths of the . You have failed to meet the elves on Midsummer's Day.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try again tomorrow", 139));
+        Choices.push_back(Choice::Base("Abandon all hope of persuading the elves to help save their own forest", 280));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story302 : public Story::Base
+{
+public:
+    Story302()
+    {
+        ID = 302;
+
+        Text = "Your confident declaration is greeted only by a look of wistful superiority. The Elf King suddenly strides forward and throws up his cloak, obscuring your vision in a rustle of soft green fabric. You smell something like honeysuckle and heather. Reaching up to pull aside the folds of the cloak, your fingers close only on a small handful of fresh green leaves.\n\nYou look around. The elves have vanished. You have no choice but to turn and trudge through the trees, calling out for them to return. But your pleas are unanswered except by the song of birds and murmuring of a distant brook.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 78; }
+};
+
+class Story303 : public Story::Base
+{
+public:
+    Story303()
+    {
+        ID = 303;
+
+        Choices.clear();
+
+        Controls = Story::Controls::NONE;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (player.ZorolotlWounds >= 3)
+        {
+            return 293;
+        }
+        else if (player.LifePointsLost >= 7)
+        {
+            return 351;
+        }
+        else
+        {
+            return 415;
+        }
+    }
+};
+
+class Story304 : public Story::Base
+{
+public:
+    Story304()
+    {
+        ID = 304;
+
+        Image = "images/climb-down.png";
+
+        Text = "\"What is the WHITE JELLY? Is it a balm?\"\n\nElanor hesitates. You wave the point of your SWORD in front of her nose but she won't talk.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Kill her", 253));
+        Choices.push_back(Choice::Base("Grab the BOTTLE OF WHITE JELLY and smear some on yourself", 242));
+        Choices.push_back(Choice::Base("Drink the RED POTION", 141));
+        Choices.push_back(Choice::Base("Climb quickly down the ladder to the ground and run for it", 197));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story305 : public Story::Base
+{
+public:
+    Story305()
+    {
+        ID = 305;
+
+        Text = "You tell the chief it was very pleasant to meet up with an old friend again and wish him well, then take your leave.\n\nAs you walk towards the porch a man dressed in a black cloak walks brusquely past the guards, who obviously recognize him. The visitor is announced. \"It is Valerian the Moon Druid, sire, he says he has important news. Shall we let him come in?\"\n\n\"Aye, let him.\" The speech of the Westermen is guttural and uncouth-sounding, but you can understand their dialect.\n\nIt is the man you first saw in the inn at Burg. He is still dressed in the black travelling cloak bit his hood is thrown back to reveal the hatchet-like face and the pointed black goatee. He bows before the chief, then wrinkles his nose and stares at you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Continue on your way", 38));
+        Choices.push_back(Choice::Base("Stay and hear what important news Valerian brings", 4));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story306 : public Story::Base
+{
+public:
+    Story306()
+    {
+        ID = 306;
+
+        Text = "In stepping back from the cloud of vapours you have managed to hide yourself from the King of the Elves, who is even now casting another spell, but you have also stepped outside the ring and so lost the duel. The wind rips away the sheet of fog and the King of the Elves says: \"I am the victor, you have lost the duel.\" He looks at you with contempt. \"Such magics as you can muster will not prevail over the Westermen. Leave the forest. You have a week to clear the edge of the forest or your life will be forfeit.\"\n\nWith that the elves start to disappear into the trees. You turn your back on the clearing and start the long journey back to Burg.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 384; }
+};
+
+class Story307 : public Story::Base
+{
+public:
+    Story307()
+    {
+        ID = 307;
+
+        Image = "images/mound-of-bone.png";
+
+        Text = "Searching for the camp of the Westermen in the great forest takes several days. On the morning of the sixth day, breaking from the cover of orange-berried rowan trees, you see a steep-sided valley, charred and dead. The vegetation has been burned or dissolved away. In places bare rock has been exposed by heavy scuffing, and here and there are smooth basins etched into the rock by strong chemicals. At the centre of the valley is a smooth green hillock about twenty feet high. At the far end is a strange, bare hill of some grey-white rock, looking like a mound of bone. An egret pecks at the green turf of the hillock for worms. The grass is lightly wreathed in mist.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Walk down into the dead valley past the blackened tree stumps", 439));
+        Choices.push_back(Choice::Base("Skirt around the valley to the east", 429));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story308 : public Story::Base
+{
+public:
+    Story308()
+    {
+        ID = 308;
+
+        Text = "The elf draws a long slim dirk from his shirt and stabs you in the neck. You try to throw him off but it was a fatal wound: your blood gushes in crimson spurts to the ground. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story309 : public Story::Base
+{
+public:
+    Story309()
+    {
+        ID = 309;
+
+        Text = "You look hard into the Elf King's eyes despite the disquiet that his ageless gaze causes you. \"Well, sire, I've heard it said that he who speaks an elf's name can gain power over him...\"\n\nYou do not see him move, yet none the less he seems to draw back away from you slightly. \"This is typical mortal talk,\" he says guardedly, \"all bluff and bluster.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say the Elf King's name is: Arawn", 302));
+        Choices.push_back(Choice::Base("... is Eldring", 387));
+        Choices.push_back(Choice::Base("... is Oberon", 69));
+        Choices.push_back(Choice::Base("... is Elivager", 114));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6459,6 +6649,16 @@ auto story296 = Story296();
 auto story297 = Story297();
 auto story298 = Story298();
 auto story299 = Story299();
+auto story300 = Story300();
+auto story301 = Story301();
+auto story302 = Story302();
+auto story303 = Story303();
+auto story304 = Story304();
+auto story305 = Story305();
+auto story306 = Story306();
+auto story307 = Story307();
+auto story308 = Story308();
+auto story309 = Story309();
 
 void InitializeStories()
 {
@@ -6493,7 +6693,8 @@ void InitializeStories()
         &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
         &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
         &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
-        &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299};
+        &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
+        &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309};
 }
 
 #endif
