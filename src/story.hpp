@@ -6348,6 +6348,181 @@ public:
     }
 };
 
+class Story310 : public Story::Base
+{
+public:
+    Story310()
+    {
+        ID = 310;
+
+        Text = "\"I am Elanor, the Lady of the Forest. Climb up here and take some elderflower nectar with me. The nectar of elderflowers is the most refreshing drink known to elf or man. My friends the bees collect it for me. You will find it most invigorating.\n\n\"I was watching you at the old inn in Burg. Do you remember the old woman in grey sitting in the shadows? I was searching for the forest's saviour. Is this the end of my quest? Are you the hero who will save the forest?\"\n\nYou climb up into the little tree-house. There is no furniture inside but a straw-filled hempen sack to sleep on. The lady gestures you to sit in the nook of a curved branch, covered in dry moss, that serves as a chair: it is surprisingly comfortable. She sits on a small hammock made of creepers, and swings gently to and for.\n\nThere are shelves made of thick ropes of creepers which have been trained to grow in and out around the edge of the tree-house. Behind the Lady in Grey on one of the shelves is a row of potions. The strange liquid with bright swirling colours look just as you imagine magical potions do.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to get the potions", 341));
+        Choices.push_back(Choice::Base("Say you don't know what she is talking about and that you only came for directions to the Tree of Knowledge", 329));
+        Choices.push_back(Choice::Base("Say you would like to be the hero who saves the forest", 9));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story311 : public Story::Base
+{
+public:
+    Story311()
+    {
+        ID = 311;
+
+        Text = "You have made the wrong decision. Stunned as you are, you are no match for this darting elf whose feet become a blur as he kicks you to the ground. You struggle to find your feet as he picks up the dirk and stabs into your neck with it. The pitiless elf has killed you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story312 : public Story::Base
+{
+public:
+    Story312()
+    {
+        ID = 312;
+
+        Text = "You have gambled with your life and lost. Zorolotl's sword arcs through the air and buries itself in your skull. You fall to the ground, poleaxed. You are beyond the help of magic and the forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story313 : public Story::Base
+{
+public:
+    Story313()
+    {
+        ID = 313;
+
+        Text = "\"What is the RED POTION? Does it banish pain?\"\n\n\"Yes, how did you guess?\" she replies.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Kill her", 253));
+        Choices.push_back(Choice::Base("Grab the BOTTLE OF WHITE JELLY and smear some on yourself", 242));
+        Choices.push_back(Choice::Base("Drink the RED POTION", 141));
+        Choices.push_back(Choice::Base("Climb quickly down the ladder to the ground and run off", 197));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story314 : public Story::Base
+{
+public:
+    Story314()
+    {
+        ID = 314;
+
+        Text = "As you set foot on the hillock you are surprised at how hard the ground feels, yet it yields slightly, as if a layer of hard rock was resting on mud. The ground is smooth and has a sheen. It only looked like grass. You climb on up the hillock and reaching the summit, look down on its far side which is ribbed and ridged in the most unusual way. It dawns on you that the thing you are standing on is a gargantuan dragon. You can see its head, the size of a cart, curled up net to its feet as it slumbers. It seems not to have noticed you crawling like a fly over its great body.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Climb down to its head and slay it", 74));
+        Choices.push_back(Choice::Base("Attempt to wake it up and perhaps talk with it, for they say some dragons can talk", 178));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story315 : public Story::Base
+{
+public:
+    Story315()
+    {
+        ID = 315;
+
+        Text = "The guard has chosen a place, where he is not observed by any of his fellows, to brutalize the slaves, so there will be no one to save him when you attack. Immersed as he is in his sadistic pleasures it is easy enough to walk up behind him and kill him before he even knows you are there, just as he was about to kick the innkeeper hard in the chest.\n\nTaking the key from its chain about the dead guard's neck you free the slaves, including the innkeeper, and tell them to hide out in the forest. You tell the innkeeper of your visit to the inn at Burg and find out it is indeed his hostelry. He asks anxiously after his daughter and you are able to say she is tolerably well. \"She will be all the happier when you return to her, no doubt.\"\n\n\"Will you come back with me to Burg? I will shower you with hospitality, a banquet fit for a prince...";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Escort the innkeeper safely back to his inn", 62));
+        Choices.push_back(Choice::Base("Tell him you must stay in the forest and foil the Westermen", 378));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story316 : public Story::Base
+{
+public:
+    Story316()
+    {
+        ID = 316;
+
+        Text = "How will you save him?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [SPELLS]", 355, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Use [UNARMED COMBAT]", 368, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("Use [SWORDPLAY]", 404, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("You have none of these skills", 382));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story317 : public Story::Base
+{
+public:
+    Story317()
+    {
+        ID = 317;
+
+        Text = "\"What would you have us do? They outnumber us a hundred to one. Must we give battle? We have no swords.\"\n\nThe elves know nothing of warfare. You will have to guide them. Many of them don't seem to believe the forest is really threatened.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say that their bows alone are enough to guarantee victory, but first set out alone for the camp of the Westermen to find out what you can about your foes", 307));
+        Choices.push_back(Choice::Base("Suggest an expedition to capture swords from the forges", 325));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story318 : public Story::Base
+{
+public:
+    Story318()
+    {
+        ID = 318;
+
+        Text = "You break the spell with a word of negation and the cloud of gas evaporates. You were hardly affected by the choking poison gas. But your foe is casting another spell.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use a quick defensive charm", 326));
+        Choices.push_back(Choice::Base("Concentrate for longer on an attack spell", 335));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story319 : public Story::Base
+{
+public:
+    Story319()
+    {
+        ID = 319;
+
+        Text = "Garoshtar swoops low, his wings cracking down at the last moment as he swings his head down and breathes over the leading company of soldiers, sending a cloud of poisonous gas and acid roiling about them. His wings crack hard against the air as he struggles to gain height, skimming the treetops. The mercenaries let loose their crossbows as one and Garoshtar is stuck like a pincushion. The dragon convulses in mid air, and it do all you can to cling desperately on as he struggles to stay airborne. The wounds are not mortal but Garoshtar tells you he must land and sleep for a few years to heal his many hurts. He lands near Elvenhame and sinks immediately into a deep slumber, his bulk rising and falling in time with his breathing like a heavy ocean swell. You decide to search for the Elf King to report what has befallen brave Garoshtar.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 57; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6659,6 +6834,16 @@ auto story306 = Story306();
 auto story307 = Story307();
 auto story308 = Story308();
 auto story309 = Story309();
+auto story310 = Story310();
+auto story311 = Story311();
+auto story312 = Story312();
+auto story313 = Story313();
+auto story314 = Story314();
+auto story315 = Story315();
+auto story316 = Story316();
+auto story317 = Story317();
+auto story318 = Story318();
+auto story319 = Story319();
 
 void InitializeStories()
 {
@@ -6694,7 +6879,8 @@ void InitializeStories()
         &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
         &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
         &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
-        &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309};
+        &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
+        &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319};
 }
 
 #endif
