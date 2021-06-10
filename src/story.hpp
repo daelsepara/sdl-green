@@ -7114,6 +7114,197 @@ public:
     }
 };
 
+class Story350 : public Story::Base
+{
+public:
+    Story350()
+    {
+        ID = 350;
+
+        Text = "Beyond the black silk pavilion there are many smaller canvas tents roped to the few trees which have been allowed to stay standing. There is a regular bustle of people coming and going between the tents and the pavilion or riding in to report from scattered forges and slave encampments.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Get to the silk pavilion right away before you are spotted", 239));
+        Choices.push_back(Choice::Base("Stay hidden until dusk", 217));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story351 : public Story::Base
+{
+public:
+    Story351()
+    {
+        ID = 351;
+
+        Text = "You have lost a lot of blood and the effort of fighting with such blood loss is making you dizzy. As Zorolotl moves carefully in to the attack again, your vision blurs.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Give up and submit, admitting you have lost the duel", 344));
+        Choices.push_back(Choice::Base("Fight on against the odds", 312));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story352 : public Story::Base
+{
+public:
+    Story352()
+    {
+        ID = 352;
+
+        Text = "You cast the charm but the Lady in Grey just smiles at you. \"You cannot ensorcel me. I could ensorcel you, but that would not be to purpose. Use your skills in the camp of the Westermen, not on me.\" She is not impressed by your attempt to charm her.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 9; }
+};
+
+class Story353 : public Story::Base
+{
+public:
+    Story353()
+    {
+        ID = 353;
+
+        Text = "The Elf King is retching helplessly on the forest floor. The look of horror on the faces of the other elves is of embarrassment and shame as much as fear for their king. You hurriedly speak the word of negation and the king begins to recover. You have won the duel.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story354 : public Story::Base
+{
+public:
+    Story354()
+    {
+        ID = 354;
+
+        Text = "\"There is trouble among the slaves from time to time. No more than usual. They are so far from home they fear for their lives even if they should escape. Of course we put to death those who try to escape, to discourage the others.\"\n\n\"No trouble among the factions who serve under you here?\"\n\n\"No, as long as there is no effective opposition, no war, no deaths, I don't have much to worry about. The other barons fear me and my infernal machine. Oh no, they don't want to take on The Steamer!\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask about The Steamer", 25));
+        Choices.push_back(Choice::Base("Make your excuses and leave", 305));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story355 : public Story::Base
+{
+public:
+    Story355()
+    {
+        ID = 355;
+
+        Text = "Summoning forth all your will, you invoke one of the great words of power to stun the Embracer and so release Renard. Unfortunately, perhaps because the Embracer is underwater, nothing seems to happen. In fact you are at a loss to deal with the Embracer, which you can no longer see to aim a spell at. All you can do is carry on over the bridge, mourning the loss of poor Renard, your guide. You hadn't even paid him yet.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 343; }
+};
+
+class Story356 : public Story::Base
+{
+public:
+    Story356()
+    {
+        ID = 356;
+
+        Text = "As you move in to wrestle him to the ground the elf stoops, scoops up a handful of dirt and rotting leaves and hurls it into your face. The dirt goes into your eyes and you recoil, rubbing at them. By the time you have rubbed the dirt away he has vanished. In the short time you couldn't see he couldn't have got far, so you search for him but his woodcraft is superior to yours and you cannot find him.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 301; }
+};
+
+class Story357 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story357()
+    {
+        ID = 357;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You draw the sword back and cut fast at Zorolotl's shoulder but he has time to regain his balance and skip lightly past your sword cut. The wavy edge of his blade runs against your thigh.\n\nYou LOSE 4 Life Points.";
+
+        Character::GAIN_LIFE(player, -4);
+
+        if (player.Life > 0)
+        {
+            player.LifePointsLost += 4;
+
+            PreText += "\n\nYour red blood stains the ground; your foot feels hot and wet from the blood which soaks it. You jump back, en garde once more.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 303; }
+};
+
+class Story358 : public Story::Base
+{
+public:
+    Story358()
+    {
+        ID = 358;
+
+        Text = "You say you remember the serving wench all right but you can't quite conjure up her name.\n\n\"She was never at the Reaver's. That's the girl from Rainbow's End.\" The gleam in his eyes dims a moment to be replaced by a piercing look of low cunning. \"I don't think I remember you at all. Guards.\"\n\nYou run for the exit to the porch but the guards cross heir halberds in front of you, barring your way.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Surrender", 146));
+        Choices.push_back(Choice::Base("Fight", 17));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story359 : public Story::Base
+{
+public:
+    Story359()
+    {
+        ID = 359;
+
+        Image = "images/monstrous-machine.png";
+
+        Text = "You must decide how will you face this monstrous machine of destruction.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [SPELLS]", 339, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[UNARMED COMBAT] Face it bare-handed", 327, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("Use [SWORDPLAY]", 295, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Use [CHARMS]", 391, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("Try something else", 84));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -7465,6 +7656,16 @@ auto story346 = Story346();
 auto story347 = Story347();
 auto story348 = Story348();
 auto story349 = Story349();
+auto story350 = Story350();
+auto story351 = Story351();
+auto story352 = Story352();
+auto story353 = Story353();
+auto story354 = Story354();
+auto story355 = Story355();
+auto story356 = Story356();
+auto story357 = Story357();
+auto story358 = Story358();
+auto story359 = Story359();
 
 void InitializeStories()
 {
@@ -7504,7 +7705,8 @@ void InitializeStories()
         &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
         &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
         &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
-        &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349};
+        &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
+        &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359};
 }
 
 #endif
