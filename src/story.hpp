@@ -7305,6 +7305,204 @@ public:
     }
 };
 
+class Story360 : public Story::Base
+{
+public:
+    Story360()
+    {
+        ID = 360;
+
+        Text = "You tell the elf you are going to let him go and he seems grateful. \"I must speak with your lord, the forest and everything in it depends on it.\"\n\n\"Then you must seek him, but beware: he will only speak to you today, Midsummer's day. If you cannot find him before sundown we will kill you. Why meddle where mortals are not wanted? Leave the forest now, while you still have life. Now look away please.\"\n\nYou do so and when you look back seconds later he has vanished.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 78; }
+};
+
+class Story361 : public Story::Base
+{
+public:
+    Story361()
+    {
+        ID = 361;
+
+        Image = "images/filler2.png";
+
+        Text = "You perform the chant that makes the stone in your pendant grow warm if a large animal or beast should approach while you sleep. To your dismay the stone begins to heat up immediately when you lie down to rest. You look around but can see nothing in the dark. You strain your ears but all you can here are the usual night sounds of the forest. The stone grows hotter against your breast: the unseen danger is coming closer. The earth begins to vibrate beneath you as if a giant stalks you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to hide by burying yourself in the earth mound", 274));
+        Choices.push_back(Choice::Base("Climb a nearby tree", 392));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story362 : public Story::Base
+{
+public:
+    Story362()
+    {
+        ID = 362;
+
+        Text = "Speaking the word you clench your fist, imagining you are twisting and crushing the entrails of the Infernal Statue. The machine does not buckle or hold its stomach, as must a man affected by this puissant spell. Instead it lurches past the tree, then circles and lurches forward again, towards the deep blue pool. The cries of the Westermen die to silence and you can hear a muffled groaning from somewhere inside the Infernal Statue. It totters on the brink of the pool and then keels over into the water. There is a rush of steam like a geyser, followed by an explosion underwater as the machine tears itself apart. The Westermen cry out in alarm and begin to retreat, harried by the arrows of the elves.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 500; }
+};
+
+class Story363 : public Story::Base
+{
+public:
+    Story363()
+    {
+        ID = 363;
+
+        Image = "images/filler3.png";
+
+        Text = "The elf is hampered by your gaze. It is as though your eyes have part-mesmerized him and you manage to back him up into a corner between two trees that have grown together. He tries a last attempt to get away but you cut him off and stand before him cutting off his escape.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Press your advantage right away", 356));
+        Choices.push_back(Choice::Base("Give him the chance to surrender while remaining wary of any tricks", 338));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story364 : public Story::Base
+{
+public:
+    Story364()
+    {
+        ID = 364;
+
+        Text = "Your hurried stab pierces his clothing and thick green blood stains the tip of your blade. You have danced back out of range once again and you look to see if the wound will make Zorolotl submit. That smouldering look is still there in your eyes. The mandrake root he has eaten has indeed made him immune to pain.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Circle to the left of him", 403));
+        Choices.push_back(Choice::Base("Circle to the right of him", 393));
+        Choices.push_back(Choice::Base("Meet him head on", 257));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.ZorolotlWounds++;
+    }
+};
+
+class Story365 : public Story::Base
+{
+public:
+    Story365()
+    {
+        ID = 365;
+
+        Text = "The King of the Elves is retching helplessly on the floor. The look of horror on the faces of the other elves is of embarrassment and shame as much as fear for their king. He can no longer even speak -- this spell seems to have dire effects on elves. He is dying. The hard look on your face as he gives up the ghost with a ghoulish death rattle turns to one of fear as you realize the elves are going to kill you. You should have spared their king. Twenty arrows all find their mark in your body and you too are dead.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story366 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story366()
+    {
+        ID = 366;
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_ITEMS(player, {Item::Type::ELVEN_DIRK}) && !Character::VERIFY_ANY_SKILLS(player, {Skill::Type::SPELLS, Skill::Type::CHARMS}))
+        {
+            PreText = "There is nothing you can do to the wily bird which keeps well out of range.";
+
+            Choices.push_back(Choice::Base("Walk to the top of the hillock to what you can see", 314));
+            Choices.push_back(Choice::Base("Leave the valley and skirt around it to the east", 429));
+            Choices.push_back(Choice::Base("Use [WILDERNESS LORE]", 388, Skill::Type::WILDERNESS_LORE));
+        }
+        else
+        {
+            Choices.push_back(Choice::Base("Throw the ELVEN DIRK at the egret", 288, {Item::ELVEN_DIRK}));
+            Choices.push_back(Choice::Base("[SPELLS] Attack it with magic", 278, Skill::Type::SPELLS));
+            Choices.push_back(Choice::Base("Use [CHARMS]", 267, Skill::Type::CHARMS));
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story367 : public Story::Base
+{
+public:
+    Story367()
+    {
+        ID = 367;
+
+        Text = "You honesty stands you in good stead. The chief was trying to trick you for there never was any such a one-legged wench serving at the Reaver's Inn in Bessaraban. He is relaxed now; you can ask him whatever you like.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask him about the Tree of Knowledge", 337));
+        Choices.push_back(Choice::Base("Ask whether there is ever any trouble among the slaves or his own men", 354));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story368 : public Story::Base
+{
+public:
+    Story368()
+    {
+        ID = 368;
+
+        Text = "You let yourself fall from the bridge into the murky waters and land, by chance, on top of Renard and the Embracer. The Embracer surges up out of the water once more to see what has assailed it, with you resting on the coiled tentacles. Renard is still struggling but his arms are pinioned by the Embracer's fibrous tentacles. You grab two flailing tentacles and haul yourself towards its cone-shaped head and smash your fist repeatedly between its murky grey eyes. Its coils loosens and Renard swims up to the surface. You follow, gasping for air as you break the surface, then swim to the far bank and scramble before the man-eating monster can recover.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 398; }
+};
+
+class Story369 : public Story::Base
+{
+public:
+    Story369()
+    {
+        ID = 369;
+
+        Text = "The statue is shaped like a man, bearing a ten-foot sword and clad head to toe in plate armour. Steam hisses out of vents behind its ears giving it a supernatural horror. The hose which joins it to the great boiler snakes out across the grass behind it, slithering on as the Infernal Statue takes slow strides towards the Tree of Life with the great sword held high.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Rush between it and the Tree of Life", 359));
+        Choices.push_back(Choice::Base("Wait to see what it will do", 349));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -7666,6 +7864,16 @@ auto story356 = Story356();
 auto story357 = Story357();
 auto story358 = Story358();
 auto story359 = Story359();
+auto story360 = Story360();
+auto story361 = Story361();
+auto story362 = Story362();
+auto story363 = Story363();
+auto story364 = Story364();
+auto story365 = Story365();
+auto story366 = Story366();
+auto story367 = Story367();
+auto story368 = Story368();
+auto story369 = Story369();
 
 void InitializeStories()
 {
@@ -7706,7 +7914,8 @@ void InitializeStories()
         &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
         &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
         &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
-        &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359};
+        &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359,
+        &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369};
 }
 
 #endif
