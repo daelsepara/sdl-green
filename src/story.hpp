@@ -6913,12 +6913,202 @@ public:
         Text = "The infernal Statue belches steam as its sword arm rises and falls like a piston. You review the spells you can cast against this terrible weapon of destruction.\n\nVANISH allows you to disappear and move unseen. CHOKING FOG creates a cloud of poisonous gas. VISCERAL DISRUPTION causes crippling stomach cramps. SHIELD OF DEFENSE is a defense against manifest magical attacks. BAFFLEMENT confuses your foe. TOWER OF WILL subdues your enemy, who will then do your will.\n\nThe sword continues to drive into and out of the trunk of the Tree of Life. Green-stained wood flies up in splinters. Decide which spell you will cast.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Cast Vanish" , 7));
-        Choices.push_back(Choice::Base("Cast Choking Fog" , 31));
-        Choices.push_back(Choice::Base("Cast Visceral Disruption" , 64));
-        Choices.push_back(Choice::Base("Cast Shield of Defense" , 82));
-        Choices.push_back(Choice::Base("Cast Bafflement" , 113));
+        Choices.push_back(Choice::Base("Cast Vanish", 7));
+        Choices.push_back(Choice::Base("Cast Choking Fog", 31));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 64));
+        Choices.push_back(Choice::Base("Cast Shield of Defense", 82));
+        Choices.push_back(Choice::Base("Cast Bafflement", 113));
         Choices.push_back(Choice::Base("Cast Tower of Will", 207));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story340 : public Story::Base
+{
+public:
+    Story340()
+    {
+        ID = 340;
+
+        Text = "\"I cannot take you to Elvenhame. I would rather die like a mortal than reveal our last great secret.\"\n\n\"What secret is that?\" you ask.\n\n\"No mortal has ever looked upon the glory of Elvenhame.\"\n\n\"And lived?\" you ask grimly.\n\n\"No mortals live. If they did they wouldn't be mortal, would they?\"\n\nYou threaten to kill the elf but he seems ready to die rather than to lead you to his lord. You look deep into his violet eyes, reading there the fear that you are about to cut short a life that should endure for millennia.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Vanish", 360));
+        Choices.push_back(Choice::Base("Cast Choking Fog", 175));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 370));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story341 : public Story::Base
+{
+public:
+    Story341()
+    {
+        ID = 341;
+
+        Image = "images/filler4.png";
+
+        Text = "You sidle towards the shelf while pretending to look about the little house with natural curiosity. Elanor watches you. As you get nearer she stands up and the hammock falls to the floor behind her. Her look challenges you to sit down. She will not let you near the potions.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack her", 389));
+        Choices.push_back(Choice::Base("Sit down once more", 9));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story342 : public Story::Base
+{
+public:
+    Story342()
+    {
+        ID = 342;
+
+        Text = "At last you have picked a definite advantage by attacking Zorolotls more vulnerable side. He defends as best he can but you are a brilliant swordsman and the point of your blade moves with hypnotizing speed. You slash him a vicious cut down the side of his body and he falls back.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.ZorolotlWounds++;
+    }
+
+    int Continue(Character::Base &player) { return 303; }
+};
+
+class Story343 : public Story::Base
+{
+public:
+    Story343()
+    {
+        ID = 343;
+
+        Image = "images/filler2.png";
+
+        Text = "You hurry quickly across the bridge as a last string of bubbles from Renard's body float to the surface. All is quiet behind you, but you do not look back, fearful of seeing the mangled remains of Renard bobbing in the stream. The path is difficult, overgrown and boggy. Every now and then you are hard put to decide which way it leads but by keeping fairly close to the great river you make progress for many hours until nightfall.\n\nThe noises of the forest seem to intensify with night, there is buzzing, clicking, croaking and the hoot of a lone owl to keep you company. Finding a dry place to rest is not easy but at last you find a mound of earth on which you can settle down.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[CHARMS] Turn the pendant into a warning stone", 361, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("Settle down", 419));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story344 : public Story::Base
+{
+public:
+    Story344()
+    {
+        ID = 344;
+
+        Text = "You submit and Zorolotl holds his sword aloft in triumph. They give you a potion to drink which makes your body tingle excruciatingly but which cures you of all your wounds.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.Life = player.MAX_LIFE_LIMIT;
+    }
+
+    int Continue(Character::Base &player) { return 163; }
+};
+
+class Story345 : public Story::Base
+{
+public:
+    Story345()
+    {
+        ID = 345;
+
+        Image = "images/filler3.png";
+
+        Text = "\"You mortals are used to battle. You hate, and wage wards constantly. Elf has never fought elf, we know nothing of war. We are thousands. The men of the west come in hundreds of thousands. What would you have us do?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Exhort them to fight", 317));
+        Choices.push_back(Choice::Base("Ask them what will happen if the Westermen raze the forest", 332));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story346 : public Story::Base
+{
+public:
+    Story346()
+    {
+        ID = 346;
+
+        Text = "As the Infernal Statue hacks through the trunk of the Tree of Life you cast the Choking Fog: a cloud of noxious vapours surrounds the statue. The steam hissing from vents in the head dissipates the fog and the machine hacks on remorselessly, unaffected by your spell. One last great blow splits the trunk in the middle and the tree is dead. Losing all hope, you are taken prisoner and enslaved. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story347 : public Story::Base
+{
+public:
+    Story347()
+    {
+        ID = 347;
+
+        Text = "You concentrate on a potent attack spell. But which of the three images of the King of Elves will you cast it at? None is moving so much as a flicker.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Choose the right-hand one", 149));
+        Choices.push_back(Choice::Base("Choose the centre one", 132));
+        Choices.push_back(Choice::Base("Choose the left-hand one", 121));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story348 : public Story::Base
+{
+public:
+    Story348()
+    {
+        ID = 348;
+
+        Text = "It was a killing blow sure enough. Your sudden thrust takes Zorolotl by surprise and he is transfixed. Green blood runs down the shining metal of your sword blade and the violet eyes turn up into the top of the elf's head as he dies. There is a chilling low moan from the elves all around you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story349 : public Story::Base
+{
+public:
+    Story349()
+    {
+        ID = 349;
+
+        Text = "The nearby elves look at you with horror. They had counted on you as their saviour in the moment of direst danger. The Infernal Statue strikes slowly forward until it reaches the gigantic tree, dwarfed by it yet horribly menacing. The great sword rises and falls hewing great gashes out of the trunk. The elves moan as green sap begins to ooze rapidly from the scored Greenbark. There is a crash of thunder overhead and the horrible scene is plunged in gloom. You haven't long to act. The Infernal Statue will soon mortally wound the tree, and the Westermen are howling with fearful glee.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [SPELLS]", 339, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Use [SWORDPLAY]", 371, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Use [UNARMED COMBAT]", 327, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("Do something else", 23));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -7265,6 +7455,16 @@ auto story336 = Story336();
 auto story337 = Story337();
 auto story338 = Story338();
 auto story339 = Story339();
+auto story340 = Story340();
+auto story341 = Story341();
+auto story342 = Story342();
+auto story343 = Story343();
+auto story344 = Story344();
+auto story345 = Story345();
+auto story346 = Story346();
+auto story347 = Story347();
+auto story348 = Story348();
+auto story349 = Story349();
 
 void InitializeStories()
 {
@@ -7303,7 +7503,8 @@ void InitializeStories()
         &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
         &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
         &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
-        &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339};
+        &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
+        &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349};
 }
 
 #endif
