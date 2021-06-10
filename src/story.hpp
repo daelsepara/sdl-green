@@ -5425,7 +5425,7 @@ public:
     {
         ID = 261;
 
-        Text = "You look away and say that you free the elf to return to his home. There is no answer: you look back in time to see the dirk being thrust at your throat. The elven blade cuts your jugular and you fall to the ground in a dying faint.";
+        Text = "You look away and say that you free the elf to return to his home. There is no answer: you look back in time to see the DIRK being thrust at your throat. The elven blade cuts your jugular and you fall to the ground in a dying faint.";
 
         Type = Story::Type::DOOM;
 
@@ -5948,7 +5948,7 @@ public:
     {
         ID = 288;
 
-        Text = "You cast the dirk, not expecting it to hit the bird, but it flashes though the air and buries itself in the egret's breast. The bird croaks once and falls lifeless to the burnt floor of the valley.";
+        Text = "You cast the DIRK, not expecting it to hit the bird, but it flashes though the air and buries itself in the egret's breast. The bird croaks once and falls lifeless to the burnt floor of the valley.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Walk to the top of the hillock", 314));
@@ -6004,7 +6004,7 @@ public:
     {
         ID = 291;
 
-        Text = "Your lunge is mighty indeed but the point of your sword only cuts through air. The nimble elf jumps aside, rolls and, as you turn to face him once more, you feel the cold steel of his dirk biting deep into your side. The elf pulls the dirk out and begins to circle you.\n\nYou LOSE 5 Life Points.";
+        Text = "Your lunge is mighty indeed but the point of your sword only cuts through air. The nimble elf jumps aside, rolls and, as you turn to face him once more, you feel the cold steel of his DIRK biting deep into your side. The elf pulls the DIRK out and begins to circle you.\n\nYou LOSE 5 Life Points.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Fight on", 226));
@@ -6319,7 +6319,7 @@ public:
     {
         ID = 308;
 
-        Text = "The elf draws a long slim dirk from his shirt and stabs you in the neck. You try to throw him off but it was a fatal wound: your blood gushes in crimson spurts to the ground. The forest is doomed.";
+        Text = "The elf draws a long slim DIRK from his shirt and stabs you in the neck. You try to throw him off but it was a fatal wound: your blood gushes in crimson spurts to the ground. The forest is doomed.";
 
         Type = Story::Type::DOOM;
 
@@ -6373,7 +6373,7 @@ public:
     {
         ID = 311;
 
-        Text = "You have made the wrong decision. Stunned as you are, you are no match for this darting elf whose feet become a blur as he kicks you to the ground. You struggle to find your feet as he picks up the dirk and stabs into your neck with it. The pitiless elf has killed you.";
+        Text = "You have made the wrong decision. Stunned as you are, you are no match for this darting elf whose feet become a blur as he kicks you to the ground. You struggle to find your feet as he picks up the DIRK and stabs into your neck with it. The pitiless elf has killed you.";
 
         Type = Story::Type::DOOM;
 
@@ -6671,7 +6671,7 @@ public:
         Text = "As quick as thought you murmur the incantation of the magical Shield of Defense. You have just finished when the King of the Elves casts another spell. A luminous green halo pops forth from his fingertips and grows as it darts towards you. It splashes against the glowing defensive silver disk and fizzles out.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Cast Bafflement, Visceral Disruption or Tower of Will" , 347));
+        Choices.push_back(Choice::Base("Cast Bafflement, Visceral Disruption or Tower of Will", 347));
         Choices.push_back(Choice::Base("Maintain your Shield of Defense spell", 123));
 
         Controls = Story::Controls::STANDARD;
@@ -6727,6 +6727,198 @@ public:
         Choices.clear();
         Choices.push_back(Choice::Base("Leave: she is mad", 98));
         Choices.push_back(Choice::Base("Listen to her", 107));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story330 : public Story::Base
+{
+public:
+    Story330()
+    {
+        ID = 330;
+
+        Text = "You look away for a moment then sneak a look back towards the elf for a moment. You are too late. In a blink of the eye the last elf has vanished. You stomp through the undergrowth calling and searching but the only answer is the high mocking laughter of the elves as they recede into the depths of the forest. You have failed to meet the elves on Midsummer's Day.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to meet the elves tomorrow", 139));
+        Choices.push_back(Choice::Base("Abandon all hope of persuading the elves to help save their own forest", 280));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story331 : public Story::Base
+{
+public:
+    Story331()
+    {
+        ID = 331;
+
+        Text = "The elf leads you as he said he would, never once attempting to escape and leave you lost in the depths of the forest. It is a journey of several hours through secret ways and tunnels. You notice him making signs now and again and realize he must be communicating with others of his kind, though you can see no one in the trees.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Kill him before he can lead you into a trap", 421));
+        Choices.push_back(Choice::Base("Just follow in his footsteps", 431));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story332 : public Story::Base
+{
+public:
+    Story332()
+    {
+        ID = 332;
+
+        Image = "images/filler1.png";
+
+        Text = "\"The mortal speaks the truth. If the forest is killed the whole world will die. It will not be the time of men but the time of death and desolation, the end of all things.\"\n\n\"But what can we do? we number thousands but the Westermen come in hundreds of thousands.\"\n\n\"Would you rather fight bravely, and show that you value the beauty that is your home? Or will you stand idly by and let the time of death and desolation come to the forest? I beg you to take up your bows and fight these cruel Westermen, not just for your own sake, but for all the world. We all need the forest in order to live.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 317; }
+};
+
+class Story333 : public Story::Base
+{
+public:
+    Story333()
+    {
+        ID = 333;
+
+        Image = "images/filler3.png";
+
+        Text = "The young girl, who says that her father is away on a journey to buy provisions, charges you a piece gold for your food and for a night's lodging.\n\nYou sleep well and awake early but refreshed. Washing in cold water is invigorating and you enjoy the feel of the rough inn towel. There will be no such comforts in the forest.\n\nDownstairs the inn is deserted. The woman in grey, the only other guest, has left already. The young girl is mopping the floor and she looks troubled. Asking what ails her brings the reply, \"My father did not return last night. I tried not to worry but I knew in my heart he wouldn't come. He went into the forest to buy provisions before the Westermen block the spice road. I know he has gone the way of the others. And that strange woman in grey never so much as touched her bed last night, though she didn't leave her room till after dawn. I begged Father to take Renard to guide him but he wouldn't spend the money. Now I'll never see him again\". With this, she breaks into tears.\n\nAs you comfort her, you ask the innkeeper's daughter to describe her father and say you will try to find either him or news of him. As you turn to leave she says, \"Fare you well, traveller, you are my only hope.\"\n\nYou PAID 1 gold piece for the lodging.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_MONEY(player, -1);
+    }
+
+    int Continue(Character::Base &player) { return 210; }
+};
+
+class Story334 : public Story::Base
+{
+public:
+    Story334()
+    {
+        ID = 334;
+
+        Text = "Time has run out for the innkeeper. The next kick ruptures his spleen and the guard, swearing viciously, kicks him twice more then leaves him to bleed to death inwardly. There is nothing you can do for him. Thinking sadly of the poor innkeeper's daughter you turn your back on the camp of the Westermen and return to the forest. Soon the awful sights and sounds of the Westermen camp are far behind.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story335 : public Story::Base
+{
+public:
+    Story335()
+    {
+        ID = 335;
+
+        Image = "images/filler3.png";
+
+        Text = "Before you can complete the train of thought you need for your spell, the King of the Elves has done so. A luminous green halo pops forth from his fingertips and grows as it darts towards you. It encircles your waist before you can move. Your legs feel as if they have turned to jelly and you cannot stop yourself collapsing to the ground.\n\n\"Submit, mortal, I have defeated you,\" cried the King of the Elves.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Submit", 255));
+        Choices.push_back(Choice::Base("Fight on", 272));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story336 : public Story::Base
+{
+public:
+    Story336()
+    {
+        ID = 336;
+
+        Image = "images/filler2.png";
+
+        Text = "Three townsfolk leave you as you curtly tell the man in black to mind his own business. The hunter and guide standing near the fire retreat into the kitchen. The woman in grey reaches for a gnarled old staff lying beneath her table and speaks for the first time. \"Mind your temper, Valerian. I will protect this stranger even if I must kill you.\"\n\n\"You push your luck, old woman. What is the stranger to me? No one can hold up the progress of time. There is a new power astir in the forest. It will sweep you and all your beastly followers aside, like chaff in the wind.\"\n\n\"There is no cause to fill the hearts of the good people of Burg with dismay. I know of what you speak.\"\n\n\"Much good may the knowledge do you, old one. Haven't you heard the song of the wind? The time of man has come to the forest. All must pass away and change.\" Valerian speaks the last words in such dire tones that the hunter, listening from behind the kitchen door, slams it shut in fear.\n\nValerian twitches his cloak around him and leaves abruptly, pausing only to look once more at you, as though committing your face to memory.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask for a room in the inn for the night", 333));
+        Choices.push_back(Choice::Base("Sit at the table with the woman dressed in grey", 181));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story337 : public Story::Base
+{
+public:
+    Story337()
+    {
+        ID = 337;
+
+        Text = "The chief does not seem surprised you want to talk about what he calls the Tree of Life. He has been thinking about it himself a great deal. It seems he can't make up his mind whether to believe what Valerian the Moon Druid has told him. Valerian maintains the Tree of Life is the core of the elves' immortality. He counsels the chief to destroy the tree.\n\nThe chief is still talking animatedly when Valerian himself is ushered into the pavilion and announced by a guard. He is still wearing an all-enveloping black robe but its hood is thrown back to reveal his hatchet-like features and black goatee beard.\n\n\"It is Valerian the Moon Druid, sire. He says he has important news. Shall we let him come in?\"\n\n\"Aye, let him.\" The speech of the Westermen is guttural and uncouth-sounding but you can understand their dialect.\n\nIt is the man you first saw in the inn at Burg. He bows before the chief, then wrinkles his nose and stares in your general direction.\n\n\"I have driven off the tree bears, you will have no more trouble from them.\" He sniffs again and moves his head from side to side while fixing his gaze just above your head, giving him a most comical air. The chief spreads out the map of the forest and his advisers gather round, almost blocking your exit.\n\nDespite the risk, you wait to see if you can find out what they are planning.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 4; }
+};
+
+class Story338 : public Story::Base
+{
+public:
+    Story338()
+    {
+        ID = 338;
+
+        Text = "As you speak the elf stoops, scoops up a handful of dirt and rotting leaves and hurls it into your face. You duck just in time and the handful of dirt spatters against a trunk behind you. Seizing our chance you shoulder-charge the elf who is still trapped against the twin trees, and wrestle him to the ground. Feeling your strength, the elf surrenders to you and says he will take you to meet the elf lord.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Take = {Item::ELVEN_DIRK};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 331; }
+};
+
+class Story339 : public Story::Base
+{
+public:
+    Story339()
+    {
+        ID = 339;
+
+        Text = "The infernal Statue belches steam as its sword arm rises and falls like a piston. You review the spells you can cast against this terrible weapon of destruction.\n\nVANISH allows you to disappear and move unseen. CHOKING FOG creates a cloud of poisonous gas. VISCERAL DISRUPTION causes crippling stomach cramps. SHIELD OF DEFENSE is a defense against manifest magical attacks. BAFFLEMENT confuses your foe. TOWER OF WILL subdues your enemy, who will then do your will.\n\nThe sword continues to drive into and out of the trunk of the Tree of Life. Green-stained wood flies up in splinters. Decide which spell you will cast.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Vanish" , 7));
+        Choices.push_back(Choice::Base("Cast Choking Fog" , 31));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption" , 64));
+        Choices.push_back(Choice::Base("Cast Shield of Defense" , 82));
+        Choices.push_back(Choice::Base("Cast Bafflement" , 113));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 207));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -7063,6 +7255,16 @@ auto story326 = Story326();
 auto story327 = Story327();
 auto story328 = Story328();
 auto story329 = Story329();
+auto story330 = Story330();
+auto story331 = Story331();
+auto story332 = Story332();
+auto story333 = Story333();
+auto story334 = Story334();
+auto story335 = Story335();
+auto story336 = Story336();
+auto story337 = Story337();
+auto story338 = Story338();
+auto story339 = Story339();
 
 void InitializeStories()
 {
@@ -7100,7 +7302,8 @@ void InitializeStories()
         &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
         &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
         &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
-        &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329};
+        &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
+        &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339};
 }
 
 #endif
