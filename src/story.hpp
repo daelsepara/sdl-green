@@ -6523,6 +6523,215 @@ public:
     int Continue(Character::Base &player) { return 57; }
 };
 
+class Story320 : public Story::Base
+{
+public:
+    Story320()
+    {
+        ID = 320;
+
+        Image = "images/filler2.png";
+
+        Text = "Shot follows shot, with no clear sign of which of you is the better archer. The elves look on in silence, giving no clue as to whether they are completely enraptured or whether they find the whole contest of no interest at all.\n\nYour arm is beginning to tire; Huldranas shoots like an automaton, with precision and unflagging strength. You are wasting arrows, and you know that if you allow the contest to drag on you are going to lose through simple fatigue.\n\n\"Enough!\" you say to the Elf king. \"It might amuse you elves to watch this carry on until the sky caves in, but the Westermen will not wait that long to bring about Doomsday.\"\n\n\"Very well,\" he says. \"A more fraught duel then -- with life and death at stake.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 18; }
+};
+
+class Story321 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story321()
+    {
+        ID = 321;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You turn your back and start to run through the trees. Behind you the elf retrieves his DIRK and sends it spinning end over end towards the small of your back. You hear it cutting through the air.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            Character::GAIN_LIFE(player, -3);
+
+            PreText += "\n\nThe DIRK embeds itself in your back and you LOSE 3 Life Points.";
+        }
+        else
+        {
+            PreText += "\n\nYou duck past a tree just in time.";
+        }
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou can hear the elf shouting, \"Leave the forest. You are not wanted here.\"";
+        }
+
+        Text = PreText.c_str();
+
+        Take = {Item::ELVEN_DIRK};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 301; }
+};
+
+class Story322 : public Story::Base
+{
+public:
+    Story322()
+    {
+        ID = 322;
+
+        Image = "images/filler3.png";
+
+        Text = "Elanor is nowhere to be seen, but her owl is still gazing at you unwinkingly. It follows you as you exit the beautiful clearing, hoping to leave the bees behind. Just as you hear a loud buzzing behind you there is a stab of pain as a bee strings the back of your neck. Looking back you see a whole swarm of bees flying to attack you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Run in search of water to hide in", 197));
+        Choices.push_back(Choice::Base("Smear some of the WHITE JELLY on yourself", 184, {Item::JAR_WHITE_JELLY}));
+        Choices.push_back(Choice::Base("Smear some of the BLACK TAR on your self", 168, {Item::POTION_TARRY_BLACK}));
+        Choices.push_back(Choice::Base("Drink the BLUE POTION", 155, {Item::POTION_CLOUDY_BLUE}));
+        Choices.push_back(Choice::Base("Drink the RED POTION", 141, {Item::POTION_RED_LIQUID}));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story323 : public Story::Base
+{
+public:
+    Story323()
+    {
+        ID = 323;
+
+        Text = "\"Then you'll be glad to stay a while to keep me company. I could help you, oh I could, I could. But first you must make me like you.\"\n\nYou protest that you are on an urgent and perilous quest.\n\n\"Spare me your excuses. You're just like all the rest. Nobody cares for the Kwerrel.\" The impish little man hangs his head sadly. At length you ask how you can make him like you.\n\n\"By accepting my hospitality, by eating the flesh of the Blood of Iron toadstool.\"\n\nYou hesitate. \"See, just like all the rest. You just can't find it in you to trust the Kwerrel, can you?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Eat the mushroom he offers you", 138));
+        Choices.push_back(Choice::Base("Refuse", 438));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story324 : public Story::Base
+{
+public:
+    Story324()
+    {
+        ID = 324;
+
+        Image = "images/shadowy-man.png";
+
+        Text = "The strange shadow figure seems to know the forest. To your surprise he begins to tell you about the fabled Tree of Knowledge. \"Ah, yes, it is real enough. I myself have spoken with it and profited greatly thereby. The tree can give a man all the knowledge of the forest. I can teach magical charms as well. Do you seek this tree?\" He doesn't wait for you to answer, but goes on, \"Then follow the Burgstream into the forest until it flows into the great Sirion river. Then turn east along the bank. Where the land rises climb until you reach a clearing and at its centre a cave. There you will find the guardian of the tree. Slay the guardian and the knowledge of the tree will be yours. Farewell.\"\n\nWith that he rises abruptly, twitches his black cloak around him and leaves the inn. The others all eye you suspiciously before leaving the common room. You take a room at the inn for the night.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 333; }
+};
+
+class Story325 : public Story::Base
+{
+public:
+    Story325()
+    {
+        ID = 325;
+
+        Text = "The expedition is a success but the strategy can only lead to failure. The gathering of all the elves at Elvenhame takes over a week. They are nearly ten thousand in all. The last to come are the solitary elves from the east, beyond the Widewater river. Some haven't been to Elvenhame for hundreds of years. Half are equipped with the captured swords, others with their powerful yew longbows. They fight readily in pitched battle but are overwhelmed by the superior numbers and arms of the Westermen. The death of so many immortal elves is the greatest strategy of all time. You are slain in the final battle: the forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story326 : public Story::Base
+{
+public:
+    Story326()
+    {
+        ID = 326;
+
+        Text = "As quick as thought you murmur the incantation of the magical Shield of Defense. You have just finished when the King of the Elves casts another spell. A luminous green halo pops forth from his fingertips and grows as it darts towards you. It splashes against the glowing defensive silver disk and fizzles out.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Bafflement, Visceral Disruption or Tower of Will" , 347));
+        Choices.push_back(Choice::Base("Maintain your Shield of Defense spell", 123));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story327 : public Story::Base
+{
+public:
+    Story327()
+    {
+        ID = 327;
+
+        Text = "As you get close to the Infernal Statue you realize there is nothing you can do against it with your bare hands. It must have been designed by a genius. There is no weak spot you can see. Your fists and feet pound the metal casing but it is only you who is getting hurt. You cannot even stop it chopping at the tree. It just ignores you as though you were no more than a flea. Several Westermen close in, intent on finishing you off while the machine destroys the tree. You will have to think of something else.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Retreat to a safer spot and consider your strategy", 144));
+        Choices.push_back(Choice::Base("Fight on where you are", 409));
+        Choices.push_back(Choice::Base("Make a dash for the hose that connects the statue to the great boiler", 397));
+        Choices.push_back(Choice::Base("Spend a precious moment or two looking at the statue for a weakness", 420));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story328 : public Story::Base
+{
+public:
+    Story328()
+    {
+        ID = 328;
+
+        Text = "As soon as you mention the Tree of Knowledge the owl takes flight for the depths of the forest.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Try to stop it leaving you lost here", 216, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Throw a small stone at it", 233));
+        Choices.push_back(Choice::Base("Otherwise you are alone again and must choose at random one of the many ways back into the forest", 173));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story329 : public Story::Base
+{
+public:
+    Story329()
+    {
+        ID = 329;
+
+        Text = "She looks disappointed in you, almost crestfallen.\n\n\"Many a man has come in search of the tree. But only Valerian and I have gained its knowledge. What use is knowledge when the end of the world is at hand?\" She seems to believe what she is saying.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave: she is mad", 98));
+        Choices.push_back(Choice::Base("Listen to her", 107));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6844,6 +7053,16 @@ auto story316 = Story316();
 auto story317 = Story317();
 auto story318 = Story318();
 auto story319 = Story319();
+auto story320 = Story320();
+auto story321 = Story321();
+auto story322 = Story322();
+auto story323 = Story323();
+auto story324 = Story324();
+auto story325 = Story325();
+auto story326 = Story326();
+auto story327 = Story327();
+auto story328 = Story328();
+auto story329 = Story329();
 
 void InitializeStories()
 {
@@ -6880,7 +7099,8 @@ void InitializeStories()
         &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
         &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
         &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
-        &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319};
+        &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
+        &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329};
 }
 
 #endif
