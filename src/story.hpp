@@ -7503,6 +7503,229 @@ public:
     }
 };
 
+class Story370 : public Story::Base
+{
+public:
+    Story370()
+    {
+        ID = 370;
+
+        Text = "The elf is powerless to run as you draw your dagger for the kill, but he can fight well enough.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [SWORDPLAY]", 399, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Use [SPELLS]", 410, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Use [UNARMED COMBAT]", 405, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("You have none of these skills", 308));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story371 : public Story::Base
+{
+public:
+    Story371()
+    {
+        ID = 371;
+
+        Text = "The machine must have been designed by a genius: There is no weak spot you can see. Your sword rings and hammers against the statue's metal casing but you cannot even stop it chopping the tree. It just ignores you as though you were no more than a flea. Several Westermen close in towards you, intent on finishing you off while the machine destroys the tree. You will have to think of something else.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Retreat to a safer spot while it is possible to do so and consider your next strategy", 144));
+        Choices.push_back(Choice::Base("Fight on where you are", 84));
+        Choices.push_back(Choice::Base("Make a dash for the hose connecting the statue to the great twenty-wheeled boiler", 397));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story372 : public Story::Base
+{
+public:
+    Story372()
+    {
+        ID = 372;
+
+        Text = "You speak the word and the spell wings its way to the Infernal Statue. It doesn't shake its head or rub its brow as a man affected by this spell might but it takes a great step backwards and falls into the deep blue pool.\n\nThere is a rush of steam like a geyser, followed by an explosion underwater as the machine tears itself apart. The Westermen cry out in alarm and begin to retreat, harried by the arrows of the elves.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 500; }
+};
+
+class Story373 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story373()
+    {
+        ID = 373;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Without warning you leap towards Elanor but she is ready for you. She tugs on the end of a vine and a secret hatch opens in the side of the tree-house.";
+
+        Take.clear();
+
+        Limit = 0;
+
+        Bye = NULL;
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            PreText += "\n\nElanor jumps through the hatch and swings to the ground on a hanging creeper.\n\n\"You will never leave the forest,\" she warns you. \"I will turn every living thing in the forest against you.\"\n\nYou are stung on the cheek by a bee. Then another stings your wrist. More bees fly in, buzzing angrily.\n\nYou only have time to grab three of the potions. Choose which of the following you are taking: a clear CHERRY-RED LIQUID in a stoppered phial, a small round bottle of something like RUNNY TAR, a JAR OF WHITE JELLY, a CLOUDY SEA-BLUE FLUID in a phial and a GLASS POT that contains bands of COLOURED EARTH.";
+
+            Bye = "You rush to climb down the ladder to the ground.";
+
+            Take = {Item::POTION_RED_LIQUID, Item::POTION_TARRY_BLACK, Item::JAR_WHITE_JELLY, Item::POTION_CLOUDY_BLUE, Item::JAR_COLOURED_EARTH};
+
+            Limit = 3;
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 213;
+        }
+        else
+        {
+            return 322;
+        }
+    }
+};
+
+class Story374 : public Story::Base
+{
+public:
+    Story374()
+    {
+        ID = 374;
+
+        Text = "The SWORD lops cleanly through the Embracer's tentacles but also bites deep into the softer flesh of Renard, your guide. The Embracer emits a piercing shriek and throws Renard at you before subsiding once more into the river. The water is stained livid red as Renard's heart pumps his lifeblood out. He flails desperately for help.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Help him to the bank", 246));
+        Choices.push_back(Choice::Base("Abandon him", 343));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story375 : public Story::Base
+{
+public:
+    Story375()
+    {
+        ID = 375;
+
+        Text = "Your sorcery does not work here inside the magical Umbellifer bush. Instead the bush itself seems to convulse and the imp falls to the ground out of sight. The thorny branches bow down from the central trunk and begin to sweep you along the ground towards the edge of the giant magical bush. It seems it doesn't like your magic and wants to spit you out. The thorns are pricking you but there is nothing you can do. You are completely engulfed. By the time you have been disgorged back into the forest you have lost blood.\n\nYou LOSE 6 Life Points.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -6);
+    }
+
+    int Continue(Character::Base &player) { return 406; }
+};
+
+class Story376 : public Story::Base
+{
+public:
+    Story376()
+    {
+        ID = 376;
+
+        Text = "Somehow you kill one and leap over his falling body before it hits the ground. One stumbles over his slain brother in arms and balks those trying to follow. You escape to a nearby rock; from the safety of which you scan the battle. The elves are at work with their arrows which zip and whine through the air, taking a terrible toll on the Westermen. The men's captains are driving them on out of the trees with whips.\n\nThe Infernal Statue lurches remorselessly towards the Tree of Life, its heavy step making the earth tremble. Its sword arm rises and falls like a piston as it hacks into the trunk of the great Greenbark tree. Thick green sap runs from the scores in the bark and there is another groan from the elves.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack the machine before it kills the tree", 359));
+        Choices.push_back(Choice::Base("Try to reach the hose that connects it to the huge twenty-wheeled boiler behind it", 397));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story377 : public Story::Base
+{
+public:
+    Story377()
+    {
+        ID = 377;
+
+        Text = "Your slashing cut scores his shoulders but Zorolotl ripostes with a lancing blow into your side. You both spring away from each other, circling once more, as green and red blood flows freely. You LOSE 5 Life Points.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Submit", 422));
+        Choices.push_back(Choice::Base("You are determined to fight on", 303));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -5);
+
+        if (player.Life > 0)
+        {
+            player.ZorolotlWounds++;
+            player.LifePointsLost += 5;
+        }
+    }
+};
+
+class Story378 : public Story::Base
+{
+public:
+    Story378()
+    {
+        ID = 378;
+
+        Text = "You have moved to the edge of the trees now and look out over the grisly devastation. The innkeeper tell you his name is Pozzo and also reveals what he knows about the Westermen. Their leader has a huge scarlet and black pavilion tent beyond the forges where he plans how to despoil the forest. Pozzo offers to take you there.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Be guided by the innkeeper", 428));
+        Choices.push_back(Choice::Base("Return to the safety of the deep forest", 282));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story379 : public Story::Base
+{
+public:
+    Story379()
+    {
+        ID = 379;
+
+        Text = "You return just in time to see a group of men surrounded by shieldbearers hewing down two great trees at the edge of the clearing. The air is alive with the whine and whoosh of the elven arrow shafts, many of which find their mark with uncanny accuracy, but whenever a Westerman drops to the ground two others take his place in the struggle to bring their engine of destruction to bear.\n\nThere is a groan of splitting wood matched by one from the elves as the beautiful trees crash to the ground and the Infernal Statue is revealed in all its terrifying metallic splendour.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 390; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -7874,6 +8097,16 @@ auto story366 = Story366();
 auto story367 = Story367();
 auto story368 = Story368();
 auto story369 = Story369();
+auto story370 = Story370();
+auto story371 = Story371();
+auto story372 = Story372();
+auto story373 = Story373();
+auto story374 = Story374();
+auto story375 = Story375();
+auto story376 = Story376();
+auto story377 = Story377();
+auto story378 = Story378();
+auto story379 = Story379();
 
 void InitializeStories()
 {
@@ -7915,7 +8148,8 @@ void InitializeStories()
         &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
         &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
         &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359,
-        &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369};
+        &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369,
+        &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379};
 }
 
 #endif
