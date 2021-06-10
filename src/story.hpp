@@ -7726,6 +7726,425 @@ public:
     int Continue(Character::Base &player) { return 390; }
 };
 
+class Story380 : public Story::Base
+{
+public:
+    Story380()
+    {
+        ID = 380;
+
+        Text = "Drawing breath you listen for others, realizing at any moment you may be picked off by the arrows of his kind. You hurry quickly through the dense underbrush and stumble across a very strange old monument covered in creepers and partially knocked down by a fallen pine. It must once have been a great victory arch, perhaps built here before the forest itself grew here, or to commemorate a victory against rebels who had hidden out in the trees.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 289; }
+};
+
+class Story381 : public Story::Base
+{
+public:
+    Story381()
+    {
+        ID = 381;
+
+        Text = "You fall back but his attack is pressed with such verve you have stepped outside the circle before you know where you are. Gathkeri stops and clasps his hands to his chest in triumph. \"I am the victor. You have stepped outside the circle and forfeited the duel.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 163; }
+};
+
+class Story382 : public Story::Base
+{
+public:
+    Story382()
+    {
+        ID = 382;
+
+        Text = "You let yourself fall from the bridge into the murky waters and land, by chance, on top of Renard and the Embracer. Renard is still struggling but his arms are pinioned by the man-eating monster's fibrous tentacles. Unfortunately it has more than enough tentacles to deal with you and soon your arms are crushed to you sides by what feel like iron bars. It drags you down to the slimy bottom and waits for you to drown, before feeding on your remains.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story383 : public Story::Base
+{
+public:
+    Story383()
+    {
+        ID = 383;
+
+        Text = "You charge to the attack but the elf dances aside even more quickly and his heel crashes into your side, breaking two of your ribs. Each time you attack the elf turns you attack the elf turns your own strength against you until he sends you over his shoulder and you crash into the trunk of a fallen tree.\n\nYou LOSE 5 Life Points.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Flee", 321));
+        Choices.push_back(Choice::Base("Fight on", 311));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -5);
+    }
+};
+
+class Story384 : public Story::Base
+{
+public:
+    Story384()
+    {
+        ID = 384;
+
+        Text = "You journey for several days falling more and more in love with the wild unpredictable beauty of the forest now that you now you may never leave it. You turn back, risking all in one last attempt to persuade the elves to help save the forest.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 78; }
+};
+
+class Story385 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story385()
+    {
+        ID = 385;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "There is a swift exchange of cut and thrust, which ends when the elf leaps back nimbly. You have wounded him again: there is more green blood on the tip of your sword, but there is red blood on the wavy-edged blade of Zorolotl. You have been wounded as well. You LOSE 4 Life Points.";
+
+        Character::GAIN_LIFE(player, -4);
+
+        if (player.Life > 0)
+        {
+            player.ZorolotlWounds++;
+            player.LifePointsLost += 4;
+
+            if (player.LifePointsLost < 7)
+            {
+                PreText += "\n\nThe elf darts in to attack again.";
+            }
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (player.LifePointsLost >= 7)
+        {
+            return 351;
+        }
+        else
+        {
+            return 415;
+        }
+    }
+};
+
+class Story386 : public Story::Base
+{
+public:
+    Story386()
+    {
+        ID = 386;
+
+        Text = "You are led to the clearing in the centre of the city of trees and there sat down on the ground. The elves sit in tiers around you, perching on branches; more stand on the walkways and lean out from the towers between the trees. You cannot hide your awe at the natural beauty which surrounds you. When you say that you could never have imagined such an idyll they seem pleased.\n\n\"Never have we risked everything by sharing the beauty of our home with mortals. But now we realize that this beauty will soon be lost. In the time of men no one but you will tell tales of the splendours that were once Elvenhame.\" There is a brooding melancholy in the faces of all the elves.\n\n\"But if you fight you can drive the men out of the forest.\"\n\n\"Do you, a mortal, counsel us to slay your fellow men?\"\n\nWhat will you answer?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Say that the men of the west are not your fellows", 345));
+        Choices.push_back(Choice::Base("Say that the men are killing the forest which keeps the air pure for everyone to breathe", 332));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story387 : public Story::Base
+{
+public:
+    Story387()
+    {
+        ID = 387;
+
+        Text = "He blinks slowly, as if clearing his head after a daze.\n\n\"Shall I speak it again?\" you ask.\n\nHe holds up his hand. \"There is no need. You have named me truly, and in accordance with an ancient pact between myself and the first man I must now present you with my signet ring.\" He takes off his ring and puts it into your hand. It is carved out of a single flawless emerald whose depths are filled with pinpoints of flaring green light. \"It is the symbol of my royal authority,\" he says. \"To keep it would demonstrate a lack of goodwill on your part. Why not return it to me now, and then we shall talk.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Insist on retaining the ring", 126));
+        Choices.push_back(Choice::Base("Return it to him", 69));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story388 : public Story::Base
+{
+public:
+    Story388()
+    {
+        ID = 388;
+
+        Text = "Until it sopped to watch you the white egret was definitely feeding. Egrets eat insects but there certainly wouldn't be many insects on the surface of a copper statue, no matter how green with age. You can only conclude that the colossus lying before you is not a statue but a sleeping dragon.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Retreat hurriedly into the bog and let sleeping dragons lie", 417));
+        Choices.push_back(Choice::Base("Go down into the valley and approach the monster", 439));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story389 : public Story::Base
+{
+public:
+    Story389()
+    {
+        ID = 389;
+
+        Text = "How will you attack her?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Cast a Flamehand spell to drive her out of the tree-house", 407, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SWORDPLAY] Threaten her by putting the tip of your SWORD to her throat", 416, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("[CHARMS] Try to enchant her so she sees you as a long lost friend", 352, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("Tackle her to the floor and tie her up in the hammock", 373));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story390 : public Story::Base
+{
+public:
+    Story390()
+    {
+        ID = 390;
+
+        Image = "images/infernal-statue.png";
+
+        Text = "The Westermen fall back behind their weapon of destruction and the shieldbearers cluster around the statue itself, behind which a great cylinder on huge wheels hisses and steams. The massive boiler is connected to the armoured statue by a hose. Suddenly a plume of steam rises out of the top of the statue's helmet with a shriek like a banshee, and its face, which had been resting on its huge iron chest, slowly rises to look at the tree. There is a great roar from the Westermen. They look upon this thing with awe. It is their talisman, a moving demonstration of their invulnerability. Its powers to wreak havoc must be terrifying if a whole army of cruel slaves like the Westermen look upon it with such reverence.\n\nLooking around you, you see a look of bewilderment in the faces of the brave elves. No man can daunt them but nothing has prepared them to face this awful apparition from the underworld. Perhaps if you show the lead they will rally but for the moment at least you must face this Infernal Statue alone.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 369; }
+};
+
+class Story391 : public Story::Base
+{
+public:
+    Story391()
+    {
+        ID = 391;
+
+        Text = "Your charms will not work on this metal monster. Your one hope is to attack it with your bare hands.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 327; }
+};
+
+class Story392 : public Story::Base
+{
+public:
+    Story392()
+    {
+        ID = 392;
+
+        Text = "Just as you leave the mound of earth it collapses and the head of a Colossus beetle pokes out. Its head alone is twice as big as you and it shines blackly in the faint iridescence of nearby glow-worms. Its curving black horns are tipped with cruel crushing pincers. It lunges for you but you jump behind a tree and start to climb, hoping the beetle will not have the cunning to push the tree down and claim you as a tasty morsel.\n\nIt seems to lose track of you once you leave the ground and at last retreats cumbersomely into its burrow, which it caps once more with masticated mud.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 237; }
+};
+
+class Story393 : public Story::Base
+{
+public:
+    Story393()
+    {
+        ID = 393;
+
+        Text = "You circle round to his sword side and are caught out by the speed of his darting lunge. The tip of his sword rips into your thigh and the elf has bounded out of range before you can counter.\n\nYou LOSE 4 Life Points.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+
+        Choices.clear();
+
+        if (player.Life > 0)
+        {
+            player.LifePointsLost += 4;
+
+            if (player.LifePointsLost < 7)
+            {
+                Choices.push_back(Choice::Base("Attack him on his vulnerable side", 342));
+                Choices.push_back(Choice::Base("Meet him head to head", 385));
+            }
+        }
+    }
+
+    int Continue(Character::Base &player)
+    {
+        return 351;
+    }
+};
+
+class Story394 : public Story::Base
+{
+public:
+    Story394()
+    {
+        ID = 394;
+
+        Text = "It takes much longer to reach the tower than you imagined, since path after path leads you up against such obstacles as thorn bushes or fallen trees whose rotting bark crawls with insects. At last you pass into the open, where a clearing of uneven grassy ground stands between the louring ranks of trees.\n\nThe tower is outlined in a halo of moonlight which makes the angular masonry blocks gleam like silver. Ivy cover the walls in a dark tangled net. Under a lichen-stained armorial crest looms a great black door sealed with an iron lock. Gazing up, you see a glimmer of green light from the topmost chamber of the tower. It is one sign that the place might not be abandoned and left to ruin.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[AGILITY] Climb the tower", 464, Skill::Type::AGILITY));
+        Choices.push_back(Choice::Base("[ROGUERY] Pick the lock", 489, Skill::Type::ROGUERY));
+        Choices.push_back(Choice::Base("Return to the main forest paths and continue on your way", 454));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story395 : public Story::Base
+{
+public:
+    Story395()
+    {
+        ID = 395;
+
+        Text = "You speak the word and bring forth the Choking Fog around the Infernal Machine. But why have you used this spell against a machine that doesn't breathe but is powered by steam? The steam rushing from vents in the head dissipates the fog, and still the piston-like sword arm of the machine slices into the tree sending splinters of green wood into the air. You are wasting precious time. Now is your last chance to save the tree.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Bafflement", 113));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 64));
+        Choices.push_back(Choice::Base("Cast Tower Will", 186));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story396 : public Story::Base
+{
+public:
+    Story396()
+    {
+        ID = 396;
+
+        Image = "images/filler2.png";
+
+        Text = "As you struggle to your feet, cursing the very ground that has betrayed your feet, one of the guards breaks ranks and rushes towards you. As he closes, however, your opponent looks as if he is going to try to parry your blows rather than try to kill you himself, while his comrades close in on your back.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Risk all with a sudden lunge", 453));
+        Choices.push_back(Choice::Base("Fight him carefully, until you see an opening to attack without fear of a riposte", 463));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story397 : public Story::Base
+{
+public:
+    Story397()
+    {
+        ID = 397;
+
+        Text = "A sudden leap not only carries you to where the hose lies unprotected on the ground but temporarily leaves your many assailants behind. You have one chance to sever the hose with your dagger. If you take it you will be surrounded by the enemy.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Seize the moment to sever the hose", 28));
+        Choices.push_back(Choice::Base("Back off to nearby safer ground", 144));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story398 : public Story::Base
+{
+public:
+    Story398()
+    {
+        ID = 398;
+
+        Text = "All is quiet behind you but you do not look back. Renard is anxious to leave the monster far behind and sets a cracking pace through the forest. The path is difficult, overgrown and boggy. You make slow progress for many hours until nightfall.\n\nThe noises of the forest seem to intensify with the night: there is buzzing, clicking, croaking, and the hoot of a lone owl to keep you company. Finding a dry place to rest is not easy but at last you find a mound of earth on which you can settle down.\n\n\"Not there!\" exclaims Renard. \"That mound is the cap of the burrow of a Colossus beetle.\"\n\nRenard selects a place for you to camp for the night on a slope that climbs gradually away from the river. You take your calfskin boots off and wash your feet in a stream that winds between the trees. The boots are soaked wet and your feet shows signs of a green mould which you wash off carefully. You are relieved when Renard says your journey on the morrow will take you up out of the river valley to drier parts.\n\n\"My journey?\" you ask. \"What about you?\"\n\n\"This is where I leave you. In the morning I will start back to Burg. You owe me six pieces of gold. Three days out, three days back. Tomorrow, walk past that old yew tree and go on, always seeking the higher ground. If you do that you will find what you seek at the hill top.\"\n\n\"Why not guide me further?\"\n\n\"I want to live a long time. Nothing would make me face the terrors of the Bonehill.\" Renard is adamant he will go no further.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Pay Renard the price agreed", 153));
+        Choices.push_back(Choice::Base("Say that you will not pay him unless he takes you to the top of Bonehill", 167));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story399 : public Story::Base
+{
+public:
+    Story399()
+    {
+        ID = 399;
+
+        Text = "The elf draws a long slim DIRK from beneath his shirt. Your sword gives you the advantage of reach but you notice the elf is very agile and has remarkable balance.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Press your attack fast with a mighty lunge", 291));
+        Choices.push_back(Choice::Base("Bide your time and keep him out of range with sword swipes while you gauge his style", 271));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story400 : public Story::Base
+{
+public:
+    Story400()
+    {
+        ID = 400;
+
+        Text = "You direct the elves to shoot those who are clearing the path for the armed mass of soldiers behind and the Westermen are soon flinching and edging away. They are on the point of panic when there is a terrible groan from all of the elves. The Tree of Life has been slain and the elves have lost their immortality. As if they had been turned off by a master switch the elves all slump to the ground, stone dead. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -8107,6 +8526,27 @@ auto story376 = Story376();
 auto story377 = Story377();
 auto story378 = Story378();
 auto story379 = Story379();
+auto story380 = Story380();
+auto story381 = Story381();
+auto story382 = Story382();
+auto story383 = Story383();
+auto story384 = Story384();
+auto story385 = Story385();
+auto story386 = Story386();
+auto story387 = Story387();
+auto story388 = Story388();
+auto story389 = Story389();
+auto story390 = Story390();
+auto story391 = Story391();
+auto story392 = Story392();
+auto story393 = Story393();
+auto story394 = Story394();
+auto story395 = Story395();
+auto story396 = Story396();
+auto story397 = Story397();
+auto story398 = Story398();
+auto story399 = Story399();
+auto story400 = Story400();
 
 void InitializeStories()
 {
@@ -8149,7 +8589,10 @@ void InitializeStories()
         &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
         &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359,
         &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369,
-        &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379};
+        &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379,
+        &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389,
+        &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399,
+        &story400};
 }
 
 #endif
