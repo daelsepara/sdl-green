@@ -5586,7 +5586,7 @@ public:
     {
         ID = 268;
 
-        Text = "Your charm of friendship works. The egret flies up into the air, arcs round you in a graceful curve and comes to land on your head. It has stopped its cackling. You start to climb the hillock with the white egret balancing on your head. As you set foot on the hillock you are surprised at how hard the ground feels, yet it yields slightly as if a layer of hard rock was resting on mud. The ground is smooth and has a sheen: it only looked like grass. You climb on up the hillock and reaching the summit, look down on its far side which is ribbed and ridged in the most unusual way. It dawns on you that the thing you are standing on is a gargantuan dragon. You can see its head, the size of a cart, curled up next to its feet as it slumbers. It seems not to have noticed you crawling like a fly over its great body.\n\nYou gained the codeword SPECULUM.";
+        Text = "\"The Elf King's name,\" suggests the mirror-sprite. \"That is a very old secret.\"\n\nYou shrug. \"What of it? I need a secret that will help me in my quest.\"\n\n\"Among the ancient folk, names are especially significant,\" says the sprite. \"You can force such a being to do what you want if you know his name. And you might want the Elf King's help before your quest is done.\"\n\n\"All right, what is his name?\"\n\nThe sprite demurs. \"I heard... on the wind, long ago, I head a whisper...\" It glances to left and right, wearing a fearful expression on your own reflected face. \"I'll tell you this rhyme:\n\n\"The name of the Elven King\nIs a very powerful thing;\nIf you speak it to him, or even sing,\nHe'll have to give you his signet ring.\"\n\nYou give the mirror a long hard glare. The sprite returns your annoyance with a disingenuous look. \"That does not sound very helpful,\" you say coldly.\n\n\"It is all I dare,\" replies the sprite. \"Now hurry -- shatter the mirror so that I can fly free.\"\n\nYou gained the codeword SPECULUM.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Break the mirror", 418));
@@ -9306,6 +9306,189 @@ public:
     int Continue(Character::Base &player) { return 440; }
 };
 
+class Story460 : public Story::Base
+{
+public:
+    Story460()
+    {
+        ID = 460;
+
+        Image = "images/filler2.png";
+
+        Text = "You gaze into the mirror. Your own image palely stares back from the limpid depths of the glass. Then it winks at you. \"I am a magic mirror,\" it attests undeniably. \"Or, more precisely, I am an aerial sprite trapped within the polished crystal of the mirror. My mistress captured me long ago and keeps me to counsel her.\"\n\nYou cast a wary glance over your shoulder, but the woman on the bed has not stirred. \"Who is she?\" you whisper.\n\n\"An enchantress of the Fomorian race -- more ancient than even the elves. She sleeps to preserve her unearthly beauty. Disturb her at your peril!\"\n\nYou smile wryly. \"I have no intention of doing so.\"\n\n\"Good.\" In the mirror, your reflection returns your smile with a conspiratorial look. Leaning closer, it says: \"If you agree to break the mirror, thus releasing me from my long confinement, I'll grant one wish in return.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Refuse: search the room", 470));
+        Choices.push_back(Choice::Base("Refuse: leave the tower", 479));
+        Choices.push_back(Choice::Base("Accept: ask for vitality", 118));
+        Choices.push_back(Choice::Base("Accept: ask for wisdom", 22));
+        Choices.push_back(Choice::Base("Accept: ask for secret lore", 268));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story461 : public Story::Base
+{
+public:
+    Story461()
+    {
+        ID = 461;
+
+        Text = "Eight guards have fanned out to encircle you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Fall back quickly in the hope that they won't manage to close the circle in time", 467));
+        Choices.push_back(Choice::Base("Rush one of them, cut him down, and escape over his dead body", 477));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story462 : public Story::Base
+{
+public:
+    Story462()
+    {
+        ID = 462;
+
+        Text = "Using the cover provided by darkness, you creep slowly round to the porch of the pavilion and, waiting to make sure there is no one coming, you creep into the tent.\n\nThe chief himself is sleeping on silken cushions of rich purple; his corpulent form is surrounded by the somnolent forms of his personal guards. Your keen senses also detect a faint shimmering in the air around these men -- a magical disturbance in the air that can only be some kind of warding. You had best be careful, for if you disturb it the guards could be on you in a trice.\n\nQuietly you move to the table where the chief's maps are laid out in full view. The master map shows the Forest of Arden in its entirety. A broad swathe of brown has recently been painted across the green of the forest and a red point marks each of the Westermen encampments that are eating into the forest. Right in the centre of the triangle made by the Bonehill, the bower of the Lady of the Forest and the geysers, a small pool with an ancient-looking Greenbark tree drawn on it has been carefully painted in. Inked in by the tree is a simple note: \"Destroy the Tree of Life and the forest dies. The Steamer shall do the work.\"\n\nDispatches lying ready for the signing indicate the pincer movement that the Westermen will make on the tree -- a cunning plan that could take any unwary defenders by surprise.\n\nYou gained the codeword BULLHORN.";
+
+        Bye = "\n\nYou risk discovery the longer you remain here, so carefully considering what you have learned, you leave as soon as the coast is clear.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::BULLHORN});
+    }
+
+    int Continue(Character::Base &player) { return 95; }
+};
+
+class Story463 : public Story::Base
+{
+public:
+    Story463()
+    {
+        ID = 463;
+
+        Text = "The man you are fighting is a bit of a coward and he guards carefully against your every move. You look like a pair of grannies circling each other warily. Time has run out for you. The guard's comrades close in from all sides and you are overwhelmed. You take two of them with you to the unending grey as the steel of their swords pierces your vitals and you fall, dying. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story464 : public Story::Base
+{
+public:
+    Story464()
+    {
+        ID = 464;
+
+        Text = "The stone blocks of the tower wall are fitted so closely that there is no toe-hold wider than a centipede's legs. The ivy helps you to begin your ascent, but it grows only sparsely on the upper part of the tower, where the stone remains as smooth as broken flint despite the centuries of wind and rain that must have scoured its surface. None but the most iron-nerved and nimble of adventurers could hope to make this ascent. Even you, for all your surefooted confidence, are careful not to glance down until you reach the parapet at the top of the tower and pull yourself over to safety.\n\nAn open arch leads from the balcony to the tower chamber. You step forward warily. Filtered through lattices of stonework, the moonbeams form a web of shadow across the smooth marble floor. Wan green light comes from a single flickering candle on a wrought-iron stand and behind it, on the far wall, a mirror sparkles with the fluid brilliance of quicksilver. A light breeze blows through the chamber carrying the odour of soil and growing things. As your eyes adjust further to the gloom, you can make out a figure sprawled across a bed surrounded by gossamer drapes.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tiptoe over to the bedside", 449));
+        Choices.push_back(Choice::Base("Search the room", 470));
+        Choices.push_back(Choice::Base("Take a closer look at the mirror", 460));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story465 : public Story::Base
+{
+public:
+    Story465()
+    {
+        ID = 465;
+
+        Text = "As you unleash your spell two perfect images of yourself appear in a puff of smoke to your left. You attackers can't tell which one is the real you unless you move, for the visions remain motionless. Unfortunately the chief orders his men to bury their swords in all of the figures, including you. There is no escape and no time to cast another spell. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story466 : public Story::Base
+{
+public:
+    Story466()
+    {
+        ID = 466;
+
+        Text = "The nearest of these mercenary guards is no match for you. Your fists and feet are a blur of motion and you do indeed pummel him senseless, but the others close in and you are overwhelmed. You take two of them with you to the unending grey as the steel of their swords pierces your vitals and you fall, dying. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story467 : public Story::Base
+{
+public:
+    Story467()
+    {
+        ID = 467;
+
+        Text = "You fall back just in time and they form in two ranks before advancing towards you with military precision.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Fall back again to the edge of the trees", 487));
+        Choices.push_back(Choice::Base("Fight here", 497));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story468 : public Story::Base
+{
+public:
+    Story468()
+    {
+        ID = 468;
+
+        Text = "You are too late. Before you can complete your spell, Valerian has cast his. A silver noose flies up into the pavilion and darts through the air to hover above your head. One of the guards strikes Valerian down but the noose drops over your head and tightens inexorably around your neck, throttling the life out of you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story469 : public Story::Base
+{
+public:
+    Story469()
+    {
+        ID = 469;
+
+        Text = "Your arrow strikes the very centre of the orchid. You turn a challenging look at Huldranas, but he does not notice. All his concentration is focused on the branch as he removes an arrow from his quiver and nocks on all in one graceful sinuous motion. As he draws back the bowstring, the muscles in his thin arms leap into sharp relief and you can see from his very posture that he is about to make a perfect shot.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Push your skill to the very limits in an attempt to prove beyond argument who is the better archer", 191));
+        Choices.push_back(Choice::Base("Bide your time and take your shot when it is your turn", 444));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -9767,6 +9950,16 @@ auto story456 = Story456();
 auto story457 = Story457();
 auto story458 = Story458();
 auto story459 = Story459();
+auto story460 = Story460();
+auto story461 = Story461();
+auto story462 = Story462();
+auto story463 = Story463();
+auto story464 = Story464();
+auto story465 = Story465();
+auto story466 = Story466();
+auto story467 = Story467();
+auto story468 = Story468();
+auto story469 = Story469();
 
 void InitializeStories()
 {
@@ -9817,7 +10010,8 @@ void InitializeStories()
         &story420, &story421, &story422, &story423, &story424, &story425, &story426, &story427, &story428, &story429,
         &story430, &story431, &story432, &story433, &story434, &story435, &story436, &story437, &story438, &story439,
         &story440, &story441, &story442, &story443, &story444, &story445, &story446, &story447, &story448, &story449,
-        &story450, &story451, &story452, &story453, &story454, &story455, &story456, &story457, &story458, &story459};
+        &story450, &story451, &story452, &story453, &story454, &story455, &story456, &story457, &story458, &story459,
+        &story460, &story461, &story462, &story463, &story464, &story465, &story466, &story467, &story468, &story469};
 }
 
 #endif
