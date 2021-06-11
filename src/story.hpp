@@ -8309,7 +8309,7 @@ public:
 
         if (!Character::VERIFY_SKILL(player, Skill::Type::WILDERNESS_LORE))
         {
-            Choices.push_back(Choice::Base("Investigate it" , 439));
+            Choices.push_back(Choice::Base("Investigate it", 439));
             Choices.push_back(Choice::Base("Enter the bogland and leave the monolithic statue behind", 417));
         }
     }
@@ -8325,6 +8325,214 @@ public:
         ID = 409;
 
         Text = "As soon as you wound one of them another takes his place. You fight like a hero but even heroes tire and at last one manages to sweep your legs out from under you. There is no escape as they finish you off with their swords.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story410 : public Story::Base
+{
+public:
+    Story410()
+    {
+        ID = 410;
+
+        Text = "Casting a spell while keeping your eyes fixed on the elf is not easy but you manage to utter the incantation of Entanglement and the underbrush beneath the elf grows suddenly. Low branches from the nearest tree seem to turn to rubber and stretch to wind themselves around the elf but he speaks his own word of power and then the fronds and branches wither and turn to ash, freeing him.\n\nYou begin another spell, a more powerful one this time, the spell of the Crushing Hand, but as you speak the elf stoops, scoops up a handful of dirt and rotting leaves and hurls it into your face. He has put you off the spell. The dirt goes into you eyes and you recoil, rubbing at them. By the time you have rubbed the dirt away he has vanished. In the short time you couldn't see he couldn't have got far, so you search for him but his woodcraft is superior to yours and you cannot find him.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 380; }
+};
+
+class Story411 : public Story::Base
+{
+public:
+    Story411()
+    {
+        ID = 411;
+
+        Image = "images/filler2.png";
+
+        Text = "The Greenbark trees here in Elvenhame are the biggest in the world. Their branches intermingle and there are walkways, galleries and towers perched on them. Elvenhame is a town in the trees. There are always flowers in bloom here, no matter what the season. Many coloured humming-birds hover and dart from one soft spray of flowers to the next. The sound of their wings is like the soft music of a monk's chant. White hinds and black panthers lie together happily in the dappled sunlight beneath the trees.\n\nBridges of tree-houses spanning the gaps between the Greenbark's great branches are decked with hanging violets and ivy-lilies. The bark of the trees shines like polished jade where it has been worn smooth by the passage of elven feet. There are hundreds of elves here, congregating quietly, astonished that a mortal has been brought to Elvenhame.\n\nYour guide takes you to the foot of a great ladder of oak poles, leading up to the king's pavilion which is decked out in silver and green. The poor elf who brought you to the hidden city is trembling as he stands nervously before his lord. If he is so frightened, you reason, you must be in great peril yourself. To your relief, the king asks him a series of questions in a tongue you cannot comprehend and seems quite satisfied with the answers.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 386; }
+};
+
+class Story412 : public Story::Base
+{
+public:
+    Story412()
+    {
+        ID = 412;
+
+        Image = "images/filler3.png";
+
+        Text = "You throw yourself at Gathkeri and your shoulder cannons into his hip. He sprawls flat on the ground and you jump astride his back. You are too strong for him to escape. The elf knows he is beaten.\n\n\"I submit,\" he cries out loudly enough for all the elves to hear. \"You are the victor.\"\n\nYou let him rise and you both walk over to the king.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story413 : public Story::Base
+{
+public:
+    Story413()
+    {
+        ID = 413;
+
+        Image = "images/soldiers.png";
+
+        Text = "The Westermen crossbowmen are outnumbered by the elves who are brilliant natural bowmen. While the crossbows take a minute to crank and reload, the best of the elven marksmen can unleash ten arrows with just as much force as a crossbow. The first black rain of crossbow bolts claims a few elves but the rate of fire is too much for the Westermen who are too slow to take cover. It is a scene of butchery and the surviving mercenaries are soon put to flight.\n\nThe soldiers behind them regroup and start to raze the forest in front of them so they can advance on a wide front and bring their greater numbers to bear.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Organize the defence here", 400));
+        Choices.push_back(Choice::Base("Return to the other side of the great tree where you can hear a terrible racket and screaming", 379));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story414 : public Story::Base
+{
+public:
+    Story414()
+    {
+        ID = 414;
+
+        Text = "When you awake you are still inside the great Umbellifer bush, lying beneath a twisted holly tree that is being uprooted by the growth of the bush. The Kwerrel imp has stolen everything off you but your clothes.\n\nYou start to dig again but next morning you awake to find the hole filled in. You are hungry again and must east. You lose track of time but nothing can daunt the spirit of a true hero and you persevere until the little Kwerrel tires of the great labour of undoing your day's work every night. By the time you have dug your way out the autumn rains have come. It begins to rain and rain and rain. You set off to the north once again.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        auto HAS_RING = Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR});
+
+        Character::LOSE_ALL(player);
+
+        if (HAS_RING)
+        {
+            Character::GET_ITEMS(player, {Item::EMERALD_RING_ELANOR});
+        }
+    }
+
+    int Continue(Character::Base &player) { return 406; }
+};
+
+class Story415 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story415()
+    {
+        ID = 415;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Circle to the left of him", 403));
+        Choices.push_back(Choice::Base("Circle to the right of him", 393));
+        Choices.push_back(Choice::Base("Meet him head on", 385));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Zorolotl strikes as fast as lightning. The point of his sword rips into your jerkin, but your riposte catches him on the neck. You have wounded the elf but you were also wounded.\n\nYou LOSE 3 Life Points.";
+
+        Character::GAIN_LIFE(player, -3);
+
+        if (player.Life > 0)
+        {
+            player.ZorolotlWounds++;
+            player.LifePointsLost += 3;
+
+            PreText += "\n\nHe advances warily again.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story416 : public Story::Base
+{
+public:
+    Story416()
+    {
+        ID = 416;
+
+        Text = "With one neat fast movement you draw your sword and thrust the point an inch from Elanor's throat.\n\n\"What do you hope to gain by this?\" she asks.\n\n\"The potions, what do they do?\"\n\nThere are five potions on the shelf behind her.\n\nThere is a clear CHERRY-RED LIQUID in a wax-stoppered phial, a small round BOTTLE of something like RUNNY TAR, a JAR OF WHITE JELLY, a CLOUDY SEA-BLUE FLUID in a phial and a glass POT containing layers of COLOURED EARTH.\n\nElanor starts to explain what each one does. \"The BLUE FLUID, if quaffed in sunlight, will heal all save the most dire hurts.\" As she says the word \"hurts\", the back of your wrist, near the sword hilt, is stung by a bee. Elanor seems not to notice and goes on talking about the potions.\n\n\"This BLACK TARRY GOO is the mulch of fire lizard's gizzard, a deadly poison.\"\n\nYou are stung twice more, on the leg and neck. More bees fly into the tree-house, buzzing angrily. You can't stand being stung like this for much longer. The bees are stinging with the ferocity of hornets.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Quickly ask about the RED LIQUID", 313));
+        Choices.push_back(Choice::Base("... the WHITE JELLY", 304));
+        Choices.push_back(Choice::Base("... the BANDS OF COLOURED EARTH in the hopes that one of them will protect against the insects?", 296));
+        Choices.push_back(Choice::Base("Grab the PHIAL OF BLUE FLUID and drink it", 292));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story417 : public Story::Base
+{
+public:
+    Story417()
+    {
+        ID = 417;
+
+        Text = "The boglands are dangerous and it is slow going here. After a while you decide to struggle to higher ground and rejoin your old course. You make it to firmer ground at last, thinking to yourself you are lucky not to have been attacked by some of the more gargantuan crocodiles you have seen swimming lazily in the deeper pools.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 49; }
+};
+
+class Story418 : public Story::Base
+{
+public:
+    Story418()
+    {
+        ID = 418;
+
+        Text = "You have more sense than to smash the mirror here by the enchantress' bedside, where the noise would surely wake her. Taking it down carefully from the wall, you tiptoe to the balcony and drop it over the balustrade. You watch it flash in the moonlight as it falls to shatter on the ground far below. A gust of spring-scented wind arises and you catch a glimpse of an ethereal smiling face flitting up past you as a voice whispers, \"Thank You.\" Then the wind dies and all is quiet again.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Explore the bower further", 470));
+        Choices.push_back(Choice::Base("Leave", 479));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story419 : public Story::Base
+{
+public:
+    Story419()
+    {
+        ID = 419;
+
+        Text = "You are rudely awakened when the earth mound that is your bead collapses beneath you. You try to puzzle out what has happened in the pitch dark. Then as the chitinous walls of a Colossus Beetle's throat press you down towards its stomach you realize you have been swallowed alive while you slept. Nothing will avail you now as the acid of the beetle's stomach does its work. If only you had a guide who might have warned that the mound of earth on which you chose to sleep was the cap of a Colossus beetle's burrow.";
 
         Type = Story::Type::DOOM;
 
@@ -8745,6 +8953,16 @@ auto story406 = Story406();
 auto story407 = Story407();
 auto story408 = Story408();
 auto story409 = Story409();
+auto story410 = Story410();
+auto story411 = Story411();
+auto story412 = Story412();
+auto story413 = Story413();
+auto story414 = Story414();
+auto story415 = Story415();
+auto story416 = Story416();
+auto story417 = Story417();
+auto story418 = Story418();
+auto story419 = Story419();
 
 void InitializeStories()
 {
@@ -8790,7 +9008,8 @@ void InitializeStories()
         &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379,
         &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389,
         &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399,
-        &story400, &story401, &story402, &story403, &story404, &story405, &story406, &story407, &story408, &story409};
+        &story400, &story401, &story402, &story403, &story404, &story405, &story406, &story407, &story408, &story409,
+        &story410, &story411, &story412, &story413, &story414, &story415, &story416, &story417, &story418, &story419};
 }
 
 #endif
