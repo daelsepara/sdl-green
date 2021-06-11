@@ -9893,6 +9893,206 @@ public:
     }
 };
 
+class Story490 : public Story::Base
+{
+public:
+    Story490()
+    {
+        ID = 490;
+
+        Text = "You have made a good choice. You are attacking so that your weak side, the hand in which you are not holding your hand, is away from the enemy. By the time they close up to encircle you, your sword has already dropped three of them to the ground. Seeing your great prowess as a warrior they back off to look for reinforcements. You have plenty of time in which to make good your escape and are quickly lost in the forest once more, knowing they will never find you.";
+
+        Choices = Story::CampDestinations();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story491 : public Story::Base
+{
+public:
+    Story491()
+    {
+        ID = 491;
+
+        Text = "Eight guards have fanned out to encircle you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Fall back fast so they might not manage to close the circle in time", 474));
+        Choices.push_back(Choice::Base("Rush one of them, knock him down, and escape", 484));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story492 : public Story::Base
+{
+public:
+    Story492()
+    {
+        ID = 492;
+
+        Text = "The mind of Valerian the Moon Druid has been toughened by years in the wilderness. You are unable to subdue his mind before the Chief of the Westermen realizes something is amiss and orders his guards to take you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 17; }
+};
+
+class Story493 : public Story::Base
+{
+public:
+    Story493()
+    {
+        ID = 493;
+
+        Text = "Are you left-handed or right-handed?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("You are left-handed", 490));
+        Choices.push_back(Choice::Base("You are right-handed", 480));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story494 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story494()
+    {
+        ID = 494;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Type = Story::Type::NORMAL;
+
+        PreText = "You watch them warily as you fall back towards the forest's edge and don't notice a loose rock over which you trip.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            Type = Story::Type::DOOM;
+
+            PreText += "\n\nBy the time you have regained your feet they have surrounded you. You take two of them with you to the afterlife as the steel of their swords pierces your vitals and you fall, dying. The forest is doomed.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 396; }
+};
+
+class Story495 : public Story::Base
+{
+public:
+    Story495()
+    {
+        ID = 495;
+
+        Text = "You managed to gulp a large breath of air before you let off the spell, and were ready for the awful effects of the gas. You reach the portal of the pavilion and slip past the guards who are still retching hard. You are quickly lost in the forest once more, knowing they will never find you.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story496 : public Story::Base
+{
+public:
+    Story496()
+    {
+        ID = 496;
+
+        Text = "You send the spell unseen across the twelve feet of the air separating you from the guard. As your spell takes hold the guard stares about him uncomprehendingly. He is completely nonplussed. Valerian, however,knows how to kill you. He stares at you intently and flourishes his arms menacingly. You haven't long to act.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Shield of Defense", 458));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 468));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story497 : public Story::Base
+{
+public:
+    Story497()
+    {
+        ID = 497;
+
+        Image = "images/filler3.png";
+
+        Text = "They are in two ranks facing you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack the middle of the front rank", 473));
+        Choices.push_back(Choice::Base("Attack he left end of the front rank of men", 483));
+        Choices.push_back(Choice::Base("Attack the right end of the front rank", 493));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story498 : public Story::Base
+{
+public:
+    Story498()
+    {
+        ID = 498;
+
+        Text = "As you conjure the arcane dweomer, looks of perplexity cross the guards' faces. The looks are followed by anxiety, which finally turns to dread.\n\n\"It's an elf.\"\n\n\"Is it an elf.\"\n\n\"I feel strange.\"\n\n\"It's using some unnatural magic.\"\n\n\"Run.\"\n\nThe man who says 'run' is the last one to move as they all turn tail and flee towards the tents of their comrades. They don't know what an elf looks like and obviously think you are one. They must be very frightened of the immortal spirits of the forest.\n\nYou have plenty of time in which to make good your escape. You are soon lost in the forest once more.";
+
+        Choices = Story::CampDestinations();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story499 : public Story::Base
+{
+public:
+    Story499()
+    {
+        ID = 499;
+
+        Text = "Stirring at the noise, the woman on the bed raises a slim white arm and brushes sleepily at her face. At any moment she will awaken. If she discovers you here, she might well express her surprise in a manner involving both magic and malice. You must begone with all stealth and haste.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[ROGUERY] Slip away unnoticed", 479, Skill::Type::ROGUERY));
+        Choices.push_back(Choice::Base("Otherwise", 485));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story500 : public Story::Base
+{
+public:
+    Story500()
+    {
+        ID = 500;
+
+        Text = "The Westermen are routed. They have faced a dragon, the elves and a hero among mankind and they have had enough. They are easy to pick off as they flee through the forest much more slowly than the elves can follow. In their panic, they break into smaller and smaller groups and the elves have no difficulty in killing them. They show no mercy: the Westermen die in their tens of thousands. They will leave the forest, never to return. The Tree of Life lives on and Elanor and the elves will tend it till it has made a full recovery.\n\nWithout you, the elves and the whole forest would have been doomed. Without the forest the whole world's atmosphere would have been thrown into imbalance. Elanor greets you as the forest's saviour she had always known you would be. Now everything that grows in the great Forest of Arden is your friend. You will not be famous when you return to the lands of men. No one will ever know what great deeds you have performed here, but it doesn't matter. You know you are a hero.";
+
+        Type = Story::Type::GOOD;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -10384,6 +10584,17 @@ auto story486 = Story486();
 auto story487 = Story487();
 auto story488 = Story488();
 auto story489 = Story489();
+auto story490 = Story490();
+auto story491 = Story491();
+auto story492 = Story492();
+auto story493 = Story493();
+auto story494 = Story494();
+auto story495 = Story495();
+auto story496 = Story496();
+auto story497 = Story497();
+auto story498 = Story498();
+auto story499 = Story499();
+auto story500 = Story500();
 
 void InitializeStories()
 {
@@ -10437,7 +10648,9 @@ void InitializeStories()
         &story450, &story451, &story452, &story453, &story454, &story455, &story456, &story457, &story458, &story459,
         &story460, &story461, &story462, &story463, &story464, &story465, &story466, &story467, &story468, &story469,
         &story470, &story471, &story472, &story473, &story474, &story475, &story476, &story477, &story478, &story479,
-        &story480, &story481, &story482, &story483, &story484, &story485, &story486, &story487, &story488, &story489};
+        &story480, &story481, &story482, &story483, &story484, &story485, &story486, &story487, &story488, &story489,
+        &story490, &story491, &story492, &story493, &story494, &story495, &story496, &story497, &story498, &story499,
+        &story500};
 }
 
 #endif
