@@ -3946,7 +3946,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                         }
                         else if (story->Choices[current].Type == Choice::Type::CODEWORD)
                         {
-                            if (Character::VERIFY_CODEWORD(player, story->Choices[current].Codeword))
+                            if (Character::VERIFY_CODEWORDS(player, story->Choices[current].Codewords))
                             {
                                 next = (Story::Base *)findStory(story->Choices[current].Destination);
 
@@ -3956,7 +3956,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                             }
                             else
                             {
-                                message = "You do not have the required codeword!";
+                                message = "You do not have the required codeword(s)!";
 
                                 start_ticks = SDL_GetTicks();
 
@@ -4147,7 +4147,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                         }
                         else if (story->Choices[current].Type == Choice::Type::GET_CODEWORD)
                         {
-                            Character::GET_CODEWORDS(player, {story->Choices[current].Codeword});
+                            Character::GET_CODEWORDS(player, story->Choices[current].Codewords);
 
                             next = (Story::Base *)findStory(story->Choices[current].Destination);
 
@@ -4157,7 +4157,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                         }
                         else if (story->Choices[current].Type == Choice::Type::LOSE_CODEWORD)
                         {
-                            Character::REMOVE_CODEWORD(player, story->Choices[current].Codeword);
+                            Character::REMOVE_CODEWORD(player, story->Choices[current].Codewords[0]);
 
                             next = (Story::Base *)findStory(story->Choices[current].Destination);
 

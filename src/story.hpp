@@ -52,7 +52,7 @@ namespace Choice
 
         std::vector<Item::Base> Items = std::vector<Item::Base>();
 
-        Codeword::Type Codeword = Codeword::Type::NONE;
+        std::vector<Codeword::Type> Codewords = std::vector<Codeword::Type>();
 
         int Value = 0;
 
@@ -89,12 +89,12 @@ namespace Choice
             Skill = skill;
         }
 
-        Base(const char *text, int destination, Codeword::Type codeword)
+        Base(const char *text, int destination, std::vector<Codeword::Type> codewords)
         {
             Text = text;
             Destination = destination;
             Type = Choice::Type::CODEWORD;
-            Codeword = codeword;
+            Codewords = codewords;
         }
 
         Base(const char *text, int destination, Choice::Type type, int value)
@@ -138,12 +138,12 @@ namespace Choice
             Value = value;
         }
 
-        Base(const char *text, int destination, Choice::Type type, Codeword::Type codeword)
+        Base(const char *text, int destination, Choice::Type type, std::vector<Codeword::Type> codewords)
         {
             Text = text;
             Destination = destination;
             Type = type;
-            Codeword = codeword;
+            Codewords = codewords;
         }
     };
 } // namespace Choice
@@ -385,6 +385,15 @@ namespace Story
         choices.push_back(Choice::Base("Head east", 427));
         choices.push_back(Choice::Base("Head south-west", 70));
         choices.push_back(Choice::Base("Head south from here", 78));
+
+        return choices;
+    }
+
+    std::vector<Choice::Base> CampDestinations()
+    {
+        auto choices = Story::FourDirections();
+
+        choices.push_back(Choice::Base("Wait until nightfall and steal into the camp again under the cover of darkness", 217));
 
         return choices;
     }
@@ -831,7 +840,7 @@ public:
         {
             return 215;
         }
-        else if (Character::VERIFY_CODEWORD(player, Codeword::Type::SPECULUM))
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SPECULUM}))
         {
             return 309;
         }
@@ -1052,7 +1061,7 @@ public:
         Text = "\"I choose to use magic to fight this duel,\" you say, confident that your power is enough to beat any elf.\n\nThe King of the Elves smiles when he hears your choice -- a cool smile that induces doubt and imbues you with fear. You realize you have never seen an elf smile before; the action transforms the king's face, making him look quite human all of a sudden.\n\n\"You think to pit your magic against that of the elves? I will be the champion of elvendom in this duel: I can fashion a spell as well as any other standing here. We will use no death magics. We have potions to revive us if we are wounded. Don't make me kill you; submit if you feel my power overmastering yours.\"\n\nWith that he gestures you to take up position inside the grassy circle.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Stand with the wind in your face", -33, Choice::Type::GET_CODEWORD, Codeword::Type::WINDFACE));
+        Choices.push_back(Choice::Base("Stand with the wind in your face", -33, Choice::Type::GET_CODEWORD, {Codeword::Type::WINDFACE}));
         Choices.push_back(Choice::Base("Stand with the wind at your back", -33));
 
         Controls = Story::Controls::STANDARD;
@@ -1751,7 +1760,7 @@ public:
         {
             return 256;
         }
-        else if (Character::VERIFY_CODEWORD(player, Codeword::Type::WATERBEARER))
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::WATERBEARER}))
         {
             return 42;
         }
@@ -1885,7 +1894,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        if (Character::VERIFY_CODEWORD(player, Codeword::Type::WINDFACE))
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::WINDFACE}))
         {
             PreText = "You take up position in the circle on the east side, where the ground is uneven and the wind is in your face.";
         }
@@ -1933,7 +1942,7 @@ public:
     {
         Choices.clear();
 
-        if (!(Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORD(player, Codeword::Type::CRABCLAW)) && !(Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORD(player, Codeword::Type::TWINHEAD)))
+        if (!(Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORDS(player, {Codeword::Type::CRABCLAW})) && !(Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORDS(player, {Codeword::Type::TWINHEAD})))
         {
             Choices.push_back(Choice::Base("Admit you are lost", 258));
             Choices.push_back(Choice::Base("Ignore the voice and walk on, picking one of the many ways at random", 277));
@@ -1942,7 +1951,7 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORD(player, Codeword::Type::CRABCLAW))
+        if (Character::VERIFY_ITEMS(player, {Item::Type::EMERALD_RING_ELANOR}) && Character::VERIFY_CODEWORDS(player, {Codeword::Type::CRABCLAW}))
         {
             return 440;
         }
@@ -3119,7 +3128,7 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_CODEWORD(player, Codeword::Type::WINDFACE))
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::WINDFACE}))
         {
             return 294;
         }
@@ -4309,7 +4318,7 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_CODEWORD(player, Codeword::Type::WATERBEARER))
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::WATERBEARER}))
         {
             return 49;
         }
@@ -4822,7 +4831,7 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_CODEWORD(player, Codeword::Type::BULLHORN))
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::BULLHORN}))
         {
             return 256;
         }
@@ -5323,7 +5332,7 @@ public:
     {
         Choices.clear();
 
-        if (!Character::VERIFY_CODEWORD(player, Codeword::Type::SCORPION))
+        if (!Character::VERIFY_CODEWORDS(player, {Codeword::Type::SCORPION}))
         {
             Choices.push_back(Choice::Base("Try to assassinate the chief of the Westermen", 433));
             Choices.push_back(Choice::Base("Journey to the Bonehill to talk with the dragon", 54));
@@ -8784,6 +8793,8 @@ public:
     {
         ID = 433;
 
+        Image = "images/filler3.png";
+
         Text = "You manage to spy on the leaders of the Westermen army but the chief has not come with them. He has sent a group of his warlords to do his dirty work for him while he leads a life of ease in his silken pavilion. Killing one or even several warlords will not stop the attack on the Tree of Life. You have squandered too much time. Nothing now can stop them slaying the Tree of Life.";
 
         Type = Story::Type::DOOM;
@@ -8903,6 +8914,190 @@ public:
 
         Controls = Story::Controls::STANDARD;
     }
+};
+
+class Story440 : public Story::Base
+{
+public:
+    Story440()
+    {
+        ID = 440;
+
+        Text = "\"It seems you will do little to save the forest by exploring its many paths.\" says the owl. \"Where would you like to be taken?\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Follow the owl's directions to the camp of the Westermen", 260));
+        Choices.push_back(Choice::Base("(Bullhorn) (Waterbearer) Follow the owl's directions to your allies", 53, {Codeword::Type::BULLHORN, Codeword::Type::WATERBEARER}));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story441 : public Story::Base
+{
+public:
+    Story441()
+    {
+        ID = 441;
+
+        Text = "A silver noose flies up into the pavilion and darts through the air to hover above your head. Your magical shield blossoms beneath it and when they touch, both disappear with a musical pop. You run for the edge of the trees and are quickly lost in the forest once more, knowing they will never find you. The awful sights and sounds of the Westermen camp are soon far behind.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_CODEWORDS(player, {Codeword::Type::BULLHORN, Codeword::Type::WATERBEARER}))
+        {
+            Choices = Story::FourDirections();
+        }
+    }
+
+    int Continue(Character::Base &player) { return 53; }
+};
+
+class Story442 : public Story::Base
+{
+public:
+    Story442()
+    {
+        ID = 442;
+
+        Text = "With the odds stacked against you, there is no time for subtle ploys. Quickly you cast Vanish, instantly disappearing from the gaze of your astonished foes. Lest they should hear you, however, you stealthily move from your current position, retreating to a safe vantage point at the edge of the forest so you can observe the confusion of the guards. Your Vanish spell wears off while you watch.\n\nAs the camp will be in a state of alert for some time, you reconsider your options.";
+
+        Choices = Story::CampDestinations();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story443 : public Story::Base
+{
+public:
+    Story443()
+    {
+        ID = 443;
+
+        Text = "The guard falls under your spell and you order him to protect you, but the Chief of the Westermen realizes something is amiss. He orders his guards to take you. Your guard is cut down by one of his own comrades. Unluckily for you these cruel Westermen care little for comradeship.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 17; }
+};
+
+class Story444 : public Story::Base
+{
+public:
+    Story444()
+    {
+        ID = 444;
+
+        Image = "images/filler1.png";
+
+        Text = "Shot follows shot, with no clear sign of which of you is the better archer. The elves look on in silence, giving no clue as to whether they are completely enraptured or whether they find the whole contest of no interest at all.\n\nYour arm is beginning to tire; Huldranas shoots like an automaton, with precision and unflagging strength. You are wasting arrows, and you know that if you allow the contest to drag on you are going to lose through simple fatigue.\n\n\"Enough!\" you say to the Elf king. \"It might amuse you elves to watch this carry on until the sky caves in, but the Westermen will not wait that long to bring about Doomsday.\"\n\n\"Very well,\" he says. \"A more fraught duel then -- with life and death at stake.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 18; }
+};
+
+class Story445 : public Story::Base
+{
+public:
+    Story445()
+    {
+        ID = 445;
+
+        Text = "You cast Choking Fog and a cloud of poisonous green gas explodes around you, filling the pavilion. You too suffer from the noxious effects of the gas.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (player.Life > 7)
+        {
+            return 494;
+        }
+        else
+        {
+            return 472;
+        }
+    }
+};
+
+class Story446 : public Story::Base
+{
+public:
+    Story446()
+    {
+        ID = 446;
+
+        Text = "How will you fight multiple attackers?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Keep yourself on the move as you fight, switching your attention to one of your assailants after the other" , 456));
+        Choices.push_back(Choice::Base("Pound one into the ground before starting on the next", 466));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story447 : public Story::Base
+{
+public:
+    Story447()
+    {
+        ID = 447;
+
+        Text = "The chief sounds as commanding as usual when he orders his men to give you safe escort to the edge of the forest. Valerian protests that you should be clapped in irons but the guards follow the chief's orders; you concentrate on subduing his mind until you are near the edge of the trees as the chief at last throws off your domination and are lost to sight before he can recover his poise and issue new orders.\n\nYou are soon deep in the forest once more, knowing they will never find you. The awful sights and sounds of the Westermen camp are soon far behind.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story448 : public Story::Base
+{
+public:
+    Story448()
+    {
+        ID = 448;
+
+        Text = "The Westermen don't trust the strange Moon Druid Valerian. They are all too ready to believe the mad sorcerer of the forest wishes their leader harm and has deprived their leader of his wits. They rush Valerian, but he utters the word \"Sanctuary\" loudly and disappears with a single clap of his hands.\n\nYou shout instructions about how to care for their chief as you too make your escape.\n\nYou are quickly lost in the forest once more, safe in the knowledge that the guards will never find you. The awful sights and sounds of the Westermen camp are soon far behind.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story449 : public Story::Base
+{
+public:
+    Story449()
+    {
+        ID = 449;
+
+        Text = "You push the gossamer curtain aside and it rips as your fingers touch it.,, clinging to your skin. You suppress a gasp of disgust as you realize the fabric is not silk but spider's web. Nor is the bed anything like you expected. There are no silk cushions or satin sheets. Instead the bed's occupant lies on a layer of soil and leaf litter with huge purple night blooms growing all around her. She has the high elegant cheekbones and pointed ears that you imagine to be typical of elves. Her flesh is as white as lilies and her glossy black hair is spread out across her pillow of loam like rootlets. The dim light makes her lips and long nails look as dark as old wine. You lean across her, listening to see if she is breathing or if she lies in the sleep of death...\n\n\"Over here,\" a voice calls out softly, making you jump. You turn, scanning the deep shadows for signs of movement. There is no one there, but the voice calls again: \"Here.\" It sounds like the tinkling of tiny bells.\n\nYou realize now where it is coming from: the mirror on the wall...";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 460; }
 };
 
 auto prologue = Prologue();
@@ -9346,6 +9541,16 @@ auto story436 = Story436();
 auto story437 = Story437();
 auto story438 = Story438();
 auto story439 = Story439();
+auto story440 = Story440();
+auto story441 = Story441();
+auto story442 = Story442();
+auto story443 = Story443();
+auto story444 = Story444();
+auto story445 = Story445();
+auto story446 = Story446();
+auto story447 = Story447();
+auto story448 = Story448();
+auto story449 = Story449();
 
 void InitializeStories()
 {
@@ -9394,7 +9599,8 @@ void InitializeStories()
         &story400, &story401, &story402, &story403, &story404, &story405, &story406, &story407, &story408, &story409,
         &story410, &story411, &story412, &story413, &story414, &story415, &story416, &story417, &story418, &story419,
         &story420, &story421, &story422, &story423, &story424, &story425, &story426, &story427, &story428, &story429,
-        &story430, &story431, &story432, &story433, &story434, &story435, &story436, &story437, &story438, &story439};
+        &story430, &story431, &story432, &story433, &story434, &story435, &story436, &story437, &story438, &story439,
+        &story440, &story441, &story442, &story443, &story444, &story445, &story446, &story447, &story448, &story449};
 }
 
 #endif

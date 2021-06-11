@@ -380,9 +380,9 @@ namespace Character
         return Character::FIND_CODEWORDS(player, codewords) == codewords.size();
     }
 
-    bool VERIFY_CODEWORD(Character::Base &player, Codeword::Type codeword)
+    bool VERIFY_CODEWORDS(Character::Base &player, std::vector<Codeword::Type> codewords)
     {
-        return Character::VERIFY_CODEWORDS_ALL(player, {codeword});
+        return Character::VERIFY_CODEWORDS_ALL(player, codewords);
     }
 
     bool VERIFY_LIFE(Character::Base &player, int threshold = 0)
@@ -404,7 +404,7 @@ namespace Character
     {
         for (auto i = 0; i < codewords.size(); i++)
         {
-            if (!Character::VERIFY_CODEWORD(player, codewords[i]))
+            if (!Character::VERIFY_CODEWORDS(player, {codewords[i]}))
             {
                 player.Codewords.push_back(codewords[i]);
             }
@@ -413,7 +413,7 @@ namespace Character
 
     void REMOVE_CODEWORD(Character::Base &player, Codeword::Type codeword)
     {
-        if (Character::VERIFY_CODEWORD(player, codeword))
+        if (Character::VERIFY_CODEWORDS(player, {codeword}))
         {
             auto result = FIND_CODEWORD(player, codeword);
 
