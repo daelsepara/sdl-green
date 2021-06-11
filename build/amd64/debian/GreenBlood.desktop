@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Green Blood
+Comment=Green Blood
+Version=1.0.0
+TryExec=/usr/local/games/GreenBlood/GreenBlood.exe
+Exec=/usr/local/games/GreenBlood/GreenBlood.exe
+Icon=/usr/local/games/GreenBlood/icons/park.png
+Path=/usr/local/games/GreenBlood
+Terminal=false
+Categories=Game
+Type=Application
+
+Name[en_DK]=Green Blood
+Name[en_US]=Green Blood
