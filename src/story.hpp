@@ -4439,7 +4439,7 @@ public:
         Text = "There is something very strange about the grass on that hillock. It seems almost reflective, as if the stems of grass were coated in shiny wax. White egrets like the one on the hillock eat insects -- they catch mites and parasites on the hides of large animals. You've never known one probe the ground for worms.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Walk to the top of the hillock, anyway, to see what you can see", 47));
+        Choices.push_back(Choice::Base("Walk to the top of the hillock to see what you can see", 47));
         Choices.push_back(Choice::Base("Leave the valley and skirt around it to the east, if you prefer", 408));
 
         Controls = Story::Controls::STANDARD;
@@ -8716,6 +8716,195 @@ public:
     }
 };
 
+class Story430 : public Story::Base
+{
+public:
+    Story430()
+    {
+        ID = 430;
+
+        Text = "You manage to scramble up the metal statue as it hacks on into the Tree of Life and start feverishly to take out the screw. Seeming to realize what you are trying to do, the machine brings its free arm down across your back to crush you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 157;
+        }
+        else
+        {
+            return 290;
+        }
+    }
+};
+
+class Story431 : public Story::Base
+{
+public:
+    Story431()
+    {
+        ID = 431;
+
+        Text = "At last you come across a well-trodden track, then climb a tree ladder. There is a maze of highways from tree to tree, fifty feet above the ground. Soon you are passing tree-houses festooned with flowering creepers and you see hosts of elves staring at you. You are the first mortal to enter Elvenhame.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 411; }
+};
+
+class Story432 : public Story::Base
+{
+public:
+    Story432()
+    {
+        ID = 432;
+
+        Text = "There is no trace of the archway by which you entered the great bush. It must have closed by magic. Your only way out is to dig or break off branches until you have broken through the forest outside. You attack the branches but as soon as you break one off, two more grow magically in its place. The harder you work the further you are from freedom. You soon give up, there is no point in going on and so you will have to dig your way out. Alas, when you sleep, after digging hard for hours, the hole you have dug has been filled in once more. The footprints of the impish little Kwerrel show it was he who did it. There is no way out. In the end you have no choice but to eat part of the toadstool or faint through hunger.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 424; }
+};
+
+class Story433 : public Story::Base
+{
+public:
+    Story433()
+    {
+        ID = 433;
+
+        Text = "You manage to spy on the leaders of the Westermen army but the chief has not come with them. He has sent a group of his warlords to do his dirty work for him while he leads a life of ease in his silken pavilion. Killing one or even several warlords will not stop the attack on the Tree of Life. You have squandered too much time. Nothing now can stop them slaying the Tree of Life.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story434 : public Story::Base
+{
+public:
+    Story434()
+    {
+        ID = 434;
+
+        Text = "A faint hissing can be heard above the heavy tramp of feet. The thick trees dampen sound so they must be very close. The Elf King and his subjects are ready in the branches with their bows. A few of the bravest elves gather around you beneath the great Greenbark trees. The Westermen have come to the Tree of Life. The fate of the whole world hangs in the balance. The hissing of their infernal engines grows louder, a foreign unnatural sound, a desecration of nature. Birds fly up from their path and the animals of the forest run in panic from the clanging metal monstrosities. The two columns of men are converging on the tree at the same time from opposite directions.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stand your ground before the main column from which the hissing and clanging sounds come", 423));
+        Choices.push_back(Choice::Base("Make a stand first against the soldiers and crossbowmen in the smaller column", 413));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story435 : public Story::Base
+{
+public:
+    Story435()
+    {
+        ID = 435;
+
+        Text = "You grab Gathkeri's throat but his arms are longer than yours and he punches you in the face knocking you back off him. He has smashed your nose and red blood stains your jerkin as you totter momentarily on your knees, dazed and hurt. The elf is rising quickly to his feet.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Throw yourself at him without getting up first", 412));
+        Choices.push_back(Choice::Base("Get up and move back out of immediate range", 401));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story436 : public Story::Base
+{
+public:
+    Story436()
+    {
+        ID = 436;
+
+        Text = "Something in what you have said has struck a chord with them.\n\n\"For thousands of years we have guarded our secret homes from the eyes of men. Now we must leave them and no one but us and the beasts of the woods will know or tell of the splendour that is Elvenhame. We grant you this, a sight of Elvenhame.\"\n\nYou walk with them, they slow their pace for you, but they seem remarkably lacking in curiosity about you. It is if they already know all they need to about the race of beings called man. It is a walk of several hours through secret ways and tunnels before the most beautiful sight in the world opens up before you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 402; }
+};
+
+class Story437 : public Story::Base
+{
+public:
+    Story437()
+    {
+        ID = 437;
+
+        Text = "The King of the Elves announces the start of the duel and Zorolotl advances carefully towards you. There is a smouldering, almost mesmerizing look in his dark violet eyes as if he had been chewing mandrake root to inure hi to pain. He is left-handed like all the elves and he holds the blade point toward you like a rapier. There is certainly no fear of you in his eyes.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Circle to the left of him", 298));
+        Choices.push_back(Choice::Base("Circle to the right", 393));
+        Choices.push_back(Choice::Base("Meet him head on", 415));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        player.ZorolotlWounds = 0;
+        player.LifePointsLost = 0;
+    }
+};
+
+class Story438 : public Story::Base
+{
+public:
+    Story438()
+    {
+        ID = 438;
+
+        Text = "\"Then I will hold you prisoner here for a day, or a month, or a year ... until I have grown tired of you.\" With that the imp disappears high into the giant bush, his chirruping laughter mocking you. You start to look for a way out of the giant bush of thorns.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 432; }
+};
+
+class Story439 : public Story::Base
+{
+public:
+    Story439()
+    {
+        ID = 439;
+
+        Text = "As you descend towards the bright green hillock the white egret starts to cackle and jumps up and down on the grass. As you approach it flies over the crest of the hillock but you can still hear it cackling on the other side. You look about warily in case the calls of the white bird have attracted nearby men or elves. The valley is quiet.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to silence the egret", 366));
+        Choices.push_back(Choice::Base("Walk to the top of the hillock to see what you can see", 314));
+        Choices.push_back(Choice::Base("Leave the valley and skirt around it to the east", 429));
+        Choices.push_back(Choice::Base("Use [WILDERNESS LORE]", 212, Skill::Type::WILDERNESS_LORE));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -9147,6 +9336,16 @@ auto story426 = Story426();
 auto story427 = Story427();
 auto story428 = Story428();
 auto story429 = Story429();
+auto story430 = Story430();
+auto story431 = Story431();
+auto story432 = Story432();
+auto story433 = Story433();
+auto story434 = Story434();
+auto story435 = Story435();
+auto story436 = Story436();
+auto story437 = Story437();
+auto story438 = Story438();
+auto story439 = Story439();
 
 void InitializeStories()
 {
@@ -9194,7 +9393,8 @@ void InitializeStories()
         &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399,
         &story400, &story401, &story402, &story403, &story404, &story405, &story406, &story407, &story408, &story409,
         &story410, &story411, &story412, &story413, &story414, &story415, &story416, &story417, &story418, &story419,
-        &story420, &story421, &story422, &story423, &story424, &story425, &story426, &story427, &story428, &story429};
+        &story420, &story421, &story422, &story423, &story424, &story425, &story426, &story427, &story428, &story429,
+        &story430, &story431, &story432, &story433, &story434, &story435, &story436, &story437, &story438, &story439};
 }
 
 #endif
