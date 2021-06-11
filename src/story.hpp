@@ -9679,6 +9679,220 @@ public:
     int Continue(Character::Base &player) { return 454; }
 };
 
+class Story480 : public Story::Base
+{
+public:
+    Story480()
+    {
+        ID = 480;
+
+        Text = "You have made the wrong choice. Why attack with your unguarded ride side towards the enemy? You pay for your folly with a wicket thrust into your vitals that spills out your life force on the ground in front of the Westermen. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story481 : public Story::Base
+{
+public:
+    Story481()
+    {
+        ID = 481;
+
+        Text = "\"What use is it to you, if you capture me? I have no gold, no treasures for you to steal -- but I know where you can find some. The great dragon of the forest has breathed his last breath and I need the help of many men to carry away his hoard,. We will be wealthy beyond the dreams of men -- wealthier than kinds. Will you help me? I'll give each of you a tenth of the bounty.\"\n\nThey look at each other and one whispers something to his colleagues before saying he agrees. But you know enough of the ways of men to know it is just a trick -- they clearly don't believe you and still mean to capture you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [SWORDPLAY]", 461, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Use [CHARMS]", 471, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("Use [SPELLS]", 442, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("You have none of these skills", 491));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story482 : public Story::Base
+{
+public:
+    Story482()
+    {
+        ID = 482;
+
+        Text = "The indolent Chief of the Westermen falls under your spell. His mind is not as strong as yours and you can bend it to your will. Valerian is about to cast a spell. He stares at you intently and flourishes his arms menacingly.\n\nYou haven't long to act.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Make the Chief of the Westermen order his guards to provide you safe escort into the forest", 447));
+        Choices.push_back(Choice::Base("Get him to order the guards to kill Valerian", 457));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story483 : public Story::Base
+{
+public:
+    Story483()
+    {
+        ID = 483;
+
+        Text = "Are you left-handed or right-handed?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("You are left-handed", 480));
+        Choices.push_back(Choice::Base("You are right-handed", 490));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story484 : public Story::Base
+{
+public:
+    Story484()
+    {
+        ID = 484;
+
+        Text = "The guards fall back before your sudden assault and close in again behind you. You are surrounded and overwhelmed. You take two of them with you to the unending grey but the steel of their swords pierces your vitals and you fall, dying. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story485 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story485()
+    {
+        ID = 485;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You are halfway across the room when you hear an imperious voice raised in thunderous anger behind you. Glancing back, you see the lady of the tower rising from her bed. Soil and flower petals scatter to the marble floor as she raises her arms to the moonlight and signs the words of a spell. Suddenly a numbness creeps through your limbs and you see patches of grey mould spreading across the backs of your hands. With a horrified cry, you reel out of the chamber and stagger down the steps of the tower.\n\n";
+
+        auto DAMAGE = -4;
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            DAMAGE = -1;
+
+            PreText += "[CHARMS] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Point(s).";
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nThe enchantress stands and watches you flee, sending peals of laughter ringing down the stairwell to mock you. The doors fly wide at your approach, but even on the threshold of escape you are frozen to the spot at the sound of her voice: \"Get you gone, mortal. If I catch you at my bedside a second time, your corpse will be food for my night-blooms\"\n\nYou stagger outside and the tower doors slam shut behind you.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 479; }
+};
+
+class Story486 : public Story::Base
+{
+public:
+    Story486()
+    {
+        ID = 486;
+
+        Text = "You send the spell unseen across the space separating you from Valerian the Moon Druid. As your spell takes hold Valerian stares about him uncomprehendingly. He is completely nonplussed. Seizing your chance, you cast Vanish once more and make good your escape.\n\nYou are quickly lost in the forest once more, knowing the guards will never find you. The awful sights and sounds of the Westermen camp are soon far behind.";
+
+        Choices = Story::FourDirections();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story487 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story487()
+    {
+        ID = 487;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Type = Story::Type::NORMAL;
+
+        PreText = "You watch them warily as you fall back towards the forest's edge and didn't notice a loose rock over which you trip.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            Type = Story::Type::DOOM;
+
+            PreText += "\n\nBy the time you have regained your feet they have surrounded you. You take two of them with you to the afterlife as the steel of their swords pierces your vitals and you fall, dying. The forest is doomed.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 396; }
+};
+
+class Story488 : public Story::Base
+{
+public:
+    Story488()
+    {
+        ID = 488;
+
+        Text = "These common brutish men who have become so inured to the sufferings of their fellow men are almost devoid of any feelings of friendship. They look on you as a slave and nothing more. Their swords ring out of their sheaths and they are coming to get you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [SPELLS]", 442, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Use [SWORDPLAY]", 461, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Use [UNARMED COMBAT]", 491, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("You cannot defend yourself: you have no choice but to surrender", 151));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story489 : public Story::Base
+{
+public:
+    Story489()
+    {
+        ID = 489;
+
+        Text = "Taking a long pin that you habitually keep in your boot, you delve into the lock with the deft precision of an expert jeweller. Despite its apparent age the mechanism of the lock is untouched by rust, and your efforts are soon rewarded with a heavy click as the lock springs open. You peer inside, but the moonlight only sketches a section of black marble floor, beyond which lies impenetrable darkness. Groping your way, you find a balustrade and ascend the stairs with painstaking care. It would not do to miss your footing and go careering down in the dark.\n\nA faint glimmer of viridescence warns you that you are nearing the top of the tower. You step through an archway into a chamber which is open to the night air. Filtered through lattices of stonework beside the balcony, moonbeams form a web of shadow across the marble floor. The wan green light you noticed before comes from a single flickering candle on a wrought-iron stand. On the far wall behind it, a mirror sparkles with fluid brilliance like quicksilver. A light breeze blows through the chamber carrying the odour of soil and growing things. As your eyes adjust further to the gloom, you can make out a figure sprawled across a bed surrounded by gossamer drapes.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tiptoe over to the bedside", 449));
+        Choices.push_back(Choice::Base("Search the room", 470));
+        Choices.push_back(Choice::Base("Take a closer look at the mirror", 460));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -10160,6 +10374,16 @@ auto story476 = Story476();
 auto story477 = Story477();
 auto story478 = Story478();
 auto story479 = Story479();
+auto story480 = Story480();
+auto story481 = Story481();
+auto story482 = Story482();
+auto story483 = Story483();
+auto story484 = Story484();
+auto story485 = Story485();
+auto story486 = Story486();
+auto story487 = Story487();
+auto story488 = Story488();
+auto story489 = Story489();
 
 void InitializeStories()
 {
@@ -10212,7 +10436,8 @@ void InitializeStories()
         &story440, &story441, &story442, &story443, &story444, &story445, &story446, &story447, &story448, &story449,
         &story450, &story451, &story452, &story453, &story454, &story455, &story456, &story457, &story458, &story459,
         &story460, &story461, &story462, &story463, &story464, &story465, &story466, &story467, &story468, &story469,
-        &story470, &story471, &story472, &story473, &story474, &story475, &story476, &story477, &story478, &story479};
+        &story470, &story471, &story472, &story473, &story474, &story475, &story476, &story477, &story478, &story479,
+        &story480, &story481, &story482, &story483, &story484, &story485, &story486, &story487, &story488, &story489};
 }
 
 #endif
