@@ -8776,6 +8776,8 @@ public:
     {
         ID = 432;
 
+        Image = "images/filler3.png";
+
         Text = "There is no trace of the archway by which you entered the great bush. It must have closed by magic. Your only way out is to dig or break off branches until you have broken through the forest outside. You attack the branches but as soon as you break one off, two more grow magically in its place. The harder you work the further you are from freedom. You soon give up, there is no point in going on and so you will have to dig your way out. Alas, when you sleep, after digging hard for hours, the hole you have dug has been filled in once more. The footprints of the impish little Kwerrel show it was he who did it. There is no way out. In the end you have no choice but to eat part of the toadstool or faint through hunger.";
 
         Choices.clear();
@@ -8792,8 +8794,6 @@ public:
     Story433()
     {
         ID = 433;
-
-        Image = "images/filler3.png";
 
         Text = "You manage to spy on the leaders of the Westermen army but the chief has not come with them. He has sent a group of his warlords to do his dirty work for him while he leads a life of ease in his silken pavilion. Killing one or even several warlords will not stop the attack on the Tree of Life. You have squandered too much time. Nothing now can stop them slaying the Tree of Life.";
 
@@ -9046,7 +9046,7 @@ public:
         Text = "How will you fight multiple attackers?";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Keep yourself on the move as you fight, switching your attention to one of your assailants after the other" , 456));
+        Choices.push_back(Choice::Base("Keep yourself on the move as you fight, switching your attention to one of your assailants after the other", 456));
         Choices.push_back(Choice::Base("Pound one into the ground before starting on the next", 466));
 
         Controls = Story::Controls::STANDARD;
@@ -9098,6 +9098,212 @@ public:
     }
 
     int Continue(Character::Base &player) { return 460; }
+};
+
+class Story450 : public Story::Base
+{
+public:
+    Story450()
+    {
+        ID = 450;
+
+        Text = "Which spell will you cast at this desperate time?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Choking Fog", 445));
+        Choices.push_back(Choice::Base("Cast Tower of Will", 455));
+        Choices.push_back(Choice::Base("Cast Visions", 465));
+        Choices.push_back(Choice::Base("Cast Bafflement", 475));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 468));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story451 : public Story::Base
+{
+public:
+    Story451()
+    {
+        ID = 451;
+
+        Text = "Valerian completes a spell. A silver noose files up into the pavilion and darts through the air to hover above your head. Before you can get any further, it drops over your head and tightens inexorably around your neck, throttling the life out of you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story452 : public Story::Base
+{
+public:
+    Story452()
+    {
+        ID = 452;
+
+        Text = "You cast the Vanish spell and disappear. Then you creep slowly round to the porch of the pavilion and checking to make sure there will be no one coming in or out, you creep into the tent.\n\nThe chief himself is sleeping on silken cushions of rich purple; his corpulent form is surrounded by the somnolent forms of his personal guards. Your keen senses also detect a faint shimmering in the air around these men -- a magical disturbance in the air that can only be some kind of warding. You had best be careful, for if you disturb it the guards could be on you in a trice.\n\nQuietly you move to the table where the chief's maps are laid out in full view. The master map shows the Forest of Arden in its entirety. A broad swathe of brown has recently been painted across the green of the forest and a red point marks each of the Westermen encampments that are eating into the forest. Right in the centre of the triangle made by the Bonehill, the bower of the Lady of the Forest and the geysers, a small pool with an ancient-looking Greenbark tree drawn on it has been carefully painted in. Inked in by the tree is a simple note: \"Destroy the Tree of Life and the forest dies. The Steamer shall do the work.\"\n\nDispatches lying ready for the signing indicate the pincer movement that the Westermen will make on the tree -- a cunning plan that could take any unwary defenders by surprise.\n\nYou gained the codeword BULLHORN.";
+
+        Bye = "\n\nAs your spell will fail in another ten minutes or so, you leave while the coast is clear.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::BULLHORN});
+    }
+
+    int Continue(Character::Base &player) { return 95; }
+};
+
+class Story453 : public Story::Base
+{
+public:
+    Story453()
+    {
+        ID = 453;
+
+        Text = "Dire straits call for desperate measures and your gamble pays off. He falls to the ground, already dead before he strikes the sward. You whip your sword tip out of his body, jump over the fallen guard and run for the nearby trees. You are quickly lost in the forest once more, knowing the guards will never find you. The awful sights and sounds of the Westermen camp are soon far beyond you.";
+
+        Choices = Story::CampDestinations();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story454 : public Story::Base
+{
+public:
+    Story454()
+    {
+        ID = 454;
+
+        Image = "images/filler3.png";
+
+        Text = "As you walk on you find gaunt grey crags jutting up out of the forest. It is a relief to find clear landmarks at last. The forest is broken here; where soil is thin above the grey rock only grass can grow, and you walk out of gloom into bright sunlight that hurts your eyes. There are countless paths heading back into the forest in all directions. As you stand contemplating the choice of ways a voice above and behind you says, \"Lost, are you?\"\n\nYou turn around and look up. All you can see is a silver-feathered owl perched on top of an outcrop.\n\n\"Lost, are you?\" the voice says again. It sounded as if the voice came from the owl but its beak didn't move.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Admit you are lost", 258));
+        Choices.push_back(Choice::Base("Ignore it and walk on, choosing one of the many ways at random", 277));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story455 : public Story::Base
+{
+public:
+    Story455()
+    {
+        ID = 455;
+
+        Text = "You prepare to cast the Tower of Will spell, marshalling all your concentration. But who will you cast the spell at?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast it at the Chief of the Westermen", 482));
+        Choices.push_back(Choice::Base("Cast it at Valerian", 492));
+        Choices.push_back(Choice::Base("Cast it at the nearest guard who is twelve feet away", 443));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story456 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story456()
+    {
+        ID = 456;
+
+        Choices = Story::CampDestinations();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The mercenary guards are heavy and slow, weighed down by their heavy chainmail corslets. Your lightning fast blows send one after another reeling but you will tire before you have defeated them all.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            Character::GAIN_LIFE(player, -3);
+
+            PreText += "\n\nYou LOSE 3 Life Points.";
+        }
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nThere is plenty of time for you to escape into the forest; however, none of them will dare to follow you into the shadows under the trees now that they have seen your prowess at the martial arts.\n\nYou are quickly lost in the forest once more, knowing they will never find you. The awful sights and sounds of the Westermen camp are soon far behind.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story457 : public Story::Base
+{
+public:
+    Story457()
+    {
+        ID = 457;
+
+        Text = "The chief sounds as commanding as usual when he orders his guard to kill Valerian, the Moon Druid. They hesitate for a moment and Valerian completes his spell. A silver noose flies up into the pavilion and darts through the air to hover above your head. One of the guards strikes Valerian down, but the noose drops over your head and tightens inexorably around your neck, throttling the life out of you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story458 : public Story::Base
+{
+public:
+    Story458()
+    {
+        ID = 458;
+
+        Text = "In a moment you have cast the spell and a magical shield shimmers before you, like a ghostly buckler. A silver noose flies up into the pavilion and darts through the air to hover above your head. The shield floats up to intercept it and both disappear with a musical pop.\n\nYou must choose another spell to cast.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Tower of Will", 455));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 478));
+        Choices.push_back(Choice::Base("Cast Bafflement", 475));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story459 : public Story::Base
+{
+public:
+    Story459()
+    {
+        ID = 459;
+
+        Text = "\"Ah, if only you were a friend of the forest, I could help you,\" says the owl. \"Have you still got the RING my lady gave you? Good, now put it on and perhaps I'll help you. Heroes need to have faith in their quest, you know.\"\n\nThe owl's words have the ring of truth. Shamed, you put the RING onto your finger.\n\n\"Well, I'm sure the forest is pleased to have you back on its side,\" chides the owl. \"Why did it take you so long?\"\n\nYou gained the codeword CRABCLAW.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::REMOVE_CODEWORD(player, Codeword::Type::TWINHEAD);
+
+        Character::GET_CODEWORDS(player, {Codeword::Type::CRABCLAW});
+    }
+
+    int Continue(Character::Base &player) { return 440; }
 };
 
 auto prologue = Prologue();
@@ -9551,6 +9757,16 @@ auto story446 = Story446();
 auto story447 = Story447();
 auto story448 = Story448();
 auto story449 = Story449();
+auto story450 = Story450();
+auto story451 = Story451();
+auto story452 = Story452();
+auto story453 = Story453();
+auto story454 = Story454();
+auto story455 = Story455();
+auto story456 = Story456();
+auto story457 = Story457();
+auto story458 = Story458();
+auto story459 = Story459();
 
 void InitializeStories()
 {
@@ -9600,7 +9816,8 @@ void InitializeStories()
         &story410, &story411, &story412, &story413, &story414, &story415, &story416, &story417, &story418, &story419,
         &story420, &story421, &story422, &story423, &story424, &story425, &story426, &story427, &story428, &story429,
         &story430, &story431, &story432, &story433, &story434, &story435, &story436, &story437, &story438, &story439,
-        &story440, &story441, &story442, &story443, &story444, &story445, &story446, &story447, &story448, &story449};
+        &story440, &story441, &story442, &story443, &story444, &story445, &story446, &story447, &story448, &story449,
+        &story450, &story451, &story452, &story453, &story454, &story455, &story456, &story457, &story458, &story459};
 }
 
 #endif
