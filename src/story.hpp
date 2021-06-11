@@ -9489,6 +9489,196 @@ public:
     }
 };
 
+class Story470 : public Story::Base
+{
+public:
+    Story470()
+    {
+        ID = 470;
+
+        Text = "You discover a stout bronze chest in a vine-carpeted alcove. Your heart thuds with greed as you contemplate the lavish treasures it might contain. Alas, you are destined never to possess a single gold coin of that treasure. The moment you touch the hasp, the vine leaves start rustling of their own accord, making a noise like a hundred hissing serpents to break the silence of the bower. You should have guessed that the treasure chest would be protected by an alarm spell.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 499; }
+};
+
+class Story471 : public Story::Base
+{
+public:
+    Story471()
+    {
+        ID = 471;
+
+        Image = "images/filler3.png";
+
+        Text = "How will you charm them?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try the famous charm Return of the Prodigal Son, to see if you can magically win their friendship", 488));
+        Choices.push_back(Choice::Base("Try Fibonacci's Dweomer of Apprehension in the hope of scaring them so badly they will let you go", 498));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story472 : public Story::Base
+{
+public:
+    Story472()
+    {
+        ID = 472;
+
+        Text = "You are too weak to withstand the effects of the gas and fall to the floor just as Valerian, the chief and the guards do. You are not the first to recover, owing to your weakened state, and the chief orders his men to take you. You cannot clear your head enough to cast another spell.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            return 495;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    int Continue(Character::Base &player) { return 17; }
+};
+
+class Story473 : public Story::Base
+{
+public:
+    Story473()
+    {
+        ID = 473;
+
+        Text = "A bad choice. The men at either ends of the front rank move around and attack you from the back. You are quickly overwhelmed. You take two of them with you to the unending grey as the steel of their swords pierces your vitals and you fall, dying. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story474 : public Story::Base
+{
+public:
+    Story474()
+    {
+        ID = 474;
+
+        Text = "You fall back just in time and the guards form into two ranks before advancing towards you with military precision.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Fall back again to the edge of the trees", 494));
+        Choices.push_back(Choice::Base("Fight here", 446));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story475 : public Story::Base
+{
+public:
+    Story475()
+    {
+        ID = 475;
+
+        Image = "images/filler2.png";
+
+        Text = "Cast Bafflement at whom?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Bafflement at the Chief of the Westermen", 476));
+        Choices.push_back(Choice::Base("Cast at Valerian the Moon Druid", 486));
+        Choices.push_back(Choice::Base("Cast at the nearest guard who is twelve feet away", 496));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story476 : public Story::Base
+{
+public:
+    Story476()
+    {
+        ID = 476;
+
+        Image = "images/filler1.png";
+
+        Text = "You hastily send the spell unseen across the space separating you from the Chief of the Westermen. As your spell takes hold the Chief of the Westermen stares about him uncomprehendingly. He is completely nonplussed. Valerian, however, is casting a spell. He stares at you intently and flourishes his arms menacingly. You haven't long to act.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell the guards Valerian has bewitched their chief", 448));
+        Choices.push_back(Choice::Base("Hastily cast Shield of Defense", 458));
+        Choices.push_back(Choice::Base("Cast Visceral Disruption", 468));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story477 : public Story::Base
+{
+public:
+    Story477()
+    {
+        ID = 477;
+
+        Text = "The guards fall back before your sudden assault and close in again behind you. You are surrounded and overwhelmed. You take two of them with you to the unending grey but the steel of their swords pierces your vitals and you are quickly dispatched.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story478 : public Story::Base
+{
+public:
+    Story478()
+    {
+        ID = 478;
+
+        Text = "It is unfortunate for you that this powerful spell can be used against only one victim and you are surrounded by many aggressors. Even as one of them drops to the floor helpless, clutching his stomach, so the others close in and kill you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story479 : public Story::Base
+{
+public:
+    Story479()
+    {
+        ID = 479;
+
+        Text = "You make your way quickly away from the eerie ivy-clad tower and return to the main track, where you snatch a few hours of rest before continuing on your way.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 454; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -9960,6 +10150,16 @@ auto story466 = Story466();
 auto story467 = Story467();
 auto story468 = Story468();
 auto story469 = Story469();
+auto story470 = Story470();
+auto story471 = Story471();
+auto story472 = Story472();
+auto story473 = Story473();
+auto story474 = Story474();
+auto story475 = Story475();
+auto story476 = Story476();
+auto story477 = Story477();
+auto story478 = Story478();
+auto story479 = Story479();
 
 void InitializeStories()
 {
@@ -10011,7 +10211,8 @@ void InitializeStories()
         &story430, &story431, &story432, &story433, &story434, &story435, &story436, &story437, &story438, &story439,
         &story440, &story441, &story442, &story443, &story444, &story445, &story446, &story447, &story448, &story449,
         &story450, &story451, &story452, &story453, &story454, &story455, &story456, &story457, &story458, &story459,
-        &story460, &story461, &story462, &story463, &story464, &story465, &story466, &story467, &story468, &story469};
+        &story460, &story461, &story462, &story463, &story464, &story465, &story466, &story467, &story468, &story469,
+        &story470, &story471, &story472, &story473, &story474, &story475, &story476, &story477, &story478, &story479};
 }
 
 #endif

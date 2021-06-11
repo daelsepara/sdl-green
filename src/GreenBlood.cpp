@@ -1859,7 +1859,7 @@ void renderAdventurer(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *font
     const int profilew = SCREEN_WIDTH * (1.0 - 2.0 * Margin);
     const int profileh = 0.12 * SCREEN_HEIGHT;
 
-    auto headerw = 0.8 * splashw;
+    auto headerw = splashw;
     auto headerh = 0.07 * SCREEN_HEIGHT;
     auto space = 8;
 
