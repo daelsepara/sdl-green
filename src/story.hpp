@@ -8542,6 +8542,180 @@ public:
     }
 };
 
+class Story420 : public Story::Base
+{
+public:
+    Story420()
+    {
+        ID = 420;
+
+        Image = "images/filler2.png";
+
+        Text = "Around the neck of the statue are four large screws which seem to be bolting the head to the body.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leap up onto the statue and try to undo the screws and knock the helmet off", 430));
+        Choices.push_back(Choice::Base("Fight on where you are", 409));
+        Choices.push_back(Choice::Base("Make a dash for the hose that connects the statue to the great boiler", 192));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story421 : public Story::Base
+{
+public:
+    Story421()
+    {
+        ID = 421;
+
+        Text = "You slay the unsuspecting elf easily enough but you are already trapped. Arrows zip and whine through the air and you are stuck like a pincushion. You die almost within sight of fabled Elvenhame.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story422 : public Story::Base
+{
+public:
+    Story422()
+    {
+        ID = 422;
+
+        Text = "You should have changed your tactics. Hampered by your smashed ribs you are an easier target for Gathkeri who bludgeons you to the ground with repeated blows to the head. You just have the sense left to submit before you lose consciousness. You have lost the duel.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 163; }
+};
+
+class Story423 : public Story::Base
+{
+public:
+    Story423()
+    {
+        ID = 423;
+
+        Text = "You stand your ground bravely and the elves are ready to fight beside you, hidden in the trees, from where they can shoot with deadly accuracy. A group of men surrounded by shieldbearers shuffle forward and hew down two great trees at the edge of the clearing. The air is alive with the whine and whoosh of the elven arrow shafts, many of which find their mark with uncanny accuracy, but whenever a Westerman is dropped to the floor two others take his place in the struggle to bring their engine of destruction to bear. There is a groan of splitting wood matched by one from the elves as the beautiful trees crash to the ground: The Infernal Statue is revealed in all its terrifying metallic splendour.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 390; }
+};
+
+class Story424 : public Story::Base
+{
+public:
+    Story424()
+    {
+        ID = 424;
+
+        Text = "The toadstool is a dull red colour, spotted with purple. Underneath, the soft gills are mauvre. The Kwerrel skips down to watch as you reach out to break off some toadstool flesh. You ask nervously if it is poisonous.\n\n\"No, no, never, not poisonous, my dear, oh no.\"\n\nIt tastes surprisingly good, it almost melts in your mouth. You begin to feel sleepy. You walk a few steps further then sit down with your back to the central trunk of the of the giant bush. Feeling warm, snug and content you fall into a deep sleep.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 414; }
+};
+
+class Story425 : public Story::Base
+{
+public:
+    Story425()
+    {
+        ID = 425;
+
+        Text = "You are stronger than Gathkeri. He wriggles and pushes against you but cannot break your grip. After a long struggle you manage to flip him onto his back on the ground and land astride him. You draw back your fist to strike but Gathkeri knows he is beaten. \"I submit,\" he cries out loudly enough for all the elves to hear. \"You are the victory.\" You let him rise and you both walk over to the Elf King.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 263; }
+};
+
+class Story426 : public Story::Base
+{
+public:
+    Story426()
+    {
+        ID = 426;
+
+        Text = "You say that long life has worn out their spirit. \"Is that all there is to immortality, a long slide into the grey of uncaring? Look at the beauty all around you. Are your eyes worn out? Have you become blind to the glory of this forest? I've never seen anything like it.\"\n\n\"Its glories are wasted on you, mortal.\" The elf's voice cracks harshly and as he speaks your eyes fill with blood. Now it is you who is blind. You will never find your way out of the forest. Without sight you cannot even find food, and will surely perish in the forest.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story427 : public Story::Base
+{
+public:
+    Story427()
+    {
+        ID = 427;
+
+        Text = "After several days of trekking to the east you come to the banks of the great Sirion river where it bends north before leaving the Forest of Arden. You have missed your way. You should have turned south if you wanted to reach the Bonehill, or south-west if you wanted to search for the bower of the lady of the woods. As it is you have wasted too much time, far out of your way. You plunge back into the green bosom of the forest. A few days later you start to find the fresh bodies of hundreds of elves among the trees. It is as though they have all been slain in a moment. The forest is doomed and so are you.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story428 : public Story::Base
+{
+public:
+    Story428()
+    {
+        ID = 428;
+
+        Text = "Pozzo takes you through the trees until you come to a large clearing. Noticing a steady stream of messengers riding post-haste to a point beyond the furnaces, you skirt round through the forest until, peering out between the branches of a Servis tree, you see a magnificent silk pavilion large enough to seat a hundred knights at a banquet. There are guards at each corner of the pavilion and two guards with halberds flank the silk porch which leads into the main tent. They are all dressed in rare steel armour and all have the sly look of the Westermen about them. It is a hundred paces across burned ground from the Servis tree to the tent.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Cast Vanish and sneak unseen into the pavilion", 266, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Friendship to charm your way past the guards and into their chief's confidence", 231, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Sneak up to the tent as a spy", 350));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story429 : public Story::Base
+{
+public:
+    Story429()
+    {
+        ID = 429;
+
+        Text = "You hug the rim of the valley heedless of the fact that you are breaking the skyline and thus easy to spot from afar. The forest is not dense here; large stagnant algae-covered pools, black watered and clogged with dead leaves, separate the trees.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Descend into the bog land if you are worried about being spotted", 417));
+        Choices.push_back(Choice::Base("You can go back into the dead valley", 408));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -8963,6 +9137,16 @@ auto story416 = Story416();
 auto story417 = Story417();
 auto story418 = Story418();
 auto story419 = Story419();
+auto story420 = Story420();
+auto story421 = Story421();
+auto story422 = Story422();
+auto story423 = Story423();
+auto story424 = Story424();
+auto story425 = Story425();
+auto story426 = Story426();
+auto story427 = Story427();
+auto story428 = Story428();
+auto story429 = Story429();
 
 void InitializeStories()
 {
@@ -9009,7 +9193,8 @@ void InitializeStories()
         &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389,
         &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399,
         &story400, &story401, &story402, &story403, &story404, &story405, &story406, &story407, &story408, &story409,
-        &story410, &story411, &story412, &story413, &story414, &story415, &story416, &story417, &story418, &story419};
+        &story410, &story411, &story412, &story413, &story414, &story415, &story416, &story417, &story418, &story419,
+        &story420, &story421, &story422, &story423, &story424, &story425, &story426, &story427, &story428, &story429};
 }
 
 #endif
