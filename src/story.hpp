@@ -2899,6 +2899,8 @@ public:
     {
         ID = 131;
 
+        Image = "images/path-twists.png";
+
         Text = "The path twists and turns, winding down through dense undergrowth overhung by barrel-like Gwelph trees that are festooned with lianas. You try to fix the shape of each tree in your mind so you will know if you have passed one before. The thin crooked branches that sprout from the top of the barrel-like boles remind you of terrified old men with their hair standing on end. To your dismay the path ends in a little clearing chocked with dead leaves with two paths leading off in different directions. Each is lined with thorn bushes that have grown to the height of a man and are covered in inch-long purple barbs which ooze an orange fluid. The thorns would break off in your flesh if you brushed against them.";
 
         Choices.clear();
@@ -4114,6 +4116,8 @@ public:
     Story196()
     {
         ID = 196;
+
+        Image = "images/path-twists.png";
 
         Text = "The path twists and turns, winding through dense undergrowth overhung by barrel-like Gwelph trees that are festooned with lianas. You try to fix the shape of each tree in your mind so you will know if you have passed by one before.\n\nTo your dismay the path ends in a little clearing choked with dead leaves, but from which two paths lead off in different directions. Each path is lined with thorn bushes that have grown to the height of a man and are covered in inch-long purple barbs oozing an orange fluid. The thorns would break off in your flesh if you brushed against them.";
 
@@ -7976,6 +7980,8 @@ public:
     {
         ID = 392;
 
+        Image = "images/colossus-beetle.png";
+
         Text = "Just as you leave the mound of earth it collapses and the head of a Colossus beetle pokes out. Its head alone is twice as big as you and it shines blackly in the faint iridescence of nearby glow-worms. Its curving black horns are tipped with cruel crushing pincers. It lunges for you but you jump behind a tree and start to climb, hoping the beetle will not have the cunning to push the tree down and claim you as a tasty morsel.\n\nIt seems to lose track of you once you leave the ground and at last retreats cumbersomely into its burrow, which it caps once more with masticated mud.";
 
         Choices.clear();
@@ -8016,10 +8022,7 @@ public:
         }
     }
 
-    int Continue(Character::Base &player)
-    {
-        return 351;
-    }
+    int Continue(Character::Base &player) { return 351; }
 };
 
 class Story394 : public Story::Base
@@ -8136,6 +8139,192 @@ public:
         ID = 400;
 
         Text = "You direct the elves to shoot those who are clearing the path for the armed mass of soldiers behind and the Westermen are soon flinching and edging away. They are on the point of panic when there is a terrible groan from all of the elves. The Tree of Life has been slain and the elves have lost their immortality. As if they had been turned off by a master switch the elves all slump to the ground, stone dead. The forest is doomed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story401 : public Story::Base
+{
+public:
+    Story401()
+    {
+        ID = 401;
+
+        Text = "Gathkeri begins to circle you warily once more; the murderous glint still gleams in his violet eyes.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to grapple him", 142));
+        Choices.push_back(Choice::Base("Attack him with your fists and feet", 172));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story402 : public Story::Base
+{
+public:
+    Story402()
+    {
+        ID = 402;
+
+        Image = "images/elvenhame.png";
+
+        Text = "The Greenbark trees here in Elvenhame are the biggest in the world. Their branches intermingle and there are walkways, galleries and towers perched on them. Elvenhame is a town in the trees. There are always flowers in bloom here, no matter what the season. Many coloured humming-birds hover and dart from one soft spray of flowers to the next. The sound of their wings is like the soft music of a monk's chant. White hinds and black panthers lie together happily in the dappled sunlight beneath the trees.\n\nBridges of tree-houses spanning the gaps between the Greenbark's great branches are decked with hanging violets and ivy-lilies. The bark of the trees shines like polished jade where it has been worn smooth by the passage of elven feet. There are hundreds of elves here, congregating quietly, astonished that a mortal has been brought to Elvenhame.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 386; }
+};
+
+class Story403 : public Story::Base
+{
+public:
+    Story403()
+    {
+        ID = 403;
+
+        Text = "His wound has slowed him slightly. Even though you are trying the same trick again, you win the initiative. You have an opening for a killing blow.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stab at his heart and end things for the immortal elf", 348));
+        Choices.push_back(Choice::Base("Cut at his shoulder but this gives him more time to dodge if you flinch at killing him or do not want to", 357));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story404 : public Story::Base
+{
+public:
+    Story404()
+    {
+        ID = 404;
+
+        Text = "The smell of rot and marsh gas almost make you gag. The tips of the Embracer's tentacles wave in the air, almost as if they were trying to sniff you out.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Slash at the tentacles coiled around Renard", 374));
+        Choices.push_back(Choice::Base("Drive your SWORD point between its eyes", 287));
+        Choices.push_back(Choice::Base("Slash at the other tentacles it is preparing to coil around you", 262));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story405 : public Story::Base
+{
+public:
+    Story405()
+    {
+        ID = 405;
+
+        Text = "The elf draws a long slim DIRK from beneath his shirt, but when he sees you coming at him without a weapon he throws the dirk back over his shoulder. This elf is quite tall but very lightly built: he does not look as strong as you. He moves very quickly and nimbly so you will have to be careful.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to fell him with a sudden attack of kicks and lunges", 383));
+        Choices.push_back(Choice::Base("Try to back him up into a corner and then grapple with him", 363));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story406 : public Story::Base
+{
+public:
+    Story406()
+    {
+        ID = 406;
+
+        Text = "Sweat is pouring off you as you press through thick undergrowth, searching for the camp of the Westermen. It is unnaturally hot here even though you occasionally glimpse the midday sun through gaps in the leaf canopy. The vegetation is lush and the ground spongy. Ants scuttle over everything. Here and there you see clumps of them swarming all over each other, eating hapless small creatures that have strayed.\n\nAs you push through thick ferns, brushing ants off as you go, there is a sudden whooshing noise ahead and to the left, followed by a strange loud gurgling. It sounded for all the world like a dragon. If you are near the Bonehill you must be several days' travel further east than you thought.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::WILDERNESS_LORE))
+        {
+            return 34;
+        }
+        else
+        {
+            return 45;
+        }
+    }
+};
+
+class Story407 : public Story::Base
+{
+public:
+    Story407()
+    {
+        ID = 407;
+
+        Image = "images/elanor.png";
+
+        Text = "Spurting flame blossoms from your palm. Elanor tugs on a vine and a secret hatch opens in the side of the tree-house. She jumps through and swings to the ground on a hanging creeper.\n\n\"You will never leave the forest. I will turn every living thing in the forest against you.\"\n\nYou are stung on the cheek by a bee. Then another stings your wrist. More bees fly in, buzzing angrily. You can now take some of the potions, although you have time to grab only three. Choose which of the following you are taking: a clear CHERRY-RED LIQUID in a stoppered phial, a small round BOTTLE of something like RUNNY TAR, a JAR OF WHITE JELLY, a CLODY SEA-BLUE FLUID in a phial and a glass POT that contains BANDS OF COLOURED EARTH.";
+
+        Bye = "You rush to climb down the ladder to the ground.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Take = {Item::JAR_WHITE_JELLY, Item::POTION_TARRY_BLACK, Item::POTION_CLOUDY_BLUE, Item::POTION_RED_LIQUID, Item::JAR_COLOURED_EARTH};
+
+        Limit = 3;
+    }
+
+    int Continue(Character::Base &player) { return 322; }
+};
+
+class Story408 : public Story::Base
+{
+public:
+    Story408()
+    {
+        ID = 408;
+
+        Text = "As you skirt the dead valley you can see the white egret standing atop the green hillock in the distance, watching you. As you slowly make progress you begin to see the other side of the hillock. It is creased and folded in a strange way. Then it hits you, it is so large you couldn't see it for what it was. Viewed from this side of the hillock, it looks like a gargantuan copper statue, green with verdigris. There is a huge head tucked up next to massive claws. It is a statue of a dragon.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::WILDERNESS_LORE))
+        {
+            Choices.push_back(Choice::Base("Investigate it" , 439));
+            Choices.push_back(Choice::Base("Enter the bogland and leave the monolithic statue behind", 417));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 388; }
+};
+
+class Story409 : public Story::Base
+{
+public:
+    Story409()
+    {
+        ID = 409;
+
+        Text = "As soon as you wound one of them another takes his place. You fight like a hero but even heroes tire and at last one manages to sweep your legs out from under you. There is no escape as they finish you off with their swords.";
 
         Type = Story::Type::DOOM;
 
@@ -8547,6 +8736,15 @@ auto story397 = Story397();
 auto story398 = Story398();
 auto story399 = Story399();
 auto story400 = Story400();
+auto story401 = Story401();
+auto story402 = Story402();
+auto story403 = Story403();
+auto story404 = Story404();
+auto story405 = Story405();
+auto story406 = Story406();
+auto story407 = Story407();
+auto story408 = Story408();
+auto story409 = Story409();
 
 void InitializeStories()
 {
@@ -8592,7 +8790,7 @@ void InitializeStories()
         &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379,
         &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389,
         &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399,
-        &story400};
+        &story400, &story401, &story402, &story403, &story404, &story405, &story406, &story407, &story408, &story409};
 }
 
 #endif
