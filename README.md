@@ -1,4 +1,5 @@
 # Green Blood (Virtual Reality Adventure)
+[![C/C++ CI](https://github.com/daelsepara/sdl-green/actions/workflows/GreenBlood.yml/badge.svg)](https://github.com/daelsepara/sdl-green/actions/workflows/GreenBlood.yml)
 
 This is an implementation of the **Green Blood** game book (Virtual Reality Adventures) by Mark Smith. The game is written in C/C++ and uses the [Simple DirectMedia Library (SDL)](https://www.libsdl.org/).
 
