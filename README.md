@@ -2,7 +2,7 @@
 [![C/C++ CI](https://github.com/daelsepara/sdl-green/actions/workflows/GreenBlood.yml/badge.svg)](https://github.com/daelsepara/sdl-green/actions/workflows/GreenBlood.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
  [![Release](https://img.shields.io/github/v/release/daelsepara/sdl-green.svg)](https://img.shields.io/github/v/release/daelsepara/sdl-green.svg)
- 
+
 This is an implementation of the **Green Blood** game book (Virtual Reality Adventures) by Mark Smith. The game is written in C/C++ and uses the [Simple DirectMedia Library (SDL)](https://www.libsdl.org/).
 
 # Planned Features
@@ -32,7 +32,7 @@ This is an implementation of the **Green Blood** game book (Virtual Reality Adve
 
 ![Story Screen](/screenshots/story-screen.png)
 
-# Copyright Information 
+# Copyright Information
 
 ```
 Published 1993 by Mammoth an imprint of Reed Consumer Books Limited

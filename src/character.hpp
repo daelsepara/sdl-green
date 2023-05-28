@@ -63,7 +63,7 @@ namespace Character
 
         int LifePointsLost = 0;
         int ZorolotlWounds = 0;
-        
+
         Base()
         {
         }
