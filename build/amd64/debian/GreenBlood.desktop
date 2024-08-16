@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Green Blood
 Comment=Green Blood
-Version=1.0.4
+Version=1.0.5
 TryExec=/usr/local/games/GreenBlood/GreenBlood.exe
 Exec=/usr/local/games/GreenBlood/GreenBlood.exe
 Icon=/usr/local/games/GreenBlood/icons/park.png

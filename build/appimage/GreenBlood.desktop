@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Green Blood
+Exec=GreenBlood.exe
+TryExec=GreenBlood.exe
+Icon=park
+Terminal=false
+Categories=Game;
+Type=Application
+Name[en_DK]=Green Blood
+Name[en_US]=Green Blood

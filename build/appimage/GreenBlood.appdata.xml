@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+	<id>com.games.GreenBlood</id>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>GPL-3.0</project_license>
+	<name>com.games.GreenBlood</name>
+	<summary>Green Blood (SDL)</summary>
+	<description>
+		<p>This is an Implementation of Green Blood gamebook in C++ and SDL.</p>
+	</description>
+	<url type="homepage">https://github.com/daelsepara/sdl-green/</url>
+	<screenshots>
+		<screenshot typegi="default">
+			<image>https://raw.githubusercontent.com/daelsepara/sdl-green/main/src/icons/park.png</image>
+		</screenshot>
+	</screenshots>
+	<provides>
+		<id>com.games.GreenBlood.desktop</id>
+	</provides>
+</component>
